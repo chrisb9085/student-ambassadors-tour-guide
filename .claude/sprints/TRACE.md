@@ -93,3 +93,45 @@ Each sprint is built on its own branch and merged into `main` with `git merge --
 
 **Open**
 - Long names truncate on the Previous/Next buttons (for example "Children and Fa…"). The full name is in the button's accessible label. Fine for now; revisit in the Sprint 6 device pass.
+
+### Sprint 4: Tour Mode (2026-11-19)
+
+**Built**
+- `src/tour/routeMath.ts`: distance along the route and `pointAt(distance)`. `assignAlongRoute` places each stop on the route with a small dynamic-programming pass (non-decreasing vertices, minimum total distance). A stop beside a road the route drives twice, like the SW 14th St spur, therefore lands on the correct pass.
+- `src/tour/steps.ts`: 34 steps (Welcome, 32 stops, Closing), each with its spoken text and its distance along the route.
+- `src/tour/speech.ts`: Web Speech wrapper.
+  - Speaks **sentence by sentence**, which avoids Chrome cutting off utterances after about 15 s and drives caption highlighting.
+  - `unlock()` speaks a silent utterance synchronously inside the Start/Play tap, as **iOS Safari** requires.
+  - Without speech support it falls back to timed captions (about 150 words a minute), so auto-advance still works muted.
+  - It picks a natural-sounding English voice automatically.
+- `src/tour/useTour.ts`: the engine.
+  - Each step: drive the vehicle along the route (sped-up, 1.2 to 6 s, eased; instant with reduced motion) → narrate → wait.
+  - Virtual tour auto-advances 1.5 s after narration. Ride-along waits for Next.
+  - Pause cancels speech and parks the vehicle; Play replays the stop.
+  - Previous jumps back rather than driving in reverse. Skip counts the stop. Tapping a marker jumps the tour there. Exit restores the map.
+  - Camera padding keeps the vehicle beside the card. Settings are read through a ref, so changing speed doesn't restart the current stop.
+- UI:
+  - `StartTourSheet`: Virtual tour or Ride-along. Choosing one is the tap that unlocks speech.
+  - `TourCard`: InfoCard plus captions; the current sentence is highlighted while speaking. No close button, and it doesn't steal focus from the controls.
+  - `TourControls`: "Stop 5 of 32" with a progress bar and skipped count; Previous, Play/Pause, Next, Skip, Settings, Exit, all 48 px. The primary button is Play/Pause for a virtual tour and Next for ride-along. After Closing: Restart and Exit.
+  - `TourSettingsPanel`: auto-advance switch, Slower/Normal/Faster speed, voice picker. Speed and voice persist in `localStorage`, with every access guarded.
+- The action bar now has **Stops** (secondary) and **Start tour** (primary). Map buttons, stop list and stop cards step aside during the tour.
+
+**Found in review and fixed**
+- The narration fallback (`narrationFor`) replaced a sentence's "!" or "?" with a period. A unit test caught it; the fallback now adds a period only when punctuation is missing.
+- React's `set-state-in-effect` lint rule flagged a synchronous `setState` in the step runner. Phase changes now happen in the actions (Next, Previous, Play/Pause and so on), and the effect only updates state after asynchronous steps. This is simpler as well.
+- An e2e assertion that "the vehicle moved" only checked that bounding boxes existed. Removed it; reaching Stop 1 already proves the drive.
+- I suspected the selected marker lost its gold fill during the tour. The computed styles and an enlarged screenshot showed it was correct; I had misread a downscaled image. No change.
+
+**Tested**
+- Build, lint, validate: pass.
+- `npm test`: 83 tests pass. New:
+  - route maths (measure, `pointAt`, out-and-back assignment, all real stops in order within 250 m)
+  - steps (34, order, narration fallback, progress labels)
+  - speech with a fake `speechSynthesis` (unlock, sentence queue, rate/voice, `onSentence`, cancel, a newer narration cancelling the old, captions-only timer fallback) and settings storage
+  - 13 App-level Tour Mode tests with a controllable fake speaker: mode chooser and unlock in the tap, Welcome captions, vehicle and padding, virtual auto-advance, ride-along waiting, Next/Previous/Skip, quick-pass length and construction badge, Pause/Play replay, marker jump, Closing → Tour complete → Restart, Exit cleanup, settings (switch, saved speed applied to the next narration, voice list), control labels and progress bar.
+- `npm run test:e2e`: **39 tests pass** (13 × 3 viewports). The new tour specs use a stand-in `speechSynthesis` (headless Chromium has no voices) but the app's real speech wrapper, animation and map. Virtual tour: Welcome → drive → Stop 1 narration, with the vehicle hidden by neither the card nor the bar. Ride-along: Next, Skip, Bell Chapel badge and narration, Exit. Every control at least 44 px; settings panel opens. I reviewed screenshots in landscape and portrait.
+
+**Open (Sprint 6 device pass)**
+- Real iPad Safari: confirm that the unlock-in-tap approach lets narration continue through auto-advance, and what happens when the screen locks. SCOPE §10 lists this risk.
+- Voice quality varies by device. The automatic pick favours "Natural", "Enhanced" and "Premium" voices.
