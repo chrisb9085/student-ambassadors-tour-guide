@@ -28,6 +28,16 @@ button {
   cursor: pointer;
 }
 
+/* Taps on controls act at once: no double-tap-to-zoom delay or accidental zoom on phones and iPads. */
+button,
+a,
+input,
+select,
+label,
+summary {
+  touch-action: manipulation;
+}
+
 :focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;

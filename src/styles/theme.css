@@ -33,6 +33,7 @@
   --radius-sm: 8px;
   --shadow: 0 6px 24px rgb(8 30 63 / 0.25);
   --touch: 48px; /* at or above the 44 px minimum */
+  --panel-w: min(384px, 45vw); /* side panel width; keep in sync with panelWidth() in src/lib/layout.ts */
   --tour-bar-h: 124px; /* Tour Mode control bar; keep in sync with TOUR_BAR_HEIGHT in src/lib/layout.ts */
   --gap: 12px;
 

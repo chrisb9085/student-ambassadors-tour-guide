@@ -19,6 +19,7 @@ import { createClipSpeaker, loadClipManifest, type ClipManifest, type ClipSpeake
 import { loadSettings, saveSettings, type TourSettings } from "./tour/settings";
 import { useTour, type TourMode } from "./tour/useTour";
 import { useMediaSession } from "./tour/useMediaSession";
+import { useWakeLock } from "./tour/useWakeLock";
 import { StartTourSheet } from "./tour/StartTourSheet";
 import { TourCard } from "./tour/TourCard";
 import { TourControls } from "./tour/TourControls";
@@ -82,6 +83,7 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
   const padding = useMemo(() => tourPadding(sidePanel, typeof window !== "undefined" ? window.innerHeight : 800), [sidePanel]);
   const t = useTour({ map, steps: TOUR.steps, measured: TOUR.measured, speaker, settings: speechSettings, padding });
   const touring = t.state.active;
+  useWakeLock(touring);
   useMediaSession({
     active: touring,
     playing: t.state.playing,
@@ -246,6 +248,7 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
             <TourControls
               state={t.state}
               step={t.step}
+              steps={TOUR.steps}
               last={t.last}
               total={routeStops.length}
               onPrev={t.prev}

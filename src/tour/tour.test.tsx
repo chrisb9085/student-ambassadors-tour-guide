@@ -96,6 +96,18 @@ describe("Tour Mode (S4.1-S4.5)", () => {
     expect(progress()).toHaveTextContent("1 skipped");
   });
 
+  it("the progress strip shows done, skipped, current and upcoming stops (Sprint 12)", async () => {
+    const { user } = await startTour("Ride-along");
+    const states = () => [...progress().querySelectorAll<HTMLElement>(".tour-strip-seg")].map((el) => el.dataset.state);
+    expect(states()).toHaveLength(34); // Welcome, 32 stops, Closing
+    expect(states().slice(0, 2)).toEqual(["current", "todo"]);
+    await user.click(screen.getByRole("button", { name: "Next stop" }));
+    await user.click(screen.getByRole("button", { name: "Skip this stop" }));
+    expect(states().slice(0, 4)).toEqual(["done", "skipped", "current", "todo"]);
+    // Visual only: screen readers get the progress bar and the "1 skipped" text.
+    expect(progress().querySelector(".tour-strip")).toHaveAttribute("aria-hidden", "true");
+  });
+
   it("quick-pass stops play their short mention; under-construction stops keep the badge", async () => {
     const { user, speaker } = await startTour("Ride-along");
     for (let i = 0; i < 3; i++) await user.click(screen.getByRole("button", { name: "Next stop" }));

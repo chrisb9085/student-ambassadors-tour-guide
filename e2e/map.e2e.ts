@@ -24,6 +24,8 @@ test.describe("Sprint 0-1: app shell and map", () => {
     await waitForIdle(page);
     // The default view depends on screen size (phones zoom out to fit the route).
     const openingZoom = await onMap<number>(page, "(m) => Math.round(m.getZoom() * 10) / 10");
+    // No double-tap-to-zoom delay on controls (Sprint 12).
+    expect(await page.getByRole("button", { name: /whole route/i }).evaluate((el) => getComputedStyle(el).touchAction)).toBe("manipulation");
     for (const name of [/whole route/i, /reset view/i]) {
       const box = await page.getByRole("button", { name }).boundingBox();
       expect(box!.height).toBeGreaterThanOrEqual(44);
