@@ -135,3 +135,28 @@ Each sprint is built on its own branch and merged into `main` with `git merge --
 **Open (Sprint 6 device pass)**
 - Real iPad Safari: confirm that the unlock-in-tap approach lets narration continue through auto-advance, and what happens when the screen locks. SCOPE §10 lists this risk.
 - Voice quality varies by device. The automatic pick favours "Natural", "Enhanced" and "Premium" voices.
+
+### Sprint 5: copy review (2026-11-19)
+
+The copy was drafted in Sprint 2. This sprint reviewed it the way a listener hears it and produced the Foundation's review page.
+
+**Read-aloud check**
+- Scanned every narration for all-caps tokens, initials, parentheses and digits.
+- **Bug found:** the Sprint 4 sentence splitter broke sentences at initials ("Paul L. Cejas", "Sanford L. Ziff", "Robert A. M. Stern", "Steven J. Green", "T. Y. Hilton"). That made the voice pause mid-name and the caption highlight jump. The splitter now ignores periods after single capital letters and short titles (Dr, Mr, St and so on). Tests use these names.
+- "MANGO" in narration could be spelled out letter by letter, so the narration now says "Mango". The card still shows the official "MANGO".
+- "MARC" stays as written; most voices say "Mark". Left for the device check rather than putting a phonetic spelling in the captions.
+- The validator now warns on parentheses and on all-caps words in narration, apart from an allowlist (FIU, NCAA, NBA, LEED, STAR, MARC). I confirmed it fires using a deliberately bad stop in a scratch folder. A unit test enforces the same rule on every card.
+
+**Foundation review page**
+- `tools/content-review.mjs` (`npm run content:review`) generates `docs/CONTENT-REVIEW.md` from `content/`. It lists the 9 items needing confirmation first, then all 35 cards (Welcome, 32 stops, Green Library, Closing) as guests see and hear them: type and status, summary, highlights, impact, key stat, narration with word count, linked sources and last-reviewed date.
+- `--check` mode, plus a unit test, fails if the page no longer matches `content/`.
+- The `add-tour-stop` and `write-donor-card` skills and CLAUDE.md now include these steps.
+
+**Tooling**
+- Tests type-check as their own TypeScript project (`tsconfig.test.json`, with Node types). The app project excludes them, so browser code can't pick up Node APIs or test globals.
+
+**Tested**
+- Build, lint, validate (0 errors, 0 warnings).
+- `npm test`: 120 tests pass. New: splitter initials, review page in sync, and a per-card "written for the ear" check (35 cards).
+
+**Open for the Foundation:** the 9 items at the top of `docs/CONTENT-REVIEW.md`, plus SCOPE open questions 1 to 5.
