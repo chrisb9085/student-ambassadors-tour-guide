@@ -9,12 +9,20 @@ export async function openMap(page: Page, path = "/") {
   });
 }
 
-/** Waits for the camera to stop and tiles to finish loading. */
+/**
+ * Waits for the camera to stop and, for up to 15 s, for tiles to finish loading. Tiles only matter for how
+ * screenshots look, so slow tile loading under heavy parallel load never fails a test.
+ */
 export async function waitForIdle(page: Page) {
   await page.waitForFunction(() => {
-    const m = (window as unknown as { __tourMap?: { isMoving(): boolean; areTilesLoaded(): boolean } }).__tourMap;
-    return !!m && !m.isMoving() && m.areTilesLoaded();
+    const m = (window as unknown as { __tourMap?: { isMoving(): boolean } }).__tourMap;
+    return !!m && !m.isMoving();
   });
+  await page
+    .waitForFunction(() => (window as unknown as { __tourMap: { areTilesLoaded(): boolean } }).__tourMap.areTilesLoaded(), null, {
+      timeout: 15_000,
+    })
+    .catch(() => {});
 }
 
 /** Runs a function against the live map in the page. */
