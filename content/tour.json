@@ -1,0 +1,35 @@
+{
+  "welcome": {
+    "id": "welcome",
+    "title": "Welcome to FIU",
+    "coordinates": [-80.3725, 25.7544],
+    "summary": "Welcome to Florida International University's Modesto A. Maidique Campus, and thank you for joining the FIU Foundation today.",
+    "highlights": [
+      "The FIU Foundation secures gifts for scholarships, research, programs and campus improvements",
+      "MARC is home to the FIU Foundation, Alumni Relations and StartUP FIU",
+      "FIU's alumni network includes more than 340,000 graduates worldwide"
+    ],
+    "impact": "Alumni, donors, corporate partners and community leaders help make the FIU experience possible.",
+    "stat": { "value": "340,000+", "label": "alumni worldwide" },
+    "narration": "Welcome to Florida International University, and thank you for joining us. We're starting in front of MARC, home of the FIU Foundation, Alumni Relations and StartUP FIU. The Foundation is FIU's nonprofit fundraising organization. Gifts from alumni, donors, corporate partners and community leaders support scholarships, student success, research and campus improvements. Today's drive shows that impact, building by building, across a campus whose alumni now number more than three hundred forty thousand worldwide.",
+    "sources": ["Handbook pp.2, 7"],
+    "lastReviewed": "2026-11-19"
+  },
+  "closing": {
+    "id": "closing",
+    "title": "Thank you",
+    "coordinates": [-80.3725, 25.7544],
+    "summary": "FIU has grown into a top-tier public research university known for student success and social mobility.",
+    "highlights": [
+      "Carnegie R1: Very High Research Activity",
+      "More than 50,000 applications a year, from all 50 states and 140+ countries",
+      "Ranked among the top universities in the nation for social mobility"
+    ],
+    "impact": "Philanthropy supports scholarships, facilities, research and student programs, and directly expands student success and opportunity.",
+    "stat": { "value": "R1", "label": "Carnegie research classification" },
+    "narration": "That brings us back to where we started. Today you've seen the three themes that define FIU: student success and academic excellence; research, innovation and community impact; and remarkable growth. FIU holds the Carnegie R1 classification for very high research activity and receives more than fifty thousand applications a year. Much of what you saw is made possible by alumni, donors and partners. Thank you for visiting, and for your support of FIU's mission.",
+    "sources": ["Handbook pp.34-36"],
+    "lastReviewed": "2026-11-19",
+    "reviewNotes": ["The handbook's rankings are qualitative (\"among the top\"). The Foundation should supply current, citable rankings and admissions numbers (SCOPE open question 4)."]
+  }
+}
