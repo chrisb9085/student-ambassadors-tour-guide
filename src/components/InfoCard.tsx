@@ -19,6 +19,8 @@ export type InfoCardProps = {
   children?: ReactNode;
   /** Buttons along the bottom (Previous, Next, Listen). */
   footer?: ReactNode;
+  /** Small icon buttons in the header, before the close button (for example "Copy link"). */
+  headerActions?: ReactNode;
   /** Omit for cards that can't be closed on their own (Tour Mode exits from its controls). */
   onClose?: () => void;
   closeLabel?: string;
@@ -30,7 +32,7 @@ export type InfoCardProps = {
 
 /** A place card: popover-style side panel on wide screens, bottom sheet on narrow ones (see panels.css). */
 export function InfoCard(props: InfoCardProps) {
-  const { kicker, title, contentKey, badge, summary, stat, highlights, impact, guideNotes = [], children, footer, onClose } = props;
+  const { kicker, title, contentKey, badge, summary, stat, highlights, impact, guideNotes = [], children, footer, headerActions, onClose } = props;
   const { closeLabel = "Close", autoFocus = true, role = "dialog" } = props;
   const titleId = useId();
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -79,6 +81,7 @@ export function InfoCard(props: InfoCardProps) {
             </p>
           )}
         </div>
+        {headerActions}
         {closable && (
           <button type="button" className="icon-btn" onClick={onClose} aria-label={closeLabel}>
             <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">

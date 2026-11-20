@@ -326,6 +326,60 @@ Backlog B (quick win), the first item in C ("For ambassadors"), and the long-nam
 - WebKit on the stand-in (serial): **66/66, no retries**, in 4.9 minutes.
 - Looked at the open section at phone (390 px) and iPad landscape sizes.
 
+### Sprint 10: study tools (2026-11-20)
+
+The rest of backlog C's study features, except the progress strip and the ideas still to confirm with Chris.
+
+**Built**
+- **Four "Also on campus" stops from the handbook** (SCOPE Phase 2), each with a card, narration and "For ambassadors" notes:
+  - Helen and Jacob Shaham Academic Medical Center: under construction, opens 2028. Its card has the $30M Shaham gift, seven stories and 163,000 sq ft, Baptist Health, and same-day surgery and imaging. Sources: FIU News, April and May 2026, and Handbook p.17.
+  - Ronald W. Reagan Presidential House (Handbook p.8).
+  - Deuxième Maison (Handbook p.28).
+  - Office of Veteran and Military Affairs (Handbook p.29).
+  - **Not** the College of Engineering and Computing, which isn't on this campus (Handbook p.19). A content test checks this.
+  - Off-route markers now show a building icon; Green Library keeps its book.
+- **Coordinates, with no Mapbox calls:**
+  - Three came from OpenStreetMap's free Overpass API: Deuxième Maison, the Reagan House, and Veteran and Military Affairs. The last sits beside SIPA and University Towers, matching Chris's answer.
+  - OpenStreetMap also shows Bell Chapel as a construction site, which agrees with the FIU sources.
+  - Shaham isn't mapped yet. FIU News puts it "near Southwest 107th Avenue and Southwest 10th Street", and the campus map shows SW 10th St along the north side of AHC 4 and 5, so the marker sits at its east end. That spot is flagged in `reviewNotes`.
+- **Shareable stop links:**
+  - `?stop=graham-center` opens that card and centres the map on it; unknown ids are ignored.
+  - The address bar follows the open card, using `replaceState` so Back isn't filled with every card.
+  - A "Copy link to this stop" button on each card announces "Link copied". Where the clipboard API isn't available, such as an iPad on a plain `http://` LAN address, it shows the link in a prompt to copy by hand.
+- **Printable study guide** at `?view=study-guide`, linked from the bottom of the Stops panel:
+  - Welcome, the 32 route stops, the 5 off-route stops, then Closing.
+  - Each stop has what to say, key facts, impact of support, tour guide tips, more to know, sources, and a "Show on map" link.
+  - Print styles: black on white, no buttons, and stops never split across pages.
+  - It's built from `content/`, so it can't go out of date. It leaves out `reviewNotes`.
+  - It doesn't load the map, so it needs no token and costs no map loads. The e2e test opens it on the no-token server.
+
+**Found in review and fixed**
+- Chromium named the guide's map links "Show on map : Ernest…", with a stray space from a visually hidden span, while jsdom didn't. They now use an `aria-label` that starts with the visible text.
+- Unit tests leaked the `?stop=` URL from one test into the next, which opened a card unexpectedly. The shared test setup now resets the URL after each test.
+- The guide's body text sat 16 px right of its header; aligned.
+
+**Tests added**
+- `src/lib/stopLink.test.ts`: parsing, building and copying links.
+- Stop links in the app: a link opens the card and moves the camera; unknown stops are ignored; the address bar follows the card; Copy link announces and writes to the clipboard; the prompt appears when the clipboard isn't available.
+- `src/guide/StudyGuide.test.tsx`:
+  - stop order
+  - what to say, tips and sources
+  - review notes never appear
+  - Print, and Back to the map
+  - the `?view` routing
+- Content: the five off-route stops, Shaham under construction for 2028, and no Engineering Center.
+- Markers: building icon versus book, and Shaham's construction style and description.
+- e2e:
+  - a shared link opens its card with the marker visible beside it, not under it
+  - Shaham's card
+  - the study guide opened from the Stops panel, with 39 entries, the print-media check and a link back to the map
+  - an axe audit of the study guide on the no-token server
+
+**Tested**
+- 162 unit tests, lint, type-check, and validate (0 errors, 0 warnings) pass.
+- Chromium e2e on the stand-in: 78/78.
+- WebKit on the stand-in (serial): **78/78, no retries**.
+
 ## How to walk through it yourself
 
 **One-time setup** (in a terminal at the repo root):
@@ -350,6 +404,14 @@ Backlog B (quick win), the first item in C ("For ambassadors"), and the long-nam
 8. **Settings** (gear button during a tour): Auto-advance, Slower/Normal/Faster, and the voice list. Your choices are remembered.
 9. **Closing:** tap the stop-32 marker, then Next. The Closing card plays, then **Restart** and **Exit** appear.
 10. **Phone size:** in Chrome DevTools (F12 → device toolbar), pick an iPhone. The whole route should fit when the page opens.
+
+**New in Phase 2 (about 5 more minutes):**
+
+11. **For ambassadors:** open any card, such as stop 1, and expand **For ambassadors** at the bottom. It shows the handbook's tour guide tip with its page, and "More to know" details. Stop 6 also shows the long-name style: "Academic Health Center 3:" is a small line above the title.
+12. **Narration:** start a virtual tour and listen for the short pause between sentences. "Normal" is now a little slower; try Slower and Faster in settings.
+13. **Off-route buildings:** look for the building icons near the Reagan House (east, by the lake), Deuxième Maison (next to Primera Casa), Veteran and Military Affairs (by SIPA), and Shaham (north-east corner, with the hard hat). Open Shaham's card: "Under construction · Opens 2028".
+14. **Stop links:** open a card and watch the address bar change to `?stop=...`. Tap the link icon next to the close button, paste the link into a new tab, and the same card opens.
+15. **Study guide:** **Stops**, then **Printable study guide** at the bottom. Scroll it, try **Print** (preview only), and use **Show on map** on any stop to jump back to that card.
 
 **Checks:** `npm test` (about 20 s), `npm run validate`, `npm run test:e2e` (Chromium on stand-in tiles, about 4 minutes, no Mapbox usage), `npm run test:e2e:webkit` (Safari engine on stand-in tiles, about 5 minutes), `npm run test:e2e:real` (2 tests on real satellite tiles, before a release).
 

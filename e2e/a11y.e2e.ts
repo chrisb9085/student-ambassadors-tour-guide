@@ -48,6 +48,12 @@ test.describe("Sprint 6: accessibility audit", () => {
     await audit(page, "For ambassadors open");
   });
 
+  test("study guide (no map, so it works without a token)", async ({ page }) => {
+    await page.goto(`${URLS.NO_TOKEN}/?view=study-guide`);
+    await expect(page.getByRole("heading", { level: 1, name: "Study guide" })).toBeVisible();
+    await audit(page, "study guide");
+  });
+
   test("stop list", async ({ page }) => {
     await openMap(page);
     await page.getByRole("button", { name: "Stops" }).click();

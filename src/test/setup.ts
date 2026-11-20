@@ -9,4 +9,6 @@ vi.mock("mapbox-gl", () => ({ default: mapboxMock, ...mapboxMock }));
 afterEach(() => {
   cleanup();
   FakeMap.reset();
+  // The app writes ?stop= to the address bar; start every test from a clean URL.
+  window.history.replaceState(null, "", "/");
 });

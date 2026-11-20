@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, type KeyboardEvent } from "react";
 import type { Stop } from "../content/types";
 import { statusBadge, typeLabel } from "./describe";
 import "./StopList.css";
+import { STUDY_GUIDE_SEARCH } from "../lib/view";
 
 type Props = {
   id: string;
@@ -97,6 +98,14 @@ export function StopList({ id, routeStops, otherStops, selectedId, onSelect, onC
           </>
         )}
       </div>
+      <footer className="stop-list-footer">
+        <a className="btn btn-secondary" href={STUDY_GUIDE_SEARCH}>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round">
+            <path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z" />
+          </svg>
+          Printable study guide
+        </a>
+      </footer>
     </section>
   );
 }

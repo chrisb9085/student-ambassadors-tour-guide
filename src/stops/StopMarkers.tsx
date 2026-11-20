@@ -17,6 +17,8 @@ const HARD_HAT =
   '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 4a7 7 0 0 0-7 7v2H3v3h18v-3h-2v-2a7 7 0 0 0-7-7Zm-1 2.1V11h2V6.1a5 5 0 0 1 4 4.9v2H7v-2a5 5 0 0 1 4-4.9Z"/></svg>';
 const BOOK =
   '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5a.5.5 0 0 0 0 1H20v3H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/></svg>';
+const BUILDING =
+  '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 21V5l8-3 8 3v16h-6v-5h-4v5H4Zm4-12h2V7H8v2Zm6 0h2V7h-2v2Zm-6 4h2v-2H8v2Zm6 0h2v-2h-2v2Z"/></svg>';
 
 function buildMarkerElement(stop: Stop, total: number): HTMLButtonElement {
   const btn = document.createElement("button");
@@ -35,7 +37,8 @@ function buildMarkerElement(stop: Stop, total: number): HTMLButtonElement {
   dot.className = "stop-marker-dot";
   dot.setAttribute("aria-hidden", "true");
   if (stop.order !== null) dot.textContent = String(stop.order);
-  else dot.innerHTML = BOOK; // static icon markup, no content strings
+  // Off-route stops get an icon instead of a number: a book for the library, a building for the rest.
+  else dot.innerHTML = stop.id === "green-library" ? BOOK : BUILDING; // static icon markup, no content strings
 
   if (stop.status === "under-construction") {
     const hat = document.createElement("span");

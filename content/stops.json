@@ -1490,5 +1490,193 @@
         "source": "Handbook p.14"
       }
     ]
+  },
+  {
+    "id": "shaham-academic-medical-center",
+    "order": null,
+    "code": "AMC",
+    "name": "Helen and Jacob Shaham Academic Medical Center",
+    "label": "Shaham Medical Center",
+    "type": "also-on-campus",
+    "status": "under-construction",
+    "opens": "2028",
+    "coordinates": [
+      -80.3693,
+      25.7594
+    ],
+    "summary": "The Helen and Jacob Shaham Academic Medical Center, under construction with Baptist Health, will bring medical education and patient care together on campus.",
+    "highlights": [
+      "Seven stories and 163,000 square feet",
+      "Developed and operated in collaboration with Baptist Health",
+      "Same-day surgery, diagnostic imaging and multi-specialty care",
+      "Learning spaces for medical students and residents"
+    ],
+    "impact": "A $30 million gift from Helen and Jacob Shaham names the center, which will train future health professionals while expanding care for the surrounding community.",
+    "stat": {
+      "value": "$30M",
+      "label": "gift from Helen and Jacob Shaham"
+    },
+    "narration": "Near Southwest 107th Avenue and 10th Street, the Helen and Jacob Shaham Academic Medical Center is under construction. Built with Baptist Health and scheduled to open in 2028, the seven-story center will offer same-day surgery, imaging and specialty care, with learning spaces for medical students and residents. A thirty million dollar gift from Helen and Jacob Shaham gives it its name.",
+    "photo": null,
+    "sources": [
+      "Handbook p.17",
+      "https://news.fiu.edu/2026/helen-and-jacob-shaham-make-landmark-gift-to-fiu-medicine",
+      "https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center"
+    ],
+    "lastReviewed": "2026-11-20",
+    "guideNotes": [
+      {
+        "kind": "detail",
+        "text": "The handbook calls it a major partnership between FIU and Baptist Health that will expand healthcare access for Westchester and surrounding communities.",
+        "source": "Handbook p.17"
+      },
+      {
+        "kind": "detail",
+        "text": "Ground was broken in May 2026. The building is funded through a $158 million State of Florida appropriation.",
+        "source": "https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center"
+      },
+      {
+        "kind": "detail",
+        "text": "Students in nursing, physician assistant, occupational therapy and other allied health programs will train there alongside future physicians.",
+        "source": "https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center"
+      },
+      {
+        "kind": "detail",
+        "text": "Baptist Health and FIU Medicine already partner on 14 graduate medical education programs.",
+        "source": "https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center"
+      },
+      {
+        "kind": "detail",
+        "text": "Helen and Jacob Shaham are leaders in senior living who built The Palace communities.",
+        "source": "https://news.fiu.edu/2026/helen-and-jacob-shaham-make-landmark-gift-to-fiu-medicine"
+      }
+    ],
+    "reviewNotes": [
+      "The marker is placed from FIU News (\"near Southwest 107th Avenue and Southwest 10th Street\") and the campus map; the building isn't on map data yet. Confirm the spot."
+    ]
+  },
+  {
+    "id": "reagan-presidential-house",
+    "order": null,
+    "code": "RH",
+    "name": "Ronald W. Reagan Presidential House",
+    "label": "Presidential House",
+    "type": "also-on-campus",
+    "status": "open",
+    "opens": null,
+    "coordinates": [
+      -80.3695,
+      25.7555
+    ],
+    "summary": "The Ronald W. Reagan Presidential House is the FIU president's residence and a gathering place where the university welcomes alumni, donors and community leaders.",
+    "highlights": [
+      "Opened December 2, 2001",
+      "A 12,700-square-foot, U-shaped building",
+      "Designed by architect Raul Rodriguez with a volunteer committee of community leaders",
+      "Chartered and funded by the FIU Foundation"
+    ],
+    "impact": "Chartered and funded by the FIU Foundation, the house hosts the receptions and events that bring students, alumni, donors and partners together.",
+    "stat": {
+      "value": "2001",
+      "label": "opened"
+    },
+    "narration": "The Ronald W. Reagan Presidential House opened in 2001 and is named for the fortieth President of the United States. Chartered and funded by the FIU Foundation, it is both the home of FIU's president and a venue for receptions and events that welcome students, alumni, donors and community leaders.",
+    "photo": null,
+    "sources": [
+      "Handbook p.8"
+    ],
+    "lastReviewed": "2026-11-20",
+    "guideNotes": [
+      {
+        "kind": "tip",
+        "text": "The Presidential House symbolizes FIU's connection to leadership, community engagement, and philanthropy. Many university events hosted here bring together students, alumni, donors, and community partners who support FIU's mission.",
+        "source": "Handbook p.8"
+      },
+      {
+        "kind": "detail",
+        "text": "The volunteer design committee was chaired by former FIU Trustee Rosa Sugranes.",
+        "source": "Handbook p.8"
+      },
+      {
+        "kind": "detail",
+        "text": "The Trish and Dan Bell Chapel is being built on the lake beside the house.",
+        "source": "https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/"
+      }
+    ]
+  },
+  {
+    "id": "deuxieme-maison",
+    "order": null,
+    "code": "DM",
+    "name": "Deuxième Maison",
+    "label": "Deuxième Maison",
+    "type": "also-on-campus",
+    "status": "open",
+    "opens": null,
+    "coordinates": [
+      -80.3747,
+      25.7562
+    ],
+    "summary": "Deuxième Maison, French for \"Second House\", opened in 1973 as the second building on FIU's campus.",
+    "highlights": [
+      "Opened in 1973, the second permanent building on campus",
+      "Academic offices and classrooms",
+      "Home to the Sky Lounge, a student gathering and event space",
+      "Landscaping designed in part by FIU landscape architecture students"
+    ],
+    "impact": "Its surroundings, designed in part by FIU landscape architecture students, show students helping to shape their own campus.",
+    "stat": {
+      "value": "1973",
+      "label": "opened"
+    },
+    "narration": "Deuxième Maison, French for Second House, opened in 1973 as the second building on FIU's campus. Today it holds academic offices, classrooms and the Sky Lounge, a student gathering space. The landscapes around it were designed in part by FIU landscape architecture students.",
+    "photo": null,
+    "sources": [
+      "Handbook p.28"
+    ],
+    "lastReviewed": "2026-11-20",
+    "guideNotes": [
+      {
+        "kind": "tip",
+        "text": "Pair this stop with Primera Casa to illustrate FIU's early campus development and continued growth.",
+        "source": "Handbook p.28"
+      }
+    ]
+  },
+  {
+    "id": "veteran-and-military-affairs",
+    "order": null,
+    "code": "VMA",
+    "name": "Office of Veteran and Military Affairs",
+    "label": "Veteran and Military Affairs",
+    "type": "also-on-campus",
+    "status": "open",
+    "opens": null,
+    "coordinates": [
+      -80.3764,
+      25.7562
+    ],
+    "summary": "The Office of Veteran and Military Affairs supports veterans, service members and military-connected students throughout their time at FIU.",
+    "highlights": [
+      "Academic advising and help with veterans' education benefits",
+      "Transition resources for students who have served",
+      "Veteran-focused community and engagement programs",
+      "Near the Green School and University Towers"
+    ],
+    "impact": "Dedicated support helps military-affiliated Panthers transition, graduate and thrive, both during and after their time at FIU.",
+    "stat": null,
+    "narration": "Near the Green School, the Office of Veteran and Military Affairs supports veterans, active-duty service members, reservists, National Guard members and military-connected students. Advising, help with education benefits and transition resources help them graduate and thrive.",
+    "photo": null,
+    "sources": [
+      "Handbook p.29"
+    ],
+    "lastReviewed": "2026-11-20",
+    "guideNotes": [
+      {
+        "kind": "tip",
+        "text": "This office demonstrates FIU's commitment to serving those who have served our country through dedicated support services.",
+        "source": "Handbook p.29"
+      }
+    ]
   }
 ]
