@@ -116,15 +116,15 @@ Answers from Chris to the content review (`docs/CONTENT-REVIEW.md`) and the SCOP
 
 Ordered by priority now that the site is a preparation tool.
 
-### A. Content updates (next sprint)
-- [ ] Apply review answers 2 to 6 above, following the FIU-source rule.
-- [ ] Bell Chapel: stays under construction (decided). Note Chris's "opened 2023" answer in `reviewNotes`, and add the $14M support fact once the FIU pages are read.
-- [ ] Full official names in `name` (cards, stop list, descriptions, narration), including the five "Academic Health Center N: …" names and Ernest R. Graham Center. Leave the short `label` chips as they are.
-- [ ] Rename stop 18 to "College of Business Complex" and drop Lot 9 from its card and narration.
-- [ ] Rewrite copy for the type changes: five stops become featured (40 to 90 words of narration each); WPAC becomes quick pass (35 words or fewer). Market Station, Science Classroom Complex, Tech Station and Ryder have thin sources, so they need more fiu.edu facts.
-- [ ] Remove resolved `reviewNotes`, regenerate `docs/CONTENT-REVIEW.md`, run the validator and tests.
-- [ ] Update the Sprint 2 open question in TRACE.md: Lot 9 resolved.
-- [ ] **Update the docs for the new purpose:** SCOPE §3 (audience), the README intro and CLAUDE.md still describe donors using the site in the vehicle. Rewrite them as an ambassador preparation tool, so future work follows the right goal. Card copy stays donor-facing, because it's what ambassadors say on the tour.
+### A. Content updates (Sprint 8, done)
+- [x] Apply review answers 2 to 6 above, following the FIU-source rule.
+- [x] Bell Chapel: stays under construction (decided). Note Chris's "opened 2023" answer in `reviewNotes`, and add the $14M support fact once the FIU pages are read.
+- [x] Full official names in `name` (cards, stop list, descriptions, narration), including the five "Academic Health Center N: …" names and Ernest R. Graham Center. Leave the short `label` chips as they are.
+- [x] Rename stop 18 to "College of Business Complex" and drop Lot 9 from its card and narration.
+- [x] Rewrite copy for the type changes: five stops become featured (40 to 90 words of narration each); WPAC becomes quick pass (35 words or fewer). Market Station, Science Classroom Complex, Tech Station and Ryder have thin sources, so they need more fiu.edu facts.
+- [x] Remove resolved `reviewNotes`, regenerate `docs/CONTENT-REVIEW.md`, run the validator and tests.
+- [x] Update the Sprint 2 open question in TRACE.md: Lot 9 resolved.
+- [x] **Update the docs for the new purpose:** SCOPE §3 (audience), the README intro and CLAUDE.md still describe donors using the site in the vehicle. Rewrite them as an ambassador preparation tool, so future work follows the right goal. Card copy stays donor-facing, because it's what ambassadors say on the tour.
 
 ### B. More natural narration (high priority: ambassadors study by listening)
 - [ ] Quick win: slightly slower default speed and short pauses between sentences.
@@ -145,6 +145,7 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Ideas to confirm with Chris: a self-quiz mode (hide the card, guess the building), and a "my tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours).
 
 ### D. UI enhancements
+- [ ] Long names (Sprint 8): show the part before the colon ("Academic Health Center 3:") as a small line above the card title, so the title doesn't take four lines on a phone. Keep the full name as the heading's accessible name.
 - [ ] Building highlight: outline or glow the current building, not just its marker.
 - [ ] Group overlapping markers when zoomed out (AHC 1 to 5).
 - [ ] Photos on cards (`photo` field), with renderings for buildings under construction.

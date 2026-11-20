@@ -1,6 +1,6 @@
 # FIU Foundation Interactive Campus Tour
 
-An interactive website for the FIU Foundation Student Ambassadors' VIP and donor campus tours. It shows a satellite map of FIU's Modesto A. Maidique Campus with the ambassadors' driving tour route drawn on top. Each stop opens a short card about the building, written for donors, VIPs and community partners. A guided Tour Mode follows the route stop by stop and reads each card aloud.
+An interactive website that helps FIU Foundation Student Ambassadors prepare for their VIP and donor campus tours. It shows a satellite map of FIU's Modesto A. Maidique Campus with the ambassadors' driving tour route drawn on top. Each stop opens a short card about the building, written the way ambassadors present it to donors, VIPs and community partners. A guided Tour Mode follows the route stop by stop and reads each card aloud, so ambassadors can learn the drive before they lead it. The site is a study tool; it isn't used in the vehicle.
 
 > **Status:** MVP built and tested; waiting on Foundation content review, a real-iPad drive test and the Vercel deploy. See [SCOPE.md](docs/SCOPE.md) for the scope, [BACKLOG.md](docs/BACKLOG.md) for the sprint plan and [.claude/sprints/TRACE.md](.claude/sprints/TRACE.md) for what was built and how it was tested.
 
@@ -20,8 +20,8 @@ An interactive website for the FIU Foundation Student Ambassadors' VIP and donor
 
 | Audience | Use |
 |---|---|
-| Donors, VIPs, alumni and partners | Explore the map or listen to the full tour |
-| Student Ambassadors | A visual aid in the vehicle during live tours, and a study guide for the route |
+| Student Ambassadors (primary) | Learn the route, the buildings and what to say before leading a tour |
+| Donors, VIPs, alumni and partners | The audience the cards are written for; they can explore the map or listen to the tour if given a link |
 | FIU Foundation staff | A link to share with guests before or after a visit |
 
 ## Tech stack

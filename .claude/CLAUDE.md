@@ -2,6 +2,10 @@
 
 An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driving** tours of the Modesto A. Maidique Campus. It shows a Mapbox satellite map with the tour route, clickable stop cards written for donors, and a guided Tour Mode with text-to-speech.
 
+**Purpose (Chris, 2026-11-20):** the site is a **preparation tool**: ambassadors use it to study the route and what to say before a tour, not in the vehicle. Card copy stays donor-facing (it's what they say on the tour). Study features and narration quality come before ride-along or in-vehicle features.
+
+**Facts and names:** official FIU sources win over SCOPE.md, the handbook and Chris's own answers. Use the FIU version and note the difference. Use full official building names on cards and in narration ("Academic Health Center 2: Herbert Wertheim College of Medicine"); map label chips keep their short `label`.
+
 **Read `docs/SCOPE.md` before starting any feature.** It is the spec: route order, MVP vs later phases, card fields, open questions and the content facts (Appendix A). Reference images are in `docs/reference/`.
 
 ## Stack (decided)

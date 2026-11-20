@@ -1,8 +1,8 @@
 # FIU Foundation Interactive Campus Tour: Project Scope
 
-**Status:** Draft for review (revision 5)
+**Status:** Draft for review (revision 6: the site is an ambassador preparation tool, per Chris's §9 answers)
 **Owner:** Chris (FIU Foundation Student Ambassadors)
-**Last updated:** 2026-11-19
+**Last updated:** 2026-11-20
 **Source content:** *Student Ambassador Handbook (Text Draft)*, Chris's route description, official FIU web pages (Appendix A)
 **Map references:** `reference/aerial-route.png` (aerial view with the driving route in red) and `reference/campus-map-labeled.png` (labeled campus map with building codes)
 
@@ -14,13 +14,15 @@ An interactive website built on a **satellite image of FIU's Modesto A. Maidique
 
 The map imagery is realistic, while all of the interface (buttons, cards, route line, markers, controls) uses FIU's blue and gold and is designed to be simple and very easy to use.
 
+**Purpose (decided 2026-11-20):** the site is a **preparation tool** for Student Ambassadors. They use it to learn the route, the buildings and what to say before they lead a tour; it is not used in the vehicle. The card copy stays donor-facing, because it is what ambassadors say to guests.
+
 Tours are tailored to each donor's interests: ambassadors highlight the buildings that matter most to that guest, and some stops are a quick pass or skipped entirely. The site supports this by marking stops as **featured** or **quick pass** and by letting the guide skip any stop.
 
 ## 2. Goals
 
 1. Give VIP and donor guests a polished, memorable view of FIU that reinforces the Foundation's three tour themes: **student success and academic excellence**, **research, innovation and community impact**, and **FIU's growth and transformation**.
 2. Show the impact of philanthropy at each stop (named spaces, donor-funded programs, partnerships).
-3. Give ambassadors a consistent, accurate companion to the driving tour, built from the handbook.
+3. **Primary:** help ambassadors prepare for the driving tour: learn the route in order, the facts for each building and how to say them, from one consistent, sourced version built from the handbook and fiu.edu.
 4. Make the experience usable without a guide (for example, before or after a visit, or for guests who cannot join the drive).
 
 ### Non-goals (for now)
@@ -34,8 +36,8 @@ Tours are tailored to each donor's interests: ambassadors highlight the building
 
 | Audience | How they use it |
 |---|---|
-| **Donors, VIPs, alumni, corporate and community partners** (primary) | Browse the map, open stop cards, or listen to the full guided tour. |
-| **Student Ambassadors** | Use it on a tablet or phone in the vehicle during a live driving tour, or to study the route. |
+| **Student Ambassadors** (primary) | Study the route before a tour: follow the drive in order, read each card, listen to the narration, and review the facts and tour guide tips. Not used in the vehicle. |
+| **Donors, VIPs, alumni, corporate and community partners** | The audience the copy is written for. They may also browse the map or listen to the guided tour if the Foundation shares a link. |
 | **FIU Foundation staff** | Share a link with guests before or after a visit. |
 
 **Content tone:** professional, warm and concise. Lead with impact and outcomes rather than student logistics. Each card should answer "why does this matter, and what does support make possible here?"

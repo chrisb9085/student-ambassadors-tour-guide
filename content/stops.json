@@ -36,7 +36,7 @@
     "id": "graham-center",
     "order": 2,
     "code": "GC",
-    "name": "Graham Center",
+    "name": "Ernest R. Graham Center",
     "label": "Graham Center",
     "type": "featured",
     "status": "open",
@@ -45,7 +45,7 @@
       -80.3727,
       25.7563
     ],
-    "summary": "The Graham Center is FIU's student union and the heart of campus life, with more than 3.5 million visits a year.",
+    "summary": "The Ernest R. Graham Center is FIU's student union and the heart of campus life, with more than 3.5 million visits a year.",
     "highlights": [
       "Home to Student Government and hundreds of student organizations",
       "29 fraternities and sororities, with 1,000+ students in service and philanthropy",
@@ -57,12 +57,13 @@
       "value": "3.5M+",
       "label": "visits a year"
     },
-    "narration": "The Graham Center is the heart of student life at FIU, with more than three and a half million visits a year. It is home to Student Government and hundreds of student organizations, including twenty-nine fraternities and sororities. The Center for Leadership and Service develops student leaders through programs like Alternative Breaks and Roarthon, often supported by donor-funded programming and scholarships. The Disability Resource Center here serves more than thirty-five hundred students a year.",
+    "narration": "The Ernest R. Graham Center is the heart of student life at FIU, with more than three and a half million visits a year. It is home to Student Government and hundreds of student organizations, including twenty-nine fraternities and sororities. The Center for Leadership and Service develops student leaders through programs like Alternative Breaks and Roarthon, often supported by donor-funded programming and scholarships. The Disability Resource Center here serves more than thirty-five hundred students a year.",
     "photo": null,
     "sources": [
-      "Handbook pp.12-13"
+      "Handbook pp.12-13",
+      "https://digitalcommons.fiu.edu/fiu_images/1/"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "bell-chapel",
@@ -77,29 +78,36 @@
       -80.3702,
       25.7563
     ],
-    "summary": "The Trish and Dan Bell Chapel, now under construction, will be a multifaith space for worship, reflection and spiritual growth beside the lake.",
+    "summary": "The Trish and Dan Bell Chapel, now under construction beside the lake, will be a multifaith gathering place for worship, contemplation and mutual understanding.",
     "highlights": [
       "Welcoming to students, faculty, staff and visitors of all faith traditions",
-      "Award-winning architectural design",
-      "A prominent, peaceful lakeside setting"
+      "Award-winning design by the architectural firm Gurrimatute",
+      "On the lake beside the Ronald W. Reagan Presidential House",
+      "Multifaith counseling rooms and a sanctuary for life milestones"
     ],
-    "impact": "Named for Trish and Dan Bell, the chapel will support the whole student experience, including spiritual wellbeing and inclusion for all faiths.",
-    "stat": null,
-    "narration": "By the lake, the Trish and Dan Bell Chapel is under construction: an award-winning, multifaith space for reflection, open to people of every faith tradition.",
+    "impact": "Trish and Dan Bell made a $5 million lead gift in 2019, and their total support for the chapel has grown to $14 million.",
+    "stat": {
+      "value": "$14M",
+      "label": "in support from Trish and Dan Bell"
+    },
+    "narration": "By the lake, the Trish and Dan Bell Chapel is under construction: a multifaith space for reflection, open to every faith tradition, backed by fourteen million dollars in gifts from Trish and Dan Bell.",
     "photo": null,
     "sources": [
-      "Handbook p.11"
+      "Handbook p.11",
+      "https://news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel",
+      "https://news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel",
+      "https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/"
     ],
-    "lastReviewed": "2026-11-19",
+    "lastReviewed": "2026-11-20",
     "reviewNotes": [
-      "Opening date isn't in the handbook. Add it to \"opens\" when the Foundation confirms it."
+      "Chris (2026-11-20) says the chapel opened in 2023 and improvements are under way. The FIU sources found describe an April 2023 groundbreaking and give no opening date, so the card keeps \"under construction\". Send an FIU link confirming the opening and the badge comes off."
     ]
   },
   {
     "id": "center-for-children-and-families",
     "order": 4,
     "code": "AHC1",
-    "name": "Center for Children and Families",
+    "name": "Academic Health Center 1: Center for Children and Families",
     "label": "Children and Families",
     "type": "featured",
     "status": "open",
@@ -108,7 +116,7 @@
       -80.3713,
       25.7576
     ],
-    "summary": "The Center for Children and Families advances children's mental health through research, clinical care and community outreach.",
+    "summary": "The Center for Children and Families, in Academic Health Center 1, advances children's mental health through research, clinical care and community outreach.",
     "highlights": [
       "Mental health services for children and families",
       "Research on child development and behavioral health",
@@ -116,18 +124,18 @@
     ],
     "impact": "Support for the center helps more South Florida families reach research-based mental health care early.",
     "stat": null,
-    "narration": "The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work. Its first building houses the Center for Children and Families, which advances children's mental health through research, clinical care and community outreach. Its teams provide mental health services for children and families, study child development and behavioral health, and run early intervention programs that reach families across South Florida.",
+    "narration": "The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work. Academic Health Center 1 houses the Center for Children and Families, which advances children's mental health through research, clinical care and community outreach. Its teams provide mental health services for children and families, study child development and behavioral health, and run early intervention programs that reach families across South Florida.",
     "photo": null,
     "sources": [
       "Handbook p.15"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "herbert-wertheim-college-of-medicine",
     "order": 5,
     "code": "AHC2",
-    "name": "Herbert Wertheim College of Medicine",
+    "name": "Academic Health Center 2: Herbert Wertheim College of Medicine",
     "label": "College of Medicine",
     "type": "featured",
     "status": "open",
@@ -148,18 +156,18 @@
       "value": "30+",
       "label": "hospital and healthcare partners"
     },
-    "narration": "Next is the Herbert Wertheim College of Medicine, South Florida's first public medical school. It partners with more than thirty hospitals and healthcare organizations. Students train in the Albert and Debbie Tano Simulation Center, and through NeighborhoodHELP and the Linda Fenner 3D Mobile Mammography Center, the college brings care directly to underserved communities.",
+    "narration": "Next, in Academic Health Center 2, is the Herbert Wertheim College of Medicine, South Florida's first public medical school. It partners with more than thirty hospitals and healthcare organizations. Students train in the Albert and Debbie Tano Simulation Center, and through NeighborhoodHELP and the Linda Fenner 3D Mobile Mammography Center, the college brings care directly to underserved communities.",
     "photo": null,
     "sources": [
       "Handbook p.15"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "college-of-nursing-and-health-sciences",
     "order": 6,
     "code": "AHC3",
-    "name": "College of Nursing and Health Sciences",
+    "name": "Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences",
     "label": "Nursing and Health Sciences",
     "type": "featured",
     "status": "open",
@@ -168,7 +176,7 @@
       -80.3712,
       25.7587
     ],
-    "summary": "The College of Nursing and Health Sciences prepares nurses and allied health professionals through simulation-based education and clinical experience.",
+    "summary": "The Nicole Wertheim College of Nursing and Health Sciences prepares nurses and allied health professionals through simulation-based education and clinical experience.",
     "highlights": [
       "Nursing, physical and occupational therapy, athletic training and communication sciences",
       "The STAR Center simulation facility replicates real hospital environments",
@@ -176,18 +184,19 @@
     ],
     "impact": "Investment in simulation and clinical labs prepares the next generation of healthcare professionals for South Florida.",
     "stat": null,
-    "narration": "The College of Nursing and Health Sciences prepares students for careers in nursing, physical therapy, occupational therapy, athletic training, and communication sciences and disorders. Its STAR Center is an advanced simulation facility that replicates real hospital environments, so students practice in realistic settings before they ever meet a patient. Specialized clinical laboratories add even more hands-on learning.",
+    "narration": "Academic Health Center 3 is home to the Nicole Wertheim College of Nursing and Health Sciences, which prepares students for careers in nursing, physical therapy, occupational therapy, athletic training, and communication sciences and disorders. Its STAR Center is an advanced simulation facility that replicates real hospital environments, so students practice in realistic settings before they ever meet a patient. Specialized clinical laboratories add even more hands-on learning.",
     "photo": null,
     "sources": [
-      "Handbook p.15"
+      "Handbook p.15",
+      "https://cnhs.fiu.edu/about/"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "robert-stempel-college",
     "order": 7,
     "code": "AHC5",
-    "name": "Robert Stempel College of Public Health and Social Work",
+    "name": "Academic Health Center 5: Robert Stempel College of Public Health and Social Work",
     "label": "Stempel Public Health",
     "type": "featured",
     "status": "open",
@@ -204,12 +213,12 @@
     ],
     "impact": "Support for Stempel College helps address public health challenges in South Florida and around the world.",
     "stat": null,
-    "narration": "The Robert Stempel College of Public Health and Social Work prepares students to improve the health of whole communities. Its programs in public health, nutrition and social work focus on epidemiology, global health, health policy and disaster preparedness. Graduates go on to serve in healthcare systems, government agencies, nonprofit organizations and research institutions, tackling public health challenges at home and around the world.",
+    "narration": "In Academic Health Center 5, the Robert Stempel College of Public Health and Social Work prepares students to improve the health of whole communities. Its programs in public health, nutrition and social work focus on epidemiology, global health, health policy and disaster preparedness. Graduates go on to serve in healthcare systems, government agencies, nonprofit organizations and research institutions, tackling public health challenges at home and around the world.",
     "photo": null,
     "sources": [
       "Handbook pp.15-16"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "innovation-1",
@@ -226,26 +235,24 @@
     ],
     "summary": "Innovation 1, opened in 2025, is the first building of FIU's Innovation Complex, where students, faculty and industry partners work on tomorrow's technology.",
     "highlights": [
-      "Six-story research and learning facility",
+      "Six-story research and learning facility, LEED Gold certified",
+      "Home to computing and biomedical engineering faculty from the College of Engineering and Computing",
       "Focus on artificial intelligence, cybersecurity, robotics, health and sustainability",
-      "Active learning classrooms, makerspaces and research labs",
-      "LEED Gold certified design"
+      "Active learning classrooms, makerspaces and research labs"
     ],
     "impact": "Collaboration with industry partners makes the Innovation Complex a hub for innovation and workforce development in South Florida.",
     "stat": {
-      "value": "137,000+",
+      "value": "125,000",
       "label": "square feet"
     },
-    "narration": "Just ahead is Innovation 1, opened in 2025 as the first building of FIU's Innovation Complex. This six-story, LEED Gold certified facility brings students, faculty and industry partners together in active learning classrooms, makerspaces and research labs. Their work focuses on artificial intelligence, cybersecurity, robotics, health and sustainability, strengthening FIU's role as a hub for innovation and workforce development in South Florida.",
+    "narration": "Just ahead is Innovation 1, opened in 2025 as the first building of FIU's Innovation Complex. This six-story, LEED Gold certified facility is the College of Engineering and Computing's home on this campus, with faculty in computing and biomedical engineering. Students, faculty and industry partners work side by side in its classrooms, makerspaces and labs on artificial intelligence, cybersecurity, robotics, health and sustainability.",
     "photo": null,
     "sources": [
       "Handbook p.18",
-      "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf"
+      "https://cec.fiu.edu/about/",
+      "https://cec.fiu.edu/news-events/news/2025/from-the-deans-desk-bringing-our-vision-to-life.html"
     ],
-    "lastReviewed": "2026-11-19",
-    "reviewNotes": [
-      "Square footage differs by source: the facilities list gives 137,306 gross; College of Engineering and Computing materials say about 125,000. The card uses the facilities list."
-    ]
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "market-station",
@@ -253,7 +260,7 @@
     "code": "PG5",
     "name": "Market Station (PG5)",
     "label": "Market Station",
-    "type": "quick-pass",
+    "type": "featured",
     "status": "open",
     "opens": null,
     "coordinates": [
@@ -262,46 +269,58 @@
     ],
     "summary": "Market Station is more than a parking garage: it combines dining, classrooms and student gathering spaces with a campus transportation hub.",
     "highlights": [
-      "Dining locations and classrooms",
-      "Student gathering spaces",
-      "A hub for campus activity and transportation"
+      "More than a garage: dining, classrooms and student gathering spaces",
+      "A hub for campus activity and transportation",
+      "Opened in 2011"
     ],
     "impact": "FIU's garages are multi-purpose facilities that put student services, dining and classrooms where students arrive each day.",
-    "stat": null,
-    "narration": "Market Station is more than a garage. It combines parking with dining, classrooms and student gathering spaces, and serves as a campus transportation hub.",
+    "stat": {
+      "value": "2011",
+      "label": "opened"
+    },
+    "narration": "Market Station shows how FIU makes every building work hard for students. More than a parking garage, it brings together dining, classrooms and student gathering spaces, and serves as a hub for campus activity and transportation. Since it opened in 2011, it has put classes, meals and services right where students arrive on campus each day.",
     "photo": null,
     "sources": [
-      "Handbook p.6"
+      "Handbook p.6",
+      "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_7-21-2026.pdf"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20",
+    "reviewNotes": [
+      "A 2010 FIU News article, written before the garage opened, planned three classrooms seating up to 360 students. The page couldn't be re-read in Sprint 8, so the card leaves the numbers out. Confirm them before adding."
+    ]
   },
   {
     "id": "science-classroom-complex",
     "order": 10,
     "code": "AHC4",
-    "name": "Science Classroom Complex",
+    "name": "Academic Health Center 4: Science Classroom Complex",
     "label": "Science Classrooms",
-    "type": "quick-pass",
+    "type": "featured",
     "status": "open",
     "opens": null,
     "coordinates": [
       -80.3723,
       25.7593
     ],
-    "summary": "The Science Classroom Complex provides classrooms, laboratories and collaborative spaces for foundational science education and health-related research.",
+    "summary": "Academic Health Center 4, the Science Classroom Complex, is a research and teaching building for the College of Medicine and FIU's science programs.",
     "highlights": [
-      "Classrooms and teaching laboratories",
-      "Collaborative learning spaces",
-      "Supports health-related research"
+      "Opened in 2013",
+      "Wet and dry research labs, classrooms and seminar rooms",
+      "A customized mass spectrometry laboratory",
+      "More than 136,000 square feet"
     ],
-    "impact": "Modern labs and classrooms give science students a strong foundation for research and health careers.",
-    "stat": null,
-    "narration": "The Science Classroom Complex, part of the Academic Health Center, provides the classrooms and labs where students build their foundation in science.",
+    "impact": "Modern labs and classrooms give students a strong foundation in science, and give researchers room for discoveries that improve health.",
+    "stat": {
+      "value": "$57.5M",
+      "label": "invested in labs and classrooms"
+    },
+    "narration": "Academic Health Center 4, the Science Classroom Complex, opened in 2013 as a fifty-seven and a half million dollar investment in research and teaching. Its wet and dry labs, classrooms and seminar rooms serve the College of Medicine and FIU's science programs, including a customized mass spectrometry lab. Here students build their foundation in science, and researchers pursue discoveries that improve health.",
     "photo": null,
     "sources": [
-      "Handbook p.15"
+      "Handbook p.15",
+      "https://news.fiu.edu/2014/building-boom-at-fiu.html"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "red-garage",
@@ -367,27 +386,32 @@
     "code": "PG6",
     "name": "Tech Station (PG6)",
     "label": "Tech Station",
-    "type": "quick-pass",
+    "type": "featured",
     "status": "open",
     "opens": null,
     "coordinates": [
       -80.3746,
       25.76
     ],
-    "summary": "Tech Station pairs parking with technology-focused classrooms, labs, advising spaces and innovation programs.",
+    "summary": "Tech Station, inside Parking Garage 6, is a $3 million hub for technology innovation, training and community engagement.",
     "highlights": [
+      "Tech classrooms, team rooms and a makerspace",
+      "Software design, systems training and IT hardware labs",
       "Home of MangoHacks, FIU's student-run hackathon",
-      "Technology classrooms and labs",
-      "Dining and student support services"
+      "Hack nights, workshops and coding club events"
     ],
-    "impact": "Spaces like Tech Station promote creativity, collaboration and innovation.",
-    "stat": null,
-    "narration": "Tech Station combines parking with technology classrooms and labs, and hosts MangoHacks, FIU's student-run hackathon.",
+    "impact": "Funding from the Florida Board of Governors created Tech Station, where students and the community come together around technology.",
+    "stat": {
+      "value": "8,000",
+      "label": "square feet for tech learning"
+    },
+    "narration": "Tech Station turns part of this parking garage into a three million dollar hub for technology innovation, training and community engagement. Students work in software design and systems training labs, team rooms and a makerspace. It is also home to MangoHacks, FIU's student-run hackathon that promotes creativity, collaboration and innovation.",
     "photo": null,
     "sources": [
-      "Handbook p.6"
+      "Handbook p.6",
+      "https://www.cis.fiu.edu/students/techstation/"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "paul-l-cejas-school-of-architecture",
@@ -428,28 +452,33 @@
     "code": "RB",
     "name": "Ryder Business Building",
     "label": "Ryder Business",
-    "type": "quick-pass",
+    "type": "featured",
     "status": "open",
     "opens": null,
     "coordinates": [
       -80.3761,
       25.7575
     ],
-    "summary": "The Ryder Business Building has been part of the College of Business since 1991.",
+    "summary": "The Ryder Business Building has been part of FIU's College of Business since 1991, and is home to its Global Sales Center.",
     "highlights": [
-      "Opened in 1991",
-      "Nearly 59,000 square feet for the College of Business",
-      "Known to the business school as the Ryder Center"
+      "Opened in 1991, with nearly 59,000 square feet",
+      "Global Sales Lab with twelve sales training rooms",
+      "More than 400 students a semester train in the lab",
+      "Known to the College of Business as the Ryder Center"
     ],
-    "impact": "The Ryder name has been part of FIU's College of Business for more than three decades.",
-    "stat": null,
-    "narration": "The Ryder Business Building has been part of FIU's College of Business since 1991.",
+    "impact": "The Ryder name has been part of FIU's College of Business for more than three decades, and its Global Sales Center trains more than 400 students each semester.",
+    "stat": {
+      "value": "400+",
+      "label": "students a semester in the Global Sales Lab"
+    },
+    "narration": "The Ryder Business Building has been part of FIU's College of Business since 1991. Along with the College of Business Complex and the Mango building, it is one of the college's three homes on this campus. On its third floor, the Global Sales Center's lab has twelve training rooms where more than four hundred students each semester practice professional sales.",
     "photo": null,
     "sources": [
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf",
-      "https://business.fiu.edu/about/locations/"
+      "https://business.fiu.edu/about/locations/",
+      "https://business.fiu.edu/academics/departments/marketing-and-logistics/global-sales-center/"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "ziff-education-building",
@@ -464,23 +493,24 @@
       -80.3767,
       25.7588
     ],
-    "summary": "The Sanford L. Ziff Family Education Building opened in 1997 and carries the Ziff family name.",
+    "summary": "The Sanford L. Ziff Family Education Building, opened in 1997, carries the Ziff family name and serves FIU's education programs.",
     "highlights": [
       "Opened in 1997",
-      "About 57,000 square feet"
+      "About 57,000 square feet",
+      "Classrooms and meeting rooms for the Department of Teaching and Learning"
     ],
     "impact": "The building carries the name of the Sanford L. Ziff family.",
     "stat": null,
-    "narration": "The Sanford L. Ziff Family Education Building opened in 1997 and carries the Ziff family name.",
+    "narration": "The Sanford L. Ziff Family Education Building opened in 1997. It carries the Ziff family name, and holds classrooms and meeting rooms for FIU's Department of Teaching and Learning.",
     "photo": null,
     "sources": [
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf",
-      "https://calendar.fiu.edu/zeb"
+      "https://calendar.fiu.edu/zeb",
+      "https://case.fiu.edu/tl/flexible-space-reservations/"
     ],
-    "lastReviewed": "2026-11-19",
+    "lastReviewed": "2026-11-20",
     "reviewNotes": [
-      "FIU pages found don't say what the building houses (SCOPE Appendix A). Needs content.",
-      "Map data labels it \"Sanford and Dolores Ziff Education Building\". Confirm the official name."
+      "FIU pages show the Department of Teaching and Learning uses the building, but don't say everything it houses (for example, whether it is the home of the School of Education and Human Development). Confirm what the card should say."
     ]
   },
   {
@@ -515,7 +545,7 @@
     "id": "college-of-business-complex",
     "order": 18,
     "code": "CBC",
-    "name": "Lot 9 and College of Business Complex",
+    "name": "College of Business Complex",
     "label": "College of Business",
     "type": "featured",
     "status": "open",
@@ -524,7 +554,7 @@
       -80.3769,
       25.7583
     ],
-    "summary": "Across Lot 9, the College of Business Complex is home to one of South Florida's leading business schools, built for experiential learning and industry connection.",
+    "summary": "The College of Business Complex is home to one of South Florida's leading business schools, built for experiential learning and industry connection.",
     "highlights": [
       "Capital Markets Lab with financial software and real-time market data",
       "300-seat Ocean Bank Auditorium",
@@ -536,13 +566,13 @@
       "value": "300",
       "label": "seats in the Ocean Bank Auditorium"
     },
-    "narration": "Across Lot 9 is the College of Business Complex, academic home of one of South Florida's leading business schools. Students work with real-time market data in the Capital Markets Lab and attend lectures in the three-hundred-seat Ocean Bank Auditorium. The Bank of America Career Management Services Center, interview suites and the Alumni Circle Recruiters' Lounge connect students directly with employers.",
+    "narration": "Here is the College of Business Complex, academic home of one of South Florida's leading business schools. Students work with real-time market data in the Capital Markets Lab and attend lectures in the three-hundred-seat Ocean Bank Auditorium. The Bank of America Career Management Services Center, interview suites and the Alumni Circle Recruiters' Lounge connect students directly with employers.",
     "photo": null,
     "sources": [
       "Handbook p.22",
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "mango",
@@ -643,7 +673,7 @@
     "code": "WRC",
     "name": "Wellness and Recreation Center",
     "label": "Wellness and Recreation",
-    "type": "quick-pass",
+    "type": "featured",
     "status": "open",
     "opens": null,
     "coordinates": [
@@ -652,18 +682,18 @@
     ],
     "summary": "The Wellness and Recreation Center supports student wellbeing through fitness, recreation and outdoor adventure programs.",
     "highlights": [
-      "Fitness equipment, group classes and personal training",
-      "Adventure recreation and outdoor excursions",
-      "Panther Hall Pool, outdoor courts and the Recreation Field"
+      "State-of-the-art fitness equipment, group classes and personal training",
+      "Adventure recreation programs and outdoor excursions",
+      "Panther Hall Pool, the Recreation Field, and basketball and tennis courts"
     ],
     "impact": "FIU promotes wellness beyond academics, helping students stay active, reduce stress and build community.",
     "stat": null,
-    "narration": "The Wellness and Recreation Center supports student wellbeing, with fitness, group classes, a pool and outdoor adventure programs.",
+    "narration": "The Wellness and Recreation Center reflects FIU's commitment to the whole student, beyond the classroom. Students use state-of-the-art fitness equipment, group fitness classes and personal training, and join adventure recreation programs and outdoor excursions. Panther Hall Pool, the Recreation Field, and outdoor basketball and tennis courts round out spaces that help students stay active, manage stress and build community.",
     "photo": null,
     "sources": [
       "Handbook p.26"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "steven-j-green-school",
@@ -714,7 +744,7 @@
     "summary": "Parkview Hall is home to Honors College students, in two six-story buildings joined by a sky bridge.",
     "highlights": [
       "Opened in 2013",
-      "596 residents",
+      "620 residents",
       "A glassed common room overlooks the stadium"
     ],
     "impact": "Living on campus gives Honors College students a stronger sense of community and easy access to resources.",
@@ -725,10 +755,7 @@
       "https://housing.fiu.edu/choose-your-room/honors-college-parkview-hall/",
       "Handbook p.31"
     ],
-    "lastReviewed": "2026-11-19",
-    "reviewNotes": [
-      "Sources disagree on capacity: the housing site says 596 residents; a 2014 FIU News article says 620 beds. The card uses the housing site."
-    ]
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "university-towers",
@@ -758,10 +785,7 @@
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf",
       "Handbook p.29"
     ],
-    "lastReviewed": "2026-11-19",
-    "reviewNotes": [
-      "The handbook pairs Veterans and Military Affairs with the Towers, but map data places the office near the Student Health Center. Confirm where it is."
-    ]
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "lakeview-hall",
@@ -952,7 +976,7 @@
     "code": "WPAC",
     "name": "Herbert and Nicole Wertheim Performing Arts Center",
     "label": "Performing Arts Center",
-    "type": "featured",
+    "type": "quick-pass",
     "status": "open",
     "opens": null,
     "coordinates": [
@@ -970,12 +994,12 @@
       "value": "1996",
       "label": "opened"
     },
-    "narration": "The Herbert and Nicole Wertheim Performing Arts Center has been FIU's premier venue for music, theatre and performing arts education since 1996. Students perform in orchestra, band, choir, jazz, opera and chamber ensembles, and learn from internationally recognized artists in masterclasses. Its performances and programs enrich both the FIU community and South Florida.",
+    "narration": "The Herbert and Nicole Wertheim Performing Arts Center has been FIU's premier venue for music, theatre and performing arts education since 1996, where students learn from internationally recognized artists.",
     "photo": null,
     "sources": [
       "Handbook p.32"
     ],
-    "lastReviewed": "2026-11-19"
+    "lastReviewed": "2026-11-20"
   },
   {
     "id": "green-library",
@@ -1008,10 +1032,6 @@
       "Handbook p.14",
       "https://annualreportarchive.fiu.edu/2014-15/50-years-forward/"
     ],
-    "lastReviewed": "2026-11-19",
-    "reviewNotes": [
-      "The handbook spells it \"Stephen\"; FIU's annual report and library pages use \"Steven\". The card uses \"Steven\".",
-      "Collection size differs by source: the handbook says over 2 million items; an FIU research-resources page says more than 1.6 million volumes."
-    ]
+    "lastReviewed": "2026-11-20"
   }
 ]
