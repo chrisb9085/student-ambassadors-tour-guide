@@ -24,7 +24,7 @@ test.describe("Sprint 3: markers, cards and stop list", () => {
 
   test("tapping a marker opens its card without hiding the stop", async ({ page }, info) => {
     await openMap(page);
-    await page.getByRole("button", { name: /stop 2 of 32: graham center/i }).click();
+    await page.getByRole("button", { name: /2 graham center, stop 2 of 32/i }).click();
     const card = page.getByRole("dialog");
     await expect(card).toContainText("Graham Center");
     await waitForIdle(page);

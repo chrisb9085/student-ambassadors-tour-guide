@@ -54,6 +54,11 @@
   line-height: 1.5;
 }
 
+.info-card-body:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: -3px;
+}
+
 .info-card-summary {
   margin: 0 0 12px;
   font-size: 1.0625rem;

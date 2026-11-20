@@ -85,7 +85,8 @@ export function InfoCard(props: InfoCardProps) {
         )}
       </header>
 
-      <div className="info-card-body" ref={bodyRef}>
+      {/* Focusable so keyboard users can scroll long cards with the arrow keys. */}
+      <div className="info-card-body" ref={bodyRef} tabIndex={0} role="group" aria-label={`${title}: details`}>
         <p className="info-card-summary">{summary}</p>
         {children}
         {stat && (

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import mapboxgl, { type Map as MapboxMap, type MapMouseEvent } from "mapbox-gl";
 import type { Stop } from "../content/types";
-import { accessibleName, nearestStop, shortLabel, zoomBand } from "./describe";
+import { markerDescription, markerName, nearestStop, shortLabel, zoomBand } from "./describe";
 import "./StopMarkers.css";
 
 type Props = {
@@ -26,7 +26,10 @@ function buildMarkerElement(stop: Stop, total: number): HTMLButtonElement {
   btn.className = `stop-marker stop-marker--${stop.type}`;
   if (stop.status === "under-construction") btn.classList.add("stop-marker--construction");
   btn.dataset.stopId = stop.id;
-  btn.setAttribute("aria-label", accessibleName(stop, total));
+  btn.setAttribute("aria-label", markerName(stop, total));
+  // Full name, type and status as the description. A hidden element can still describe.
+  const descId = `stop-marker-desc-${stop.id}`;
+  btn.setAttribute("aria-describedby", descId);
 
   const dot = document.createElement("span");
   dot.className = "stop-marker-dot";
@@ -46,7 +49,13 @@ function buildMarkerElement(stop: Stop, total: number): HTMLButtonElement {
   label.setAttribute("aria-hidden", "true");
   label.textContent = shortLabel(stop);
 
-  btn.append(dot, label);
+  const desc = document.createElement("span");
+  desc.id = descId;
+  desc.hidden = true;
+  desc.textContent = markerDescription(stop);
+
+  // The space keeps "3" and "Bell Chapel" apart in the visible text (flex layout ignores it visually).
+  btn.append(dot, document.createTextNode(" "), label, desc);
   return btn;
 }
 

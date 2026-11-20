@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test --project=desktop --project=ipad-landscape --project=ipad-portrait",
+    "test:e2e:webkit": "playwright test --project=webkit-ipad-landscape --project=webkit-ipad-portrait --project=webkit-iphone --workers=1",
+    "test:e2e:all": "npm run test:e2e && npm run test:e2e:webkit",
     "validate": "node .claude/skills/validate-tour-content/scripts/validate.mjs",
     "content:review": "node tools/content-review.mjs"
   },
@@ -20,6 +22,7 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.65.1",
     "@testing-library/jest-dom": "^8.0.0",

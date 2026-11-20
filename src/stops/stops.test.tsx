@@ -21,17 +21,27 @@ describe("stop markers (S3.1)", () => {
     const buttons = [...map.container.querySelectorAll<HTMLButtonElement>(".stop-marker")];
     expect(buttons).toHaveLength(33);
     expect(buttons.slice(0, 3).map((b) => b.getAttribute("aria-label"))).toEqual([
-      "Stop 1 of 32: Student Academic Success Center. Featured.",
-      "Stop 2 of 32: Graham Center. Featured.",
-      "Stop 3 of 32: Trish and Dan Bell Chapel. Quick pass. Under construction.",
+      "1 Student Success Center, stop 1 of 32",
+      "2 Graham Center, stop 2 of 32",
+      "3 Bell Chapel, stop 3 of 32",
     ]);
     expect(buttons[32].dataset.stopId).toBe("green-library");
   });
 
   it("keeps the button role (Mapbox would otherwise make markers role=img)", () => {
     renderLoaded();
-    expect(screen.getAllByRole("button", { name: /^Stop \d+ of 32:/ })).toHaveLength(32);
+    expect(screen.getAllByRole("button", { name: /, stop \d+ of 32$/ })).toHaveLength(32);
     expect(screen.getByRole("button", { name: /green library/i })).toBeInTheDocument();
+  });
+
+  it("announces the full name, type and status as each marker's description", () => {
+    renderLoaded();
+    expect(screen.getByRole("button", { name: /3 bell chapel/i })).toHaveAccessibleDescription(
+      "Trish and Dan Bell Chapel. Quick pass. Under construction.",
+    );
+    expect(screen.getByRole("button", { name: /1 student success center/i })).toHaveAccessibleDescription(
+      "Student Academic Success Center. Featured.",
+    );
   });
 
   it("styles quick-pass, under-construction and also-on-campus markers differently", () => {
@@ -55,7 +65,7 @@ describe("stop markers (S3.1)", () => {
 describe("stop cards (S3.2)", () => {
   it("opens a card from a marker, centers the stop and marks the marker selected", async () => {
     const { user, map } = renderLoaded();
-    await user.click(marker(/stop 2 of 32: graham center/i));
+    await user.click(marker(/2 graham center, stop 2 of 32/i));
     expect(within(card()).getByRole("heading", { level: 2 })).toHaveTextContent("Graham Center");
     expect(card()).toHaveTextContent("Stop 2 of 32 · Featured");
     expect(card()).toHaveTextContent("3.5M+");
