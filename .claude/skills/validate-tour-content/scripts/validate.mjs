@@ -77,7 +77,8 @@ if (route) {
 }
 
 // Token scan (text files outside ignored folders)
-const SKIP = new Set(["node_modules", ".git", "dist", ".vercel"]);
+// Gitignored build and test output. Playwright snapshots include the map's attribution links, which carry the public token.
+const SKIP = new Set(["node_modules", ".git", "dist", ".vercel", "test-results", "playwright-report"]);
 const TEXT = new Set([".js", ".mjs", ".ts", ".tsx", ".jsx", ".json", ".md", ".html", ".css", ".geojson", ".yml", ".yaml", ".txt", ""]);
 const TOKEN = /\b[ps]k\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{10,}/;
 function scan(dir) {
