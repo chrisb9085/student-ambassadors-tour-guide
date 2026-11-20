@@ -1,0 +1,39 @@
+/*
+ * The single source of truth for colors, sizes and type.
+ * Map layers read these values at runtime (see src/lib/theme.ts), so change colors here only.
+ * FIU Blue and FIU Gold follow FIU brand values; brighter variants are for contrast over satellite imagery
+ * and are pending brand review (SCOPE open question 3).
+ */
+:root {
+  --fiu-blue: #081e3f;
+  --fiu-blue-700: #0f2e5c;
+  --fiu-blue-500: #1d4f91;
+  --fiu-gold: #b6862c;
+  --fiu-gold-bright: #f5b82e;
+  --fiu-gold-100: #fbf0d9;
+
+  --surface: #ffffff;
+  --surface-muted: #f3f5f9;
+  --text: #0b1a33;
+  --text-muted: #4a5568;
+  --text-on-blue: #ffffff;
+  --border: #d7dde8;
+  --focus-ring: #f5b82e;
+
+  --status-construction: #e8590c;
+  --status-construction-bg: #fff1e6;
+
+  --route-line: var(--fiu-gold-bright);
+  --route-casing: var(--fiu-blue);
+  --marker-featured: var(--fiu-blue);
+  --marker-quick: var(--fiu-blue-500);
+  --marker-also: #ffffff;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 6px 24px rgb(8 30 63 / 0.25);
+  --touch: 48px; /* at or above the 44 px minimum */
+  --gap: 12px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
