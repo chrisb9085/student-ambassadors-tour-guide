@@ -12,6 +12,10 @@ export type TourSettingsPanelProps = {
   voiceURI: string | null;
   onVoice: (voiceURI: string | null) => void;
   speechSupported: boolean;
+  /** The site has recorded narration (public/audio/manifest.json). */
+  recordings: boolean;
+  recorded: boolean;
+  onRecorded: (on: boolean) => void;
   onClose: () => void;
 };
 
@@ -62,6 +66,23 @@ export function TourSettingsPanel(p: TourSettingsPanelProps) {
         </div>
       </fieldset>
 
+      {p.recordings && (
+        <fieldset className="setting-row">
+          <legend className="setting-name">Narration voice</legend>
+          <div className="segmented">
+            <label className="segmented-option">
+              <input type="radio" name={`${p.id}-source`} checked={p.recorded} onChange={() => p.onRecorded(true)} />
+              <span>Recorded</span>
+            </label>
+            <label className="segmented-option">
+              <input type="radio" name={`${p.id}-source`} checked={!p.recorded} onChange={() => p.onRecorded(false)} />
+              <span>This device</span>
+            </label>
+          </div>
+          <span className="setting-hint">Recorded narration sounds the same on every device. Changes apply from the next stop.</span>
+        </fieldset>
+      )}
+
       {p.speechSupported ? (
         <label className="setting-row">
           <span className="setting-name">Voice</span>
@@ -73,7 +94,9 @@ export function TourSettingsPanel(p: TourSettingsPanelProps) {
               </option>
             ))}
           </select>
-          <span className="setting-hint">Voices depend on this device.</span>
+          <span className="setting-hint">
+            {p.recordings && p.recorded ? "Used for any stop without a recording. " : ""}Voices depend on this device.
+          </span>
         </label>
       ) : (
         <p className="setting-hint">Spoken narration isn't available in this browser. Captions still advance on their own.</p>

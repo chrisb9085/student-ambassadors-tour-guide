@@ -13,10 +13,12 @@ import { StopMarkers } from "./stops/StopMarkers";
 import { StopCard } from "./stops/StopCard";
 import { StopList } from "./stops/StopList";
 import { neighbours } from "./stops/describe";
-import { buildSteps } from "./tour/steps";
+import { buildSteps, progressLabel } from "./tour/steps";
 import { createSpeaker, pickDefaultVoice, type Speaker } from "./tour/speech";
+import { createClipSpeaker, loadClipManifest, type ClipManifest, type ClipSpeaker } from "./tour/clips";
 import { loadSettings, saveSettings, type TourSettings } from "./tour/settings";
 import { useTour, type TourMode } from "./tour/useTour";
+import { useMediaSession } from "./tour/useMediaSession";
 import { StartTourSheet } from "./tour/StartTourSheet";
 import { TourCard } from "./tour/TourCard";
 import { TourControls } from "./tour/TourControls";
@@ -43,8 +45,27 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
   const sidePanel = useSidePanelLayout();
 
   // Speech and tour settings.
-  const speaker = useMemo(() => speakerProp ?? createSpeaker(), [speakerProp]);
   const [settings, setSettings] = useState<TourSettings>(loadSettings);
+  // Recorded narration (tools/narration-audio), when the site has it.
+  const [clipManifest, setClipManifest] = useState<ClipManifest | null>(null);
+  useEffect(() => {
+    if (speakerProp) return; // tests supply their own speaker
+    let live = true;
+    loadClipManifest(import.meta.env.BASE_URL).then((m) => live && setClipManifest(m));
+    return () => {
+      live = false;
+    };
+  }, [speakerProp]);
+  const deviceSpeaker = useMemo(() => speakerProp ?? createSpeaker(), [speakerProp]);
+  const speaker = useMemo(
+    () =>
+      speakerProp ??
+      createClipSpeaker({ fallback: deviceSpeaker, baseUrl: `${import.meta.env.BASE_URL}audio/` }),
+    [speakerProp, deviceSpeaker],
+  );
+  useEffect(() => {
+    if ("configure" in speaker) (speaker as ClipSpeaker).configure({ manifest: clipManifest, enabled: settings.recorded });
+  }, [speaker, clipManifest, settings.recorded]);
   const [voices, setVoices] = useState(() => speaker.voices());
   useEffect(() => speaker.onVoicesChanged(() => setVoices(speaker.voices())), [speaker]);
   const updateSettings = useCallback((patch: Partial<TourSettings>) => {
@@ -61,6 +82,15 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
   const padding = useMemo(() => tourPadding(sidePanel, typeof window !== "undefined" ? window.innerHeight : 800), [sidePanel]);
   const t = useTour({ map, steps: TOUR.steps, measured: TOUR.measured, speaker, settings: speechSettings, padding });
   const touring = t.state.active;
+  useMediaSession({
+    active: touring,
+    playing: t.state.playing,
+    title: t.step?.title ?? null,
+    subtitle: t.step ? progressLabel(t.step, routeStops.length) : "",
+    togglePlay: t.togglePlay,
+    next: t.next,
+    prev: t.prev,
+  });
 
   // When the tour ends, its controls disappear: put keyboard focus back on Start tour instead of the page top.
   const startButtonRef = useRef<HTMLButtonElement>(null);
@@ -232,7 +262,10 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
                 voices: voices.map(({ voiceURI, name, lang }) => ({ voiceURI, name, lang })),
                 voiceURI: settings.voiceURI,
                 onVoice: (voiceURI) => updateSettings({ voiceURI }),
-                speechSupported: speaker.supported,
+                speechSupported: deviceSpeaker.supported,
+                recordings: !!clipManifest,
+                recorded: settings.recorded,
+                onRecorded: (recorded) => updateSettings({ recorded }),
               }}
             />
           </>

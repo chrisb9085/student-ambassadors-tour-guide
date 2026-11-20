@@ -42,7 +42,7 @@ type Options = {
   steps: TourStep[];
   measured: MeasuredRoute;
   speaker: Speaker;
-  settings: TourSettings;
+  settings: Pick<TourSettings, "rate" | "voiceURI">;
   /** Screen padding so the vehicle stays visible beside the card. */
   padding: { top: number; bottom: number; left: number; right: number };
 };
@@ -158,6 +158,7 @@ export function useTour({ map, steps, measured, speaker, settings, padding }: Op
       const result = await speaker.speak(step.narration, {
         rate,
         voiceURI,
+        clipId: step.id,
         onSentence: (i) => !ctrl.signal.aborted && setState((s) => ({ ...s, sentence: i })),
       });
       if (ctrl.signal.aborted || result === "cancelled") return;

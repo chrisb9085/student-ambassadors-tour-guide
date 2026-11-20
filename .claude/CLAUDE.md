@@ -24,6 +24,7 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 - `npm run lint`
 - `npm test`: Vitest unit and component tests (jsdom)
 - `npm run validate` (same as `node .claude/skills/validate-tour-content/scripts/validate.mjs`): validate `content/` (run after any content change). It also warns about narration that text-to-speech reads badly.
+- `node tools/narration-audio/generate.mjs --provider <openai|elevenlabs|azure> [--dry-run]`: generate recorded narration into `public/audio/` (see its README). Keys come from environment variables only. Never generate without Chris's go-ahead: it's billed, and using an AI voice is his decision.
 - `npm run content:review`: regenerate `docs/CONTENT-REVIEW.md`, the Foundation's review page. Run after any content change; a unit test fails if it's stale.
 - `npm run test:e2e`: Playwright end-to-end tests in Chromium (desktop, iPad landscape, iPad portrait). Mapbox's servers are replaced by a local stand-in (`e2e/fixtures.ts`), so runs cost no map loads. Import `test` and `expect` from `./fixtures` in new specs.
 - `npm run test:e2e:webkit`: the same specs in WebKit (Safari's engine) on iPad and iPhone profiles, run serially because headless WebKit is slow. Run it before a release.

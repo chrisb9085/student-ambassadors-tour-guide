@@ -14,6 +14,8 @@ export type SpeakOptions = {
   onSentence?: (index: number) => void;
   /** Silence between sentences, in milliseconds. Defaults to SENTENCE_PAUSE_MS. */
   pauseMs?: number;
+  /** Tour step id: plays its recorded clip instead, when one matches the text (see clips.ts). */
+  clipId?: string;
 };
 
 /** A short breath between sentences makes the browser voice sound less rushed. */
