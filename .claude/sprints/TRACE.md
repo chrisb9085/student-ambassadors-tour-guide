@@ -68,3 +68,28 @@ Each sprint is built on its own branch and merged into `main` with `git merge --
 - Confirm the Lot 9 vs SW 112th Ave reading above.
 - Facts flagged in `reviewNotes`: Bell Chapel opening date, ZEB contents and exact name, Parkview capacity (596 vs 620), where Veteran and Military Affairs is, Innovation 1 square footage, Green Library collection size and spelling, Closing card rankings.
 - Stop markers sit on or beside each building, not always on the road edge. Chris may want to nudge a few after the first drive with the app.
+
+### Sprint 3: markers, cards and stop list (2026-11-19)
+
+**Built**
+- `src/stops/StopMarkers.tsx`: one `<button>` marker per stop (33), created with DOM APIs in route order, so Tab follows the drive. A 44 px hit area surrounds a 30 px (featured) or 24 px (quick-pass) dot. Under construction: dashed orange ring and hard-hat badge. Also on campus: white dot with a book icon. Selected: gold, enlarged, `aria-current`.
+- Labels by zoom band on the map container: none when zoomed out, featured and Green Library from z16.3, all from z17. The selected, hovered or focused marker always shows its label. The new optional `label` field gives short chip names.
+- Tapping the map within 70 m of a stop opens its card. That stands in for "tap the building outline", since the satellite style has no building polygons to hit-test.
+- `src/components/InfoCard.tsx`: a generic card (kicker, title, construction badge, summary, key stat, highlights, Impact of support, footer). Tour Mode reuses it in Sprint 4. Focus moves to the title on open and on each new stop, Escape closes, and focus returns to whatever opened it.
+- `src/stops/StopCard.tsx`: Previous/Next along the route with the neighbour's short name. Green Library reads "Also on campus · Not on the driving route", with no Previous/Next.
+- `src/stops/StopList.tsx`: numbered list in driving order plus "Also on campus". Arrow keys, Home and End move between stops; choosing one closes the list and opens the card.
+- `src/lib/layout.ts` and `src/styles/panels.css`: side panel in wide landscape, bottom sheet otherwise. The camera eases to the stop with an offset so it stays visible beside the panel, and never zooms out.
+- Bottom action bar with the **Stops** button (`aria-expanded`). Sprint 4 adds Start tour.
+
+**Found in review and fixed**
+- **Mapbox sets `role="img"` on custom marker elements** unless a role is already present. That turned every stop button into an "image" for screen readers. Only the real-browser e2e caught it, so the test mock now copies Mapbox's behaviour, and a unit test asserts the button role.
+- A Playwright failure snapshot captured the attribution's "Improve this map" link, which by Mapbox design contains the public token. It stays in the gitignored `test-results/`. The validator's token scan now skips `test-results/` and `playwright-report/` like `dist/`. Going forward I search those files instead of reading them whole.
+- The card title showed a focus ring after a mouse click. It receives focus only so screen readers announce it, so the ring was removed there; buttons keep theirs.
+
+**Tested**
+- Build, lint, validate: pass.
+- `npm test`: 54 tests pass. New: helper unit tests (accessible names, badges, neighbours, nearest-stop tap radius, zoom bands) and App-level integration tests for markers (count, order, labels, styles, button role, zoom band), cards (open from marker, camera centring, Previous/Next, first and last stop, Bell Chapel badge, Green Library off-route, Escape returns focus, tap near a building, review notes never shown) and the stop list (32 + 1, order, keyboard navigation, selection, toggle state).
+- `npm run test:e2e`: 30 tests pass (10 × 3 viewports). New: 33 markers with 44 px targets, the card never covers the selected stop, Bell Chapel badge and Next, list selection, keyboard open and Escape back. I reviewed screenshots of the landscape side card, portrait bottom sheet, desktop stop list and whole-route markers.
+
+**Open**
+- Long names truncate on the Previous/Next buttons (for example "Children and Fa…"). The full name is in the button's accessible label. Fine for now; revisit in the Sprint 6 device pass.
