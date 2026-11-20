@@ -65,7 +65,11 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
   "photo": null,                      // optional path under public/
   "sources": ["Handbook", "https://..."],
   "lastReviewed": "2026-11-19",
-  "reviewNotes": ["optional: facts the Foundation must confirm; never shown to guests"]
+  "reviewNotes": ["optional: facts the Foundation must confirm; never shown to guests"],
+  "guideNotes": [                     // optional: "For ambassadors" study notes, collapsed on the card, never spoken
+    { "kind": "tip", "text": "A handbook Tour Guide Tip, quoted exactly", "source": "Handbook p.12" },
+    { "kind": "detail", "text": "A fuller fact for answering questions", "source": "Handbook p.13 or an fiu.edu URL" }
+  ]
 }
 ```
 
@@ -73,6 +77,7 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 - `content/route.geojson` is a FeatureCollection with a single LineString following campus roads in driving order. Rebuild or extend it with `tools/route/` (see its README).
 - The handbook is in `docs/HANDBOOK.md`; cite it as `Handbook p.N` using the page markers in that file.
 - Featured cards: 40 to 90 words of narration. Quick-pass: one or two sentences (35 words or fewer).
+- `guideNotes` tips are quoted word for word from the handbook page they cite (a unit test checks this). Details are short, sourced and may include student logistics, since only ambassadors see them.
 
 ## Content rules
 

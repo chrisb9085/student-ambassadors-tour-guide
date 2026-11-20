@@ -6,12 +6,19 @@ export type TourSettings = {
   voiceURI: string | null;
 };
 
-export const DEFAULT_SETTINGS: TourSettings = { rate: 1, voiceURI: null };
+/**
+ * "Normal" is a little under the browser's 1.0, which sounds rushed for narration (Sprint 9).
+ * Older saved speeds snap to the nearest option, so a radio button is always checked.
+ */
 export const RATE_OPTIONS = [
   { value: 0.85, label: "Slower" },
-  { value: 1, label: "Normal" },
-  { value: 1.15, label: "Faster" },
+  { value: 0.95, label: "Normal" },
+  { value: 1.1, label: "Faster" },
 ] as const;
+export const DEFAULT_SETTINGS: TourSettings = { rate: 0.95, voiceURI: null };
+
+const nearestRate = (r: number) =>
+  RATE_OPTIONS.reduce<number>((best, o) => (Math.abs(o.value - r) < Math.abs(best - r) ? o.value : best), RATE_OPTIONS[0].value);
 
 const KEY = "fiu-tour-settings";
 
@@ -20,7 +27,7 @@ export function loadSettings(): TourSettings {
     const raw = localStorage.getItem(KEY);
     if (!raw) return DEFAULT_SETTINGS;
     const parsed = JSON.parse(raw) as Partial<TourSettings>;
-    const rate = typeof parsed.rate === "number" && parsed.rate >= 0.8 && parsed.rate <= 1.3 ? parsed.rate : DEFAULT_SETTINGS.rate;
+    const rate = typeof parsed.rate === "number" && parsed.rate >= 0.8 && parsed.rate <= 1.3 ? nearestRate(parsed.rate) : DEFAULT_SETTINGS.rate;
     const voiceURI = typeof parsed.voiceURI === "string" ? parsed.voiceURI : null;
     return { rate, voiceURI };
   } catch {

@@ -160,12 +160,12 @@ describe("Tour Mode (S4.1-S4.5)", () => {
     await user.click(auto);
     expect(auto).not.toBeChecked();
     await user.click(within(panel).getByRole("radio", { name: "Faster" }));
-    expect(JSON.parse(localStorage.getItem("fiu-tour-settings")!)).toMatchObject({ rate: 1.15 });
+    expect(JSON.parse(localStorage.getItem("fiu-tour-settings")!)).toMatchObject({ rate: 1.1 });
     expect(within(panel).getByRole("combobox", { name: /voice/i })).toHaveValue("");
     // The new speed applies to the next narration, without restarting the current one.
     await user.keyboard("{Escape}");
     await user.click(screen.getByRole("button", { name: "Next stop" }));
-    await waitFor(() => expect(speaker.spoken[speaker.spoken.length - 1].options.rate).toBe(1.15));
+    await waitFor(() => expect(speaker.spoken[speaker.spoken.length - 1].options.rate).toBe(1.1));
   });
 
   it("keyboard focus: the main control on start, Exit when finished, Start tour after exit", async () => {

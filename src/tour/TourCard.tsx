@@ -31,6 +31,7 @@ export function TourCard({ step, total, phase, sentence }: Props) {
       stat={content.stat}
       highlights={content.highlights}
       impact={content.impact}
+      guideNotes={step.stop?.guideNotes}
     >
       <figure className="captions" data-speaking={speaking || undefined}>
         <figcaption className="captions-label">

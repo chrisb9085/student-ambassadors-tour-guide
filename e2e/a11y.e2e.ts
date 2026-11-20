@@ -40,6 +40,14 @@ test.describe("Sprint 6: accessibility audit", () => {
     await audit(page, "Bell Chapel card");
   });
 
+  test("stop card with For ambassadors open (Academic Health Center 3, long name)", async ({ page }) => {
+    await openMap(page);
+    await page.getByRole("button", { name: /stop 6 of 32/i }).click();
+    await page.getByRole("dialog").getByText("For ambassadors").click();
+    await expect(page.getByRole("dialog")).toContainText("Tour guide tip");
+    await audit(page, "For ambassadors open");
+  });
+
   test("stop list", async ({ page }) => {
     await openMap(page);
     await page.getByRole("button", { name: "Stops" }).click();

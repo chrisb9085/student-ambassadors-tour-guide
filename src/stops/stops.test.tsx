@@ -179,3 +179,42 @@ describe("stop list (S3.3)", () => {
     expect(screen.queryByRole("region", { name: "Tour stops" })).toBeNull();
   });
 });
+
+describe("For ambassadors and long names (Sprint 9)", () => {
+  it("shows study notes in a collapsed For ambassadors section, with the handbook page", async () => {
+    const { user } = renderLoaded();
+    await user.click(marker(/stop 1 of 32/i));
+    const summary = within(card()).getByText("For ambassadors");
+    const details = summary.closest("details")!;
+    expect(details).not.toHaveAttribute("open");
+    await user.click(summary);
+    expect(details).toHaveAttribute("open");
+    expect(details).toHaveTextContent("Tour guide tip");
+    expect(details).toHaveTextContent(/emphasize FIU's commitment to student success/);
+    expect(details).toHaveTextContent("Handbook p.10");
+    expect(details).toHaveTextContent("More to know");
+  });
+
+  it("closes the section again when the card moves to another stop", async () => {
+    const { user } = renderLoaded();
+    await user.click(marker(/stop 1 of 32/i));
+    await user.click(within(card()).getByText("For ambassadors"));
+    await user.click(screen.getByRole("button", { name: /next stop:/i }));
+    expect(within(card()).getByText("For ambassadors").closest("details")).not.toHaveAttribute("open");
+  });
+
+  it("leaves the section out for stops without notes", async () => {
+    const { user } = renderLoaded();
+    await user.click(marker(/stop 16 of 32/i));
+    expect(within(card()).queryByText("For ambassadors")).toBeNull();
+  });
+
+  it("shows the part of a long name before the colon as a small line, keeping the full name in the heading", async () => {
+    const { user } = renderLoaded();
+    await user.click(marker(/stop 6 of 32/i));
+    const heading = within(card()).getByRole("heading", { level: 2 });
+    expect(heading).toHaveTextContent("Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences");
+    expect(heading.querySelector(".info-card-title-prefix")).toHaveTextContent("Academic Health Center 3:");
+    expect(card()).toHaveAccessibleName("Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences");
+  });
+});

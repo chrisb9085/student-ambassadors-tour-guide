@@ -10,6 +10,7 @@ An interactive website that helps FIU Foundation Student Ambassadors prepare for
 - **Driving route** from the loop between Gold Garage (PG1) and Blue Garage (PG2) in front of MARC, around campus and back: about 5 km with 32 stops.
 - **Clickable stop cards** for every building on the route plus Green Library. Each card has a one-line summary, a few highlights, a key stat and an "Impact of support" line.
 - **Featured and quick-pass stops**, so ambassadors can tailor each tour to a donor's interests.
+- **"For ambassadors" study notes** on each card, collapsed by default: the handbook's tour guide tips and extra details for answering questions, each with its handbook page.
 - **Under-construction badges** (for example Bell Chapel). These buildings still show their full information.
 - **Guided Tour Mode** with text-to-speech:
   - *Virtual tour:* advances on its own.

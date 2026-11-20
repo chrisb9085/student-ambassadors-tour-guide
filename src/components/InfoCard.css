@@ -26,6 +26,13 @@
   line-height: 1.25;
 }
 
+.info-card-title-prefix {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--fiu-blue-500);
+}
+
 /* Focus moves here so screen readers announce the new place; it isn't interactive, so no ring. */
 .info-card-title:focus,
 .info-card-title:focus-visible {
@@ -131,4 +138,95 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* "For ambassadors": study notes, collapsed by default. */
+.info-card-guide {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.info-card-guide > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--touch);
+  padding: 0 14px;
+  color: var(--fiu-blue);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.info-card-guide > summary::-webkit-details-marker {
+  display: none;
+}
+
+.info-card-guide > summary::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-right: 12px;
+  border-right: 2.5px solid currentColor;
+  border-bottom: 2.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+}
+
+.info-card-guide[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+.info-card-guide > summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: -3px;
+  border-radius: var(--radius-sm);
+}
+
+.info-card-guide-body {
+  padding: 0 14px 12px;
+}
+
+.info-card-guide-tip {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--fiu-gold-100);
+}
+
+.info-card-guide-tip p {
+  margin: 0;
+}
+
+.info-card-guide-label {
+  margin: 0 0 4px;
+  color: var(--fiu-blue);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.info-card-guide-source {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+.info-card-guide-tip .info-card-guide-source {
+  margin-top: 4px;
+}
+
+.info-card-guide-details {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.info-card-guide-details li + li {
+  margin-top: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-card-guide > summary::before {
+    transition: none;
+  }
 }

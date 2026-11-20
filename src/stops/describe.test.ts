@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { allStops, routeStops } from "../content";
-import { markerDescription, markerName, nearestStop, neighbours, shortLabel, statusBadge, typeLabel, zoomBand } from "./describe";
+import { buttonName, markerDescription, markerName, nearestStop, neighbours, shortLabel, statusBadge, typeLabel, zoomBand } from "./describe";
 import type { Stop } from "../content/types";
 
 const byId = (id: string) => allStops.find((s) => s.id === id)!;
@@ -23,6 +23,15 @@ describe("stop descriptions", () => {
     expect(statusBadge(bell)).toBe("Under construction");
     expect(statusBadge({ ...bell, opens: "2028" })).toBe("Under construction · Opens 2028");
     expect(statusBadge(byId("graham-center"))).toBeNull();
+  });
+
+  it("names Previous/Next buttons starting with the visible label, plus the full name when it differs", () => {
+    expect(buttonName(byId("graham-center"))).toBe("Ernest R. Graham Center");
+    expect(buttonName(byId("robert-stempel-college"))).toBe(
+      "Stempel Public Health, Academic Health Center 5: Robert Stempel College of Public Health and Social Work",
+    );
+    // Every stop: the visible label is part of the button's name.
+    for (const s of allStops) expect(buttonName(s).toLowerCase(), s.id).toContain(shortLabel(s).toLowerCase());
   });
 
   it("uses the short label when there is one", () => {

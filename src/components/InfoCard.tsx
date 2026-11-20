@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, type ReactNode } from "react";
+import type { GuideNote } from "../content/types";
 import "./InfoCard.css";
 
 export type InfoCardProps = {
@@ -12,6 +13,8 @@ export type InfoCardProps = {
   stat?: { value: string; label: string } | null;
   highlights: string[];
   impact: string;
+  /** Study notes for ambassadors, in a collapsed "For ambassadors" section. */
+  guideNotes?: GuideNote[];
   /** Extra content above the highlights (Tour Mode puts its captions here). */
   children?: ReactNode;
   /** Buttons along the bottom (Previous, Next, Listen). */
@@ -27,7 +30,7 @@ export type InfoCardProps = {
 
 /** A place card: popover-style side panel on wide screens, bottom sheet on narrow ones (see panels.css). */
 export function InfoCard(props: InfoCardProps) {
-  const { kicker, title, contentKey, badge, summary, stat, highlights, impact, children, footer, onClose } = props;
+  const { kicker, title, contentKey, badge, summary, stat, highlights, impact, guideNotes = [], children, footer, onClose } = props;
   const { closeLabel = "Close", autoFocus = true, role = "dialog" } = props;
   const titleId = useId();
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -65,7 +68,7 @@ export function InfoCard(props: InfoCardProps) {
         <div className="info-card-titles">
           <p className="info-card-kicker">{kicker}</p>
           <h2 id={titleId} ref={headingRef} tabIndex={-1} className="info-card-title">
-            {title}
+            <Title text={title} />
           </h2>
           {badge && (
             <p className="info-card-badge">
@@ -106,9 +109,57 @@ export function InfoCard(props: InfoCardProps) {
           <h3>Impact of support</h3>
           <p>{impact}</p>
         </div>
+        {guideNotes.length > 0 && <GuideNotes key={contentKey} notes={guideNotes} />}
       </div>
 
       {footer && <footer className="info-card-footer">{footer}</footer>}
     </section>
+  );
+}
+
+/**
+ * Long official names ("Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences")
+ * show the part before the colon as a small line, so the title doesn't take four lines on a phone.
+ * The heading's text is still the full name.
+ */
+function Title({ text }: { text: string }) {
+  const i = text.indexOf(": ");
+  if (i < 0) return <>{text}</>;
+  return (
+    <>
+      <span className="info-card-title-prefix">{text.slice(0, i + 1)}</span> <span>{text.slice(i + 2)}</span>
+    </>
+  );
+}
+
+/** Collapsed by default; a native <details> works with touch, keyboard and screen readers. Resets per place. */
+function GuideNotes({ notes }: { notes: GuideNote[] }) {
+  const tips = notes.filter((n) => n.kind === "tip");
+  const details = notes.filter((n) => n.kind === "detail");
+  return (
+    <details className="info-card-guide">
+      <summary>For ambassadors</summary>
+      <div className="info-card-guide-body">
+        {tips.map((n) => (
+          <div key={n.text} className="info-card-guide-tip">
+            <p className="info-card-guide-label">Tour guide tip</p>
+            <p>{n.text}</p>
+            <p className="info-card-guide-source">{n.source}</p>
+          </div>
+        ))}
+        {details.length > 0 && (
+          <>
+            <p className="info-card-guide-label">More to know</p>
+            <ul className="info-card-guide-details">
+              {details.map((n) => (
+                <li key={n.text}>
+                  {n.text} <span className="info-card-guide-source">({n.source})</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    </details>
   );
 }
