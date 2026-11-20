@@ -8,9 +8,11 @@ An interactive website that helps FIU Foundation Student Ambassadors prepare for
 
 - **Satellite campus map** with an FIU blue and gold interface that is simple to use on an iPad or phone.
 - **Driving route** from the loop between Gold Garage (PG1) and Blue Garage (PG2) in front of MARC, around campus and back: about 5 km with 32 stops.
-- **Clickable stop cards** for every building on the route plus Green Library. Each card has a one-line summary, a few highlights, a key stat and an "Impact of support" line.
+- **Clickable stop cards** for every building on the route, plus five "Also on campus" buildings off the route (Green Library, the Shaham Academic Medical Center, the Reagan Presidential House, Deuxième Maison, and Veteran and Military Affairs). Each card has a one-line summary, a few highlights, a key stat and an "Impact of support" line.
 - **Featured and quick-pass stops**, so ambassadors can tailor each tour to a donor's interests.
 - **"For ambassadors" study notes** on each card, collapsed by default: the handbook's tour guide tips and extra details for answering questions, each with its handbook page.
+- **Printable study guide** (`?view=study-guide`, linked from the Stops panel): every stop in route order with what to say, key facts and tips.
+- **Shareable stop links** (`?stop=graham-center`) and a Copy link button on each card, so advisors can point ambassadors at a building.
 - **Under-construction badges** (for example Bell Chapel). These buildings still show their full information.
 - **Guided Tour Mode** with text-to-speech:
   - *Virtual tour:* advances on its own.

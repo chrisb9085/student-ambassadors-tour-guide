@@ -133,15 +133,15 @@ Ordered by priority now that the site is a preparation tool.
 
 ### C. Study features (new priority from the "preparation tool" answer)
 - [x] **"For ambassadors" section on each card** (Sprint 9; tips on 31 of 33 stops) (collapsible): the handbook's tour guide tip for that stop (most stops have one, for example "Emphasize FIU's commitment to student success…") plus the longer handbook detail. This covers SCOPE §4.2's "More" toggle. It needs a new optional content field (for example `guideNotes`), sourced like every other fact, and validator and review-page support.
-- [ ] **Printable study guide:** every stop in route order with key facts and tour guide tips, for studying away from the screen. Build it from `content/`, as `tools/content-review.mjs` does, as a print-friendly page in the app or a generated document. Leave out `reviewNotes`.
-- [ ] **Off-route buildings the handbook already covers**, as "Also on campus" stops like Green Library (SCOPE Phase 2, but already sourced):
+- [x] **Printable study guide** (Sprint 10, `?view=study-guide`): every stop in route order with key facts and tour guide tips, for studying away from the screen. Build it from `content/`, as `tools/content-review.mjs` does, as a print-friendly page in the app or a generated document. Leave out `reviewNotes`.
+- [x] **Off-route buildings the handbook already covers** (Sprint 10), as "Also on campus" stops like Green Library (SCOPE Phase 2, but already sourced):
   - Helen and Jacob Shaham Academic Medical Center (under construction, opens 2028; Handbook p.17)
   - Ronald W. Reagan Presidential House (Handbook p.8)
   - Deuxième Maison (Handbook p.28; currently only mentioned on the Primera Casa card)
   - Office of Veteran and Military Affairs, near SIPA and University Towers (Handbook p.29)
   - **Not the College of Engineering and Computing:** its Engineering Center is near SW 107th Ave and Flagler St, not on MMC (Handbook p.19). Innovation 1 (stop 8) is its presence on MMC; mention the college there instead.
 - [ ] **Tour progress strip:** numbered dots for done, skipped and current stops; jump anywhere.
-- [ ] **Shareable stop links** (`?stop=graham-center`) so advisors can point ambassadors at a building.
+- [x] **Shareable stop links** (Sprint 10) (`?stop=graham-center`) so advisors can point ambassadors at a building.
 - [ ] Ideas to confirm with Chris: a self-quiz mode (hide the card, guess the building), and a "my tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours).
 
 ### D. UI enhancements

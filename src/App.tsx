@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Map as MapboxMap } from "mapbox-gl";
 import { getMapboxToken } from "./lib/config";
+import { stopIdFromSearch, urlWithStop } from "./lib/stopLink";
 import { focusOffset, tourPadding, useSidePanelLayout } from "./lib/layout";
 import { MissingToken } from "./components/MissingToken";
 import { MapView } from "./map/MapView";
@@ -23,6 +24,8 @@ import "./App.css";
 
 const STOP_LIST_ID = "stop-list";
 const TOUR = buildSteps(tour, routeStops, route);
+const STOP_IDS = allStops.map((s) => s.id);
+const linkedStopId = () => (typeof window === "undefined" ? null : stopIdFromSearch(window.location.search, STOP_IDS));
 
 type Props = {
   token?: string | null;
@@ -32,7 +35,9 @@ type Props = {
 
 export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
   const [map, setMap] = useState<MapboxMap | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  // A shared link (?stop=graham-center) opens that stop's card.
+  const [selectedId, setSelectedId] = useState<string | null>(linkedStopId);
+  const openedFromLink = useRef(selectedId);
   const [listOpen, setListOpen] = useState(false);
   const [chooserOpen, setChooserOpen] = useState(false);
   const sidePanel = useSidePanelLayout();
@@ -65,10 +70,23 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
     wasTouring.current = touring;
   }, [touring]);
 
-  // Phones: open on a view that fits the whole route, not the iPad-sized default.
+  // Phones: open on a view that fits the whole route, not the iPad-sized default. A shared link to a stop
+  // centres on that stop instead.
   useEffect(() => {
-    if (map) map.jumpTo(defaultCamera(map, routeBounds));
+    if (!map) return;
+    map.jumpTo(defaultCamera(map, routeBounds));
+    const linked = allStops.find((s) => s.id === openedFromLink.current);
+    if (linked) focusStop(map, linked.coordinates, focusOffset(sidePanel));
+    openedFromLink.current = null;
+    // Only when the map first becomes available.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
+
+  // The address bar follows the open card, so it can be copied and shared at any time.
+  useEffect(() => {
+    const href = urlWithStop(window.location.href, touring ? null : selectedId);
+    if (href !== window.location.href) window.history.replaceState(window.history.state, "", href);
+  }, [selectedId, touring]);
 
   useEffect(() => {
     // Dev builds only: lets Playwright tests and the coordinate survey drive the live map.

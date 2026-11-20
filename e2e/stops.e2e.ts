@@ -12,10 +12,10 @@ async function shot(page: Page, info: import("@playwright/test").TestInfo, name:
 }
 
 test.describe("Sprint 3: markers, cards and stop list", () => {
-  test("33 markers with 44 px touch targets", async ({ page }) => {
+  test("37 markers with 44 px touch targets", async ({ page }) => {
     await openMap(page);
     const markers = page.locator(".stop-marker");
-    await expect(markers).toHaveCount(33);
+    await expect(markers).toHaveCount(37);
     await page.getByRole("button", { name: /whole route/i }).click();
     await waitForIdle(page);
     const box = await markers.first().locator(".stop-marker-dot").boundingBox();
@@ -64,5 +64,47 @@ test.describe("Sprint 3: markers, cards and stop list", () => {
     await page.keyboard.press("Escape");
     await expect(page.getByRole("dialog")).toHaveCount(0);
     await expect(page.locator('[data-stop-id="student-academic-success-center"]')).toBeFocused();
+  });
+});
+
+test.describe("Sprint 10: study tools", () => {
+  test("a shared link opens that stop's card, with its marker in view", async ({ page }) => {
+    await openMap(page, "/?stop=bell-chapel");
+    await expect(page.getByRole("dialog")).toContainText("Trish and Dan Bell Chapel");
+    await waitForIdle(page);
+    const dot = await page.locator('[data-stop-id="bell-chapel"] .stop-marker-dot').boundingBox();
+    const card = await page.getByRole("dialog").boundingBox();
+    const vp = page.viewportSize()!;
+    expect(dot!.x).toBeGreaterThanOrEqual(0);
+    expect(dot!.x + dot!.width).toBeLessThanOrEqual(vp.width);
+    // Not hidden under the card (side panel or bottom sheet).
+    const overlaps = dot!.x < card!.x + card!.width && dot!.x + dot!.width > card!.x && dot!.y < card!.y + card!.height && dot!.y + dot!.height > card!.y;
+    expect(overlaps).toBe(false);
+    // Browsing updates the address bar.
+    await page.getByRole("button", { name: /next stop:/i }).click();
+    await expect(page).toHaveURL(/\?stop=center-for-children-and-families$/);
+  });
+
+  test("off-route stops are on the map, with Shaham under construction", async ({ page }) => {
+    await openMap(page);
+    await page.getByRole("button", { name: /shaham medical center/i }).click();
+    await expect(page.getByRole("dialog")).toContainText("Under construction · Opens 2028");
+    await expect(page.getByRole("dialog")).toContainText("Also on campus");
+  });
+
+  test("study guide: opens from the stop list, lists every stop, and prints without its buttons", async ({ page }, info) => {
+    await openMap(page);
+    await page.getByRole("button", { name: "Stops" }).click();
+    await page.getByRole("link", { name: "Printable study guide" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "Study guide" })).toBeVisible();
+    await expect(page.locator(".mapboxgl-canvas")).toHaveCount(0);
+    await expect(page.locator("article.guide-stop")).toHaveCount(2 + 32 + 5);
+    await shot(page, info, "study-guide");
+    await page.emulateMedia({ media: "print" });
+    await expect(page.getByRole("button", { name: "Print" })).toBeHidden();
+    await expect(page.getByRole("link", { name: /show on map/i }).first()).toBeHidden();
+    await page.emulateMedia({ media: "screen" });
+    await page.getByRole("link", { name: /show on map: ernest r\. graham center/i }).click();
+    await expect(page.getByRole("dialog")).toContainText("Ernest R. Graham Center");
   });
 });

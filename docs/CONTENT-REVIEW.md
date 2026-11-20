@@ -4,11 +4,12 @@ This document shows every card in the FIU donor driving tour exactly as guests s
 
 **How to review:** read each card, and check the items under "Needs confirmation" first. Send corrections, or a confirmed fact with its source, to the Student Ambassador team.
 
-## Needs confirmation (4 items)
+## Needs confirmation (5 items)
 
 - **3. Trish and Dan Bell Chapel:** Chris (2026-11-20) says the chapel opened in 2023 and improvements are under way. The FIU sources found describe an April 2023 groundbreaking and give no opening date, so the card keeps "under construction". Send an FIU link confirming the opening and the badge comes off.
 - **9. Market Station (PG5):** A 2010 FIU News article, written before the garage opened, planned three classrooms seating up to 360 students. The page couldn't be re-read in Sprint 8, so the card leaves the numbers out. Confirm them before adding.
 - **16. Sanford L. Ziff Family Education Building:** FIU pages show the Department of Teaching and Learning uses the building, but don't say everything it houses (for example, whether it is the home of the School of Education and Human Development). Confirm what the card should say.
+- **Helen and Jacob Shaham Academic Medical Center:** The marker is placed from FIU News ("near Southwest 107th Avenue and Southwest 10th Street") and the campus map; the building isn't on map data yet. Confirm the spot.
 - **Closing:** The handbook's rankings are qualitative ("among the top"). The Foundation should supply current, citable rankings and admissions numbers (SCOPE open question 4).
 
 ## Welcome
@@ -1003,6 +1004,130 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.14): A Starbucks café, quiet floors for focused study, and extended evening hours in the fall and spring.
 
 **Sources:** Handbook p.14; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
+
+**Last reviewed:** 2026-11-20
+
+### Helen and Jacob Shaham Academic Medical Center
+
+*Also on campus · Not on the driving route · Building code AMC*
+
+**Summary:** The Helen and Jacob Shaham Academic Medical Center, under construction with Baptist Health, will bring medical education and patient care together on campus.
+
+**Highlights:**
+
+- Seven stories and 163,000 square feet
+- Developed and operated in collaboration with Baptist Health
+- Same-day surgery, diagnostic imaging and multi-specialty care
+- Learning spaces for medical students and residents
+
+**Impact of support:** A $30 million gift from Helen and Jacob Shaham names the center, which will train future health professionals while expanding care for the surrounding community.
+
+**Key stat:** $30M (gift from Helen and Jacob Shaham)
+
+**Spoken narration** (61 words):
+
+> Near Southwest 107th Avenue and 10th Street, the Helen and Jacob Shaham Academic Medical Center is under construction. Built with Baptist Health and scheduled to open in 2028, the seven-story center will offer same-day surgery, imaging and specialty care, with learning spaces for medical students and residents. A thirty million dollar gift from Helen and Jacob Shaham gives it its name.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Detail* (Handbook p.17): The handbook calls it a major partnership between FIU and Baptist Health that will expand healthcare access for Westchester and surrounding communities.
+- *Detail* ([news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center](https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center)): Ground was broken in May 2026. The building is funded through a $158 million State of Florida appropriation.
+- *Detail* ([news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center](https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center)): Students in nursing, physician assistant, occupational therapy and other allied health programs will train there alongside future physicians.
+- *Detail* ([news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center](https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center)): Baptist Health and FIU Medicine already partner on 14 graduate medical education programs.
+- *Detail* ([news.fiu.edu/2026/helen-and-jacob-shaham-make-landmark-gift-to-fiu-medicine](https://news.fiu.edu/2026/helen-and-jacob-shaham-make-landmark-gift-to-fiu-medicine)): Helen and Jacob Shaham are leaders in senior living who built The Palace communities.
+
+**Sources:** Handbook p.17; [news.fiu.edu/2026/helen-and-jacob-shaham-make-landmark-gift-to-fiu-medicine](https://news.fiu.edu/2026/helen-and-jacob-shaham-make-landmark-gift-to-fiu-medicine); [news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center](https://news.fiu.edu/2026/florida-international-university-and-baptist-health-break-ground-on-new-academic-medical-center)
+
+**Last reviewed:** 2026-11-20
+
+**Needs confirmation:**
+
+- The marker is placed from FIU News ("near Southwest 107th Avenue and Southwest 10th Street") and the campus map; the building isn't on map data yet. Confirm the spot.
+
+### Ronald W. Reagan Presidential House
+
+*Also on campus · Not on the driving route · Building code RH*
+
+**Summary:** The Ronald W. Reagan Presidential House is the FIU president's residence and a gathering place where the university welcomes alumni, donors and community leaders.
+
+**Highlights:**
+
+- Opened December 2, 2001
+- A 12,700-square-foot, U-shaped building
+- Designed by architect Raul Rodriguez with a volunteer committee of community leaders
+- Chartered and funded by the FIU Foundation
+
+**Impact of support:** Chartered and funded by the FIU Foundation, the house hosts the receptions and events that bring students, alumni, donors and partners together.
+
+**Key stat:** 2001 (opened)
+
+**Spoken narration** (50 words):
+
+> The Ronald W. Reagan Presidential House opened in 2001 and is named for the fortieth President of the United States. Chartered and funded by the FIU Foundation, it is both the home of FIU's president and a venue for receptions and events that welcome students, alumni, donors and community leaders.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.8): The Presidential House symbolizes FIU's connection to leadership, community engagement, and philanthropy. Many university events hosted here bring together students, alumni, donors, and community partners who support FIU's mission.
+- *Detail* (Handbook p.8): The volunteer design committee was chaired by former FIU Trustee Rosa Sugranes.
+- *Detail* ([bellchapel.fiu.edu/why-a-chapel/about-the-chapel/](https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/)): The Trish and Dan Bell Chapel is being built on the lake beside the house.
+
+**Sources:** Handbook p.8
+
+**Last reviewed:** 2026-11-20
+
+### Deuxième Maison
+
+*Also on campus · Not on the driving route · Building code DM*
+
+**Summary:** Deuxième Maison, French for "Second House", opened in 1973 as the second building on FIU's campus.
+
+**Highlights:**
+
+- Opened in 1973, the second permanent building on campus
+- Academic offices and classrooms
+- Home to the Sky Lounge, a student gathering and event space
+- Landscaping designed in part by FIU landscape architecture students
+
+**Impact of support:** Its surroundings, designed in part by FIU landscape architecture students, show students helping to shape their own campus.
+
+**Key stat:** 1973 (opened)
+
+**Spoken narration** (43 words):
+
+> Deuxième Maison, French for Second House, opened in 1973 as the second building on FIU's campus. Today it holds academic offices, classrooms and the Sky Lounge, a student gathering space. The landscapes around it were designed in part by FIU landscape architecture students.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.28): Pair this stop with Primera Casa to illustrate FIU's early campus development and continued growth.
+
+**Sources:** Handbook p.28
+
+**Last reviewed:** 2026-11-20
+
+### Office of Veteran and Military Affairs
+
+*Also on campus · Not on the driving route · Building code VMA*
+
+**Summary:** The Office of Veteran and Military Affairs supports veterans, service members and military-connected students throughout their time at FIU.
+
+**Highlights:**
+
+- Academic advising and help with veterans' education benefits
+- Transition resources for students who have served
+- Veteran-focused community and engagement programs
+- Near the Green School and University Towers
+
+**Impact of support:** Dedicated support helps military-affiliated Panthers transition, graduate and thrive, both during and after their time at FIU.
+
+**Spoken narration** (36 words):
+
+> Near the Green School, the Office of Veteran and Military Affairs supports veterans, active-duty service members, reservists, National Guard members and military-connected students. Advising, help with education benefits and transition resources help them graduate and thrive.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.29): This office demonstrates FIU's commitment to serving those who have served our country through dedicated support services.
+
+**Sources:** Handbook p.29
 
 **Last reviewed:** 2026-11-20
 

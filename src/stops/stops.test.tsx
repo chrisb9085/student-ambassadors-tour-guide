@@ -1,6 +1,6 @@
 import { act, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { App } from "../App";
 import { FakeMap } from "../test/mapboxMock";
 import { allStops } from "../content";
@@ -19,13 +19,24 @@ describe("stop markers (S3.1)", () => {
   it("adds one marker button per stop, in route order, with Green Library last", () => {
     const { map } = renderLoaded();
     const buttons = [...map.container.querySelectorAll<HTMLButtonElement>(".stop-marker")];
-    expect(buttons).toHaveLength(33);
+    expect(buttons).toHaveLength(37);
     expect(buttons.slice(0, 3).map((b) => b.getAttribute("aria-label"))).toEqual([
       "1 Student Success Center, stop 1 of 32",
       "2 Graham Center, stop 2 of 32",
       "3 Bell Chapel, stop 3 of 32",
     ]);
     expect(buttons[32].dataset.stopId).toBe("green-library");
+  });
+
+  it("gives off-route stops an icon instead of a number: a book for the library, a building for the rest", () => {
+    const { map } = renderLoaded();
+    const dot = (id: string) => map.container.querySelector(`[data-stop-id="${id}"] .stop-marker-dot`)!;
+    expect(dot("green-library").innerHTML).toContain("M4 4.5A2.5");
+    expect(dot("reagan-presidential-house").innerHTML).toContain("M4 21V5");
+    expect(dot("shaham-academic-medical-center").closest(".stop-marker")).toHaveClass("stop-marker--construction");
+    expect(screen.getByRole("button", { name: "Shaham Medical Center, not on the driving route" })).toHaveAccessibleDescription(
+      "Helen and Jacob Shaham Academic Medical Center. Also on campus. Under construction · Opens 2028.",
+    );
   });
 
   it("keeps the button role (Mapbox would otherwise make markers role=img)", () => {
@@ -163,10 +174,16 @@ describe("stop list (S3.3)", () => {
     await user.keyboard("{ArrowDown}{ArrowDown}");
     expect(document.activeElement).toHaveTextContent("Trish and Dan Bell Chapel");
     await user.keyboard("{End}");
-    expect(document.activeElement).toHaveTextContent("Green Library");
+    expect(document.activeElement).toHaveTextContent("Office of Veteran and Military Affairs");
     await user.keyboard("{Home}{ArrowDown}{Enter}");
     expect(screen.queryByRole("region", { name: "Tour stops" })).toBeNull();
     expect(card()).toHaveTextContent("Graham Center");
+  });
+
+  it("links to the printable study guide", async () => {
+    const { user } = renderLoaded();
+    await user.click(screen.getByRole("button", { name: "Stops" }));
+    expect(screen.getByRole("link", { name: "Printable study guide" })).toHaveAttribute("href", "?view=study-guide");
   });
 
   it("toggles with the Stops button, which reports its state", async () => {
@@ -216,5 +233,52 @@ describe("For ambassadors and long names (Sprint 9)", () => {
     expect(heading).toHaveTextContent("Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences");
     expect(heading.querySelector(".info-card-title-prefix")).toHaveTextContent("Academic Health Center 3:");
     expect(card()).toHaveAccessibleName("Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences");
+  });
+});
+
+describe("shareable stop links (Sprint 10)", () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  it("opens the card a link points to, and centres the map on it", () => {
+    window.history.replaceState(null, "", "/?stop=bell-chapel");
+    const { map } = renderLoaded();
+    expect(card()).toHaveTextContent("Trish and Dan Bell Chapel");
+    expect(map.easeTo).toHaveBeenCalled();
+  });
+
+  it("ignores links to unknown stops", () => {
+    window.history.replaceState(null, "", "/?stop=nowhere");
+    renderLoaded();
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(window.location.search).toBe("");
+  });
+
+  it("keeps the address bar in step with the open card", async () => {
+    const { user } = renderLoaded();
+    await user.click(marker(/stop 2 of 32/i));
+    expect(window.location.search).toBe("?stop=graham-center");
+    await user.click(screen.getByRole("button", { name: /next stop:/i }));
+    expect(window.location.search).toBe("?stop=bell-chapel");
+    await user.click(screen.getByRole("button", { name: /close trish and dan bell chapel/i }));
+    expect(window.location.search).toBe("");
+  });
+
+  it("Copy link puts the stop's link on the clipboard and announces it", async () => {
+    const { user } = renderLoaded();
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", { value: { writeText }, configurable: true });
+    await user.click(marker(/stop 2 of 32/i));
+    await user.click(within(card()).getByRole("button", { name: "Copy link to this stop" }));
+    expect(writeText).toHaveBeenCalledWith(expect.stringMatching(/\?stop=graham-center$/));
+    expect(within(card()).getByRole("status")).toHaveTextContent("Link copied");
+  });
+
+  it("shows the link to copy by hand when the clipboard isn't available", async () => {
+    const { user } = renderLoaded();
+    Object.defineProperty(navigator, "clipboard", { value: undefined, configurable: true });
+    const prompt = vi.spyOn(window, "prompt").mockReturnValue(null);
+    await user.click(marker(/stop 2 of 32/i));
+    await user.click(within(card()).getByRole("button", { name: "Copy link to this stop" }));
+    expect(prompt).toHaveBeenCalledWith("Copy this link to the stop:", expect.stringMatching(/\?stop=graham-center$/));
   });
 });

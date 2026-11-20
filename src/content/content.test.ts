@@ -21,9 +21,21 @@ describe("tour content (SCOPE section 5)", () => {
     expect(routeStops.slice(-2).map((s) => s.code)).toEqual(["FROST", "WPAC"]);
   });
 
-  it("includes Green Library as the only also-on-campus stop", () => {
-    expect(alsoOnCampus.map((s) => s.id)).toEqual(["green-library"]);
-    expect(alsoOnCampus[0].order).toBeNull();
+  it("includes Green Library and the off-route buildings the handbook covers as also-on-campus stops", () => {
+    expect(alsoOnCampus.map((s) => s.id)).toEqual([
+      "green-library",
+      "shaham-academic-medical-center",
+      "reagan-presidential-house",
+      "deuxieme-maison",
+      "veteran-and-military-affairs",
+    ]);
+    expect(alsoOnCampus.every((s) => s.order === null)).toBe(true);
+    // Not the College of Engineering and Computing: its Engineering Center isn't on this campus (Handbook p.19).
+    expect(allStops.some((s) => /engineering center/i.test(s.name))).toBe(false);
+  });
+
+  it("marks Shaham as under construction, opening 2028", () => {
+    expect(alsoOnCampus.find((s) => s.id === "shaham-academic-medical-center")).toMatchObject({ status: "under-construction", opens: "2028" });
   });
 
   it("marks Bell Chapel as an under-construction quick pass, still with a full card", () => {

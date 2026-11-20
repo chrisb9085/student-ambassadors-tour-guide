@@ -56,7 +56,7 @@ describe("App", () => {
     expect(screen.getByRole("button", { name: /reset view/i })).toHaveFocus();
   });
 
-  it("puts the main actions before the 33 stop markers in Tab order", async () => {
+  it("puts the main actions before the stop markers in Tab order", async () => {
     const user = userEvent.setup();
     render(<App token="pk.fake-test-value" />);
     act(() => FakeMap.last.emit("load"));

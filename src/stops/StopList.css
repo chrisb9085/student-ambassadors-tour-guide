@@ -107,3 +107,13 @@
   background: var(--status-construction-bg);
   color: #9a3a05;
 }
+
+.stop-list-footer {
+  padding: 10px 16px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.stop-list-footer .btn {
+  width: 100%;
+  text-decoration: none;
+}
