@@ -160,3 +160,70 @@ The copy was drafted in Sprint 2. This sprint reviewed it the way a listener hea
 - `npm test`: 120 tests pass. New: splitter initials, review page in sync, and a per-card "written for the ear" check (35 cards).
 
 **Open for the Foundation:** the 9 items at the top of `docs/CONTENT-REVIEW.md`, plus SCOPE open questions 1 to 5.
+
+**Paper-trail correction:** the sentence-splitter fix is in commit `f45a352`, whose message ("Write narration for the ear...") doesn't mention it. Double quotes in the intended message broke `git commit` under PowerShell 5.1, so the staged files went into the next commit. No code was lost.
+
+### Sprint 6: QA (2026-11-19, stopped here at Chris's request)
+
+**Accessibility and keyboard (S6.1)**
+- **Tab order:** the main actions came after the map and all 33 markers. The title, map buttons, Stops and Start tour now come first in the DOM. Layout is unchanged, since everything is absolutely positioned.
+- **Focus during the tour:** focus used to fall back to the page top when the tour started or ended, because the button that had focus disappeared. Now Start goes to Play/Pause (virtual) or Next (ride-along), finishing goes to Exit, and exiting goes back to Start tour.
+- **axe-core audit** (`e2e/a11y.e2e.ts`, WCAG 2.1 A/AA) of 7 states: missing token, map, Bell Chapel card, stop list, start sheet, tour, tour settings. It found two serious issues, both fixed:
+  - *Label in Name (2.5.3):* marker names didn't contain their visible text. The names are now "3 Bell Chapel, stop 3 of 32", and the full name, type and status are the accessible description.
+  - *Scrollable region not keyboard-reachable:* the card body is now a focusable, labelled group with a focus ring.
+- After the fixes, the audit passes on desktop Chromium and on all three WebKit projects.
+
+**Safari engine and phones (S6.2, automated part)**
+- Added Playwright **WebKit** projects (iPad Pro 11 landscape and portrait, iPhone 13). The real map renders in WebKit.
+- **Phone bug found:** the fixed opening view (zoom 15.6) left stops 1 to 8 off-screen on a 390 px phone. The default view now zooms out to fit the whole route when the standard view wouldn't (`defaultCamera`), and Reset view uses the same logic. A new e2e test checks every stop is on screen at opening, on all device sizes.
+- **"Start tour" wrapped** onto two lines on phones; buttons no longer wrap.
+- Playwright's Windows WebKit has **no Web Speech API** (real Safari does). The app correctly fell back to captions-only mode, and the e2e speech stub now supplies `SpeechSynthesisUtterance` so WebKit runs the real speech path.
+- **Test-harness fixes:**
+  - The speech stub no longer finishes sentences by itself; the test calls `__finishSpeech()`. Before, a virtual tour could run ahead of the test under load (it was at stop 5 when the Welcome assertion ran).
+  - `waitForIdle` waits at most 15 s for tiles, since tiles only affect screenshots.
+  - The axe test was split into one test per state.
+  - Two unit tests reach Closing via the stop-32 marker instead of pressing Next 33 times, which timed out under load.
+- **Mapbox rate limit:** heavy parallel e2e runs drew HTTP 429 from Mapbox for a few minutes; it cleared on its own. Every e2e test loads real tiles, so runs count against the Mapbox free tier. Workers are now capped at 2, and WebKit runs serially.
+- **Scripts:** `npm run test:e2e` (Chromium: desktop, iPad landscape, iPad portrait), `npm run test:e2e:webkit` (Safari engine, serial), `npm run test:e2e:all`.
+
+**Deploy readiness (S6.3)**
+- README has Vercel steps (env var, Mapbox URL restrictions, what the token error means) and an updated layout and commands.
+- `docs/DEVICE-TEST.md`: a 21-item checklist for a real iPad drive, covering narration continuing after the first tap, the silent switch, screen lock, pronunciations, sunlight, marker positions and the Lot 9 question.
+
+**Test results at the time I stopped (be precise)**
+- Build, lint, validate (0/0) and **128 unit and integration tests**: all pass on the final code.
+- Last full 6-project e2e run (before the final harness fixes): 125 of 126 passed. The one failure was the race the new speech stub fixes.
+- After the fixes: the Tour Mode spec passed on all 6 projects except WebKit under 3-worker load. Run serially, WebKit passed every tour test, with 1 reported flaky (the first test after a cold WebKit start passed on retry).
+- **Not re-run after the final harness changes:** the complete Chromium suite and the complete serial WebKit suite. Chris asked to stop here. Run `npm run test:e2e:all` (about 25 minutes) to confirm.
+
+**Open (needs Chris)**
+- The real-iPad drive (`docs/DEVICE-TEST.md`), the Vercel deploy, the Foundation content review, and the Lot 9 route question.
+
+## How to walk through it yourself
+
+**One-time setup** (in a terminal at the repo root):
+
+1. `npm install`
+2. `.env.local` must contain `VITE_MAPBOX_TOKEN=pk....` (it already does on your machine).
+3. Only needed for end-to-end tests: `npx playwright install chromium webkit`
+
+**Run the site:** `npm run dev`, then open http://localhost:5173 in Chrome or Edge.
+
+**On your iPad (same Wi-Fi):** run `npx vite --host`. (In PowerShell, `npm run dev -- --host` loses the `--host`.) Open the "Network" address it prints, for example `http://192.168.x.x:5173`. If the map says the token isn't allowed for this address, add that address to the token's URL restrictions in the Mapbox dashboard, or test on the desktop first.
+
+**Walkthrough (about 10 minutes):**
+
+1. **Map:** a satellite view of MMC with the gold route, direction arrows, and the "Start · Finish" flag at the MARC loop. Try panning far away: it stops at the campus edge. Tap **Whole route**, then **Reset view**.
+2. **Markers:** large blue numbered dots are featured stops; smaller ones are quick-pass. Bell Chapel (3) has an orange dashed ring and a hard hat. Green Library is the white book icon. Zoom in to see the labels appear.
+3. **Cards:** tap any marker, or tap next to a building. Check the summary, key stat, highlights and "Impact of support". Use the Previous and Next buttons at the bottom of the card. Bell Chapel shows the "Under construction" badge. Green Library says it isn't on the driving route.
+4. **Stop list:** tap **Stops**, scroll, and pick a stop.
+5. **Keyboard (desktop):** press Tab from the top. You reach Whole route, Reset view, Stops and Start tour, then the markers in route order. Enter opens a card and Escape closes it.
+6. **Virtual tour:** **Start tour → Virtual tour**. The Welcome narration plays, with captions highlighting the current sentence. The vehicle drives to each stop, and narration continues on its own. Try Pause/Play, Skip, Previous, and tapping a marker to jump there.
+7. **Ride-along:** Exit, then **Start tour → Ride-along**. It waits for **Next** at each stop.
+8. **Settings** (gear button during a tour): Auto-advance, Slower/Normal/Faster, and the voice list. Your choices are remembered.
+9. **Closing:** tap the stop-32 marker, then Next. The Closing card plays, then **Restart** and **Exit** appear.
+10. **Phone size:** in Chrome DevTools (F12 → device toolbar), pick an iPhone. The whole route should fit when the page opens.
+
+**Checks:** `npm test` (128 tests, about 20 s), `npm run validate`, `npm run test:e2e` (Chromium, about 10 minutes), `npm run test:e2e:webkit` (Safari engine, about 15 minutes).
+
+**What to review next:** `docs/CONTENT-REVIEW.md` (send it to the Foundation), then `docs/DEVICE-TEST.md` (in the vehicle).

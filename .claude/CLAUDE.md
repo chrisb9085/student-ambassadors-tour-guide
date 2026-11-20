@@ -21,7 +21,8 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 - `npm test`: Vitest unit and component tests (jsdom)
 - `npm run validate` (same as `node .claude/skills/validate-tour-content/scripts/validate.mjs`): validate `content/` (run after any content change). It also warns about narration that text-to-speech reads badly.
 - `npm run content:review`: regenerate `docs/CONTENT-REVIEW.md`, the Foundation's review page. Run after any content change; a unit test fails if it's stale.
-- `npm run test:e2e`: Playwright end-to-end tests against the real map (desktop, iPad landscape, iPad portrait). Uses the token from `.env.local` through Vite.
+- `npm run test:e2e`: Playwright end-to-end tests against the real map in Chromium (desktop, iPad landscape, iPad portrait). Uses the token from `.env.local` through Vite. Each run loads real Mapbox tiles.
+- `npm run test:e2e:webkit`: the same specs in WebKit (Safari's engine) on iPad and iPhone profiles, run serially because headless WebKit is slow. Run it before a release.
 
 ## Workflow
 
