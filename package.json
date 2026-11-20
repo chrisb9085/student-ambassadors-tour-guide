@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "validate": "node .claude/skills/validate-tour-content/scripts/validate.mjs"
+    "validate": "node .claude/skills/validate-tour-content/scripts/validate.mjs",
+    "content:review": "node tools/content-review.mjs"
   },
   "dependencies": {
     "mapbox-gl": "^3.35.1",
