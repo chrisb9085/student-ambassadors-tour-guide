@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Map as MapboxMap } from "mapbox-gl";
 import { getMapboxToken } from "./lib/config";
 import { focusOffset, tourPadding, useSidePanelLayout } from "./lib/layout";
@@ -6,7 +6,7 @@ import { MissingToken } from "./components/MissingToken";
 import { MapView } from "./map/MapView";
 import { MapControls } from "./map/MapControls";
 import { RouteLayer } from "./map/RouteLayer";
-import { focusStop, resetView, showWholeRoute } from "./map/camera";
+import { defaultCamera, focusStop, resetView, showWholeRoute } from "./map/camera";
 import { allStops, alsoOnCampus, route, routeBounds, routeStops, tour } from "./content";
 import { StopMarkers } from "./stops/StopMarkers";
 import { StopCard } from "./stops/StopCard";
@@ -57,6 +57,19 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
   const t = useTour({ map, steps: TOUR.steps, measured: TOUR.measured, speaker, settings: speechSettings, padding });
   const touring = t.state.active;
 
+  // When the tour ends, its controls disappear: put keyboard focus back on Start tour instead of the page top.
+  const startButtonRef = useRef<HTMLButtonElement>(null);
+  const wasTouring = useRef(false);
+  useEffect(() => {
+    if (wasTouring.current && !touring) startButtonRef.current?.focus();
+    wasTouring.current = touring;
+  }, [touring]);
+
+  // Phones: open on a view that fits the whole route, not the iPad-sized default.
+  useEffect(() => {
+    if (map) map.jumpTo(defaultCamera(map, routeBounds));
+  }, [map]);
+
   useEffect(() => {
     // Dev builds only: lets Playwright tests and the coordinate survey drive the live map.
     if (import.meta.env.DEV) (window as unknown as { __tourMap?: MapboxMap | null }).__tourMap = map;
@@ -91,17 +104,7 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
   return (
     <div className={`app${touring ? " is-touring" : ""}`}>
       <main className="app-main" aria-label="Campus tour map">
-        <MapView token={token} onMapReady={setMap} />
-        {map && <RouteLayer map={map} route={route} start={tour.welcome.coordinates} />}
-        {map && (
-          <StopMarkers
-            map={map}
-            stops={allStops}
-            total={routeStops.length}
-            selectedId={highlightedId}
-            onSelect={touring ? t.goToStop : selectStop}
-          />
-        )}
+        {/* DOM order is Tab order: title and main actions first, then the map and its 33 stop markers. */}
         <h1 className="app-title">
           <span className="app-title-fiu">FIU</span> Campus Tour
         </h1>
@@ -109,7 +112,7 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
         {!touring && (
           <MapControls
             disabled={!map}
-            onResetView={() => map && resetView(map)}
+            onResetView={() => map && resetView(map, routeBounds)}
             onShowRoute={() => map && showWholeRoute(map, routeBounds)}
           />
         )}
@@ -135,6 +138,7 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
               Stops
             </button>
             <button
+              ref={startButtonRef}
               type="button"
               className="btn btn-primary"
               disabled={!map}
@@ -150,6 +154,18 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
               Start tour
             </button>
           </div>
+        )}
+
+        <MapView token={token} onMapReady={setMap} />
+        {map && <RouteLayer map={map} route={route} start={tour.welcome.coordinates} />}
+        {map && (
+          <StopMarkers
+            map={map}
+            stops={allStops}
+            total={routeStops.length}
+            selectedId={highlightedId}
+            onSelect={touring ? t.goToStop : selectStop}
+          />
         )}
 
         {chooserOpen && <StartTourSheet onStart={startTour} onCancel={() => setChooserOpen(false)} />}
