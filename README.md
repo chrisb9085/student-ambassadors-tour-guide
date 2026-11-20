@@ -2,7 +2,7 @@
 
 An interactive website for the FIU Foundation Student Ambassadors' VIP and donor campus tours. It shows a satellite map of FIU's Modesto A. Maidique Campus with the ambassadors' driving tour route drawn on top. Each stop opens a short card about the building, written for donors, VIPs and community partners. A guided Tour Mode follows the route stop by stop and reads each card aloud.
 
-> **Status:** Planning. No code yet. See [SCOPE.md](SCOPE.md) for the full project scope.
+> **Status:** Planning. No code yet. See [SCOPE.md](docs/SCOPE.md) for the full project scope.
 
 ## Features (MVP)
 
@@ -24,22 +24,34 @@ An interactive website for the FIU Foundation Student Ambassadors' VIP and donor
 | Student Ambassadors | A visual aid in the vehicle during live tours, and a study guide for the route |
 | FIU Foundation staff | A link to share with guests before or after a visit |
 
-## Planned tech stack
+## Tech stack
 
-The stack isn't final. This is the current proposal from SCOPE.md:
+- React + TypeScript on Vite
+- Mapbox GL JS with Mapbox satellite imagery
+- Stop content as JSON in `content/` (no backend or database in the MVP)
+- Text-to-speech through the browser's Web Speech API
+- Hosted on Vercel
 
-- Static single-page site (Vite with TypeScript)
-- MapLibre GL JS or Leaflet, using satellite imagery
-- Route and stop locations as GeoJSON
-- Stop content in JSON or Markdown files that people who don't write code can edit
-- Text-to-speech through the browser's Web Speech API (free, no API keys)
-- Hosting on GitHub Pages
+Supabase may be added later for ambassador logins, saved donor routes and notes.
+
+## Local setup
+
+The app isn't scaffolded yet. Once it is:
+
+1. Copy `.env.example` to `.env.local` and set `VITE_MAPBOX_TOKEN` to your public Mapbox token. Never commit `.env.local`.
+2. Run `npm install`, then `npm run dev`.
+
+On Vercel, set `VITE_MAPBOX_TOKEN` under the project's environment variables.
 
 ## Repository layout
 
 ```
-SCOPE.md                     Project scope: goals, route, MVP, phases, open questions
 README.md                    This file
+.env.example                 Environment variables to copy into .env.local
+.claude/CLAUDE.md            Instructions for Claude Code
+.claude/settings.json        Claude Code permissions (blocks reading .env files and pushing)
+.claude/skills/              Project skills: add a tour stop, write donor cards, validate content
+docs/SCOPE.md                Project scope: goals, route, MVP, phases, open questions
 docs/reference/
   aerial-route.png           Aerial view of campus with the driving route in red
   campus-map-labeled.png     Labeled campus map with building codes
@@ -66,7 +78,7 @@ public/                      Static assets (photos, icons)
    - Spanish
 3. **Phase 3 (undecided):** an optional generative AI assistant.
 
-See [SCOPE.md](SCOPE.md) for details.
+See [SCOPE.md](docs/SCOPE.md) for details.
 
 ## Content sources
 
@@ -77,4 +89,4 @@ The FIU Foundation approves all card content before it is shown to donors.
 
 ## Contributing
 
-Development hasn't started yet. Content edits will go in the `content/` files once they exist. Check [SCOPE.md](SCOPE.md) for open questions before starting work.
+Development hasn't started yet. Content edits will go in the `content/` files once they exist. Check [SCOPE.md](docs/SCOPE.md) for open questions before starting work, and run `node .claude/skills/validate-tour-content/scripts/validate.mjs` after changing content.

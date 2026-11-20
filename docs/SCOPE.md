@@ -1,6 +1,6 @@
 # FIU Foundation Interactive Campus Tour: Project Scope
 
-**Status:** Draft for review (revision 4)
+**Status:** Draft for review (revision 5)
 **Owner:** Chris (FIU Foundation Student Ambassadors)
 **Last updated:** 2026-11-19
 **Source content:** *Student Ambassador Handbook (Text Draft)*, Chris's route description, official FIU web pages (Appendix A)
@@ -167,27 +167,27 @@ The handbook is written for ambassadors, and some sections are student-logistics
 - Use the official FIU web content gathered in Appendix A for stops the handbook doesn't cover, and have the Foundation approve it.
 - Replace vague claims with verified numbers. The Ranking and Admissions pages currently say "ranked among the top public universities" without figures; the Foundation should supply current rankings and stats.
 
-## 6. Proposed technical approach
+## 6. Technical approach (decided 2026-11-19)
 
-Kept deliberately simple so a small student team can maintain it.
+Kept deliberately simple so a small student team can maintain it. **No backend and no database in the MVP.**
 
-| Area | Recommendation | Why |
+| Area | Choice | Notes |
 |---|---|---|
-| Site type | Static single-page site | No server, cheap or free hosting, fast |
-| Framework | Vite with TypeScript (plain or React, team's choice) | Small, modern tooling |
-| Map engine | MapLibre GL JS (or Leaflet) | Open source, smooth pan/zoom/animation on touch devices |
-| Satellite imagery | Option A: a satellite tile service (Esri World Imagery, Mapbox Satellite or MapTiler Satellite), restricted to campus bounds. Option B: one high-resolution aerial image of campus (for example from Miami-Dade County's public aerial imagery), georeferenced and served as a single overlay. | A is quickest to set up but needs an API key or account and attribution, and has usage terms. B has no ongoing cost or key and works offline, but needs one-time preparation and periodic refreshes. **Recommend starting with A for prototyping and confirming licensing, then deciding.** |
-| Route | GeoJSON line traced along campus roads; stop markers as GeoJSON points | Easy to edit; drives the animated vehicle marker |
-| Content | JSON or Markdown files in the repo | Editable by non-developers through GitHub |
+| Framework | React + TypeScript on Vite | Static single-page app |
+| Map | Mapbox GL JS with Mapbox satellite imagery | Smooth pan, zoom and camera animation for Tour Mode |
+| Mapbox token | Public token in `VITE_MAPBOX_TOKEN`: `.env.local` locally (gitignored), Vercel environment variables in production | Never committed. Restrict the token by URL in the Mapbox dashboard. `.env.example` documents the variable. |
+| Route | `content/route.geojson` LineString traced along campus roads | Drives the animated vehicle marker |
+| Content | `content/stops.json` and `content/tour.json` in the repo | Editable by non-developers; schema in `.claude/CLAUDE.md` |
 | Text-to-speech | Web Speech API (`speechSynthesis`) | Free, no keys, built into browsers |
-| Hosting | GitHub Pages (or Netlify/Vercel) | Free, deploys on push |
-| Analytics (optional) | Privacy-friendly page and tour-completion counts | Shows the Foundation how it is used; no personal data |
+| Hosting | Vercel | Deploys from the repo; preview deployments for review |
+| Later (not MVP) | Supabase | Possible for ambassador logins, saved custom donor routes and ambassador notes |
+| Analytics (optional) | Privacy-friendly page and tour-completion counts | No personal data |
 
 ## 7. Phases
 
 ### Phase 1: MVP
 
-1. Pick the satellite imagery source and confirm its terms of use.
+1. Set up the Mapbox account and URL-restricted public token, and confirm Mapbox satellite terms (attribution) for this use.
 2. Trace the driving route from `reference/aerial-route.png` and plot all stop coordinates.
 3. Write donor-focused card text for every route stop, Green Library, Welcome and Closing, using the handbook and Appendix A.
 4. Build the FIU-themed interface: map, markers (featured, quick pass, under construction, also on campus), stop list and cards.
@@ -218,7 +218,7 @@ Chris is still deciding whether to include generative AI. Options to evaluate:
 Considerations before committing:
 
 - **Accuracy and reputation:** answers to donors must be correct. Any assistant should be restricted to approved content and say "I'll connect you with someone" when it doesn't know, matching the handbook's guidance.
-- **Cost and keys:** requires a server or serverless function to hold API keys, which ends the "free static site" setup.
+- **Cost and keys:** requires a server or serverless function (for example a Vercel function) to hold API keys, which the MVP deliberately avoids.
 - **Privacy:** no donor personal information should be sent to a third-party model.
 - **Approval:** FIU and Foundation policy on AI use in donor-facing materials.
 
@@ -254,7 +254,7 @@ A sensible middle ground is to use AI only behind the scenes (drafting card copy
 |---|---|
 | Stale or inaccurate facts in front of donors | Single content file, a named content approver, a "last reviewed" date and source link per stop |
 | Official FIU sources disagree with each other (see Appendix A) | Use the most recent source and have the Foundation confirm numbers before launch |
-| Satellite imagery licensing, cost or outdated imagery (construction sites may look different) | Confirm terms before launch; Option B (owned aerial image) if needed; construction renderings on cards |
+| Mapbox usage limits, token leaks or outdated imagery (construction sites may look different) | URL-restricted public token kept in env vars only; monitor usage on the free tier; construction renderings on cards |
 | Labels hard to read over satellite imagery | Solid label chips, high-contrast FIU blue and gold markers, tested outdoors in sunlight |
 | Narration out of sync with the moving vehicle | Ride-along mode defaults to manual Next; short cards; quick-pass stops; GPS triggers in Phase 2 |
 | Browser TTS voices sound robotic on some devices | Pick the best available voice automatically; Phase 2 pre-recorded audio |
