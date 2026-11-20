@@ -124,6 +124,7 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Rewrite copy for the type changes: five stops become featured (40 to 90 words of narration each); WPAC becomes quick pass (35 words or fewer). Market Station, Science Classroom Complex, Tech Station and Ryder have thin sources, so they need more fiu.edu facts.
 - [ ] Remove resolved `reviewNotes`, regenerate `docs/CONTENT-REVIEW.md`, run the validator and tests.
 - [ ] Update the Sprint 2 open question in TRACE.md: Lot 9 resolved.
+- [ ] **Update the docs for the new purpose:** SCOPE §3 (audience), the README intro and CLAUDE.md still describe donors using the site in the vehicle. Rewrite them as an ambassador preparation tool, so future work follows the right goal. Card copy stays donor-facing, because it's what ambassadors say on the tour.
 
 ### B. More natural narration (high priority: ambassadors study by listening)
 - [ ] Quick win: slightly slower default speed and short pauses between sentences.
@@ -131,7 +132,14 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Or record a real ambassador's voice for the 35 narrations.
 
 ### C. Study features (new priority from the "preparation tool" answer)
-- [ ] **"More" toggle** on cards with longer handbook detail (SCOPE §4.2): the extra facts ambassadors need to know, not just the donor summary.
+- [ ] **"For ambassadors" section on each card** (collapsible): the handbook's tour guide tip for that stop (most stops have one, for example "Emphasize FIU's commitment to student success…") plus the longer handbook detail. This covers SCOPE §4.2's "More" toggle. It needs a new optional content field (for example `guideNotes`), sourced like every other fact, and validator and review-page support.
+- [ ] **Printable study guide:** every stop in route order with key facts and tour guide tips, for studying away from the screen. Build it from `content/`, as `tools/content-review.mjs` does, as a print-friendly page in the app or a generated document. Leave out `reviewNotes`.
+- [ ] **Off-route buildings the handbook already covers**, as "Also on campus" stops like Green Library (SCOPE Phase 2, but already sourced):
+  - Helen and Jacob Shaham Academic Medical Center (under construction, opens 2028; Handbook p.17)
+  - Ronald W. Reagan Presidential House (Handbook p.8)
+  - Deuxième Maison (Handbook p.28; currently only mentioned on the Primera Casa card)
+  - Office of Veteran and Military Affairs, near SIPA and University Towers (Handbook p.29)
+  - **Not the College of Engineering and Computing:** its Engineering Center is near SW 107th Ave and Flagler St, not on MMC (Handbook p.19). Innovation 1 (stop 8) is its presence on MMC; mention the college there instead.
 - [ ] **Tour progress strip:** numbered dots for done, skipped and current stops; jump anywhere.
 - [ ] **Shareable stop links** (`?stop=graham-center`) so advisors can point ambassadors at a building.
 - [ ] Ideas to confirm with Chris: a self-quiz mode (hide the card, guess the building), and a "my tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours).
@@ -151,7 +159,10 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Phone landscape layout; larger text setting.
 - [ ] Keep the screen on during a tour. Lower priority now that it isn't used in the vehicle.
 
-### F. Chris's steps
+### F. Testing
+- [ ] **Cheaper, steadier end-to-end tests:** most e2e tests don't need real satellite imagery. Add a mode that serves stand-in map tiles locally, and keep one or two visual checks (map loads with no Mapbox errors, route screenshot) on real tiles. This cuts Mapbox tile usage (heavy runs hit Mapbox's per-minute rate limit in Sprint 6) and makes runs faster and less flaky, especially in WebKit.
+
+### G. Chris's steps
 - [ ] Walk through the site using the guide at the end of `.claude/sprints/TRACE.md`.
 - [ ] Run `npm run test:e2e:all` once to confirm the last test fixes.
 - [ ] Optional: if an FIU page later confirms Bell Chapel has opened, send the link and the badge comes off.
@@ -162,3 +173,8 @@ Ordered by priority now that the site is a preparation tool.
 - Ride-along mode stays, but gets no new work.
 - GPS ride-along (SCOPE Phase 2): not needed if the site isn't used in the vehicle.
 - Generative AI assistant (Phase 3): left out for now.
+
+### Parked (Chris, 2026-11-20: "not now" or "later")
+- Automatic checks on GitHub (CI): build, lint, unit tests and validate on every push.
+- Stale-content warning in the validator when `lastReviewed` is about 12 months old.
+- A Mapbox token, or URL restrictions, for Vercel preview deployments.
