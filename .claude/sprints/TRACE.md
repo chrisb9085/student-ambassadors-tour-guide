@@ -46,7 +46,7 @@ Each sprint is built on its own branch and merged with `git merge --no-ff`. `git
 - **Mapbox satellite tiles returned HTTP 429** with `x-rate-limit-limit: -1` while street tiles loaded fine, so the map showed labels on a blank background. The cause was on the account side; Chris updated the Mapbox account and the imagery now loads. The e2e suite now fails if any Mapbox request errors, so a recurrence shows up immediately.
 - **Placing stops:** instead of estimating from the reference PNGs, I read the named place labels, building footprints and road lines straight out of the Mapbox Streets tiles in the running app (OpenStreetMap data). That gave coordinates for every stop except Innovation 1. FIU's facilities list gives Innovation 1 the address 800 SW 107th Ave, which puts it at the new building north-east of the E Campus Cir roundabout. The public Overpass API was at capacity, so I dropped it.
 - **Route:** a small router (shortest path on drivable roads, parking aisles weighted ×3) through 29 hand-placed waypoints that follow the red trace. The result is 5.1 km and 595 points, starting and ending at the PG1/PG2 loop in front of MARC. The tools and waypoints are in `tools/route/`, so the route can be rebuilt or extended.
-- **Reading the trace:** after the University Dr leg, the trace goes down and back the SW 112th Ave boulevard loop, which matches PCA (14), Ryder at the bottom (15) and Ziff coming back up (16). It then follows E Campus Cir along the north and west edges of Lot 9 rather than driving through the lot. **SCOPE §8 calls "the top-middle loop" the drive through Lot 9; in the trace, that loop is the 112th Ave boulevard. Chris to confirm.**
+- **Reading the trace:** after the University Dr leg, the trace goes down and back the SW 112th Ave boulevard loop, which matches PCA (14), Ryder at the bottom (15) and Ziff coming back up (16). It then follows E Campus Cir along the north and west edges of Lot 9 rather than driving through the lot. **SCOPE §8 calls "the top-middle loop" the drive through Lot 9; in the trace, that loop is the 112th Ave boulevard. Chris to confirm.** *Resolved 2026-11-20: Chris confirmed the drive follows E Campus Cir past Lot 9, not through it, as traced. Stop 18's card dropped Lot 9 in Sprint 8.*
 - **Card copy was drafted now, not in Sprint 5,** because the handbook arrived and the validator needs real content for every stop. Sprint 5 becomes a copy review. Every card has sources; featured narrations are 40 to 90 words and quick-pass narrations 35 words or fewer (validator: 0 warnings).
 - **Donor facts checked against fiu.edu:** the library is officially the *Steven* and Dorothea Green Library (the handbook says "Stephen"). FIU's 2014-15 annual report confirms the 1997 $2.5M Green Family Foundation gift endowing the Frost Art Museum and the Green Library, and the 2015 $20M commitment from Ambassador Steven J. Green naming SIPA. Both now appear on the cards with that source. The FIU Giving News page returned 403, so it isn't cited.
 - **Optional `reviewNotes`** on stops and tour cards list facts the Foundation must confirm. A unit test makes sure review wording never leaks into guest-facing fields.
@@ -65,7 +65,7 @@ Each sprint is built on its own branch and merged with `git merge --no-ff`. `git
 - `npm run test:e2e`: 15 tests pass (5 × 3 viewports): missing-token screen, map loads with zero Mapbox errors and visible attribution, 44 px buttons, Reset view and Whole route, panning clamped in both directions, route layers rendered on screen, start marker visible. I reviewed the desktop and iPad-portrait screenshots: the route follows the roads, arrows point in driving direction, and the start flag sits at the MARC loop.
 
 **Open for Chris and the Foundation**
-- Confirm the Lot 9 vs SW 112th Ave reading above.
+- ~~Confirm the Lot 9 vs SW 112th Ave reading above.~~ Resolved 2026-11-20 (see above).
 - Facts flagged in `reviewNotes`: Bell Chapel opening date, ZEB contents and exact name, Parkview capacity (596 vs 620), where Veteran and Military Affairs is, Innovation 1 square footage, Green Library collection size and spelling, Closing card rankings.
 - Stop markers sit on or beside each building, not always on the road edge. Chris may want to nudge a few after the first drive with the app.
 
@@ -223,6 +223,65 @@ Backlog item F, done first so every later sprint can run the full e2e suite with
 
 **Found along the way**
 - `npm test` from Git Bash fails every file with "Vitest failed to find the current suite". It does this on the committed code too. Git Bash starts in `c:/...` while Node resolves `C:/...`, so Vitest is loaded twice. From PowerShell (and from VS Code's terminal) all 128 pass. Run unit tests from PowerShell; nothing in the repo is wrong.
+
+### Sprint 8: content updates (2026-11-20)
+
+Backlog section A: Chris's review answers, full official names, the type changes and the new purpose.
+
+**Built**
+- **Full official names** on cards, in the stop list, in marker descriptions and in narration: "Academic Health Center 1" to "5" with their college or center, "Ernest R. Graham Center", and "College of Business Complex" (Lot 9 dropped from stop 18). Map chips keep their short labels.
+- **Type changes from SCOPE §5:**
+  - Now featured, with new copy: Market Station, Science Classroom Complex, Tech Station, Ryder Business Building, and Wellness and Recreation Center.
+  - Now quick pass, with a 29-word narration: Wertheim Performing Arts Center.
+- **Facts added from fiu.edu** (each listed in the stop's `sources`):
+  - Bell Chapel: $5M lead gift in 2019, total support of $14M, architect Gurrimatute, beside the Reagan Presidential House.
+  - Innovation 1: 125,000 sq ft, six stories (cec.fiu.edu/about). Computing and biomedical engineering faculty work there (CEC dean's update, September 2025), so the card now covers the College of Engineering and Computing's presence on this campus.
+  - Academic Health Center 4: opened March 2013, $57.5M, 136,082 sq ft, wet and dry labs, classrooms, seminar rooms and a mass spectrometry lab (FIU News 2014).
+  - Tech Station: a $3M, 8,000 sq ft technology hub funded by the Florida Board of Governors, with its labs, team rooms and makerspace (cis.fiu.edu).
+  - Ryder Business Building: Global Sales Lab with 12 training rooms, used by 400+ students each semester (business.fiu.edu).
+  - Ziff building: Department of Teaching and Learning classrooms and meeting rooms (case.fiu.edu).
+  - Graham Center: the name honors Ernest R. Graham, since 1991 (FIU digital collections).
+- **Review answers applied:**
+  - Parkview Hall: 620 residents.
+  - Innovation 1: 125,000 sq ft.
+  - University Towers: the "Nearby" Veteran and Military Affairs line stays.
+  - Ziff: name kept as "Sanford L. Ziff".
+  - Green Library: "Steven", and "more than 2 million" items.
+- **Review notes:** 4 left for the Foundation, down from 9:
+  - Bell Chapel: Chris's "opened 2023" answer against the FIU sources.
+  - Market Station: classroom numbers.
+  - Ziff: what the building houses.
+  - Closing card: rankings, parked as "on request".
+  - `docs/CONTENT-REVIEW.md` regenerated.
+- **Docs for the new purpose:** SCOPE (revision 6: §1 purpose, §2 goal 3 now primary, §3 audience), the README intro and audience table, and CLAUDE.md (purpose, FIU-sources rule, the full-names rule).
+- **Tests:** a new "decisions from Chris" block in `src/content/content.test.ts`:
+  - AHC full names, also spoken in narration
+  - Ernest R. Graham
+  - types match SCOPE §5
+  - no "Lot 9"
+  - Parkview 620, Innovation 125,000, Steven Green
+  - Bell Chapel stays under construction with Chris's answer noted
+  - Two existing tests now expect "Ernest R. Graham Center".
+
+**Source differences noted (FIU-source rule: use FIU, record the difference)**
+| Stop | Sources disagree | Card uses |
+|---|---|---|
+| Bell Chapel | Chris: opened 2023. FIU News (April 2023): construction "will begin soon"; bellchapel.fiu.edu: "groundbreaking in early 2023", future tense, no opening date | Under construction (also in `reviewNotes`) |
+| Bell Chapel | Seating 250 (FIU News 2019, 2023) vs 224 (bellchapel.fiu.edu); size 17,000 vs 18,300 sq ft | Neither number |
+| Innovation 1 | 137,306 gross sq ft (facilities list), 125,000 (cec.fiu.edu, Chris), 120,000 (an April 2025 CEC post) | 125,000 |
+| Parkview Hall | 596 residents (housing site) vs 620 beds (FIU News 2014, Chris) | 620 |
+| Green Library | "Stephen" (handbook, Chris, SCOPE) vs "Steven" (FIU annual report, library); 2M+ items (handbook) vs 1.6M volumes (FIU research page) | "Steven", 2M+ |
+| Graham Center | "Earnest" (SCOPE) vs "Ernest" (FIU) | Ernest |
+| Ziff | "Sanford L. Ziff Family Education Building" (SCOPE, Chris) vs "Sanford and Dolores Ziff EDU" (FIU building list) and "Ziff Education Building" (FIU calendars). No FIU page gives a full official name | Chris's answer, since FIU pages disagree with each other |
+| Ryder | "Ryder Business Building" (facilities list, Global Sales Center page) vs "Ryder Center" (College of Business locations page) | Ryder Business Building; "Ryder Center" as a highlight |
+| AHC 4 | "Science Classroom Complex" (handbook) vs "Academic Health Center 4" (FIU News 2014; no FIU page found with the handbook name) | Both, in the full-name format |
+
+**Couldn't reach** (HTTP 403/404, not retried): the 2010 Market Station article, FIU News 2015 on Tech Station, and research.fiu.edu facilities. The Market Station classroom numbers stay off the card until confirmed.
+
+**Tested**
+- Validate passes with 0 errors and 0 warnings; 133 unit tests, lint and build pass.
+- Chromium e2e on the stand-in: 60 of 63 passed. The 3 failures were one test, run on each of the three projects, that still clicked "Next stop: Center for Children and Families". After updating it to the full name, the stops spec passed 15 of 15 on all three projects.
+- Looked at the AHC 3 card and the stop list at phone width (390 px). The long names wrap cleanly, but the AHC 3 title takes four lines. Backlog D now has an item to show the "Academic Health Center 3:" prefix as a small line above the title.
 
 ## How to walk through it yourself
 

@@ -41,7 +41,7 @@ test.describe("Sprint 3: markers, cards and stop list", () => {
     await expect(page.getByRole("dialog")).toContainText("Under construction");
     await waitForIdle(page);
     await shot(page, info, "card-bell-chapel");
-    await page.getByRole("button", { name: /next stop: center for children and families/i }).click();
+    await page.getByRole("button", { name: /next stop: academic health center 1: center for children and families/i }).click();
     await expect(page.getByRole("dialog")).toContainText("Stop 4 of 32");
   });
 

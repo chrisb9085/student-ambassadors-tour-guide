@@ -80,11 +80,11 @@ describe("stop cards (S3.2)", () => {
     const { user } = renderLoaded();
     await user.click(marker(/stop 1 of 32/i));
     expect(screen.getByRole("button", { name: "Previous stop" })).toBeDisabled();
-    await user.click(screen.getByRole("button", { name: /next stop: graham center/i }));
-    expect(card()).toHaveTextContent("Graham Center");
+    await user.click(screen.getByRole("button", { name: /next stop: ernest r. graham center/i }));
+    expect(card()).toHaveTextContent("Ernest R. Graham Center");
     await user.click(screen.getByRole("button", { name: /next stop: trish and dan bell chapel/i }));
     expect(card()).toHaveTextContent("Under construction");
-    await user.click(screen.getByRole("button", { name: /previous stop: graham center/i }));
+    await user.click(screen.getByRole("button", { name: /previous stop: ernest r. graham center/i }));
     expect(card()).toHaveTextContent("Stop 2 of 32");
   });
 

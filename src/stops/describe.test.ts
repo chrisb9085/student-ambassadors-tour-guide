@@ -27,7 +27,7 @@ describe("stop descriptions", () => {
 
   it("uses the short label when there is one", () => {
     expect(shortLabel(byId("steven-j-green-school"))).toBe("Green School (SIPA)");
-    expect(shortLabel({ ...byId("graham-center"), label: undefined } as Stop)).toBe("Graham Center");
+    expect(shortLabel({ ...byId("graham-center"), label: undefined } as Stop)).toBe("Ernest R. Graham Center");
   });
 
   it("labels stop types", () => {

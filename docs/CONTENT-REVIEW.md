@@ -4,16 +4,11 @@ This document shows every card in the FIU donor driving tour exactly as guests s
 
 **How to review:** read each card, and check the items under "Needs confirmation" first. Send corrections, or a confirmed fact with its source, to the Student Ambassador team.
 
-## Needs confirmation (9 items)
+## Needs confirmation (4 items)
 
-- **3. Trish and Dan Bell Chapel:** Opening date isn't in the handbook. Add it to "opens" when the Foundation confirms it.
-- **8. Innovation Complex: Innovation 1:** Square footage differs by source: the facilities list gives 137,306 gross; College of Engineering and Computing materials say about 125,000. The card uses the facilities list.
-- **16. Sanford L. Ziff Family Education Building:** FIU pages found don't say what the building houses (SCOPE Appendix A). Needs content.
-- **16. Sanford L. Ziff Family Education Building:** Map data labels it "Sanford and Dolores Ziff Education Building". Confirm the official name.
-- **24. Parkview Hall, Honors College:** Sources disagree on capacity: the housing site says 596 residents; a 2014 FIU News article says 620 beds. The card uses the housing site.
-- **25. University Towers:** The handbook pairs Veterans and Military Affairs with the Towers, but map data places the office near the Student Health Center. Confirm where it is.
-- **Steven and Dorothea Green Library:** The handbook spells it "Stephen"; FIU's annual report and library pages use "Steven". The card uses "Steven".
-- **Steven and Dorothea Green Library:** Collection size differs by source: the handbook says over 2 million items; an FIU research-resources page says more than 1.6 million volumes.
+- **3. Trish and Dan Bell Chapel:** Chris (2026-11-20) says the chapel opened in 2023 and improvements are under way. The FIU sources found describe an April 2023 groundbreaking and give no opening date, so the card keeps "under construction". Send an FIU link confirming the opening and the badge comes off.
+- **9. Market Station (PG5):** A 2010 FIU News article, written before the garage opened, planned three classrooms seating up to 360 students. The page couldn't be re-read in Sprint 8, so the card leaves the numbers out. Confirm them before adding.
+- **16. Sanford L. Ziff Family Education Building:** FIU pages show the Department of Teaching and Learning uses the building, but don't say everything it houses (for example, whether it is the home of the School of Education and Human Development). Confirm what the card should say.
 - **Closing:** The handbook's rankings are qualitative ("among the top"). The Foundation should supply current, citable rankings and admissions numbers (SCOPE open question 4).
 
 ## Welcome
@@ -69,11 +64,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Last reviewed:** 2026-11-19
 
-### 2. Graham Center
+### 2. Ernest R. Graham Center
 
 *Featured · Building code GC*
 
-**Summary:** The Graham Center is FIU's student union and the heart of campus life, with more than 3.5 million visits a year.
+**Summary:** The Ernest R. Graham Center is FIU's student union and the heart of campus life, with more than 3.5 million visits a year.
 
 **Highlights:**
 
@@ -86,45 +81,48 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Key stat:** 3.5M+ (visits a year)
 
-**Spoken narration** (74 words):
+**Spoken narration** (76 words):
 
-> The Graham Center is the heart of student life at FIU, with more than three and a half million visits a year. It is home to Student Government and hundreds of student organizations, including twenty-nine fraternities and sororities. The Center for Leadership and Service develops student leaders through programs like Alternative Breaks and Roarthon, often supported by donor-funded programming and scholarships. The Disability Resource Center here serves more than thirty-five hundred students a year.
+> The Ernest R. Graham Center is the heart of student life at FIU, with more than three and a half million visits a year. It is home to Student Government and hundreds of student organizations, including twenty-nine fraternities and sororities. The Center for Leadership and Service develops student leaders through programs like Alternative Breaks and Roarthon, often supported by donor-funded programming and scholarships. The Disability Resource Center here serves more than thirty-five hundred students a year.
 
-**Sources:** Handbook pp.12-13
+**Sources:** Handbook pp.12-13; [digitalcommons.fiu.edu/fiu_images/1/](https://digitalcommons.fiu.edu/fiu_images/1/)
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
 ### 3. Trish and Dan Bell Chapel
 
 *Quick pass · Under construction · Building code BELL*
 
-**Summary:** The Trish and Dan Bell Chapel, now under construction, will be a multifaith space for worship, reflection and spiritual growth beside the lake.
+**Summary:** The Trish and Dan Bell Chapel, now under construction beside the lake, will be a multifaith gathering place for worship, contemplation and mutual understanding.
 
 **Highlights:**
 
 - Welcoming to students, faculty, staff and visitors of all faith traditions
-- Award-winning architectural design
-- A prominent, peaceful lakeside setting
+- Award-winning design by the architectural firm Gurrimatute
+- On the lake beside the Ronald W. Reagan Presidential House
+- Multifaith counseling rooms and a sanctuary for life milestones
 
-**Impact of support:** Named for Trish and Dan Bell, the chapel will support the whole student experience, including spiritual wellbeing and inclusion for all faiths.
+**Impact of support:** Trish and Dan Bell made a $5 million lead gift in 2019, and their total support for the chapel has grown to $14 million.
 
-**Spoken narration** (25 words):
+**Key stat:** $14M (in support from Trish and Dan Bell)
 
-> By the lake, the Trish and Dan Bell Chapel is under construction: an award-winning, multifaith space for reflection, open to people of every faith tradition.
+**Spoken narration** (34 words):
 
-**Sources:** Handbook p.11
+> By the lake, the Trish and Dan Bell Chapel is under construction: a multifaith space for reflection, open to every faith tradition, backed by fourteen million dollars in gifts from Trish and Dan Bell.
 
-**Last reviewed:** 2026-11-19
+**Sources:** Handbook p.11; [news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel](https://news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel); [news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel](https://news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel); [bellchapel.fiu.edu/why-a-chapel/about-the-chapel/](https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/)
+
+**Last reviewed:** 2026-11-20
 
 **Needs confirmation:**
 
-- Opening date isn't in the handbook. Add it to "opens" when the Foundation confirms it.
+- Chris (2026-11-20) says the chapel opened in 2023 and improvements are under way. The FIU sources found describe an April 2023 groundbreaking and give no opening date, so the card keeps "under construction". Send an FIU link confirming the opening and the badge comes off.
 
-### 4. Center for Children and Families
+### 4. Academic Health Center 1: Center for Children and Families
 
 *Featured · Building code AHC1*
 
-**Summary:** The Center for Children and Families advances children's mental health through research, clinical care and community outreach.
+**Summary:** The Center for Children and Families, in Academic Health Center 1, advances children's mental health through research, clinical care and community outreach.
 
 **Highlights:**
 
@@ -134,15 +132,15 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Impact of support:** Support for the center helps more South Florida families reach research-based mental health care early.
 
-**Spoken narration** (66 words):
+**Spoken narration** (67 words):
 
-> The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work. Its first building houses the Center for Children and Families, which advances children's mental health through research, clinical care and community outreach. Its teams provide mental health services for children and families, study child development and behavioral health, and run early intervention programs that reach families across South Florida.
+> The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work. Academic Health Center 1 houses the Center for Children and Families, which advances children's mental health through research, clinical care and community outreach. Its teams provide mental health services for children and families, study child development and behavioral health, and run early intervention programs that reach families across South Florida.
 
 **Sources:** Handbook p.15
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
-### 5. Herbert Wertheim College of Medicine
+### 5. Academic Health Center 2: Herbert Wertheim College of Medicine
 
 *Featured · Building code AHC2*
 
@@ -159,19 +157,19 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Key stat:** 30+ (hospital and healthcare partners)
 
-**Spoken narration** (53 words):
+**Spoken narration** (58 words):
 
-> Next is the Herbert Wertheim College of Medicine, South Florida's first public medical school. It partners with more than thirty hospitals and healthcare organizations. Students train in the Albert and Debbie Tano Simulation Center, and through NeighborhoodHELP and the Linda Fenner 3D Mobile Mammography Center, the college brings care directly to underserved communities.
+> Next, in Academic Health Center 2, is the Herbert Wertheim College of Medicine, South Florida's first public medical school. It partners with more than thirty hospitals and healthcare organizations. Students train in the Albert and Debbie Tano Simulation Center, and through NeighborhoodHELP and the Linda Fenner 3D Mobile Mammography Center, the college brings care directly to underserved communities.
 
 **Sources:** Handbook p.15
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
-### 6. College of Nursing and Health Sciences
+### 6. Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences
 
 *Featured · Building code AHC3*
 
-**Summary:** The College of Nursing and Health Sciences prepares nurses and allied health professionals through simulation-based education and clinical experience.
+**Summary:** The Nicole Wertheim College of Nursing and Health Sciences prepares nurses and allied health professionals through simulation-based education and clinical experience.
 
 **Highlights:**
 
@@ -181,15 +179,15 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Impact of support:** Investment in simulation and clinical labs prepares the next generation of healthcare professionals for South Florida.
 
-**Spoken narration** (57 words):
+**Spoken narration** (67 words):
 
-> The College of Nursing and Health Sciences prepares students for careers in nursing, physical therapy, occupational therapy, athletic training, and communication sciences and disorders. Its STAR Center is an advanced simulation facility that replicates real hospital environments, so students practice in realistic settings before they ever meet a patient. Specialized clinical laboratories add even more hands-on learning.
+> Academic Health Center 3 is home to the Nicole Wertheim College of Nursing and Health Sciences, which prepares students for careers in nursing, physical therapy, occupational therapy, athletic training, and communication sciences and disorders. Its STAR Center is an advanced simulation facility that replicates real hospital environments, so students practice in realistic settings before they ever meet a patient. Specialized clinical laboratories add even more hands-on learning.
 
-**Sources:** Handbook p.15
+**Sources:** Handbook p.15; [cnhs.fiu.edu/about/](https://cnhs.fiu.edu/about/)
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
-### 7. Robert Stempel College of Public Health and Social Work
+### 7. Academic Health Center 5: Robert Stempel College of Public Health and Social Work
 
 *Featured · Building code AHC5*
 
@@ -203,13 +201,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Impact of support:** Support for Stempel College helps address public health challenges in South Florida and around the world.
 
-**Spoken narration** (63 words):
+**Spoken narration** (68 words):
 
-> The Robert Stempel College of Public Health and Social Work prepares students to improve the health of whole communities. Its programs in public health, nutrition and social work focus on epidemiology, global health, health policy and disaster preparedness. Graduates go on to serve in healthcare systems, government agencies, nonprofit organizations and research institutions, tackling public health challenges at home and around the world.
+> In Academic Health Center 5, the Robert Stempel College of Public Health and Social Work prepares students to improve the health of whole communities. Its programs in public health, nutrition and social work focus on epidemiology, global health, health policy and disaster preparedness. Graduates go on to serve in healthcare systems, government agencies, nonprofit organizations and research institutions, tackling public health challenges at home and around the world.
 
 **Sources:** Handbook pp.15-16
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
 ### 8. Innovation Complex: Innovation 1
 
@@ -219,70 +217,75 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Highlights:**
 
-- Six-story research and learning facility
+- Six-story research and learning facility, LEED Gold certified
+- Home to computing and biomedical engineering faculty from the College of Engineering and Computing
 - Focus on artificial intelligence, cybersecurity, robotics, health and sustainability
 - Active learning classrooms, makerspaces and research labs
-- LEED Gold certified design
 
 **Impact of support:** Collaboration with industry partners makes the Innovation Complex a hub for innovation and workforce development in South Florida.
 
-**Key stat:** 137,000+ (square feet)
+**Key stat:** 125,000 (square feet)
 
-**Spoken narration** (62 words):
+**Spoken narration** (63 words):
 
-> Just ahead is Innovation 1, opened in 2025 as the first building of FIU's Innovation Complex. This six-story, LEED Gold certified facility brings students, faculty and industry partners together in active learning classrooms, makerspaces and research labs. Their work focuses on artificial intelligence, cybersecurity, robotics, health and sustainability, strengthening FIU's role as a hub for innovation and workforce development in South Florida.
+> Just ahead is Innovation 1, opened in 2025 as the first building of FIU's Innovation Complex. This six-story, LEED Gold certified facility is the College of Engineering and Computing's home on this campus, with faculty in computing and biomedical engineering. Students, faculty and industry partners work side by side in its classrooms, makerspaces and labs on artificial intelligence, cybersecurity, robotics, health and sustainability.
 
-**Sources:** Handbook p.18; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
+**Sources:** Handbook p.18; [cec.fiu.edu/about/](https://cec.fiu.edu/about/); [cec.fiu.edu/news-events/news/2025/from-the-deans-desk-bringing-our-vision-to-life.html](https://cec.fiu.edu/news-events/news/2025/from-the-deans-desk-bringing-our-vision-to-life.html)
 
-**Last reviewed:** 2026-11-19
-
-**Needs confirmation:**
-
-- Square footage differs by source: the facilities list gives 137,306 gross; College of Engineering and Computing materials say about 125,000. The card uses the facilities list.
+**Last reviewed:** 2026-11-20
 
 ### 9. Market Station (PG5)
 
-*Quick pass · Building code PG5*
+*Featured · Building code PG5*
 
 **Summary:** Market Station is more than a parking garage: it combines dining, classrooms and student gathering spaces with a campus transportation hub.
 
 **Highlights:**
 
-- Dining locations and classrooms
-- Student gathering spaces
+- More than a garage: dining, classrooms and student gathering spaces
 - A hub for campus activity and transportation
+- Opened in 2011
 
 **Impact of support:** FIU's garages are multi-purpose facilities that put student services, dining and classrooms where students arrive each day.
 
-**Spoken narration** (24 words):
+**Key stat:** 2011 (opened)
 
-> Market Station is more than a garage. It combines parking with dining, classrooms and student gathering spaces, and serves as a campus transportation hub.
+**Spoken narration** (56 words):
 
-**Sources:** Handbook p.6
+> Market Station shows how FIU makes every building work hard for students. More than a parking garage, it brings together dining, classrooms and student gathering spaces, and serves as a hub for campus activity and transportation. Since it opened in 2011, it has put classes, meals and services right where students arrive on campus each day.
 
-**Last reviewed:** 2026-11-19
+**Sources:** Handbook p.6; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_7-21-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_7-21-2026.pdf)
 
-### 10. Science Classroom Complex
+**Last reviewed:** 2026-11-20
 
-*Quick pass · Building code AHC4*
+**Needs confirmation:**
 
-**Summary:** The Science Classroom Complex provides classrooms, laboratories and collaborative spaces for foundational science education and health-related research.
+- A 2010 FIU News article, written before the garage opened, planned three classrooms seating up to 360 students. The page couldn't be re-read in Sprint 8, so the card leaves the numbers out. Confirm them before adding.
+
+### 10. Academic Health Center 4: Science Classroom Complex
+
+*Featured · Building code AHC4*
+
+**Summary:** Academic Health Center 4, the Science Classroom Complex, is a research and teaching building for the College of Medicine and FIU's science programs.
 
 **Highlights:**
 
-- Classrooms and teaching laboratories
-- Collaborative learning spaces
-- Supports health-related research
+- Opened in 2013
+- Wet and dry research labs, classrooms and seminar rooms
+- A customized mass spectrometry laboratory
+- More than 136,000 square feet
 
-**Impact of support:** Modern labs and classrooms give science students a strong foundation for research and health careers.
+**Impact of support:** Modern labs and classrooms give students a strong foundation in science, and give researchers room for discoveries that improve health.
 
-**Spoken narration** (22 words):
+**Key stat:** $57.5M (invested in labs and classrooms)
 
-> The Science Classroom Complex, part of the Academic Health Center, provides the classrooms and labs where students build their foundation in science.
+**Spoken narration** (62 words):
 
-**Sources:** Handbook p.15
+> Academic Health Center 4, the Science Classroom Complex, opened in 2013 as a fifty-seven and a half million dollar investment in research and teaching. Its wet and dry labs, classrooms and seminar rooms serve the College of Medicine and FIU's science programs, including a customized mass spectrometry lab. Here students build their foundation in science, and researchers pursue discoveries that improve health.
 
-**Last reviewed:** 2026-11-19
+**Sources:** Handbook p.15; [news.fiu.edu/2014/building-boom-at-fiu.html](https://news.fiu.edu/2014/building-boom-at-fiu.html)
+
+**Last reviewed:** 2026-11-20
 
 ### 11. Red Garage (PG4)
 
@@ -331,25 +334,28 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 ### 13. Tech Station (PG6)
 
-*Quick pass · Building code PG6*
+*Featured · Building code PG6*
 
-**Summary:** Tech Station pairs parking with technology-focused classrooms, labs, advising spaces and innovation programs.
+**Summary:** Tech Station, inside Parking Garage 6, is a $3 million hub for technology innovation, training and community engagement.
 
 **Highlights:**
 
+- Tech classrooms, team rooms and a makerspace
+- Software design, systems training and IT hardware labs
 - Home of MangoHacks, FIU's student-run hackathon
-- Technology classrooms and labs
-- Dining and student support services
+- Hack nights, workshops and coding club events
 
-**Impact of support:** Spaces like Tech Station promote creativity, collaboration and innovation.
+**Impact of support:** Funding from the Florida Board of Governors created Tech Station, where students and the community come together around technology.
 
-**Spoken narration** (15 words):
+**Key stat:** 8,000 (square feet for tech learning)
 
-> Tech Station combines parking with technology classrooms and labs, and hosts MangoHacks, FIU's student-run hackathon.
+**Spoken narration** (50 words):
 
-**Sources:** Handbook p.6
+> Tech Station turns part of this parking garage into a three million dollar hub for technology innovation, training and community engagement. Students work in software design and systems training labs, team rooms and a makerspace. It is also home to MangoHacks, FIU's student-run hackathon that promotes creativity, collaboration and innovation.
 
-**Last reviewed:** 2026-11-19
+**Sources:** Handbook p.6; [www.cis.fiu.edu/students/techstation/](https://www.cis.fiu.edu/students/techstation/)
+
+**Last reviewed:** 2026-11-20
 
 ### 14. Paul L. Cejas School of Architecture
 
@@ -378,51 +384,54 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 ### 15. Ryder Business Building
 
-*Quick pass · Building code RB*
+*Featured · Building code RB*
 
-**Summary:** The Ryder Business Building has been part of the College of Business since 1991.
+**Summary:** The Ryder Business Building has been part of FIU's College of Business since 1991, and is home to its Global Sales Center.
 
 **Highlights:**
 
-- Opened in 1991
-- Nearly 59,000 square feet for the College of Business
-- Known to the business school as the Ryder Center
+- Opened in 1991, with nearly 59,000 square feet
+- Global Sales Lab with twelve sales training rooms
+- More than 400 students a semester train in the lab
+- Known to the College of Business as the Ryder Center
 
-**Impact of support:** The Ryder name has been part of FIU's College of Business for more than three decades.
+**Impact of support:** The Ryder name has been part of FIU's College of Business for more than three decades, and its Global Sales Center trains more than 400 students each semester.
 
-**Spoken narration** (14 words):
+**Key stat:** 400+ (students a semester in the Global Sales Lab)
 
-> The Ryder Business Building has been part of FIU's College of Business since 1991.
+**Spoken narration** (60 words):
 
-**Sources:** [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); [business.fiu.edu/about/locations/](https://business.fiu.edu/about/locations/)
+> The Ryder Business Building has been part of FIU's College of Business since 1991. Along with the College of Business Complex and the Mango building, it is one of the college's three homes on this campus. On its third floor, the Global Sales Center's lab has twelve training rooms where more than four hundred students each semester practice professional sales.
 
-**Last reviewed:** 2026-11-19
+**Sources:** [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); [business.fiu.edu/about/locations/](https://business.fiu.edu/about/locations/); [business.fiu.edu/academics/departments/marketing-and-logistics/global-sales-center/](https://business.fiu.edu/academics/departments/marketing-and-logistics/global-sales-center/)
+
+**Last reviewed:** 2026-11-20
 
 ### 16. Sanford L. Ziff Family Education Building
 
 *Quick pass · Building code ZEB*
 
-**Summary:** The Sanford L. Ziff Family Education Building opened in 1997 and carries the Ziff family name.
+**Summary:** The Sanford L. Ziff Family Education Building, opened in 1997, carries the Ziff family name and serves FIU's education programs.
 
 **Highlights:**
 
 - Opened in 1997
 - About 57,000 square feet
+- Classrooms and meeting rooms for the Department of Teaching and Learning
 
 **Impact of support:** The building carries the name of the Sanford L. Ziff family.
 
-**Spoken narration** (16 words):
+**Spoken narration** (29 words):
 
-> The Sanford L. Ziff Family Education Building opened in 1997 and carries the Ziff family name.
+> The Sanford L. Ziff Family Education Building opened in 1997. It carries the Ziff family name, and holds classrooms and meeting rooms for FIU's Department of Teaching and Learning.
 
-**Sources:** [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); [calendar.fiu.edu/zeb](https://calendar.fiu.edu/zeb)
+**Sources:** [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); [calendar.fiu.edu/zeb](https://calendar.fiu.edu/zeb); [case.fiu.edu/tl/flexible-space-reservations/](https://case.fiu.edu/tl/flexible-space-reservations/)
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
 **Needs confirmation:**
 
-- FIU pages found don't say what the building houses (SCOPE Appendix A). Needs content.
-- Map data labels it "Sanford and Dolores Ziff Education Building". Confirm the official name.
+- FIU pages show the Department of Teaching and Learning uses the building, but don't say everything it houses (for example, whether it is the home of the School of Education and Human Development). Confirm what the card should say.
 
 ### 17. Intramural Fields
 
@@ -445,11 +454,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Last reviewed:** 2026-11-19
 
-### 18. Lot 9 and College of Business Complex
+### 18. College of Business Complex
 
 *Featured · Building code CBC*
 
-**Summary:** Across Lot 9, the College of Business Complex is home to one of South Florida's leading business schools, built for experiential learning and industry connection.
+**Summary:** The College of Business Complex is home to one of South Florida's leading business schools, built for experiential learning and industry connection.
 
 **Highlights:**
 
@@ -462,13 +471,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Key stat:** 300 (seats in the Ocean Bank Auditorium)
 
-**Spoken narration** (60 words):
+**Spoken narration** (58 words):
 
-> Across Lot 9 is the College of Business Complex, academic home of one of South Florida's leading business schools. Students work with real-time market data in the Capital Markets Lab and attend lectures in the three-hundred-seat Ocean Bank Auditorium. The Bank of America Career Management Services Center, interview suites and the Alumni Circle Recruiters' Lounge connect students directly with employers.
+> Here is the College of Business Complex, academic home of one of South Florida's leading business schools. Students work with real-time market data in the Capital Markets Lab and attend lectures in the three-hundred-seat Ocean Bank Auditorium. The Bank of America Career Management Services Center, interview suites and the Alumni Circle Recruiters' Lounge connect students directly with employers.
 
 **Sources:** Handbook p.22; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
 ### 19. MANGO (Management and New Growth Opportunities)
 
@@ -544,25 +553,25 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 ### 22. Wellness and Recreation Center
 
-*Quick pass · Building code WRC*
+*Featured · Building code WRC*
 
 **Summary:** The Wellness and Recreation Center supports student wellbeing through fitness, recreation and outdoor adventure programs.
 
 **Highlights:**
 
-- Fitness equipment, group classes and personal training
-- Adventure recreation and outdoor excursions
-- Panther Hall Pool, outdoor courts and the Recreation Field
+- State-of-the-art fitness equipment, group classes and personal training
+- Adventure recreation programs and outdoor excursions
+- Panther Hall Pool, the Recreation Field, and basketball and tennis courts
 
 **Impact of support:** FIU promotes wellness beyond academics, helping students stay active, reduce stress and build community.
 
-**Spoken narration** (18 words):
+**Spoken narration** (59 words):
 
-> The Wellness and Recreation Center supports student wellbeing, with fitness, group classes, a pool and outdoor adventure programs.
+> The Wellness and Recreation Center reflects FIU's commitment to the whole student, beyond the classroom. Students use state-of-the-art fitness equipment, group fitness classes and personal training, and join adventure recreation programs and outdoor excursions. Panther Hall Pool, the Recreation Field, and outdoor basketball and tennis courts round out spaces that help students stay active, manage stress and build community.
 
 **Sources:** Handbook p.26
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
 ### 23. Steven J. Green School of International and Public Affairs
 
@@ -598,7 +607,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Highlights:**
 
 - Opened in 2013
-- 596 residents
+- 620 residents
 - A glassed common room overlooks the stadium
 
 **Impact of support:** Living on campus gives Honors College students a stronger sense of community and easy access to resources.
@@ -609,11 +618,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Sources:** [housing.fiu.edu/choose-your-room/honors-college-parkview-hall/](https://housing.fiu.edu/choose-your-room/honors-college-parkview-hall/); Handbook p.31
 
-**Last reviewed:** 2026-11-19
-
-**Needs confirmation:**
-
-- Sources disagree on capacity: the housing site says 596 residents; a 2014 FIU News article says 620 beds. The card uses the housing site.
+**Last reviewed:** 2026-11-20
 
 ### 25. University Towers
 
@@ -635,11 +640,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Sources:** [housing.fiu.edu/choose-your-room/](https://housing.fiu.edu/choose-your-room/); [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); Handbook p.29
 
-**Last reviewed:** 2026-11-19
-
-**Needs confirmation:**
-
-- The handbook pairs Veterans and Military Affairs with the Towers, but map data places the office near the Student Health Center. Confirm where it is.
+**Last reviewed:** 2026-11-20
 
 ### 26. Lakeview Hall North and South
 
@@ -784,7 +785,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 ### 32. Herbert and Nicole Wertheim Performing Arts Center
 
-*Featured · Building code WPAC*
+*Quick pass · Building code WPAC*
 
 **Summary:** The Herbert and Nicole Wertheim Performing Arts Center has been FIU's premier venue for music, theatre and performing arts education since 1996.
 
@@ -798,13 +799,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Key stat:** 1996 (opened)
 
-**Spoken narration** (53 words):
+**Spoken narration** (29 words):
 
-> The Herbert and Nicole Wertheim Performing Arts Center has been FIU's premier venue for music, theatre and performing arts education since 1996. Students perform in orchestra, band, choir, jazz, opera and chamber ensembles, and learn from internationally recognized artists in masterclasses. Its performances and programs enrich both the FIU community and South Florida.
+> The Herbert and Nicole Wertheim Performing Arts Center has been FIU's premier venue for music, theatre and performing arts education since 1996, where students learn from internationally recognized artists.
 
 **Sources:** Handbook p.32
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-20
 
 ## Also on campus
 
@@ -831,12 +832,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Sources:** Handbook p.14; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
 
-**Last reviewed:** 2026-11-19
-
-**Needs confirmation:**
-
-- The handbook spells it "Stephen"; FIU's annual report and library pages use "Steven". The card uses "Steven".
-- Collection size differs by source: the handbook says over 2 million items; an FIU research-resources page says more than 1.6 million volumes.
+**Last reviewed:** 2026-11-20
 
 ## Closing
 
