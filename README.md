@@ -2,7 +2,7 @@
 
 An interactive website that helps FIU Foundation Student Ambassadors prepare for their VIP and donor campus tours. It shows a satellite map of FIU's Modesto A. Maidique Campus with the ambassadors' driving tour route drawn on top. Each stop opens a short card about the building, written the way ambassadors present it to donors, VIPs and community partners. A guided Tour Mode follows the route stop by stop and reads each card aloud, so ambassadors can learn the drive before they lead it. The site is a study tool; it isn't used in the vehicle.
 
-> **Status:** MVP built and tested; waiting on Foundation content review, a real-iPad drive test and the Vercel deploy. See [SCOPE.md](docs/SCOPE.md) for the scope, [BACKLOG.md](docs/BACKLOG.md) for the sprint plan and [.claude/sprints/TRACE.md](.claude/sprints/TRACE.md) for what was built and how it was tested.
+> **Status:** MVP built and tested. Phase 2 (Sprints 7 to 12, on the `phase-2` branch) added the content updates, study tools, more natural narration, recorded-narration support and phone polish. Waiting on Chris's decisions (voice service and AI voice, branding and photos) and on a real-device check. See [SCOPE.md](docs/SCOPE.md) for the scope, [BACKLOG.md](docs/BACKLOG.md) for the plan and [.claude/sprints/TRACE.md](.claude/sprints/TRACE.md) for what was built and how it was tested.
 
 ## Features (MVP)
 
@@ -51,7 +51,7 @@ Requires Node 20 or later.
 | `npm run build` | Type-check and build to `dist/` |
 | `npm run lint` | ESLint |
 | `npm test` | Unit, component and integration tests (Vitest) |
-| `npm run test:e2e` | End-to-end tests in Chromium at desktop and iPad sizes, including an accessibility audit. Mapbox's servers are replaced by a local stand-in, so runs use no map loads and need no token. First run: `npx playwright install chromium webkit` |
+| `npm run test:e2e` | End-to-end tests in Chromium at desktop, iPad and phone-landscape sizes, including an accessibility audit. Mapbox's servers are replaced by a local stand-in, so runs use no map loads and need no token. First run: `npx playwright install chromium webkit` |
 | `npm run test:e2e:webkit` | The same tests in WebKit (Safari's engine) on iPad and iPhone profiles, one at a time (slower) |
 | `npm run test:e2e:real` | Two tests on real satellite tiles (uses the token in `.env.local`, two map loads). Run before a release |
 | `npm run validate` | Check `content/`, flag narration that text-to-speech reads badly, and scan for committed tokens |

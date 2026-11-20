@@ -43,6 +43,13 @@
   z-index: 5;
 }
 
+/* With a side panel open, centre the actions in the map area beside it instead of under the panel. */
+@media (orientation: landscape) and (min-width: 640px) {
+  .app-main:has(> .panel) .action-bar {
+    left: calc(max(16px, env(safe-area-inset-left)) + var(--panel-w) + (100% - var(--panel-w) - 16px) / 2);
+  }
+}
+
 .action-bar .btn {
   min-height: 56px;
   padding: 0 24px;

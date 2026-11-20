@@ -32,6 +32,8 @@ export default defineConfig({
     { name: "desktop", ...STAND_IN_ONLY, use: { ...devices["Desktop Chrome"], viewport: { width: 1366, height: 900 }, launchOptions: CHROMIUM_GL } },
     { name: "ipad-landscape", ...STAND_IN_ONLY, use: { viewport: { width: 1180, height: 820 }, hasTouch: true, isMobile: false, launchOptions: CHROMIUM_GL } },
     { name: "ipad-portrait", ...STAND_IN_ONLY, use: { viewport: { width: 820, height: 1180 }, hasTouch: true, isMobile: false, launchOptions: CHROMIUM_GL } },
+    // A phone turned sideways (Sprint 12): short screen, side-panel layout.
+    { name: "phone-landscape", ...STAND_IN_ONLY, use: { viewport: { width: 844, height: 390 }, hasTouch: true, isMobile: false, launchOptions: CHROMIUM_GL } },
     // WebKit, the engine behind Safari. Closest we can get to iPad and iPhone Safari without a device.
     // Headless WebKit on Windows renders WebGL in software and is slow, especially on a cold start. Run these
     // serially (npm run test:e2e:webkit); one retry covers cold starts, and a retried pass is reported as

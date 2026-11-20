@@ -129,7 +129,7 @@ Ordered by priority now that the site is a preparation tool.
 ### B. More natural narration (high priority: ambassadors study by listening)
 - [x] Quick win: slightly slower default speed and short pauses between sentences (Sprint 9).
 - [x] **Pre-recorded narration audio** (Sprint 11: generator, playback, fallback, setting and tests are done; no audio generated yet, waiting on the decisions below; see `tools/narration-audio/README.md`): a build-time script turns each narration into an MP3 with a high-quality voice (OpenAI, ElevenLabs, Azure or Google), stored with the site. No server or browser API key; same voice on every device; falls back to the browser voice. Decisions needed: which voice service, whether an AI voice is acceptable (AI use is undecided, but this is behind-the-scenes generation with human review), and who listens to each clip.
-- [ ] Or record a real ambassador's voice for the 35 narrations.
+- [ ] Or record a real ambassador's voice for the 39 narrations: Welcome, 32 stops, Closing and 5 off-route cards. The same manifest format works; see `tools/narration-audio/README.md`.
 
 ### C. Study features (new priority from the "preparation tool" answer)
 - [x] **"For ambassadors" section on each card** (Sprint 9; tips on 31 of 33 stops) (collapsible): the handbook's tour guide tip for that stop (most stops have one, for example "Emphasize FIU's commitment to student success…") plus the longer handbook detail. This covers SCOPE §4.2's "More" toggle. It needs a new optional content field (for example `guideNotes`), sourced like every other fact, and validator and review-page support.
@@ -140,14 +140,15 @@ Ordered by priority now that the site is a preparation tool.
   - Deuxième Maison (Handbook p.28; currently only mentioned on the Primera Casa card)
   - Office of Veteran and Military Affairs, near SIPA and University Towers (Handbook p.29)
   - **Not the College of Engineering and Computing:** its Engineering Center is near SW 107th Ave and Flagler St, not on MMC (Handbook p.19). Innovation 1 (stop 8) is its presence on MMC; mention the college there instead.
-- [ ] **Tour progress strip:** numbered dots for done, skipped and current stops; jump anywhere.
+- [x] **Tour progress strip** (Sprint 12): a segmented bar showing done, skipped and current stops. You jump to a stop with the map markers, not the strip, because 34 targets of 44 px don't fit in the bar on a phone.
 - [x] **Shareable stop links** (Sprint 10) (`?stop=graham-center`) so advisors can point ambassadors at a building.
 - [ ] Ideas to confirm with Chris: a self-quiz mode (hide the card, guess the building), and a "my tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours).
 
 ### D. UI enhancements
+- [ ] **Mapbox logo and attribution** (found in Sprint 12; it was already happening): side panels and bottom sheets can cover the Mapbox logo at bottom left. Mapbox's terms ask for it to stay visible. Options: lift the panel above the logo, or move the logo and attribution to a corner the panels don't use (`logoPosition`).
 - [x] Long names (Sprint 8, done in Sprint 9): show the part before the colon ("Academic Health Center 3:") as a small line above the card title, so the title doesn't take four lines on a phone. Keep the full name as the heading's accessible name.
 - [ ] Building highlight: outline or glow the current building, not just its marker.
-- [ ] Group overlapping markers when zoomed out (AHC 1 to 5).
+- [ ] Group overlapping markers when zoomed out (AHC 1 to 5). **Question for Chris (Sprint 12):** the opening view is zoomed out, so grouping would replace five markers with one "Academic Health Center" button that zooms in. Keyboard and screen-reader users would then reach those stops through the group or the stop list. Worth it, or leave them as they are?
 - [ ] Photos on cards (`photo` field), with renderings for buildings under construction.
 - [ ] Smoother camera during the virtual drive, with a gentle zoom on arrival.
 - [ ] FIU fonts and logo: wait for Chris's resources.
@@ -156,9 +157,10 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Drag-up bottom sheet: peek bar that expands to the full card.
 - [ ] Add to Home Screen app mode, with the app and content cached (check Mapbox terms for map tiles).
 - [x] Lock-screen play, pause and next controls (Sprint 11; they show once recordings exist).
-- [ ] Stop double-tap zoom on buttons; tidy safe areas around the notch and home bar.
-- [ ] Phone landscape layout; larger text setting.
-- [ ] Keep the screen on during a tour. Lower priority now that it isn't used in the vehicle.
+- [x] Stop double-tap zoom on buttons; tidy safe areas around the notch and home bar (Sprint 12; safe areas were already handled).
+- [x] Phone landscape layout (Sprint 12).
+- [ ] Larger text setting: probably not needed, because the app uses `rem` sizes and Safari's "Aa" zoom scales it. Confirm on a phone.
+- [x] Keep the screen on during a tour (Sprint 12, Screen Wake Lock).
 
 ### F. Testing
 - [x] **Cheaper, steadier end-to-end tests** (Sprint 7, done): most e2e tests don't need real satellite imagery. Add a mode that serves stand-in map tiles locally, and keep one or two visual checks (map loads with no Mapbox errors, route screenshot) on real tiles. This cuts Mapbox tile usage (heavy runs hit Mapbox's per-minute rate limit in Sprint 6) and makes runs faster and less flaky, especially in WebKit.
@@ -168,7 +170,7 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Run `npm run test:e2e:all` once to confirm the last test fixes.
 - [ ] Optional: if an FIU page later confirms Bell Chapel has opened, send the link and the badge comes off.
 - [ ] Deploy to Vercel (README steps).
-- [ ] Device check on an iPad and a phone. `docs/DEVICE-TEST.md` assumes a moving vehicle; trim it to the parked and narration sections, since the site is a preparation tool.
+- [ ] Device check on an iPad and a phone with `docs/DEVICE-TEST.md`. It was rewritten in Sprint 12 for the preparation tool: layout, study tools, narration, recorded narration once it exists, and an optional drive.
 
 ### Deprioritized
 - Ride-along mode stays, but gets no new work.

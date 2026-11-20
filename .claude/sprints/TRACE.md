@@ -203,6 +203,22 @@ The copy was drafted in Sprint 2. This sprint reviewed it the way a listener hea
 
 Work from the "Next up" to-do list in [docs/BACKLOG.md](../../docs/BACKLOG.md). Chris's brief (2026-11-20): chip away at the backlog in sprints, work around blockers, add tests, and use the Mapbox API as little as possible. WebKit failures shouldn't block progress, because Chris will test on his end.
 
+**Summary (Sprints 7 to 12)**
+- 7: e2e tests run on a local stand-in for Mapbox, so test runs cost no map loads. Two tests still use real tiles (`npm run test:e2e:real`).
+- 8: content: review answers, full official names, the type changes, and docs for the preparation-tool purpose.
+- 9: "For ambassadors" study notes, more natural narration (pauses and speed), long-name titles, and a Label in Name fix.
+- 10: four off-route buildings, shareable stop links, and a printable study guide.
+- 11: recorded-narration support: generator, playback with fallback, a voice setting, and lock-screen controls. No audio generated yet.
+- 12: phone landscape layout, tour progress strip, keep-screen-on, no double-tap zoom, and a new device checklist.
+
+**Mapbox use in Phase 2:** one real-tile test run (`test:e2e:real` in Sprint 7, two map loads). Every other test ran on the stand-in, and building coordinates came from OpenStreetMap.
+
+**Decisions waiting on Chris**
+1. **Recorded narration:** which voice service and voice, whether an AI voice is acceptable, and who reviews the clips. Everything else is ready (`tools/narration-audio/README.md`).
+2. **Grouping the five AHC markers** when zoomed out (backlog D).
+3. **Mapbox logo** covered by panels (backlog D): lift the panels or move the logo.
+4. Still open from before: branding and photos, the quiz and "my tour" ideas, the Foundation's review notes (`docs/CONTENT-REVIEW.md`, 5 items), and the Shaham marker spot.
+
 ### Sprint 7: stand-in map tiles for end-to-end tests (2026-11-20)
 
 Backlog item F, done first so every later sprint can run the full e2e suite without spending Mapbox map loads.
@@ -442,6 +458,43 @@ So no audio is generated or committed. Everything else is built and tested, so r
   - Real Safari plays MP3s; check it on an iPad once recordings exist.
   - The full WebKit suite runs again after Sprint 12.
 
+### Sprint 12: mobile polish and tour progress (2026-11-20)
+
+Backlog E (phones and iPads) and the progress strip from C.
+
+**Built**
+- **Phones in landscape** (backlog E). The side-panel layout now starts at 640 px wide in landscape, down from 900. The panel is at most 45% of the screen, set by the `--panel-w` token and `panelWidth()`, which must stay in sync.
+  - Before, at 844×390 a card showed only its title and one sentence, and in Tour Mode the card showed just its title.
+  - Now the card shows its summary and key stat beside the map, and Tour Mode keeps the vehicle visible between the card and the control bar.
+  - Before/after screenshots were checked at 844×390.
+- With a side panel open, the Stops and Start tour buttons centre in the map area beside it. Before, Stops was hidden under the panel. This uses `:has()`, which works in Safari 15.4+.
+- Tour settings scroll on short screens instead of running off the top.
+- **Tour progress strip** (backlog C): one segment per step (Welcome, 32 stops, Closing), shown as done (gold), skipped (hatched), current (white) or still to come.
+  - It's visual only (`aria-hidden`). Screen readers still get the progress bar, now visually hidden, and the "N skipped" text. In Windows high-contrast mode the plain bar shows instead.
+  - Jumping to a stop still works through the map markers.
+- **No double-tap zoom or tap delay** on buttons, links, form controls and `<summary>` (`touch-action: manipulation`).
+- **Keep the screen on during a tour** (Screen Wake Lock), taken again when the page becomes visible. Unsupported browsers keep their normal timeout.
+- **New e2e project, `phone-landscape`** (844×390, touch), on the stand-in, part of `npm run test:e2e`.
+
+- **`docs/DEVICE-TEST.md` rewritten for the preparation tool**, replacing the in-vehicle checklist. It covers layout on iPad and iPhone, including landscape; the study tools (For ambassadors, Copy link through the share sheet, printing the study guide to PDF); narration on iOS (pauses, names including Deuxième Maison and Shaham, the screen staying on); recorded narration and lock-screen controls, once recordings exist; and an optional drive. Lot 9 is no longer an open question.
+
+**Not done, and why**
+- Larger-text setting: the app uses `rem` sizes, so Safari's "Aa" page zoom and browser zoom already scale it. A separate setting would duplicate that. Left open in backlog E.
+- Drag-up bottom sheet and add-to-home-screen: bigger pieces. Left in backlog E.
+- Grouping the overlapping AHC markers: it would change the opening view and keyboard access, so it's a question for Chris in backlog D.
+- **Noticed:** side panels and bottom sheets can cover the Mapbox logo in the bottom-left corner. This was already true before this sprint, in every layout. Mapbox's terms ask for the logo and attribution to stay visible. Options for Chris are in backlog D.
+
+**Tests added**
+- `useWakeLock`: takes and releases the lock, takes it again when the page becomes visible, and does nothing without the API.
+- Tour: strip segment states after Next and Skip, and that it's `aria-hidden`.
+- Layout: the breakpoint, and panel widths at 1366, 1180, 844 and 667 px.
+- e2e: the whole suite at phone landscape, 30/30; `touch-action: manipulation` on map buttons.
+
+**Tested**
+- 183 unit tests, lint, type-check and validate pass.
+- Chromium e2e on the stand-in, four projects: 120/120.
+- WebKit on the stand-in (serial; covers Sprints 11 and 12): **87 passed, 3 skipped, no failures or retries**, in 6.5 minutes. The 3 skips are the clip-playback test, one per WebKit project, which can't run in Playwright's Windows WebKit build (see Sprint 11). The fallback test runs and passes there.
+
 ## How to walk through it yourself
 
 **One-time setup** (in a terminal at the repo root):
@@ -474,6 +527,9 @@ So no audio is generated or committed. Everything else is built and tested, so r
 13. **Off-route buildings:** look for the building icons near the Reagan House (east, by the lake), Deuxième Maison (next to Primera Casa), Veteran and Military Affairs (by SIPA), and Shaham (north-east corner, with the hard hat). Open Shaham's card: "Under construction · Opens 2028".
 14. **Stop links:** open a card and watch the address bar change to `?stop=...`. Tap the link icon next to the close button, paste the link into a new tab, and the same card opens.
 15. **Study guide:** **Stops**, then **Printable study guide** at the bottom. Scroll it, try **Print** (preview only), and use **Show on map** on any stop to jump back to that card.
+16. **Progress strip:** during a tour, the thin segmented bar under "Stop N of 32" fills in gold as you go. Skipped stops are hatched.
+17. **Phone sideways:** in DevTools pick an iPhone and rotate it to landscape. Cards and Tour Mode now sit in a side panel with the map beside them.
+18. **Recorded narration (optional):** to hear what recordings would sound like, follow `tools/narration-audio/README.md`. It's billed and needs a voice-service key, and whether to use an AI voice is your call.
 
 **Checks:** `npm test` (about 20 s), `npm run validate`, `npm run test:e2e` (Chromium on stand-in tiles, about 4 minutes, no Mapbox usage), `npm run test:e2e:webkit` (Safari engine on stand-in tiles, about 5 minutes), `npm run test:e2e:real` (2 tests on real satellite tiles, before a release).
 

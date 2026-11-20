@@ -2,11 +2,13 @@ import { useEffect, useId, useRef, useState, type ReactNode, type Ref } from "re
 import { progressLabel, type TourStep } from "./steps";
 import type { TourState } from "./useTour";
 import { TourSettingsPanel, type TourSettingsPanelProps } from "./TourSettingsPanel";
+import { TourStrip } from "./TourStrip";
 import "./TourControls.css";
 
 type Props = {
   state: TourState;
   step: TourStep;
+  steps: TourStep[];
   last: number;
   /** Number of route stops, for "Stop 5 of 32". */
   total: number;
@@ -36,7 +38,7 @@ function Btn({ label, onClick, disabled, primary, children, buttonRef }: BtnProp
 }
 
 /** Large tour controls: progress, Previous, Play/Pause, Next, Skip, settings and Exit. */
-export function TourControls({ state, step, last, total, onPrev, onNext, onSkip, onTogglePlay, onExit, onRestart, settings }: Props) {
+export function TourControls({ state, step, steps, last, total, onPrev, onNext, onSkip, onTogglePlay, onExit, onRestart, settings }: Props) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsId = useId();
   const finished = state.phase === "finished";
@@ -60,7 +62,8 @@ export function TourControls({ state, step, last, total, onPrev, onNext, onSkip,
           {state.skipped.length > 0 && <span className="tour-progress-skipped"> · {state.skipped.length} skipped</span>}
         </span>
         <span className="tour-progress-mode">{rideAlong ? "Ride-along" : "Virtual tour"}</span>
-        <progress className="tour-progress-bar" max={last} value={state.index} aria-label={`Tour progress: ${label}`} />
+        <progress className="tour-progress-bar visually-hidden" max={last} value={state.index} aria-label={`Tour progress: ${label}`} />
+        <TourStrip steps={steps} index={state.index} skipped={state.skipped} finished={finished} />
       </div>
 
       {finished ? (
