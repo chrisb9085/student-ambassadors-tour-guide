@@ -21,12 +21,14 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 - `npm test`: Vitest unit and component tests (jsdom)
 - `npm run validate` (same as `node .claude/skills/validate-tour-content/scripts/validate.mjs`): validate `content/` (run after any content change). It also warns about narration that text-to-speech reads badly.
 - `npm run content:review`: regenerate `docs/CONTENT-REVIEW.md`, the Foundation's review page. Run after any content change; a unit test fails if it's stale.
-- `npm run test:e2e`: Playwright end-to-end tests against the real map in Chromium (desktop, iPad landscape, iPad portrait). Uses the token from `.env.local` through Vite. Each run loads real Mapbox tiles.
+- `npm run test:e2e`: Playwright end-to-end tests in Chromium (desktop, iPad landscape, iPad portrait). Mapbox's servers are replaced by a local stand-in (`e2e/fixtures.ts`), so runs cost no map loads. Import `test` and `expect` from `./fixtures` in new specs.
 - `npm run test:e2e:webkit`: the same specs in WebKit (Safari's engine) on iPad and iPhone profiles, run serially because headless WebKit is slow. Run it before a release.
+- `npm run test:e2e:real`: the only tests that load real Mapbox tiles (tagged `@real-map`, two map loads). Run before a release, not on every change. **Keep Mapbox usage low:** don't add real-tile tests unless the imagery itself is under test.
+- On Windows, run `npm test` from PowerShell. From Git Bash, a drive-letter case mismatch makes Vitest load twice and every file fails.
 
 ## Workflow
 
-- Work in sprints from `docs/BACKLOG.md`: one branch per sprint (`sprint-N/<name>`), merged into `main` with `git merge --no-ff`.
+- Work in sprints from `docs/BACKLOG.md`: one branch per sprint (`sprint-N/<name>`), merged with `git merge --no-ff`. Phase 2 sprints branch from `phase-2` and merge back into `phase-2`, never into `main`.
 - Before merging: build, lint, unit tests (`npm test`), end-to-end tests (`npm run test:e2e`) and validate pass, and the sprint entry in `.claude/sprints/TRACE.md` is updated.
 
 ## Secrets: Mapbox token

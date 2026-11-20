@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test --project=desktop --project=ipad-landscape --project=ipad-portrait",
     "test:e2e:webkit": "playwright test --project=webkit-ipad-landscape --project=webkit-ipad-portrait --project=webkit-iphone --workers=1",
-    "test:e2e:all": "npm run test:e2e && npm run test:e2e:webkit",
+    "test:e2e:real": "playwright test --project=real-map --workers=1",
+    "test:e2e:all": "npm run test:e2e && npm run test:e2e:webkit && npm run test:e2e:real",
     "validate": "node .claude/skills/validate-tour-content/scripts/validate.mjs",
     "content:review": "node tools/content-review.mjs"
   },

@@ -2,7 +2,7 @@
 
 A running record of the MVP build: one entry per sprint with what was built, how it was tested, decisions made along the way, review findings and open items. The plan and user stories are in [docs/BACKLOG.md](../../docs/BACKLOG.md).
 
-Each sprint is built on its own branch and merged into `main` with `git merge --no-ff`. `git log --graph --oneline` shows the matching merge commits.
+Each sprint is built on its own branch and merged with `git merge --no-ff`. `git log --graph --oneline` shows the matching merge commits. MVP sprints (0 to 6) merged into `main`. Phase 2 sprints (7 onward) branch from `phase-2` and merge back into `phase-2`; Chris merges `phase-2` into `main`.
 
 ### Sprint 0: scaffold (2026-11-19)
 
@@ -199,6 +199,31 @@ The copy was drafted in Sprint 2. This sprint reviewed it the way a listener hea
 **Open (needs Chris)**
 - The real-iPad drive (`docs/DEVICE-TEST.md`), the Vercel deploy, the Foundation content review, and the Lot 9 route question.
 
+## Phase 2 (branch `phase-2`)
+
+Work from the "Next up" to-do list in [docs/BACKLOG.md](../../docs/BACKLOG.md). Chris's brief (2026-11-20): chip away at the backlog in sprints, work around blockers, add tests, and use the Mapbox API as little as possible. WebKit failures shouldn't block progress, because Chris will test on his end.
+
+### Sprint 7: stand-in map tiles for end-to-end tests (2026-11-20)
+
+Backlog item F, done first so every later sprint can run the full e2e suite without spending Mapbox map loads.
+
+**Built**
+- `e2e/fixtures.ts`: a Playwright fixture, on by default, that answers every request to `*.mapbox.com` locally. The style request gets `e2e/standin-style.json`, a single dark-green background layer with no tile sources; telemetry and billing calls get an empty 204 response. Mapbox GL JS still runs for real (camera, max bounds, route layers, markers, `queryRenderedFeatures`), so the tests check the same app code.
+- A third dev server (port 5182) with a fake token (`pk.e2e-stand-in`), so stand-in runs don't need `.env.local`. This also gets the parked CI item ready.
+- Two tests tagged `@real-map` run only in a new `real-map` project (`npm run test:e2e:real`): the map loads with no Mapbox errors and shows its attribution, and a whole-route screenshot over real imagery. That is two map loads per run. They skip if `.env.local` has no token.
+- New stand-in test: the style is asked for exactly once, and no tile, sprite or font request is made.
+- `waitForMap` helper split out of `openMap`, so the real-map tests load the page once each.
+- Workers raised from 2 to 3: the old cap was about Mapbox's rate limit, which no longer applies. More than 3 slows each test, because software WebGL is CPU-bound.
+
+**Tested**
+- Chromium on the stand-in: desktop 21/21 in 1.4 minutes; both iPad sizes 42/42.
+- WebKit on the stand-in (serial): **63/63, no retries needed**, in 4.6 minutes. On real tiles in Sprint 6 it took about 15 minutes, with cold-start flakes.
+- `real-map`: 2/2 (two real map loads).
+- Build, lint and 128 unit tests pass.
+
+**Found along the way**
+- `npm test` from Git Bash fails every file with "Vitest failed to find the current suite". It does this on the committed code too. Git Bash starts in `c:/...` while Node resolves `C:/...`, so Vitest is loaded twice. From PowerShell (and from VS Code's terminal) all 128 pass. Run unit tests from PowerShell; nothing in the repo is wrong.
+
 ## How to walk through it yourself
 
 **One-time setup** (in a terminal at the repo root):
@@ -224,6 +249,6 @@ The copy was drafted in Sprint 2. This sprint reviewed it the way a listener hea
 9. **Closing:** tap the stop-32 marker, then Next. The Closing card plays, then **Restart** and **Exit** appear.
 10. **Phone size:** in Chrome DevTools (F12 → device toolbar), pick an iPhone. The whole route should fit when the page opens.
 
-**Checks:** `npm test` (128 tests, about 20 s), `npm run validate`, `npm run test:e2e` (Chromium, about 10 minutes), `npm run test:e2e:webkit` (Safari engine, about 15 minutes).
+**Checks:** `npm test` (about 20 s), `npm run validate`, `npm run test:e2e` (Chromium on stand-in tiles, about 4 minutes, no Mapbox usage), `npm run test:e2e:webkit` (Safari engine on stand-in tiles, about 5 minutes), `npm run test:e2e:real` (2 tests on real satellite tiles, before a release).
 
 **What to review next:** `docs/CONTENT-REVIEW.md` (send it to the Foundation), then `docs/DEVICE-TEST.md` (in the vehicle).

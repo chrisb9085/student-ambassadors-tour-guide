@@ -1,4 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
+import { type Page } from "@playwright/test";
+import { expect, test } from "./fixtures";
 import { openMap, waitForIdle } from "./helpers";
 
 const overlaps = (a: { x: number; y: number; width: number; height: number }, b: typeof a) =>

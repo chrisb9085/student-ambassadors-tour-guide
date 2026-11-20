@@ -1,8 +1,13 @@
 import type { Page } from "@playwright/test";
 
-/** Loads the app and waits until the Mapbox style and the visible tiles have loaded. */
+/** Loads the app and waits until the Mapbox style has loaded. */
 export async function openMap(page: Page, path = "/") {
   await page.goto(path);
+  await waitForMap(page);
+}
+
+/** Waits until the Mapbox style has loaded on the current page. */
+export async function waitForMap(page: Page) {
   await page.waitForFunction(() => {
     const m = (window as unknown as { __tourMap?: { isStyleLoaded(): boolean } }).__tourMap;
     return !!m && m.isStyleLoaded();

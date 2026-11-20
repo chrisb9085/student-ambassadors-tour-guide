@@ -160,7 +160,7 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Keep the screen on during a tour. Lower priority now that it isn't used in the vehicle.
 
 ### F. Testing
-- [ ] **Cheaper, steadier end-to-end tests:** most e2e tests don't need real satellite imagery. Add a mode that serves stand-in map tiles locally, and keep one or two visual checks (map loads with no Mapbox errors, route screenshot) on real tiles. This cuts Mapbox tile usage (heavy runs hit Mapbox's per-minute rate limit in Sprint 6) and makes runs faster and less flaky, especially in WebKit.
+- [x] **Cheaper, steadier end-to-end tests** (Sprint 7, done): most e2e tests don't need real satellite imagery. Add a mode that serves stand-in map tiles locally, and keep one or two visual checks (map loads with no Mapbox errors, route screenshot) on real tiles. This cuts Mapbox tile usage (heavy runs hit Mapbox's per-minute rate limit in Sprint 6) and makes runs faster and less flaky, especially in WebKit.
 
 ### G. Chris's steps
 - [ ] Walk through the site using the guide at the end of `.claude/sprints/TRACE.md`.
