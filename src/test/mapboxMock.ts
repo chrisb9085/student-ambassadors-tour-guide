@@ -16,6 +16,10 @@ export class FakeMap {
   easeTo = vi.fn();
   flyTo = vi.fn();
   fitBounds = vi.fn();
+  setPadding = vi.fn();
+  jumpTo = vi.fn((opts: { zoom?: number }) => {
+    if (typeof opts.zoom === "number") this.zoom = opts.zoom;
+  });
   touchZoomRotate = { disableRotation: vi.fn() };
   keyboard = { disableRotation: vi.fn() };
 
