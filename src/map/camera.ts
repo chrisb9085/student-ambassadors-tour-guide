@@ -1,5 +1,5 @@
 import type { Map as MapboxMap } from "mapbox-gl";
-import type { Bounds } from "../content/types";
+import type { Bounds, LngLat } from "../content/types";
 import { FIT_PADDING, INITIAL_VIEW } from "./campus";
 
 export function prefersReducedMotion(): boolean {
@@ -14,4 +14,12 @@ export function resetView(map: MapboxMap) {
 
 export function showWholeRoute(map: MapboxMap, bounds: Bounds) {
   map.fitBounds(bounds, { padding: FIT_PADDING, bearing: 0, pitch: 0, duration: duration(900) });
+}
+
+/** Zoom used when a stop's card opens: close enough to see the building. */
+export const STOP_ZOOM = 16.8;
+
+/** Centers a stop, shifted by `offset` px so it stays visible beside the card. Never zooms out. */
+export function focusStop(map: MapboxMap, at: LngLat, offset: [number, number]) {
+  map.easeTo({ center: at, zoom: Math.max(map.getZoom(), STOP_ZOOM), offset, duration: duration(800) });
 }

@@ -1,0 +1,109 @@
+.stop-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 8px 20px;
+}
+
+.stop-list-header h2 {
+  margin: 0;
+  color: var(--fiu-blue);
+  font-size: 1.25rem;
+}
+
+.stop-list-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 8px 12px;
+}
+
+.stop-list-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stop-list-subhead {
+  margin: 16px 12px 6px;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.stop-list-item {
+  width: 100%;
+  min-height: var(--touch);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--text);
+  text-align: left;
+}
+
+.stop-list-item:hover {
+  background: var(--surface-muted);
+}
+
+.stop-list-item[aria-current="true"] {
+  background: var(--fiu-gold-100);
+}
+
+.stop-list-num {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--marker-featured);
+  color: var(--text-on-blue);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.stop-list-item--quick-pass .stop-list-num {
+  background: var(--marker-quick);
+  transform: scale(0.85);
+}
+
+.stop-list-item--also-on-campus .stop-list-num {
+  background: var(--marker-also);
+  color: var(--fiu-blue);
+  border: 2px solid var(--fiu-blue);
+}
+
+.stop-list-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.stop-list-name {
+  font-weight: 600;
+}
+
+.stop-list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+}
+
+.tag--construction {
+  background: var(--status-construction-bg);
+  color: #9a3a05;
+}
