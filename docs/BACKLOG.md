@@ -9,7 +9,7 @@ The MVP from [SCOPE.md](SCOPE.md) is split into short sprints. Each sprint is bu
 | Sprint | Branch | Goal | Status |
 |---|---|---|---|
 | 0 | `sprint-0/scaffold` | Project skeleton, tooling, theme tokens, missing-token screen | Done |
-| 1 | `sprint-1/map` | Satellite map locked to campus, reset view and show route buttons | To do |
+| 1 | `sprint-1/map` | Satellite map locked to campus, reset view and show route buttons | Done (needs a visual check with a real token) |
 | 2 | `sprint-2/route-and-stops` | Route line traced on campus roads; every stop placed with name, code, type and status | To do |
 | 3 | `sprint-3/markers-cards` | Numbered markers, stop list panel, stop cards (popover and bottom sheet) | To do |
 | 4 | `sprint-4/tour-mode` | Tour Mode: vehicle animation, narration, virtual and ride-along modes, skip stop, settings | To do |
@@ -77,3 +77,21 @@ Each entry records what was built, how it was tested, and anything left open.
 
 **Open**
 - System font stack for now; FIU typefaces and logos wait on brand approval (SCOPE open question 3).
+
+### Sprint 1: map (2026-11-19)
+
+**Built**
+- `src/map/MapView.tsx`: Mapbox `satellite-streets-v12`, `maxBounds` around MMC so guests can't pan away, zoom 14.5 to 19, north-up and flat (rotation and pitch off, which suits a moving vehicle), honors reduced-motion, Mapbox performance metrics off. Shows a clear alert if Mapbox rejects the token (401/403, usually the URL restriction).
+- `src/map/MapControls.tsx`: "Whole route" and "Reset view" buttons, 48 px, with text labels. Disabled until the map loads.
+- `src/map/campus.ts`: bounds, opening view and a fallback route box, all in one place. Sprint 2 replaces the route box with bounds computed from `route.geojson`.
+- Title chip "FIU Campus Tour" on a solid blue background so it reads over imagery.
+- `src/test/mapboxMock.ts`: a fake `mapboxgl.Map` used by every test (jsdom has no WebGL).
+
+**Tested**
+- Build, lint, validate: pass. `npm test`: 13 tests pass, including map options (bounds, style, no rotation), the aria label, load and unmount lifecycle, the 401 alert vs. ignored 404, button enable-on-load, Reset view and Whole route camera calls, and keyboard tab order.
+
+**Review notes**
+- The bundle is 2.1 MB (599 kB gzipped), almost all of it mapbox-gl. The map is the first screen, so code-splitting wouldn't help first load; the warning limit is raised with a comment in `vite.config.ts`.
+
+**Open**
+- Not yet seen in a real browser with a token: needs a visual check on desktop and iPad (opening view framing, bounds feel, control placement).

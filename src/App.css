@@ -8,10 +8,32 @@
 .app-main {
   position: relative;
   flex: 1;
+  overflow: hidden;
 }
 
-.app-placeholder {
+/* Solid chip so the title reads over busy imagery. */
+.app-title {
+  position: absolute;
+  top: max(16px, env(safe-area-inset-top));
+  left: max(16px, env(safe-area-inset-left));
+  margin: 0;
+  min-height: var(--touch);
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--fiu-blue);
   color: var(--text-on-blue);
-  text-align: center;
-  margin-top: 30vh;
+  border-bottom: 4px solid var(--fiu-gold);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  font-size: 1.125rem;
+  font-weight: 600;
+  z-index: 4;
+}
+
+.app-title-fiu {
+  color: var(--fiu-gold-bright);
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }

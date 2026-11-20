@@ -1,0 +1,15 @@
+.map-controls {
+  position: absolute;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--gap);
+  z-index: 4;
+}
+
+.map-controls .btn {
+  box-shadow: var(--shadow);
+  justify-content: flex-start;
+}
