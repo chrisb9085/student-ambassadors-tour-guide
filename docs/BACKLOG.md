@@ -9,11 +9,11 @@ The MVP from [SCOPE.md](SCOPE.md) is split into short sprints. Each sprint is bu
 | Sprint | Branch | Goal | Status |
 |---|---|---|---|
 | 0 | `sprint-0/scaffold` | Project skeleton, tooling, theme tokens, missing-token screen | Done |
-| 1 | `sprint-1/map` | Satellite map locked to campus, reset view and show route buttons | Done (needs a visual check with a real token) |
-| 2 | `sprint-2/route-and-stops` | Route line traced on campus roads; every stop placed with name, code, type and status | To do |
+| 1 | `sprint-1/map` | Satellite map locked to campus, reset view and show route buttons | Done |
+| 2 | `sprint-2/route-and-stops` | Route line traced on campus roads; every stop placed, with first-draft sourced copy | Done |
 | 3 | `sprint-3/markers-cards` | Numbered markers, stop list panel, stop cards (popover and bottom sheet) | To do |
 | 4 | `sprint-4/tour-mode` | Tour Mode: vehicle animation, narration, virtual and ride-along modes, skip stop, settings | To do |
-| 5 | `sprint-5/card-copy` | Donor-facing copy for every stop, Welcome and Closing, with sources | Blocked on the handbook text |
+| 5 | `sprint-5/copy-review` | Review pass on the copy drafted in Sprint 2: read-aloud check, review-notes list for the Foundation | To do |
 | 6 | `sprint-6/qa-deploy` | Accessibility pass, iPad Safari testing, Vercel deploy | To do |
 
 ## User stories
@@ -48,9 +48,10 @@ The MVP from [SCOPE.md](SCOPE.md) is split into short sprints. Each sprint is bu
 - **S4.4** As an ambassador, I can choose virtual (auto-advance) or ride-along (manual Next), skip a stop, pause, go back and exit.
 - **S4.5** As a guest, I can change speech speed and voice.
 
-### Sprint 5: card copy
+### Sprint 5: copy review
 
-- **S5.1** Every stop, Welcome and Closing has sourced, donor-facing copy that passes the validator.
+- **S5.1** Every stop, Welcome and Closing has sourced, donor-facing copy that passes the validator. (Drafted in Sprint 2, once the handbook arrived.)
+- **S5.2** The Foundation gets one list of every fact flagged for confirmation (`reviewNotes`).
 
 ### Sprint 6: QA and deploy
 
@@ -60,38 +61,4 @@ The MVP from [SCOPE.md](SCOPE.md) is split into short sprints. Each sprint is bu
 
 ## Sprint log
 
-Each entry records what was built, how it was tested, and anything left open.
-
-### Sprint 0: scaffold (2026-11-19)
-
-**Built**
-- Vite 8 + React 19 + TypeScript 6, ESLint 10 (typescript-eslint, react-hooks), Vitest 5 with jsdom and Testing Library. `mapbox-gl` 3 installed for Sprint 1.
-- `src/styles/theme.css` holds every color and size token (FIU Blue `#081e3f`, FIU Gold `#b6862c`, a brighter gold for the route over imagery, 48 px touch size). `src/lib/theme.ts` lets map code read those tokens at runtime, so colors stay in one place.
-- `src/lib/config.ts` reads `VITE_MAPBOX_TOKEN` and accepts only public `pk.` tokens. Without one, `App` shows the `MissingToken` screen with setup steps for local and Vercel.
-- `npm run validate` script alias for the content validator.
-
-**Tested**
-- `npm run build`, `npm run lint`: pass.
-- `npm test`: 5 tests pass (token parsing: missing, blank, secret `sk.`, malformed, trimmed; App shows the alert without a token and the map area with one).
-- `npm run validate`: 0 errors (content files don't exist yet).
-
-**Open**
-- System font stack for now; FIU typefaces and logos wait on brand approval (SCOPE open question 3).
-
-### Sprint 1: map (2026-11-19)
-
-**Built**
-- `src/map/MapView.tsx`: Mapbox `satellite-streets-v12`, `maxBounds` around MMC so guests can't pan away, zoom 14.5 to 19, north-up and flat (rotation and pitch off, which suits a moving vehicle), honors reduced-motion, Mapbox performance metrics off. Shows a clear alert if Mapbox rejects the token (401/403, usually the URL restriction).
-- `src/map/MapControls.tsx`: "Whole route" and "Reset view" buttons, 48 px, with text labels. Disabled until the map loads.
-- `src/map/campus.ts`: bounds, opening view and a fallback route box, all in one place. Sprint 2 replaces the route box with bounds computed from `route.geojson`.
-- Title chip "FIU Campus Tour" on a solid blue background so it reads over imagery.
-- `src/test/mapboxMock.ts`: a fake `mapboxgl.Map` used by every test (jsdom has no WebGL).
-
-**Tested**
-- Build, lint, validate: pass. `npm test`: 13 tests pass, including map options (bounds, style, no rotation), the aria label, load and unmount lifecycle, the 401 alert vs. ignored 404, button enable-on-load, Reset view and Whole route camera calls, and keyboard tab order.
-
-**Review notes**
-- The bundle is 2.1 MB (599 kB gzipped), almost all of it mapbox-gl. The map is the first screen, so code-splitting wouldn't help first load; the warning limit is raised with a comment in `vite.config.ts`.
-
-**Open**
-- Not yet seen in a real browser with a token: needs a visual check on desktop and iPad (opening view framing, bounds feel, control placement).
+The per-sprint trace (what was built, how it was tested, decisions, findings, open items) is in [.claude/sprints/TRACE.md](../.claude/sprints/TRACE.md).

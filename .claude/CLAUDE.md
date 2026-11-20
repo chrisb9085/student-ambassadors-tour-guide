@@ -24,7 +24,7 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 ## Workflow
 
 - Work in sprints from `docs/BACKLOG.md`: one branch per sprint (`sprint-N/<name>`), merged into `main` with `git merge --no-ff`.
-- Before merging: build, lint, test and validate pass, and the sprint log in `docs/BACKLOG.md` is updated.
+- Before merging: build, lint, unit tests (`npm test`), end-to-end tests (`npm run test:e2e`) and validate pass, and the sprint entry in `.claude/sprints/TRACE.md` is updated.
 
 ## Secrets: Mapbox token
 
@@ -54,12 +54,14 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
   "narration": null,                  // optional spoken text if it should differ from the card
   "photo": null,                      // optional path under public/
   "sources": ["Handbook", "https://..."],
-  "lastReviewed": "2026-11-19"
+  "lastReviewed": "2026-11-19",
+  "reviewNotes": ["optional: facts the Foundation must confirm; never shown to guests"]
 }
 ```
 
 - `content/tour.json` holds the Welcome card (start at the PG1/PG2 loop by MARC) and the Closing card.
-- `content/route.geojson` is a single LineString following campus roads in driving order.
+- `content/route.geojson` is a FeatureCollection with a single LineString following campus roads in driving order. Rebuild or extend it with `tools/route/` (see its README).
+- The handbook is in `docs/HANDBOOK.md`; cite it as `Handbook p.N` using the page markers in that file.
 - Featured cards: 40 to 90 words of narration. Quick-pass: one or two sentences (35 words or fewer).
 
 ## Content rules
