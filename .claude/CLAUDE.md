@@ -15,12 +15,16 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 
 ## Commands
 
-The project isn't scaffolded yet. Once it is, use npm:
-
 - `npm run dev`: local dev server
 - `npm run build`: type-check and build
 - `npm run lint`
-- `node .claude/skills/validate-tour-content/scripts/validate.mjs`: validate `content/` (run after any content change)
+- `npm test`: Vitest unit and component tests (jsdom)
+- `npm run validate` (same as `node .claude/skills/validate-tour-content/scripts/validate.mjs`): validate `content/` (run after any content change)
+
+## Workflow
+
+- Work in sprints from `docs/BACKLOG.md`: one branch per sprint (`sprint-N/<name>`), merged into `main` with `git merge --no-ff`.
+- Before merging: build, lint, test and validate pass, and the sprint log in `docs/BACKLOG.md` is updated.
 
 ## Secrets: Mapbox token
 

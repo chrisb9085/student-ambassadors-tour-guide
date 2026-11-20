@@ -2,7 +2,7 @@
 
 An interactive website for the FIU Foundation Student Ambassadors' VIP and donor campus tours. It shows a satellite map of FIU's Modesto A. Maidique Campus with the ambassadors' driving tour route drawn on top. Each stop opens a short card about the building, written for donors, VIPs and community partners. A guided Tour Mode follows the route stop by stop and reads each card aloud.
 
-> **Status:** Planning. No code yet. See [SCOPE.md](docs/SCOPE.md) for the full project scope.
+> **Status:** MVP in development. See [SCOPE.md](docs/SCOPE.md) for the full project scope and [BACKLOG.md](docs/BACKLOG.md) for sprint progress.
 
 ## Features (MVP)
 
@@ -36,10 +36,18 @@ Supabase may be added later for ambassador logins, saved donor routes and notes.
 
 ## Local setup
 
-The app isn't scaffolded yet. Once it is:
+Requires Node 20 or later.
 
 1. Copy `.env.example` to `.env.local` and set `VITE_MAPBOX_TOKEN` to your public Mapbox token. Never commit `.env.local`.
 2. Run `npm install`, then `npm run dev`.
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Local dev server |
+| `npm run build` | Type-check and build to `dist/` |
+| `npm run lint` | ESLint |
+| `npm test` | Unit and component tests (Vitest) |
+| `npm run validate` | Check `content/` and scan for committed tokens |
 
 On Vercel, set `VITE_MAPBOX_TOKEN` under the project's environment variables.
 

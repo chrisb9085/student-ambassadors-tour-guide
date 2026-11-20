@@ -1,0 +1,17 @@
+.app {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  position: relative;
+  flex: 1;
+}
+
+.app-placeholder {
+  color: var(--text-on-blue);
+  text-align: center;
+  margin-top: 30vh;
+}
