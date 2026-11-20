@@ -2,12 +2,16 @@ import { defineConfig, devices } from "@playwright/test";
 import { URLS } from "./e2e/urls";
 
 /**
- * End-to-end tests against the real dev server and the real Mapbox map.
- * The token comes from .env.local through Vite; tests never read or print it.
- * A second server runs with the token blanked to test the missing-token screen.
+ * End-to-end tests against the real app and the real Mapbox GL JS library.
+ *
+ * Most tests use a local stand-in for Mapbox's servers (e2e/fixtures.ts): the map runs, but no request
+ * reaches Mapbox, so runs cost no map loads and can't hit the rate limit. The few tests tagged @real-map
+ * load real satellite tiles with the token from .env.local, in the "real-map" project only
+ * (npm run test:e2e:real). Tests never read or print the token.
  */
-const { WITH_TOKEN, NO_TOKEN } = URLS;
+const { WITH_TOKEN, NO_TOKEN, STAND_IN } = URLS;
 const CHROMIUM_GL = { args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"] };
+const STAND_IN_ONLY = { grepInvert: /@real-map/ };
 
 export default defineConfig({
   testDir: "./e2e",
@@ -15,27 +19,28 @@ export default defineConfig({
   timeout: 60_000,
   expect: { timeout: 20_000 },
   fullyParallel: false,
-  // Every test loads real Mapbox tiles: modest parallelism stays under Mapbox's per-minute rate limit
-  // (heavy parallel runs got HTTP 429 in Sprint 6). WebKit runs serially via npm run test:e2e:webkit.
-  workers: 2,
+  // Software WebGL is CPU-bound; more workers than this slows each test down. WebKit runs serially.
+  workers: 3,
   reporter: [["list"], ["html", { open: "never", outputFolder: "playwright-report" }]],
   use: {
-    baseURL: WITH_TOKEN,
+    baseURL: STAND_IN,
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
   },
   projects: [
     // Chromium (Chrome and Edge), with software WebGL so Mapbox renders headless.
-    { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1366, height: 900 }, launchOptions: CHROMIUM_GL } },
-    { name: "ipad-landscape", use: { viewport: { width: 1180, height: 820 }, hasTouch: true, isMobile: false, launchOptions: CHROMIUM_GL } },
-    { name: "ipad-portrait", use: { viewport: { width: 820, height: 1180 }, hasTouch: true, isMobile: false, launchOptions: CHROMIUM_GL } },
+    { name: "desktop", ...STAND_IN_ONLY, use: { ...devices["Desktop Chrome"], viewport: { width: 1366, height: 900 }, launchOptions: CHROMIUM_GL } },
+    { name: "ipad-landscape", ...STAND_IN_ONLY, use: { viewport: { width: 1180, height: 820 }, hasTouch: true, isMobile: false, launchOptions: CHROMIUM_GL } },
+    { name: "ipad-portrait", ...STAND_IN_ONLY, use: { viewport: { width: 820, height: 1180 }, hasTouch: true, isMobile: false, launchOptions: CHROMIUM_GL } },
     // WebKit, the engine behind Safari. Closest we can get to iPad and iPhone Safari without a device.
-    // Headless WebKit on Windows renders WebGL in software and is slow, especially on a cold start and under
-    // parallel load (Sprint 6). Run these serially (npm run test:e2e:webkit); one retry covers cold starts,
-    // and a retried pass is reported as "flaky", never silently as "passed".
-    { name: "webkit-ipad-landscape", retries: 1, use: { ...devices["iPad Pro 11 landscape"] } },
-    { name: "webkit-ipad-portrait", retries: 1, use: { ...devices["iPad Pro 11"] } },
-    { name: "webkit-iphone", retries: 1, use: { ...devices["iPhone 13"] } },
+    // Headless WebKit on Windows renders WebGL in software and is slow, especially on a cold start. Run these
+    // serially (npm run test:e2e:webkit); one retry covers cold starts, and a retried pass is reported as
+    // "flaky", never silently as "passed".
+    { name: "webkit-ipad-landscape", ...STAND_IN_ONLY, retries: 1, use: { ...devices["iPad Pro 11 landscape"] } },
+    { name: "webkit-ipad-portrait", ...STAND_IN_ONLY, retries: 1, use: { ...devices["iPad Pro 11"] } },
+    { name: "webkit-iphone", ...STAND_IN_ONLY, retries: 1, use: { ...devices["iPhone 13"] } },
+    // Real Mapbox tiles: two map loads per run. Run before a release, not every change.
+    { name: "real-map", grep: /@real-map/, use: { ...devices["Desktop Chrome"], viewport: { width: 1366, height: 900 }, launchOptions: CHROMIUM_GL, baseURL: WITH_TOKEN } },
   ],
   webServer: [
     { command: "npx vite --port 5180 --strictPort", url: WITH_TOKEN, reuseExistingServer: false, timeout: 60_000 },
@@ -46,6 +51,14 @@ export default defineConfig({
       timeout: 60_000,
       // Variables already in the environment take priority over .env files in Vite.
       env: { VITE_MAPBOX_TOKEN: "" },
+    },
+    {
+      command: "npx vite --port 5182 --strictPort",
+      url: STAND_IN,
+      reuseExistingServer: false,
+      timeout: 60_000,
+      // Not a real token: the stand-in answers every Mapbox request.
+      env: { VITE_MAPBOX_TOKEN: "pk.e2e-stand-in" },
     },
   ],
 });

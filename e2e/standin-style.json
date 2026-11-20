@@ -1,0 +1,6 @@
+{
+  "version": 8,
+  "name": "E2E stand-in (no Mapbox requests)",
+  "sources": {},
+  "layers": [{ "id": "stand-in-background", "type": "background", "paint": { "background-color": "#34473b" } }]
+}

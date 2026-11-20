@@ -47,8 +47,9 @@ Requires Node 20 or later.
 | `npm run build` | Type-check and build to `dist/` |
 | `npm run lint` | ESLint |
 | `npm test` | Unit, component and integration tests (Vitest) |
-| `npm run test:e2e` | End-to-end tests against the real map in Chromium at desktop and iPad sizes, including an accessibility audit. First run: `npx playwright install chromium webkit` |
+| `npm run test:e2e` | End-to-end tests in Chromium at desktop and iPad sizes, including an accessibility audit. Mapbox's servers are replaced by a local stand-in, so runs use no map loads and need no token. First run: `npx playwright install chromium webkit` |
 | `npm run test:e2e:webkit` | The same tests in WebKit (Safari's engine) on iPad and iPhone profiles, one at a time (slower) |
+| `npm run test:e2e:real` | Two tests on real satellite tiles (uses the token in `.env.local`, two map loads). Run before a release |
 | `npm run validate` | Check `content/`, flag narration that text-to-speech reads badly, and scan for committed tokens |
 | `npm run content:review` | Regenerate [docs/CONTENT-REVIEW.md](docs/CONTENT-REVIEW.md), the Foundation's review page |
 

@@ -1,6 +1,6 @@
-import { expect, test } from "@playwright/test";
+import { expect, REAL_MAP, test } from "./fixtures";
 import { URLS } from "./urls";
-import { onMap, openMap, trackMapboxErrors, waitForIdle } from "./helpers";
+import { onMap, openMap, trackMapboxErrors, waitForIdle, waitForMap } from "./helpers";
 
 test.describe("Sprint 0-1: app shell and map", () => {
   test("shows setup steps instead of the map when no token is configured", async ({ page }) => {
@@ -9,15 +9,14 @@ test.describe("Sprint 0-1: app shell and map", () => {
     await expect(page.locator(".mapboxgl-canvas")).toHaveCount(0);
   });
 
-  test("loads the satellite map with no Mapbox errors", async ({ page }) => {
-    const errors = trackMapboxErrors(page);
+  test("the map runs on the stand-in without any request reaching Mapbox", async ({ page, mapboxRequests }) => {
     await openMap(page);
     await waitForIdle(page);
     await expect(page.locator(".mapboxgl-canvas")).toBeVisible();
     await expect(page.getByRole("region", { name: /satellite map of fiu/i })).toBeVisible();
-    // Attribution is required by Mapbox terms.
-    await expect(page.locator(".mapboxgl-ctrl-attrib")).toContainText("Mapbox");
-    expect(errors, "Mapbox requests should all succeed").toEqual([]);
+    // Only the style was asked for (answered locally); no tile, sprite or font requests.
+    expect(mapboxRequests.filter((p) => p.startsWith("/styles/v1/"))).toHaveLength(1);
+    expect(mapboxRequests.filter((p) => /tiles|sprite|fonts|\.pbf|\.png|\.webp/.test(p))).toEqual([]);
   });
 
   test("camera buttons are at least 44 px and work", async ({ page }) => {
@@ -73,7 +72,7 @@ test.describe("Sprint 0-1: app shell and map", () => {
 });
 
 test.describe("Sprint 2: route and stops", () => {
-  test("draws the route with arrows and a start/finish marker", async ({ page }, info) => {
+  test("draws the route with arrows and a start/finish marker", async ({ page }) => {
     await openMap(page);
     await page.getByRole("button", { name: /whole route/i }).click();
     await waitForIdle(page);
@@ -83,6 +82,37 @@ test.describe("Sprint 2: route and stops", () => {
     const rendered = await onMap<number>(page, "(m) => m.queryRenderedFeatures({ layers: ['tour-route-line'] }).length");
     expect(rendered).toBeGreaterThan(0);
     await expect(page.getByRole("img", { name: /start and finish/i })).toBeVisible();
+  });
+});
+
+/**
+ * The only tests that load real Mapbox tiles (two map loads per run), in the "real-map" project:
+ * npm run test:e2e:real. They skip when .env.local has no token.
+ */
+test.describe("Real map tiles", { tag: REAL_MAP }, () => {
+  test.use({ realTiles: true });
+  let errors: string[] = [];
+  test.beforeEach(async ({ page }) => {
+    errors = trackMapboxErrors(page);
+    await page.goto("/");
+    await page.locator(".mapboxgl-canvas, [role=alert]").first().waitFor();
+    test.skip(await page.getByRole("alert").isVisible(), "No Mapbox token in .env.local");
+  });
+
+  test("loads the satellite map with no Mapbox errors", async ({ page }) => {
+    await waitForMap(page);
+    await waitForIdle(page);
+    await expect(page.locator(".mapboxgl-canvas")).toBeVisible();
+    // Attribution is required by Mapbox terms.
+    await expect(page.locator(".mapboxgl-ctrl-attrib")).toContainText("Mapbox");
+    expect(errors, "Mapbox requests should all succeed").toEqual([]);
+  });
+
+  test("whole route over satellite imagery (screenshot for review)", async ({ page }, info) => {
+    await waitForMap(page);
+    await page.getByRole("button", { name: /whole route/i }).click();
+    await waitForIdle(page);
+    expect(await onMap<number>(page, "(m) => m.queryRenderedFeatures({ layers: ['tour-route-line'] }).length")).toBeGreaterThan(0);
     await page.screenshot({ path: info.outputPath("whole-route.png") });
     await info.attach("whole-route", { path: info.outputPath("whole-route.png"), contentType: "image/png" });
   });
