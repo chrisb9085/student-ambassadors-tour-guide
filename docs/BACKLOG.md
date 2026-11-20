@@ -62,3 +62,103 @@ The MVP from [SCOPE.md](SCOPE.md) is split into short sprints. Each sprint is bu
 ## Sprint log
 
 The per-sprint trace (what was built, how it was tested, decisions, findings, open items) is in [.claude/sprints/TRACE.md](../.claude/sprints/TRACE.md).
+
+## Decisions after the MVP (2026-11-20)
+
+Answers from Chris to the content review (`docs/CONTENT-REVIEW.md`) and the SCOPE §9 open questions.
+
+**Content review answers**
+
+| # | Question | Answer | Status |
+|---|---|---|---|
+| 1 | Bell Chapel opening date | Chris: opened in 2023, improvements under way now | **Decided (2026-11-20): follow FIU sources.** FIU News (April 2023) and the 2022-23 annual report describe the April 2023 groundbreaking, with construction under way. Keep "under construction" with no opening year, and note Chris's answer in `reviewNotes`. Revisit only if an FIU source confirms an opening. |
+| 2 | Ziff building name | Sanford L. Ziff (keep "Sanford L. Ziff Family Education Building") | To apply. What the building houses is still unknown. |
+| 3 | Parkview Hall capacity | 620 | To apply (replaces 596) |
+| 4 | Veteran and Military Affairs location | Near SIPA and University Towers (UT), not University Apartments (UA) | To apply: keep the "Nearby" line on the UT card |
+| 5 | Innovation 1 size | About 125,000 sq ft | To apply (replaces 137,000+) |
+| 6 | Green Library | Chris: "Stephen"; "more than 2 million" items | Use FIU's **"Steven"** (annual report), and note that the handbook and Chris use "Stephen". Use "more than 2 million" items (handbook); note that an FIU research page says 1.6 million volumes. |
+| 7 | Closing card rankings | Foundation can provide on request; not a priority | Parked |
+
+**Rules from Chris (standing)**
+- **Official FIU sources win** over SCOPE.md, the handbook and Chris's own answers for names and facts. Use the FIU version and note the difference; don't ask.
+- **Use full official building names.** The Academic Health Center buildings read "Academic Health Center N: College or center name":
+  - Academic Health Center 1: Center for Children and Families
+  - Academic Health Center 2: Herbert Wertheim College of Medicine
+  - Academic Health Center 3: Nicole Wertheim College of Nursing and Health Sciences (FIU's official name; the card currently drops "Nicole Wertheim")
+  - Academic Health Center 4: Science Classroom Complex
+  - Academic Health Center 5: Robert Stempel College of Public Health and Social Work
+- **Decided (2026-11-20):** full names go on cards, in the stop list, in marker accessible descriptions and in narration. Map label chips keep their short `label` values, because full names don't fit.
+
+**Facts found on fiu.edu for the next content sprint (2026-11-20)**
+- Bell Chapel:
+  - $5M lead gift from Trish and Dan Bell in 2019; their total support has reached $14M.
+  - Groundbreaking April 2023; construction under way.
+  - Sources: [FIU News 2019](https://news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel), [FIU News 2023](https://news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel), [bellchapel.fiu.edu](https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/). The FIU pages need reading in full before the facts go on a card.
+- Nursing: the official name is the Nicole Wertheim College of Nursing & Health Sciences, in AHC3. Programs include occupational therapy, physical therapy, communication sciences and disorders, and athletic training ([cnhs.fiu.edu](https://cnhs.fiu.edu/about/)).
+- Market Station (PG5): occupied 2011. FIU News (2010, before it opened) planned three classrooms seating up to 360 students, with distance-learning screens, plus more restaurants ([news archive](https://newsarchives.fiu.edu/2010/07/new-pg5-market-station-will-bring-more-restaurants-to-campus); [facilities list, July 2026](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_7-21-2026.pdf)).
+- Tech Station (PG6): occupied 2016 (same facilities list). No FIU source found for its classrooms.
+- Still thin for the new featured stops: Science Classroom Complex and Ryder Business Building. Wellness and Recreation Center has enough in the handbook.
+
+**Route:** the drive does **not** go through Lot 9; it follows E Campus Cir past it, which the route already does. Stop 18 is renamed "College of Business Complex" in SCOPE §5; the card still says "Lot 9 and College of Business Complex" and needs updating.
+
+**SCOPE §9 answers**
+1. **Featured vs quick pass (changed in SCOPE §5):**
+   - Now featured: Market Station (9), Science Classroom Complex (10), Tech Station (13), Ryder Business Building (15), Wellness and Recreation Center (22).
+   - Now quick pass: Wertheim Performing Arts Center (32).
+   - Graham Center becomes **"Ernest R. Graham Center"** (FIU spelling; SCOPE says "Earnest").
+2. **Primary device: not used in the vehicle.** The site is a *preparation tool* for ambassadors studying the route before tours. This lowers the priority of ride-along and in-vehicle features, and raises the priority of study features and narration quality.
+3. **Branding:** Chris will add resources later; don't work on it now.
+4. **Stats:** available from the Foundation on request; not important now.
+5. **Donor recognition:** guidelines arrive with each tour request; the ambassador and advisor handle them. Nothing for the site.
+6. **Generative AI:** undecided; leave it out for now.
+
+## Next up: to-do list
+
+Ordered by priority now that the site is a preparation tool.
+
+### A. Content updates (next sprint)
+- [ ] Apply review answers 2 to 6 above, following the FIU-source rule.
+- [ ] Bell Chapel: stays under construction (decided). Note Chris's "opened 2023" answer in `reviewNotes`, and add the $14M support fact once the FIU pages are read.
+- [ ] Full official names in `name` (cards, stop list, descriptions, narration), including the five "Academic Health Center N: …" names and Ernest R. Graham Center. Leave the short `label` chips as they are.
+- [ ] Rename stop 18 to "College of Business Complex" and drop Lot 9 from its card and narration.
+- [ ] Rewrite copy for the type changes: five stops become featured (40 to 90 words of narration each); WPAC becomes quick pass (35 words or fewer). Market Station, Science Classroom Complex, Tech Station and Ryder have thin sources, so they need more fiu.edu facts.
+- [ ] Remove resolved `reviewNotes`, regenerate `docs/CONTENT-REVIEW.md`, run the validator and tests.
+- [ ] Update the Sprint 2 open question in TRACE.md: Lot 9 resolved.
+
+### B. More natural narration (high priority: ambassadors study by listening)
+- [ ] Quick win: slightly slower default speed and short pauses between sentences.
+- [ ] **Pre-recorded narration audio:** a build-time script turns each narration into an MP3 with a high-quality voice (OpenAI, ElevenLabs, Azure or Google), stored with the site. No server or browser API key; same voice on every device; falls back to the browser voice. Decisions needed: which voice service, whether an AI voice is acceptable (AI use is undecided, but this is behind-the-scenes generation with human review), and who listens to each clip.
+- [ ] Or record a real ambassador's voice for the 35 narrations.
+
+### C. Study features (new priority from the "preparation tool" answer)
+- [ ] **"More" toggle** on cards with longer handbook detail (SCOPE §4.2): the extra facts ambassadors need to know, not just the donor summary.
+- [ ] **Tour progress strip:** numbered dots for done, skipped and current stops; jump anywhere.
+- [ ] **Shareable stop links** (`?stop=graham-center`) so advisors can point ambassadors at a building.
+- [ ] Ideas to confirm with Chris: a self-quiz mode (hide the card, guess the building), and a "my tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours).
+
+### D. UI enhancements
+- [ ] Building highlight: outline or glow the current building, not just its marker.
+- [ ] Group overlapping markers when zoomed out (AHC 1 to 5).
+- [ ] Photos on cards (`photo` field), with renderings for buildings under construction.
+- [ ] Smoother camera during the virtual drive, with a gentle zoom on arrival.
+- [ ] FIU fonts and logo: wait for Chris's resources.
+
+### E. Mobile enhancements (study on phones and iPads)
+- [ ] Drag-up bottom sheet: peek bar that expands to the full card.
+- [ ] Add to Home Screen app mode, with the app and content cached (check Mapbox terms for map tiles).
+- [ ] Lock-screen play, pause and next controls (needs real audio files, see B).
+- [ ] Stop double-tap zoom on buttons; tidy safe areas around the notch and home bar.
+- [ ] Phone landscape layout; larger text setting.
+- [ ] Keep the screen on during a tour. Lower priority now that it isn't used in the vehicle.
+
+### F. Chris's steps
+- [ ] Walk through the site using the guide at the end of `.claude/sprints/TRACE.md`.
+- [ ] Run `npm run test:e2e:all` once to confirm the last test fixes.
+- [ ] Optional: if an FIU page later confirms Bell Chapel has opened, send the link and the badge comes off.
+- [ ] Deploy to Vercel (README steps).
+- [ ] Device check on an iPad and a phone. `docs/DEVICE-TEST.md` assumes a moving vehicle; trim it to the parked and narration sections, since the site is a preparation tool.
+
+### Deprioritized
+- Ride-along mode stays, but gets no new work.
+- GPS ride-along (SCOPE Phase 2): not needed if the site isn't used in the vehicle.
+- Generative AI assistant (Phase 3): left out for now.

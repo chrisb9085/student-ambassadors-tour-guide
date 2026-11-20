@@ -115,27 +115,27 @@ The route below is Chris's real driving route, traced in red on `reference/aeria
 |---|---|---|---|---|
 | 0 | **Start: PG1/PG2 loop, MARC.** Welcome, the FIU Foundation, and MARC (home of the Foundation, Alumni Relations, StartUP FIU; 340,000+ alumni) | F | Who the Foundation is and what giving supports | Handbook |
 | 1 | Student Academic Success Center (SASC) | F | Support from admission to career; retention and graduation | Handbook; Appendix A |
-| 2 | Graham Center (GC) | F | Heart of student life; 3.5M visits a year; donor-funded leadership programs | Handbook |
+| 2 | Earnest R. Graham Center (GC) | F | Heart of student life; 3.5M visits a year; donor-funded leadership programs | Handbook |
 | 3 | Trish and Dan Bell Chapel, **under construction** (behind the Reagan Presidential House, near the lake) | Q | Multifaith lakeside space; a named gift in progress | Handbook |
 | 4 | AHC 1: Center for Children and Families | F | Children's mental health research and care | Handbook |
 | 5 | AHC 2: Herbert Wertheim College of Medicine | F | South Florida's first public medical school; NeighborhoodHELP; Tano Simulation Center | Handbook |
 | 6 | AHC 3: College of Nursing and Health Sciences | F | STAR Center hospital simulation | Handbook |
 | 7 | AHC 5: Robert Stempel College of Public Health and Social Work | F | Community and global health | Handbook |
 | 8 | Innovation Complex (Innovation 1, opened 2025) | F | AI, cybersecurity, robotics; LEED Gold; industry partners | Handbook; Appendix A |
-| 9 | Market Station (PG5) | Q | Parking plus dining, classrooms and transit hub | Handbook (garages) |
-| 10 | AHC 4: Science Classroom Complex | Q | Foundational science education | Handbook |
+| 9 | Market Station (PG5) | F | Parking plus dining, classrooms and transit hub | Handbook (garages) |
+| 10 | AHC 4: Science Classroom Complex | F | Foundational science education | Handbook |
 | 11 | Red Garage (PG4) | Q | Serves the east side of campus | Handbook (garages) |
 | 12 | College of Arts, Sciences and Education (CASE) | F | Largest college; 26,000+ students; $60M+ research | Handbook |
-| 13 | Tech Station (PG6) | Q | Tech classrooms, labs, MangoHacks | Handbook (garages) |
+| 13 | Tech Station (PG6) | F | Tech classrooms, labs, MangoHacks | Handbook (garages) |
 | 14 | Paul L. Cejas School of Architecture (PCA) | F | Bernard Tschumi design; ICAVE virtual reality | Handbook; Appendix A |
-| 15 | Ryder Business Building (RB) | Q | Part of the College of Business; opened 1991 | Appendix A |
+| 15 | Ryder Business Building (RB) | F | Part of the College of Business; opened 1991 | Appendix A |
 | 16 | Sanford L. Ziff Family Education Building (ZEB) | Q | Named for the Ziff family; opened 1997 | Appendix A |
 | 17 | Intramural Fields | Q | NCAA-size turf field for intramurals and sport clubs | Appendix A |
-| 18 | Lot 9 (the lot between the Intramural Fields, CBC and the College of Law) and College of Business Complex (CBC) | F | Capital Markets Lab; Bank of America Career Center; Ocean Bank Auditorium; industry ties | Handbook; Appendix A |
+| 18 | College of Business Complex (CBC) | F | Capital Markets Lab; Bank of America Career Center; Ocean Bank Auditorium; industry ties | Handbook; Appendix A |
 | 19 | MANGO (Management and New Growth Opportunities) | F | $35.7M business building opened 2014; College of Business and FIU Online | Appendix A |
 | 20 | Rafael Díaz-Balart Hall, College of Law (RDB) | F | Robert A.M. Stern design; top Florida Bar pass rates | Handbook |
 | 21 | Ocean Bank Convocation Center | F | 5,000 seats; basketball and commencement; FIU Athletics (18 NCAA Division I programs) | Handbook |
-| 22 | Wellness and Recreation Center (WRC) | Q | Whole-student wellbeing | Handbook |
+| 22 | Wellness and Recreation Center (WRC) | F | Whole-student wellbeing | Handbook |
 | 23 | Steven J. Green School of International and Public Affairs (SIPA) | F | 7,200+ students from 120+ countries | Handbook |
 | 24 | Parkview Hall, Honors College (PVH) | Q | Honors College housing; sky bridge; overlooks the stadium | Appendix A |
 | 25 | University Towers (UT) | Q | 10-story second-year housing; Veterans and Military Affairs if located here | Appendix A; handbook (VMA) |
@@ -145,7 +145,7 @@ The route below is Chris's real driving route, traced in red on `reference/aeria
 | 29 | Pitbull Stadium | F | School spirit and alumni engagement; premium seating, Hall of Fame, notable athlete alumni | Handbook |
 | 30 | Tamiami Hall (opened 2022) | Q | 13-story, 676-resident apartment hall | Handbook; Appendix A |
 | 31 | Patricia and Phillip Frost Art Museum | F | Free admission; cultural resource for South Florida | Handbook |
-| 32 | Herbert and Nicole Wertheim Performing Arts Center (WPAC) | F | Premier performing arts venue since 1996 | Handbook |
+| 32 | Herbert and Nicole Wertheim Performing Arts Center (WPAC) | Q | Premier performing arts venue since 1996 | Handbook |
 | 33 | **End: back to the roundabout and PG1/PG2 loop.** Closing card | F | Admissions snapshot, R1 status, social mobility, recognition of support, thank you | Handbook |
 
 ### Off-route buildings
@@ -241,12 +241,12 @@ A sensible middle ground is to use AI only behind the scenes (drafting card copy
 
 ## 9. Open questions for Chris
 
-1. **Featured vs quick pass:** Is the first guess in section 5 right?
-2. **Primary device:** Will ambassadors mostly hold an iPad in the vehicle, or will guests use their own phones?
-3. **Branding:** Do we have permission and assets to use FIU and FIU Foundation logos, colors and fonts? Who at the Foundation approves content?
-4. **Stats:** Can the Foundation provide current, citable rankings and admissions numbers for the Closing card?
-5. **Donor recognition:** Are there naming or recognition guidelines for how donors are mentioned on cards?
-6. **Generative AI:** Include it as Phase 3, use it only behind the scenes, or leave it out?
+1. **Featured vs quick pass:** Is the first guess in section 5 right? Made some adjustments.
+2. **Primary device:** Will ambassadors mostly hold an iPad in the vehicle, or will guests use their own phones? No, ambassadors won't have this with them on th tour, this is meant to be a tool to be used in preparation for the tours.
+3. **Branding:** Do we have permission and assets to use FIU and FIU Foundation logos, colors and fonts? Who at the Foundation approves content? I will add resources later, for now don't worry about it.
+4. **Stats:** Can the Foundation provide current, citable rankings and admissions numbers for the Closing card? Yes if asked, not important right now.
+5. **Donor recognition:** Are there naming or recognition guidelines for how donors are mentioned on cards? Yes, but we get taht when the our request comes in and the amabassador and advisor is repsonsible for studying/knowing/sharing that information
+6. **Generative AI:** Include it as Phase 3, use it only behind the scenes, or leave it out? Undecided, leave out for now.
 
 ## 10. Risks
 
