@@ -43,6 +43,7 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
   "order": 2,                         // route position; null for "also-on-campus"
   "code": "GC",                       // building code from docs/reference/campus-map-labeled.png
   "name": "Graham Center",
+  "label": "Graham Center",           // optional short name for the map label chip
   "type": "featured",                 // "featured" | "quick-pass" | "also-on-campus"
   "status": "open",                   // "open" | "under-construction"
   "opens": null,                      // e.g. "2028" when under construction

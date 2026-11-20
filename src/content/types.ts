@@ -9,6 +9,8 @@ export type Stop = {
   order: number | null;
   code: string;
   name: string;
+  /** Short name for the map label chip. Falls back to name. */
+  label?: string;
   type: StopType;
   status: StopStatus;
   opens: string | null;
