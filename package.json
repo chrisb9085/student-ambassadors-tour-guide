@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "validate": "node .claude/skills/validate-tour-content/scripts/validate.mjs"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
     "@testing-library/jest-dom": "^8.0.0",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.13",

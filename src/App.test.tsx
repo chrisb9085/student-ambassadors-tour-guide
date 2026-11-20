@@ -3,7 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { App } from "./App";
 import { FakeMap } from "./test/mapboxMock";
-import { DEFAULT_ROUTE_BOUNDS, INITIAL_VIEW } from "./map/campus";
+import { INITIAL_VIEW } from "./map/campus";
+import { routeBounds } from "./content";
 
 describe("App", () => {
   it("shows a clear message instead of the map when no token is set", () => {
@@ -35,7 +36,14 @@ describe("App", () => {
     expect(FakeMap.last.easeTo).toHaveBeenCalledWith(expect.objectContaining({ center: INITIAL_VIEW.center, zoom: INITIAL_VIEW.zoom }));
 
     await user.click(screen.getByRole("button", { name: /whole route/i }));
-    expect(FakeMap.last.fitBounds).toHaveBeenCalledWith(DEFAULT_ROUTE_BOUNDS, expect.objectContaining({ bearing: 0 }));
+    expect(FakeMap.last.fitBounds).toHaveBeenCalledWith(routeBounds, expect.objectContaining({ bearing: 0 }));
+  });
+
+  it("draws the route once the map has loaded", () => {
+    render(<App token="pk.fake-test-value" />);
+    expect(FakeMap.last.layers.size).toBe(0);
+    act(() => FakeMap.last.emit("load"));
+    expect(FakeMap.last.getLayer("tour-route-line")).toBeDefined();
   });
 
   it("reaches the camera buttons by keyboard", async () => {
