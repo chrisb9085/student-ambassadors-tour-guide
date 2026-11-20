@@ -25,11 +25,23 @@ export type Speaker = {
   onVoicesChanged(cb: () => void): () => void;
 };
 
-/** Splits narration into sentences, keeping the punctuation. */
+/** A period after one of these isn't a sentence end: initials ("Robert A. M. Stern") and short titles. */
+const NOT_A_SENTENCE_END = /(?:^|\s)(?:[A-Z]|Dr|Mr|Mrs|Ms|St|Jr|Sr|Ave)\.$/;
+
+/** Splits narration into sentences, keeping the punctuation, without breaking at initials. */
 export function splitSentences(text: string): string[] {
-  return (text.match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g) ?? [])
-    .map((s) => s.trim())
-    .filter(Boolean);
+  const out: string[] = [];
+  let start = 0;
+  for (const m of text.matchAll(/[.!?]+["')\]]*(?=\s|$)/g)) {
+    const end = m.index + m[0].length;
+    const chunk = text.slice(start, end);
+    if (m[0].startsWith(".") && NOT_A_SENTENCE_END.test(chunk)) continue;
+    out.push(chunk.trim());
+    start = end;
+  }
+  const rest = text.slice(start).trim();
+  if (rest) out.push(rest);
+  return out.filter(Boolean);
 }
 
 /** Seconds to read a sentence aloud, used when there's no speech engine (about 150 words a minute). */

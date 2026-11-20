@@ -27,6 +27,16 @@ const inCampus = ([lng, lat]) =>
 
 const words = (s) => (s || "").trim().split(/\s+/).filter(Boolean).length;
 
+// Narration is read aloud: flag things text-to-speech handles badly.
+// All-caps words that voices say correctly (as a word or as letters a listener knows).
+const SPOKEN_OK = new Set(["FIU", "NCAA", "NBA", "LEED", "STAR", "MARC"]);
+function speechWarnings(label, text) {
+  if (!text) return;
+  if (/[()]/.test(text)) warn(`${label}: narration has parentheses; write it for the ear`);
+  const caps = [...new Set(text.match(/\b[A-Z]{2,}\b/g) || [])].filter((w) => !SPOKEN_OK.has(w));
+  if (caps.length) warn(`${label}: narration has ${caps.join(", ")}; voices may spell it out (use the spoken name, or add it to SPOKEN_OK)`);
+}
+
 // stops.json
 const stops = readJson("content/stops.json");
 if (stops) {
@@ -57,6 +67,7 @@ if (stops) {
       const n = words(spoken);
       if (s.type === "featured" && (n < 40 || n > 90)) warn(`${label}: featured narration is ${n} words (target 40 to 90)`);
       if (s.type === "quick-pass" && s.narration && n > 35) warn(`${label}: quick-pass narration is ${n} words (target 35 or fewer)`);
+      speechWarnings(label, s.narration);
     }
     orders.sort((a, b) => a - b);
     if (orders.some((o, i) => o !== i + 1)) err(`route order must be consecutive from 1; found ${orders.join(", ")}`);
@@ -65,7 +76,11 @@ if (stops) {
 
 // tour.json
 const tour = readJson("content/tour.json");
-if (tour) for (const k of ["welcome", "closing"]) if (!tour[k]) err(`content/tour.json: missing "${k}"`);
+if (tour)
+  for (const k of ["welcome", "closing"]) {
+    if (!tour[k]) err(`content/tour.json: missing "${k}"`);
+    else speechWarnings(`tour.${k}`, tour[k].narration);
+  }
 
 // route.geojson
 const route = readJson("content/route.geojson");

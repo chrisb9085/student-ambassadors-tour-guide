@@ -45,6 +45,15 @@ describe("speech helpers", () => {
     expect(splitSentences("")).toEqual([]);
   });
 
+  it("doesn't break sentences at initials in names", () => {
+    expect(splitSentences("Designed by Robert A. M. Stern, it holds courtrooms. Next stop.")).toEqual([
+      "Designed by Robert A. M. Stern, it holds courtrooms.",
+      "Next stop.",
+    ]);
+    expect(splitSentences("Alumni include T. Y. Hilton and Jonnu Smith.")).toHaveLength(1);
+    expect(splitSentences("The Paul L. Cejas School. The Sanford L. Ziff Family Education Building.")).toHaveLength(2);
+  });
+
   it("estimates reading time, never under 1.5 s", () => {
     expect(readingSeconds("one two three four five six seven eight nine ten")).toBe(4);
     expect(readingSeconds("Hi")).toBe(1.5);

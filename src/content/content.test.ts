@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 import { allStops, alsoOnCampus, boundsOf, route, routeBounds, routeStops, tour } from ".";
 import type { LngLat } from "./types";
@@ -64,6 +65,24 @@ describe("tour content (SCOPE section 5)", () => {
       expect(guestText, s.id).not.toMatch(/confirm|TODO|TBD|needs content/i);
     }
   });
+});
+
+describe("Foundation review page (S5.2)", () => {
+  it("docs/CONTENT-REVIEW.md matches content/ (run npm run content:review after edits)", () => {
+    expect(() => execFileSync("node", ["tools/content-review.mjs", "--check"], { stdio: "pipe" })).not.toThrow();
+  });
+});
+
+describe("narration is written for the ear", () => {
+  const SPOKEN_OK = new Set(["FIU", "NCAA", "NBA", "LEED", "STAR", "MARC"]);
+  for (const item of [...allStops, tour.welcome, tour.closing]) {
+    it(`${item.id}: no parentheses or building codes`, () => {
+      const n = item.narration ?? "";
+      expect(n).not.toMatch(/[()]/);
+      const codes = (n.match(/\b[A-Z]{2,}\b/g) ?? []).filter((w) => !SPOKEN_OK.has(w));
+      expect(codes).toEqual([]);
+    });
+  }
 });
 
 describe("boundsOf", () => {

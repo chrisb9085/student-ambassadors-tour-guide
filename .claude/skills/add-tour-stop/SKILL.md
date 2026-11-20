@@ -16,5 +16,5 @@ Use this when asked to add a building, change a card, reorder the route, or mark
 5. **Set the order.** Route stops use consecutive integers starting at 1, in driving order. When you insert a stop, renumber the stops after it. Welcome and Closing live in `content/tour.json`, not here.
 6. **Route line.** If the new stop isn't on the existing path in `content/route.geojson`, extend the LineString along the real roads. Don't draw straight lines across buildings.
 7. **Construction status.** Set `"status": "under-construction"` and `"opens"` (if known). Keep the full card.
-8. **Validate.** Run `node .claude/skills/validate-tour-content/scripts/validate.mjs` and fix every error.
+8. **Validate.** Run `npm run validate` and fix every error and warning, then `npm run content:review` to refresh the Foundation's review page, then `npm test`.
 9. **Report.** Tell the user what changed and which facts still need Foundation review.
