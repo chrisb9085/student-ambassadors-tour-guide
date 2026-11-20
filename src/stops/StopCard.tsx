@@ -1,6 +1,6 @@
 import type { Stop } from "../content/types";
 import { InfoCard } from "../components/InfoCard";
-import { shortLabel, statusBadge, typeLabel } from "./describe";
+import { buttonName, shortLabel, statusBadge, typeLabel } from "./describe";
 
 type Props = {
   stop: Stop;
@@ -26,6 +26,7 @@ export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) 
       stat={stop.stat}
       highlights={stop.highlights}
       impact={stop.impact}
+      guideNotes={stop.guideNotes}
       onClose={onClose}
       closeLabel={`Close ${stop.name}`}
       footer={
@@ -36,7 +37,7 @@ export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) 
               className="btn btn-secondary"
               disabled={!prev}
               onClick={() => prev && onSelect(prev.id)}
-              aria-label={prev ? `Previous stop: ${prev.name}` : "Previous stop"}
+              aria-label={prev ? `Previous stop: ${buttonName(prev)}` : "Previous stop"}
             >
               <span aria-hidden="true">‹</span>
               <span className="btn-label-truncate">{prev ? shortLabel(prev) : "Previous"}</span>
@@ -46,7 +47,7 @@ export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) 
               className="btn btn-secondary"
               disabled={!next}
               onClick={() => next && onSelect(next.id)}
-              aria-label={next ? `Next stop: ${next.name}` : "Next stop"}
+              aria-label={next ? `Next stop: ${buttonName(next)}` : "Next stop"}
             >
               <span className="btn-label-truncate">{next ? shortLabel(next) : "Next"}</span>
               <span aria-hidden="true">›</span>

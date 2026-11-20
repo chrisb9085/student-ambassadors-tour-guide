@@ -127,12 +127,12 @@ Ordered by priority now that the site is a preparation tool.
 - [x] **Update the docs for the new purpose:** SCOPE §3 (audience), the README intro and CLAUDE.md still describe donors using the site in the vehicle. Rewrite them as an ambassador preparation tool, so future work follows the right goal. Card copy stays donor-facing, because it's what ambassadors say on the tour.
 
 ### B. More natural narration (high priority: ambassadors study by listening)
-- [ ] Quick win: slightly slower default speed and short pauses between sentences.
+- [x] Quick win: slightly slower default speed and short pauses between sentences (Sprint 9).
 - [ ] **Pre-recorded narration audio:** a build-time script turns each narration into an MP3 with a high-quality voice (OpenAI, ElevenLabs, Azure or Google), stored with the site. No server or browser API key; same voice on every device; falls back to the browser voice. Decisions needed: which voice service, whether an AI voice is acceptable (AI use is undecided, but this is behind-the-scenes generation with human review), and who listens to each clip.
 - [ ] Or record a real ambassador's voice for the 35 narrations.
 
 ### C. Study features (new priority from the "preparation tool" answer)
-- [ ] **"For ambassadors" section on each card** (collapsible): the handbook's tour guide tip for that stop (most stops have one, for example "Emphasize FIU's commitment to student success…") plus the longer handbook detail. This covers SCOPE §4.2's "More" toggle. It needs a new optional content field (for example `guideNotes`), sourced like every other fact, and validator and review-page support.
+- [x] **"For ambassadors" section on each card** (Sprint 9; tips on 31 of 33 stops) (collapsible): the handbook's tour guide tip for that stop (most stops have one, for example "Emphasize FIU's commitment to student success…") plus the longer handbook detail. This covers SCOPE §4.2's "More" toggle. It needs a new optional content field (for example `guideNotes`), sourced like every other fact, and validator and review-page support.
 - [ ] **Printable study guide:** every stop in route order with key facts and tour guide tips, for studying away from the screen. Build it from `content/`, as `tools/content-review.mjs` does, as a print-friendly page in the app or a generated document. Leave out `reviewNotes`.
 - [ ] **Off-route buildings the handbook already covers**, as "Also on campus" stops like Green Library (SCOPE Phase 2, but already sourced):
   - Helen and Jacob Shaham Academic Medical Center (under construction, opens 2028; Handbook p.17)
@@ -145,7 +145,7 @@ Ordered by priority now that the site is a preparation tool.
 - [ ] Ideas to confirm with Chris: a self-quiz mode (hide the card, guess the building), and a "my tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours).
 
 ### D. UI enhancements
-- [ ] Long names (Sprint 8): show the part before the colon ("Academic Health Center 3:") as a small line above the card title, so the title doesn't take four lines on a phone. Keep the full name as the heading's accessible name.
+- [x] Long names (Sprint 8, done in Sprint 9): show the part before the colon ("Academic Health Center 3:") as a small line above the card title, so the title doesn't take four lines on a phone. Keep the full name as the heading's accessible name.
 - [ ] Building highlight: outline or glow the current building, not just its marker.
 - [ ] Group overlapping markers when zoomed out (AHC 1 to 5).
 - [ ] Photos on cards (`photo` field), with renderings for buildings under construction.

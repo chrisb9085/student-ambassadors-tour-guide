@@ -2,6 +2,16 @@ import type { LngLat, Stop } from "../content/types";
 
 export const shortLabel = (s: Stop) => s.label ?? s.name;
 
+/**
+ * Accessible name for a button that shows the short label (Previous and Next on the card). It starts with
+ * the visible text so voice control ("click Stempel Public Health") works (WCAG 2.5.3, Label in Name), and
+ * includes the full name when the label isn't already part of it.
+ */
+export function buttonName(stop: Stop): string {
+  const label = shortLabel(stop);
+  return stop.name.toLowerCase().includes(label.toLowerCase()) ? stop.name : `${label}, ${stop.name}`;
+}
+
 /** Zoom bands that decide which marker labels show (see StopMarkers.css). */
 export function zoomBand(zoom: number): "low" | "mid" | "high" {
   if (zoom < 16.3) return "low";

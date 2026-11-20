@@ -5,19 +5,29 @@ import { openMap } from "./helpers";
 /**
  * Headless browsers have no voices, so real speech never finishes. Replace speechSynthesis with a stand-in
  * that records each sentence as soon as it's queued, but only finishes speaking when the test calls
- * __finishSpeech(). The test controls time, so a virtual tour can't run ahead of its assertions (it did,
- * under load, when the stand-in finished sentences on its own). The app's own speech code still runs.
+ * __finishSpeech(), which plays the current narration to its end. The test controls time, so a virtual
+ * tour can't run ahead of its assertions (it did, under load, when the stand-in finished sentences on its
+ * own). The app's own speech code still runs.
  */
 async function stubSpeech(page: Page) {
   await page.addInitScript(() => {
     const said: string[] = [];
     let queue: SpeechSynthesisUtterance[] = [];
     const start = () => queue[0]?.onstart?.(new Event("start") as SpeechSynthesisEvent);
-    (window as unknown as { __finishSpeech: () => void }).__finishSpeech = () => {
-      while (queue.length) {
-        const u = queue.shift()!;
-        u.onend?.(new Event("end") as SpeechSynthesisEvent);
-        start();
+    // The app speaks one sentence at a time with a short pause between them, so keep finishing sentences
+    // until the narration has been quiet for 750 ms: longer than the pause between sentences, shorter
+    // than the wait before auto-advance, so the next stop's narration is never finished by accident.
+    (window as unknown as { __finishSpeech: () => Promise<void> }).__finishSpeech = async () => {
+      for (let quiet = 0; quiet < 3; ) {
+        if (queue.length) {
+          quiet = 0;
+          while (queue.length) {
+            const u = queue.shift()!;
+            u.onend?.(new Event("end") as SpeechSynthesisEvent);
+            start();
+          }
+        } else quiet++;
+        await new Promise((r) => setTimeout(r, 250));
       }
     };
     const fake = {
@@ -59,7 +69,7 @@ async function stubSpeech(page: Page) {
 
 const said = (page: Page) => page.evaluate(() => (window as unknown as { __said: string[] }).__said);
 /** Let the current narration play to its end. */
-const finishSpeech = (page: Page) => page.evaluate(() => (window as unknown as { __finishSpeech: () => void }).__finishSpeech());
+const finishSpeech = (page: Page) => page.evaluate(() => (window as unknown as { __finishSpeech: () => Promise<void> }).__finishSpeech());
 const progress = (page: Page) => page.getByRole("region", { name: "Tour controls" });
 
 async function shot(page: Page, info: TestInfo, name: string) {

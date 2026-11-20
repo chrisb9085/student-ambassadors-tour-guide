@@ -20,6 +20,13 @@ function card(heading, c, meta) {
   lines.push(`**Impact of support:** ${c.impact}`, "");
   if (c.stat) lines.push(`**Key stat:** ${c.stat.value} (${c.stat.label})`, "");
   if (c.narration) lines.push(`**Spoken narration** (${words(c.narration)} words):`, "", `> ${c.narration}`, "");
+  if (c.guideNotes?.length)
+    lines.push(
+      "**For ambassadors** (collapsed on the card, never read aloud):",
+      "",
+      ...c.guideNotes.map((g) => `- *${g.kind === "tip" ? "Tour guide tip" : "Detail"}* (${link(g.source)}): ${g.text}`),
+      "",
+    );
   lines.push(`**Sources:** ${c.sources.map(link).join("; ")}`, "", `**Last reviewed:** ${c.lastReviewed}`, "");
   if (c.reviewNotes?.length) lines.push("**Needs confirmation:**", "", ...c.reviewNotes.map((n) => `- ${n}`), "");
   return lines.join("\n");
@@ -32,7 +39,7 @@ const flagged = [
 const out = [
   "# Tour content for Foundation review",
   "",
-  "This document shows every card in the FIU donor driving tour exactly as guests see it and as Tour Mode reads it aloud, with the source for each fact. It is generated from `content/` with `npm run content:review`, so edit the content files, not this page.",
+  "This document shows every card in the FIU donor driving tour exactly as guests see it and as Tour Mode reads it aloud, with the source for each fact, plus the study notes ambassadors see under \"For ambassadors\". It is generated from `content/` with `npm run content:review`, so edit the content files, not this page.",
   "",
   "**How to review:** read each card, and check the items under \"Needs confirmation\" first. Send corrections, or a confirmed fact with its source, to the Student Ambassador team.",
   "",

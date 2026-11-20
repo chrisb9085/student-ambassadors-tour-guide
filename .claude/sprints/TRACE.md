@@ -283,6 +283,49 @@ Backlog section A: Chris's review answers, full official names, the type changes
 - Chromium e2e on the stand-in: 60 of 63 passed. The 3 failures were one test, run on each of the three projects, that still clicked "Next stop: Center for Children and Families". After updating it to the full name, the stops spec passed 15 of 15 on all three projects.
 - Looked at the AHC 3 card and the stop list at phone width (390 px). The long names wrap cleanly, but the AHC 3 title takes four lines. Backlog D now has an item to show the "Academic Health Center 3:" prefix as a small line above the title.
 
+### Sprint 9: study notes and more natural narration (2026-11-20)
+
+Backlog B (quick win), the first item in C ("For ambassadors"), and the long-name item from D.
+
+**Built**
+- **"For ambassadors" section on every card** (stop cards and Tour Mode cards). It's a native `<details>`, collapsed by default, so it works with touch, keyboard and screen readers. It closes again when the card moves to another stop.
+  - It holds the handbook's **tour guide tips, quoted word for word**, and **"More to know" details** condensed from the same handbook pages, for answering guests' questions.
+  - Each item shows its source page.
+- **New content field `guideNotes`:** a list of `{ kind: "tip" | "detail", text, source }`. 31 of 33 stops have notes; Ziff and Intramural Fields have no handbook section to draw on.
+  - The garages tip goes on all three garages, the Academic Health Center tip on all five AHC stops, the College of Business tip on its three buildings, and the housing tip on the four residence halls.
+  - Veteran and Military Affairs sits on University Towers, which already has the "Nearby" line.
+  - The Deuxième Maison pairing is a detail on Primera Casa.
+  - The Presidential House tip waits for its off-route stop.
+  - Notes are never read aloud and are written for ambassadors, so student logistics are fine here.
+- The validator checks `guideNotes`: kind, non-empty text, and a source that is either "Handbook p.N" or an fiu.edu URL. `docs/CONTENT-REVIEW.md` now lists the notes under each card, so the Foundation reviews them too.
+- **More natural narration (quick win):**
+  - Sentences are spoken one at a time with a 300 ms pause between them. Queuing them all at once ran them together.
+  - "Normal" speed is now 0.95, since 1.0 sounds rushed. Slower stays 0.85; Faster goes from 1.15 to 1.1. Speeds saved earlier snap to the nearest option, so a radio button is always checked.
+  - Cancelling during a pause stops before the next sentence.
+- **Long names:** the part before the colon ("Academic Health Center 3:") is a small blue line above the card title, and the heading's text is still the full name.
+
+**Found in review and fixed**
+- **Label in Name (WCAG 2.5.3), present since Sprint 3.** The card's Next and Previous buttons show the short label ("Stempel Public Health") but were named with the full name, which doesn't contain it. Voice-control users couldn't say what they see. Six stops were affected: 1, 7, 10, 16, 21 and 23.
+  - The new `buttonName()` starts with the visible label and adds the full name when it's different.
+  - A unit test checks every stop.
+  - The axe audit found this only once it opened stop 6's card, whose Next button points to stop 7. Earlier audits opened only Bell Chapel.
+- **e2e speech stub:** `__finishSpeech()` now keeps finishing sentences until the narration has been quiet for 750 ms. That's longer than the pause between sentences and shorter than the 1.5 s auto-advance, so it never finishes the next stop by accident.
+
+**Tests added**
+- Content:
+  - every tip is quoted exactly, from the handbook page it cites (checked against the `<!-- p. N -->` markers)
+  - every note has a valid source
+  - at least 28 route stops have notes
+- Speech: one sentence at a time with the pause; cancelling during the pause; new default speed, and old saved speeds snap to the nearest option.
+- Cards: the section is collapsed, opens to show the tip and its page, resets on Next, and is absent when a stop has none; the long-name prefix; `buttonName` for every stop.
+- e2e: a new axe state, the AHC 3 card with "For ambassadors" open.
+
+**Tested**
+- 142 unit tests, lint, type-check, and validate (0 errors, 0 warnings) pass.
+- Chromium e2e on the stand-in: the full run found the Label in Name issue in the new a11y state on all three projects. After the fix, the a11y and stops specs passed 39 of 39. The tour spec, with the new speech stub, passed in the full run.
+- WebKit on the stand-in (serial): **66/66, no retries**, in 4.9 minutes.
+- Looked at the open section at phone (390 px) and iPad landscape sizes.
+
 ## How to walk through it yourself
 
 **One-time setup** (in a terminal at the repo root):

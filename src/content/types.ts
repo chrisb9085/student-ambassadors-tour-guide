@@ -3,6 +3,17 @@ export type StopType = "featured" | "quick-pass" | "also-on-campus";
 export type StopStatus = "open" | "under-construction";
 export type LngLat = [number, number];
 
+/**
+ * Study notes for ambassadors, shown under "For ambassadors" on the card (never read aloud).
+ * "tip": a handbook Tour Guide Tip, quoted as written. "detail": a fuller fact for answering questions.
+ */
+export type GuideNote = {
+  kind: "tip" | "detail";
+  text: string;
+  /** "Handbook p.N" or an official FIU URL. */
+  source: string;
+};
+
 export type Stop = {
   id: string;
   /** Route position (1-based). null for also-on-campus stops. */
@@ -25,6 +36,7 @@ export type Stop = {
   lastReviewed: string;
   /** Facts that need Foundation confirmation. Never shown to guests. */
   reviewNotes?: string[];
+  guideNotes?: GuideNote[];
 };
 
 /** Welcome and Closing cards. They sit at the PG1/PG2 loop, so they share its coordinates. */

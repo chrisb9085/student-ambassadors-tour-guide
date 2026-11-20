@@ -68,6 +68,17 @@ if (stops) {
       if (s.type === "featured" && (n < 40 || n > 90)) warn(`${label}: featured narration is ${n} words (target 40 to 90)`);
       if (s.type === "quick-pass" && s.narration && n > 35) warn(`${label}: quick-pass narration is ${n} words (target 35 or fewer)`);
       speechWarnings(label, s.narration);
+      if ("guideNotes" in s) {
+        if (!Array.isArray(s.guideNotes)) err(`${label}: guideNotes must be an array`);
+        else
+          s.guideNotes.forEach((g, i) => {
+            const where = `${label}: guideNotes[${i}]`;
+            if (!["tip", "detail"].includes(g?.kind)) err(`${where}: kind must be "tip" or "detail"`);
+            if (!g?.text || typeof g.text !== "string") err(`${where}: empty text`);
+            if (!/^Handbook p\.\d+$/.test(g?.source ?? "") && !/^https:\/\/([a-z0-9-]+\.)*fiu\.edu\//.test(g?.source ?? ""))
+              err(`${where}: source must be "Handbook p.N" or an fiu.edu URL`);
+          });
+      }
     }
     orders.sort((a, b) => a - b);
     if (orders.some((o, i) => o !== i + 1)) err(`route order must be consecutive from 1; found ${orders.join(", ")}`);

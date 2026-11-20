@@ -1,8 +1,8 @@
 /**
  * Narration through the Web Speech API (speechSynthesis), with a captions-only fallback.
  *
- * - Text is spoken one sentence at a time. Chrome stops long utterances after about 15 seconds, and
- *   sentence boundaries let the captions highlight what's being said.
+ * - Text is spoken one sentence at a time, with a short pause between sentences. Chrome stops long
+ *   utterances after about 15 seconds, and sentence boundaries let the captions highlight what's being said.
  * - iOS Safari only allows speech that starts inside a tap. Call unlock() synchronously in the
  *   Start or Play click handler; later narration started from timers then works.
  * - Without speech support, speak() waits for a reading-time estimate, so auto-advance still works muted.
@@ -12,7 +12,12 @@ export type SpeakOptions = {
   voiceURI: string | null;
   /** Called with the index of the sentence that starts playing. */
   onSentence?: (index: number) => void;
+  /** Silence between sentences, in milliseconds. Defaults to SENTENCE_PAUSE_MS. */
+  pauseMs?: number;
 };
+
+/** A short breath between sentences makes the browser voice sound less rushed. */
+export const SENTENCE_PAUSE_MS = 300;
 
 export type SpeakResult = "ended" | "cancelled" | "error";
 
@@ -98,7 +103,7 @@ export function createSpeaker(
       synth!.speak(u);
     },
 
-    speak(text, { rate, voiceURI, onSentence }) {
+    speak(text, { rate, voiceURI, onSentence, pauseMs = SENTENCE_PAUSE_MS }) {
       stopAll();
       const token = current;
       const sentences = splitSentences(text);
@@ -123,8 +128,13 @@ export function createSpeaker(
         }
 
         const voice = voiceURI ? synth!.getVoices().find((v) => v.voiceURI === voiceURI) ?? null : null;
-        sentences.forEach((sentence, i) => {
-          const u = new Utterance!(sentence);
+        // One sentence at a time, with a short breath between them, like a person reading aloud.
+        // (Queuing them all at once runs sentences together.) Speech started from a timer still plays
+        // on iOS once unlock() has run inside a tap.
+        const speakAt = (i: number) => {
+          if (token !== current) return;
+          if (i >= sentences.length) return done("ended");
+          const u = new Utterance!(sentences[i]);
           u.rate = rate;
           if (voice) {
             u.voice = voice;
@@ -133,15 +143,19 @@ export function createSpeaker(
             u.lang = "en-US";
           }
           u.onstart = () => token === current && onSentence?.(i);
-          if (i === sentences.length - 1) u.onend = () => done("ended");
+          u.onend = () => {
+            if (token !== current) return;
+            if (i === sentences.length - 1) return done("ended");
+            fallbackTimer = setTimeout(() => speakAt(i + 1), pauseMs);
+          };
           u.onerror = (e) => {
             // "interrupted" and "canceled" are what cancel() produces; anything else is a real error.
             const err = (e as SpeechSynthesisErrorEvent).error;
             done(err === "interrupted" || err === "canceled" ? "cancelled" : "error");
           };
           synth!.speak(u);
-        });
-        if (sentences.length === 0) done("ended");
+        };
+        speakAt(0);
       });
     },
 

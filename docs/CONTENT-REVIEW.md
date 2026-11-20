@@ -1,6 +1,6 @@
 # Tour content for Foundation review
 
-This document shows every card in the FIU donor driving tour exactly as guests see it and as Tour Mode reads it aloud, with the source for each fact. It is generated from `content/` with `npm run content:review`, so edit the content files, not this page.
+This document shows every card in the FIU donor driving tour exactly as guests see it and as Tour Mode reads it aloud, with the source for each fact, plus the study notes ambassadors see under "For ambassadors". It is generated from `content/` with `npm run content:review`, so edit the content files, not this page.
 
 **How to review:** read each card, and check the items under "Needs confirmation" first. Send corrections, or a confirmed fact with its source, to the Student Ambassador team.
 
@@ -60,6 +60,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > The Student Academic Success Center opened in 2016. It brings together the offices that guide students through their entire journey: admissions, first-year and transfer programs, international student services, education abroad, and career and talent development. With these services in one place, students get support quickly, stay on track and graduate. Support for student success programs here has a direct effect on retention and graduation.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.10): When discussing SASC, emphasize FIU's commitment to student success. This building demonstrates how the university supports students at every stage of their journey—from applying to FIU to launching their careers after graduation.
+- *Detail* (Handbook p.10): Besides the offices on the card, Student Access and Success is here too.
+- *Detail* (Handbook p.10): Putting these services in one place helps students get timely support, improves retention and keeps them on track to graduate.
+
 **Sources:** Handbook p.10; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
 **Last reviewed:** 2026-11-19
@@ -85,6 +91,14 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > The Ernest R. Graham Center is the heart of student life at FIU, with more than three and a half million visits a year. It is home to Student Government and hundreds of student organizations, including twenty-nine fraternities and sororities. The Center for Leadership and Service develops student leaders through programs like Alternative Breaks and Roarthon, often supported by donor-funded programming and scholarships. The Disability Resource Center here serves more than thirty-five hundred students a year.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Detail* (Handbook p.12): Campus life: the Student Programming Council, the Council for Student Organizations, and Homecoming traditions like Panthermonium and The Uncaging.
+- *Detail* (Handbook p.12): Fraternity and Sorority Life: 29 organizations and more than 1,000 students engaged in leadership, service and philanthropy.
+- *Detail* (Handbook p.12): Center for Leadership and Service programs: Academy of Leaders, Alternative Breaks, Roarthon for Children's Miracle Network, and Relay for Life for the American Cancer Society.
+- *Detail* (Handbook p.13): Services: the FIU Bookstore, the Panther Dining office, PantherTech, the Student Food Pantry, computer labs and printing.
+- *Detail* (Handbook p.13): Disability Resource Center: testing accommodations, assistive technology, accessible textbooks, housing accommodations and access to scholarships.
+
 **Sources:** Handbook pp.12-13; [digitalcommons.fiu.edu/fiu_images/1/](https://digitalcommons.fiu.edu/fiu_images/1/)
 
 **Last reviewed:** 2026-11-20
@@ -109,6 +123,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (34 words):
 
 > By the lake, the Trish and Dan Bell Chapel is under construction: a multifaith space for reflection, open to every faith tradition, backed by fourteen million dollars in gifts from Trish and Dan Bell.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.11): When discussing the Bell Chapel, emphasize that it reflects FIU’s commitment to supporting the whole student experience—including spiritual wellbeing, reflection, and inclusion for all faiths and beliefs.
+- *Detail* (Handbook p.11): Campus role: a dedicated space for spiritual life and wellbeing, and a place for reflection, dialogue and community connection.
+- *Detail* ([news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel](https://news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel)): The sanctuary will be available for religious life-stage milestones, weddings and other ceremonies.
 
 **Sources:** Handbook p.11; [news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel](https://news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel); [news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel](https://news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel); [bellchapel.fiu.edu/why-a-chapel/about-the-chapel/](https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/)
 
@@ -136,6 +156,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work. Academic Health Center 1 houses the Center for Children and Families, which advances children's mental health through research, clinical care and community outreach. Its teams provide mental health services for children and families, study child development and behavioral health, and run early intervention programs that reach families across South Florida.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
+- *Detail* (Handbook p.15): The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work, supporting education, research, clinical training and community health across South Florida.
+
 **Sources:** Handbook p.15
 
 **Last reviewed:** 2026-11-20
@@ -161,6 +186,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Next, in Academic Health Center 2, is the Herbert Wertheim College of Medicine, South Florida's first public medical school. It partners with more than thirty hospitals and healthcare organizations. Students train in the Albert and Debbie Tano Simulation Center, and through NeighborhoodHELP and the Linda Fenner 3D Mobile Mammography Center, the college brings care directly to underserved communities.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
+- *Detail* (Handbook p.15): The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work, supporting education, research, clinical training and community health across South Florida.
+
 **Sources:** Handbook p.15
 
 **Last reviewed:** 2026-11-20
@@ -183,6 +213,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Academic Health Center 3 is home to the Nicole Wertheim College of Nursing and Health Sciences, which prepares students for careers in nursing, physical therapy, occupational therapy, athletic training, and communication sciences and disorders. Its STAR Center is an advanced simulation facility that replicates real hospital environments, so students practice in realistic settings before they ever meet a patient. Specialized clinical laboratories add even more hands-on learning.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
+- *Detail* (Handbook p.15): The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work, supporting education, research, clinical training and community health across South Florida.
+
 **Sources:** Handbook p.15; [cnhs.fiu.edu/about/](https://cnhs.fiu.edu/about/)
 
 **Last reviewed:** 2026-11-20
@@ -204,6 +239,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (68 words):
 
 > In Academic Health Center 5, the Robert Stempel College of Public Health and Social Work prepares students to improve the health of whole communities. Its programs in public health, nutrition and social work focus on epidemiology, global health, health policy and disaster preparedness. Graduates go on to serve in healthcare systems, government agencies, nonprofit organizations and research institutions, tackling public health challenges at home and around the world.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
+- *Detail* (Handbook p.16): Stempel College works on public health challenges at local, national and global levels.
 
 **Sources:** Handbook pp.15-16
 
@@ -230,6 +270,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Just ahead is Innovation 1, opened in 2025 as the first building of FIU's Innovation Complex. This six-story, LEED Gold certified facility is the College of Engineering and Computing's home on this campus, with faculty in computing and biomedical engineering. Students, faculty and industry partners work side by side in its classrooms, makerspaces and labs on artificial intelligence, cybersecurity, robotics, health and sustainability.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Detail* (Handbook p.19): The College of Engineering and Computing has more than 8,500 students in 37 programs, with undergraduate, master's and doctoral degrees. Its headquarters is the Engineering Center near SW 107th Avenue and Flagler Street.
+- *Detail* (Handbook p.19): Signature research facilities: the Wall of Wind, a full-scale hurricane simulator that reaches Category 5 conditions, and the Motorola Nanofabrication Facility, Florida's first centralized nanofabrication research center.
+- *Detail* (Handbook p.19): Research focus areas include infrastructure, cybersecurity, health and climate resilience, with strong industry and government partnerships.
+
 **Sources:** Handbook p.18; [cec.fiu.edu/about/](https://cec.fiu.edu/about/); [cec.fiu.edu/news-events/news/2025/from-the-deans-desk-bringing-our-vision-to-life.html](https://cec.fiu.edu/news-events/news/2025/from-the-deans-desk-bringing-our-vision-to-life.html)
 
 **Last reviewed:** 2026-11-20
@@ -253,6 +299,10 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (56 words):
 
 > Market Station shows how FIU makes every building work hard for students. More than a parking garage, it brings together dining, classrooms and student gathering spaces, and serves as a hub for campus activity and transportation. Since it opened in 2011, it has put classes, meals and services right where students arrive on campus each day.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.6): When discussing parking garages, focus on how FIU's garages function as multi-purpose facilities that combine parking with student services, dining, classrooms, and campus resources.
 
 **Sources:** Handbook p.6; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_7-21-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_7-21-2026.pdf)
 
@@ -283,6 +333,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Academic Health Center 4, the Science Classroom Complex, opened in 2013 as a fifty-seven and a half million dollar investment in research and teaching. Its wet and dry labs, classrooms and seminar rooms serve the College of Medicine and FIU's science programs, including a customized mass spectrometry lab. Here students build their foundation in science, and researchers pursue discoveries that improve health.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
+- *Detail* ([news.fiu.edu/2014/building-boom-at-fiu.html](https://news.fiu.edu/2014/building-boom-at-fiu.html)): FIU News (2014) describes it as a research facility for the College of Medicine and the then College of Arts & Sciences.
+
 **Sources:** Handbook p.15; [news.fiu.edu/2014/building-boom-at-fiu.html](https://news.fiu.edu/2014/building-boom-at-fiu.html)
 
 **Last reviewed:** 2026-11-20
@@ -303,6 +358,10 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (20 words):
 
 > Red Garage is one of six garages on campus, giving students and visitors close access to academic and administrative buildings.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.6): When discussing parking garages, focus on how FIU's garages function as multi-purpose facilities that combine parking with student services, dining, classrooms, and campus resources.
 
 **Sources:** Handbook p.6
 
@@ -327,6 +386,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (58 words):
 
 > The College of Arts, Sciences and Education is FIU's largest college, serving more than twenty-six thousand students. With over six hundred faculty and more than sixty million dollars in annual research funding, its three schools span the sciences, humanities, education and social sciences. Research here connects science, education and society, from environmental sustainability to the future of education.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Detail* (Handbook p.20): More than 600 faculty members, organized into three schools.
+- *Detail* (Handbook p.20): School of Environment, Arts and Society: biology, environmental science, English and liberal studies.
+- *Detail* (Handbook p.20): School of Integrated Sciences and Humanity: chemistry, physics, biochemistry, mathematics, psychology and statistics.
+- *Detail* (Handbook p.20): School of Education and Human Development: teacher education, counseling, school psychology, educational leadership, and recreation and human development.
 
 **Sources:** Handbook p.20
 
@@ -353,6 +419,10 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Tech Station turns part of this parking garage into a three million dollar hub for technology innovation, training and community engagement. Students work in software design and systems training labs, team rooms and a makerspace. It is also home to MangoHacks, FIU's student-run hackathon that promotes creativity, collaboration and innovation.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.6): When discussing parking garages, focus on how FIU's garages function as multi-purpose facilities that combine parking with student services, dining, classrooms, and campus resources.
+
 **Sources:** Handbook p.6; [www.cis.fiu.edu/students/techstation/](https://www.cis.fiu.edu/students/techstation/)
 
 **Last reviewed:** 2026-11-20
@@ -378,6 +448,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > The Paul L. Cejas School of Architecture was designed by internationally renowned architect Bernard Tschumi. Inside, students experience their designs in virtual reality through the Immersive Cave Automatic Virtual Environment, and every architecture student has an assigned studio workspace. It is a professional environment that mirrors the studios where practicing architects and designers work.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.21): Emphasize how FIU provides students with cutting-edge technology and professional workspaces that mirror the environments used by practicing architects and designers.
+- *Detail* (Handbook p.21): Every architecture student has an assigned studio workspace.
+- *Detail* (Handbook p.21): Inside: design studios, computer labs, lecture halls, gallery spaces and presentation rooms.
+
 **Sources:** Handbook p.21; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
 **Last reviewed:** 2026-11-19
@@ -402,6 +478,10 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (60 words):
 
 > The Ryder Business Building has been part of FIU's College of Business since 1991. Along with the College of Business Complex and the Mango building, it is one of the college's three homes on this campus. On its third floor, the Global Sales Center's lab has twelve training rooms where more than four hundred students each semester practice professional sales.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.22): Highlight FIU's strong partnerships with the business community and the emphasis on career preparation through internships, networking opportunities, and experiential learning.
 
 **Sources:** [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); [business.fiu.edu/about/locations/](https://business.fiu.edu/about/locations/); [business.fiu.edu/academics/departments/marketing-and-logistics/global-sales-center/](https://business.fiu.edu/academics/departments/marketing-and-logistics/global-sales-center/)
 
@@ -475,6 +555,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Here is the College of Business Complex, academic home of one of South Florida's leading business schools. Students work with real-time market data in the Capital Markets Lab and attend lectures in the three-hundred-seat Ocean Bank Auditorium. The Bank of America Career Management Services Center, interview suites and the Alumni Circle Recruiters' Lounge connect students directly with employers.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.22): Highlight FIU's strong partnerships with the business community and the emphasis on career preparation through internships, networking opportunities, and experiential learning.
+- *Detail* (Handbook p.22): Student Hall also houses Executive and Professional Education programs and the MBA Program offices.
+- *Detail* (Handbook p.22): Academic Hall has tiered classrooms and collaborative spaces built for team-based learning.
+
 **Sources:** Handbook p.22; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
 **Last reviewed:** 2026-11-20
@@ -499,6 +585,10 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Mango, which stands for Management and New Growth Opportunities, opened in 2014 as a thirty-five point seven million dollar investment in business education. Its roughly one hundred thirteen thousand square feet hold classrooms for the College of Business and FIU Online, along with a ground-floor food court where students gather between classes.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.22): Highlight FIU's strong partnerships with the business community and the emphasis on career preparation through internships, networking opportunities, and experiential learning.
+
 **Sources:** [news.fiu.edu/2014/04/building-boom-at-fiu/76513](https://news.fiu.edu/2014/04/building-boom-at-fiu/76513); [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
 **Last reviewed:** 2026-11-19
@@ -521,6 +611,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (62 words):
 
 > Rafael Díaz-Balart Hall is home to the FIU College of Law, one of the nation's highest-performing public law schools. Designed by renowned architect Robert A. M. Stern, it holds classrooms, courtrooms and the Law Library. FIU Law graduates are consistently among the top performers on the Florida Bar Examination, and clinics, externships and moot court give students real experience before they graduate.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.24): FIU Law is nationally recognized for student success and strong bar passage rates, reflecting the university's commitment to academic excellence.
+- *Detail* (Handbook p.24): About 162,000 square feet, with classrooms, courtrooms, faculty offices and the Law Library.
+- *Detail* (Handbook p.24): Students learn through clinics, externships and moot court competitions.
+- *Detail* (Handbook p.24): Graduates go into public service, private practice, business and government.
 
 **Sources:** Handbook p.24
 
@@ -547,6 +644,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > The Ocean Bank Convocation Center seats about five thousand people. It is home to FIU men's and women's basketball, with NBA-quality locker rooms and sports medicine spaces for student-athletes. It is also where FIU holds commencement ceremonies, concerts and major campus events, making it one of the university's primary gathering places. FIU Athletics competes in eighteen NCAA Division One programs.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.23): Explain that the Convocation Center is much more than an athletic venue—it is one of FIU's primary gathering spaces for campus-wide celebrations and events.
+- *Detail* (Handbook p.23): NBA-quality locker rooms, plus hydrotherapy and sports medicine spaces for student-athletes.
+- *Detail* (Handbook p.27): FIU Athletics has 18 NCAA Division I programs competing in Conference USA.
+
 **Sources:** Handbook pp.23, 27
 
 **Last reviewed:** 2026-11-19
@@ -568,6 +671,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (59 words):
 
 > The Wellness and Recreation Center reflects FIU's commitment to the whole student, beyond the classroom. Students use state-of-the-art fitness equipment, group fitness classes and personal training, and join adventure recreation programs and outdoor excursions. Panther Hall Pool, the Recreation Field, and outdoor basketball and tennis courts round out spaces that help students stay active, manage stress and build community.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.26): Explain that FIU promotes wellness beyond academics by providing students with numerous opportunities to stay active, reduce stress, and build community.
+- *Detail* (Handbook p.26): Students can also use Tamiami Park Pool during recreational swim hours.
 
 **Sources:** Handbook p.26
 
@@ -594,6 +702,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > The Steven J. Green School of International and Public Affairs is one of the largest schools of its kind in the world, with more than seventy-two hundred students from over one hundred twenty countries. In 2015, Ambassador Steven J. Green committed twenty million dollars to name the school, along with the Dorothea Green Lecture Series and the Kimberly Green Latin American and Caribbean Center.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.25): Emphasize FIU's global identity and how the Green School reflects the university's international mission.
+- *Detail* (Handbook p.25): One of the largest schools of its kind in the world, with about 200 full-time faculty members.
+- *Detail* (Handbook p.25): Offers bachelor's, master's, doctoral and certificate programs.
+- *Detail* (Handbook p.25): Students take part in international research, study abroad and public policy experiences.
+
 **Sources:** Handbook p.25; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
 
 **Last reviewed:** 2026-11-19
@@ -615,6 +730,10 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (22 words):
 
 > Parkview Hall houses Honors College students in two six-story buildings joined by a sky bridge, with a common room overlooking the stadium.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.31): Emphasize that on-campus housing helps students build lifelong friendships while remaining close to academic and extracurricular opportunities.
 
 **Sources:** [housing.fiu.edu/choose-your-room/honors-college-parkview-hall/](https://housing.fiu.edu/choose-your-room/honors-college-parkview-hall/); Handbook p.31
 
@@ -638,6 +757,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > University Towers is home to nearly five hundred students, mostly in their second year. Nearby, the Office of Veteran and Military Affairs supports students who have served.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.31): Emphasize that on-campus housing helps students build lifelong friendships while remaining close to academic and extracurricular opportunities.
+- *Tour guide tip* (Handbook p.29): This office demonstrates FIU's commitment to serving those who have served our country through dedicated support services.
+- *Detail* (Handbook p.29): Veteran and Military Affairs, nearby, offers academic advising, VA education benefit help, transition resources and veteran-focused community programs.
+
 **Sources:** [housing.fiu.edu/choose-your-room/](https://housing.fiu.edu/choose-your-room/); [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); Handbook p.29
 
 **Last reviewed:** 2026-11-20
@@ -659,6 +784,10 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (17 words):
 
 > Lakeview Hall is home to eight hundred students, including BizLife, a living community for future business leaders.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.31): Emphasize that on-campus housing helps students build lifelong friendships while remaining close to academic and extracurricular opportunities.
 
 **Sources:** [housing.fiu.edu/choose-your-room/lakeview-village/index.html](https://housing.fiu.edu/choose-your-room/lakeview-village/index.html); [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
@@ -685,6 +814,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > This is Primera Casa, Spanish for First House. It was FIU's first building and opened when the university welcomed its first students in 1972. In 1994 it was renamed for founding president Charles Perry, and it still houses the offices of the President and Provost. On its exterior is Las Cuatro Razas, FIU's first public art installation. Next door, Deuxième Maison opened in 1973.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.9): Primera Casa represents FIU's beginnings. When the university opened in 1972, much of campus life was centered in this building. Today, it remains a symbol of FIU's growth from a new university serving South Florida to a globally recognized research institution.
+- *Detail* (Handbook p.9): Houses the Office of the President, the Office of the Provost and Human Resources.
+- *Detail* (Handbook p.9): Renamed in 1994 for founding president Charles "Chuck" Perry.
+- *Detail* (Handbook p.28): Next door, Deuxième Maison ("Second House") opened in 1973 as the second building on campus. The handbook suggests pairing the two to show FIU's early growth.
+
 **Sources:** Handbook pp.9, 28
 
 **Last reviewed:** 2026-11-19
@@ -706,6 +842,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (17 words):
 
 > From behind MARC you can see its distinctive egg-shaped auditorium, which seats about one hundred fifty guests.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Detail* (Handbook p.7): Home to the FIU Foundation, Alumni Relations, University Advancement and StartUP FIU, plus graduate programs and research centers.
+- *Detail* (Handbook p.7): StartUP FIU is the university-wide innovation hub: workshops, mentoring, competitions and networking for student entrepreneurs from every major.
+- *Detail* (Handbook p.7): The egg-shaped auditorium seats about 150 guests.
+- *Detail* (Handbook p.7): FIU's alumni network includes more than 340,000 graduates worldwide.
 
 **Sources:** Handbook pp.2, 7
 
@@ -732,6 +875,13 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > Pitbull Stadium is home to FIU Football and a focal point for school spirit and alumni pride. It features luxury suites, premium seating, a high-definition video board and the FIU Athletics Hall of Fame. FIU's eighteen NCAA Division One programs have produced professional athletes including T. Y. Hilton, Jonnu Smith and Carlos Arroyo.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.30): Highlight how the stadium serves as a focal point for school spirit, alumni engagement, and community celebrations.
+- *Tour guide tip* (Handbook p.27): Athletics plays an important role in building school spirit, alumni engagement, and community pride across FIU.
+- *Detail* (Handbook p.27): Notable athlete alumni: Carlos Arroyo (NBA), and T.Y. Hilton, Jonnu Smith and Jonathan Cyprien (NFL).
+- *Detail* (Handbook p.30): A high-definition video board, luxury suites and premium seating, and the Athletics Hall of Fame.
+
 **Sources:** Handbook pp.27, 30
 
 **Last reviewed:** 2026-11-19
@@ -753,6 +903,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (16 words):
 
 > Tamiami Hall opened in 2022. Its thirteen floors house six hundred seventy-six students in apartment-style living.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.31): Emphasize that on-campus housing helps students build lifelong friendships while remaining close to academic and extracurricular opportunities.
+- *Detail* (Handbook p.31): Furnished four-bedroom, two-bathroom apartments, with Resident Assistant support and a themed Living Learning Community.
 
 **Sources:** Handbook p.31; [housing.fiu.edu/choose-your-room/tamiami-hall/](https://housing.fiu.edu/choose-your-room/tamiami-hall/)
 
@@ -779,6 +934,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 > The Patricia and Phillip Frost Art Museum is one of South Florida's largest academic art museums, and admission is always free. It presents rotating exhibitions by national and international artists alongside permanent collections spanning many cultures. Students gain internships and museum experience here, and the museum's educational programs serve schools and families across South Florida.
 
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.33): The Frost Museum reflects FIU's commitment to making arts and culture accessible to both students and the broader South Florida community.
+- *Detail* (Handbook p.33): Students find internships, research opportunities and museum studies experiences here.
+- *Detail* (Handbook p.33): Rotating exhibitions of national and international artists, and permanent collections spanning many cultures.
+
 **Sources:** Handbook p.33; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
 
 **Last reviewed:** 2026-11-19
@@ -802,6 +963,11 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (29 words):
 
 > The Herbert and Nicole Wertheim Performing Arts Center has been FIU's premier venue for music, theatre and performing arts education since 1996, where students learn from internationally recognized artists.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Tour guide tip* (Handbook p.32): Highlight how students have opportunities to learn from internationally acclaimed artists while performing in a professional venue.
+- *Detail* (Handbook p.32): Orchestra, band, choir, jazz, opera and chamber ensembles perform throughout the academic year.
 
 **Sources:** Handbook p.32
 
@@ -829,6 +995,12 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (53 words):
 
 > The Steven and Dorothea Green Library is FIU's largest academic library, with more than two million books, journals and media. It houses tutoring, the Writing Center and study spaces across several floors. FIU named it for Steven and Dorothea Green, whose family foundation endowed support for the library and the Frost Art Museum.
+
+**For ambassadors** (collapsed on the card, never read aloud):
+
+- *Detail* (Handbook p.14): The Hub, on the second floor: tech support, Mac and Dell computer labs, printing and scanning, and group study spaces.
+- *Detail* (Handbook p.14): Device checkout lends laptops, iPads, calculators, headphones and chargers.
+- *Detail* (Handbook p.14): A Starbucks café, quiet floors for focused study, and extended evening hours in the fall and spring.
 
 **Sources:** Handbook p.14; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
 

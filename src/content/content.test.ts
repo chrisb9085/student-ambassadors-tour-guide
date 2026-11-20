@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { allStops, alsoOnCampus, boundsOf, route, routeBounds, routeStops, tour } from ".";
 import type { LngLat } from "./types";
@@ -108,6 +109,33 @@ describe("decisions from Chris, 2026-11-20 (docs/BACKLOG.md)", () => {
     const bell = byId("bell-chapel");
     expect(bell.status).toBe("under-construction");
     expect(bell.reviewNotes?.join(" ")).toMatch(/opened in 2023/);
+  });
+});
+
+describe("guide notes for ambassadors (Sprint 9)", () => {
+  const handbook = readFileSync("docs/HANDBOOK.md", "utf8");
+  /** The handbook page a passage is on, from the <!-- p. N --> markers. */
+  const pageOf = (text: string) => {
+    const at = handbook.indexOf(text);
+    if (at < 0) return null;
+    const markers = [...handbook.slice(0, at).matchAll(/<!-- p\. (\d+) -->/g)];
+    return Number(markers[markers.length - 1][1]);
+  };
+  const notes = allStops.flatMap((s) => (s.guideNotes ?? []).map((g) => ({ id: s.id, ...g })));
+
+  it("covers most route stops", () => {
+    const withNotes = routeStops.filter((s) => s.guideNotes?.length);
+    expect(withNotes.length).toBeGreaterThanOrEqual(28);
+  });
+
+  it("quotes every tour guide tip exactly, from the handbook page it cites", () => {
+    const tips = notes.filter((g) => g.kind === "tip");
+    expect(tips.length).toBeGreaterThan(20);
+    for (const t of tips) expect(t.source, `${t.id}: ${t.text.slice(0, 40)}`).toBe(`Handbook p.${pageOf(t.text)}`);
+  });
+
+  it("cites a handbook page or an fiu.edu page for every note", () => {
+    for (const g of notes) expect(g.source, g.id).toMatch(/^(Handbook p\.\d+|https:\/\/([a-z0-9-]+\.)*fiu\.edu\/)/);
   });
 });
 
