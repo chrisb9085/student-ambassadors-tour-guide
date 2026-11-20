@@ -1,0 +1,42 @@
+.captions {
+  margin: 0 0 12px;
+  padding: 10px 14px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--fiu-blue);
+  color: var(--text-on-blue);
+}
+
+.captions-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  color: var(--fiu-gold-bright);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.captions-text {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.captions-text span {
+  opacity: 0.85;
+}
+
+/* While speaking, the current sentence stands out. */
+.captions[data-speaking] .captions-text span {
+  opacity: 0.6;
+}
+
+.captions[data-speaking] .captions-text span.is-current {
+  opacity: 1;
+  background: rgb(245 184 46 / 0.22);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 3px;
+}

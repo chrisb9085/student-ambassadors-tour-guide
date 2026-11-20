@@ -16,13 +16,19 @@ export type InfoCardProps = {
   children?: ReactNode;
   /** Buttons along the bottom (Previous, Next, Listen). */
   footer?: ReactNode;
-  onClose: () => void;
+  /** Omit for cards that can't be closed on their own (Tour Mode exits from its controls). */
+  onClose?: () => void;
   closeLabel?: string;
+  /** Move focus to the title when the place changes. Off in Tour Mode so focus stays on the controls. */
+  autoFocus?: boolean;
+  /** Region label for assistive tech; defaults to a dialog named by the title. */
+  role?: "dialog" | "region";
 };
 
 /** A place card: popover-style side panel on wide screens, bottom sheet on narrow ones (see panels.css). */
 export function InfoCard(props: InfoCardProps) {
-  const { kicker, title, contentKey, badge, summary, stat, highlights, impact, children, footer, onClose, closeLabel = "Close" } = props;
+  const { kicker, title, contentKey, badge, summary, stat, highlights, impact, children, footer, onClose } = props;
+  const { closeLabel = "Close", autoFocus = true, role = "dialog" } = props;
   const titleId = useId();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -31,27 +37,30 @@ export function InfoCard(props: InfoCardProps) {
     onCloseRef.current = onClose;
   }, [onClose]);
 
+  const closable = !!onClose;
+
   // Remember what opened the card and give focus back when it closes.
   useEffect(() => {
+    if (!closable) return;
     const opener = document.activeElement as HTMLElement | null;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onCloseRef.current();
+      if (e.key === "Escape") onCloseRef.current?.();
     };
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
       if (opener && opener.isConnected && opener !== document.body) opener.focus();
     };
-  }, []);
+  }, [closable]);
 
-  // New place: focus its title and scroll back to the top.
+  // New place: focus its title (unless told not to) and scroll back to the top.
   useEffect(() => {
-    headingRef.current?.focus();
+    if (autoFocus) headingRef.current?.focus();
     bodyRef.current?.scrollTo?.({ top: 0 });
-  }, [contentKey]);
+  }, [contentKey, autoFocus]);
 
   return (
-    <section className="panel info-card" role="dialog" aria-labelledby={titleId}>
+    <section className="panel info-card" role={role} aria-labelledby={titleId}>
       <header className="info-card-header">
         <div className="info-card-titles">
           <p className="info-card-kicker">{kicker}</p>
@@ -67,11 +76,13 @@ export function InfoCard(props: InfoCardProps) {
             </p>
           )}
         </div>
-        <button type="button" className="icon-btn" onClick={onClose} aria-label={closeLabel}>
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
-            <path d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        </button>
+        {closable && (
+          <button type="button" className="icon-btn" onClick={onClose} aria-label={closeLabel}>
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        )}
       </header>
 
       <div className="info-card-body" ref={bodyRef}>
