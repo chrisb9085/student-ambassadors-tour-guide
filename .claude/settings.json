@@ -14,7 +14,11 @@
       "Bash(git log:*)",
       "Bash(npm install:*)",
       "Bash(git commit:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Read(./.gitignore)",
+      "Write(./.gitignore)"
     ],
     "ask": [
       "Bash(git push:*)"
