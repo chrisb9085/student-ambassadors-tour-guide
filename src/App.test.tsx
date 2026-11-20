@@ -55,4 +55,16 @@ describe("App", () => {
     await user.tab();
     expect(screen.getByRole("button", { name: /reset view/i })).toHaveFocus();
   });
+
+  it("puts the main actions before the 33 stop markers in Tab order", async () => {
+    const user = userEvent.setup();
+    render(<App token="pk.fake-test-value" />);
+    act(() => FakeMap.last.emit("load"));
+    for (let i = 0; i < 3; i++) await user.tab();
+    expect(screen.getByRole("button", { name: "Stops" })).toHaveFocus();
+    await user.tab();
+    expect(screen.getByRole("button", { name: "Start tour" })).toHaveFocus();
+    await user.tab();
+    expect(screen.getByRole("button", { name: /stop 1 of 32/i })).toHaveFocus();
+  });
 });

@@ -8,8 +8,23 @@ export function prefersReducedMotion(): boolean {
 
 const duration = (ms: number) => (prefersReducedMotion() ? 0 : ms);
 
-export function resetView(map: MapboxMap) {
-  map.easeTo({ ...INITIAL_VIEW, duration: duration(900) });
+/**
+ * The opening view for this screen: the standard campus view, or, on screens too small for it to show the
+ * whole route (phones), the zoom that fits the route. Bounds are passed in so this module stays content-free.
+ */
+export function defaultCamera(map: MapboxMap, routeBounds: Bounds) {
+  const fit = map.cameraForBounds?.(routeBounds, { padding: FIT_PADDING });
+  const zoom = fit?.zoom;
+  if (typeof zoom === "number" && zoom < INITIAL_VIEW.zoom) {
+    const c = fit!.center as { lng: number; lat: number } | [number, number];
+    const center: [number, number] = Array.isArray(c) ? c : [c.lng, c.lat];
+    return { ...INITIAL_VIEW, center, zoom };
+  }
+  return INITIAL_VIEW;
+}
+
+export function resetView(map: MapboxMap, routeBounds: Bounds) {
+  map.easeTo({ ...defaultCamera(map, routeBounds), duration: duration(900) });
 }
 
 export function showWholeRoute(map: MapboxMap, bounds: Bounds) {

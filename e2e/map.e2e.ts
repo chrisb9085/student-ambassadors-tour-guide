@@ -22,6 +22,9 @@ test.describe("Sprint 0-1: app shell and map", () => {
 
   test("camera buttons are at least 44 px and work", async ({ page }) => {
     await openMap(page);
+    await waitForIdle(page);
+    // The default view depends on screen size (phones zoom out to fit the route).
+    const openingZoom = await onMap<number>(page, "(m) => Math.round(m.getZoom() * 10) / 10");
     for (const name of [/whole route/i, /reset view/i]) {
       const box = await page.getByRole("button", { name }).boundingBox();
       expect(box!.height).toBeGreaterThanOrEqual(44);
@@ -35,8 +38,24 @@ test.describe("Sprint 0-1: app shell and map", () => {
     await onMap(page, "(m) => m.jumpTo({ zoom: 18 })");
     await page.getByRole("button", { name: /reset view/i }).click();
     await waitForIdle(page);
-    expect(await onMap<number>(page, "(m) => Math.round(m.getZoom() * 10) / 10")).toBe(15.6);
+    expect(await onMap<number>(page, "(m) => Math.round(m.getZoom() * 10) / 10")).toBe(openingZoom);
+    expect(openingZoom).toBeLessThanOrEqual(15.6);
     expect(zoomAfterFit).toBeGreaterThan(14.4);
+  });
+
+  test("the opening view shows every route stop, on any screen size", async ({ page }) => {
+    await openMap(page);
+    await waitForIdle(page);
+    const viewport = page.viewportSize()!;
+    const offscreen = await page.locator(".stop-marker--featured, .stop-marker--quick-pass").evaluateAll(
+      (els, vp) =>
+        els
+          .map((el) => ({ id: (el as HTMLElement).dataset.stopId, r: el.querySelector(".stop-marker-dot")!.getBoundingClientRect() }))
+          .filter(({ r }) => r.right < 0 || r.left > vp.width || r.bottom < 0 || r.top > vp.height)
+          .map(({ id }) => id),
+      viewport,
+    );
+    expect(offscreen, "stops outside the opening view").toEqual([]);
   });
 
   test("can't pan away from campus", async ({ page }) => {

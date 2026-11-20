@@ -2,12 +2,12 @@
 
 An interactive website for the FIU Foundation Student Ambassadors' VIP and donor campus tours. It shows a satellite map of FIU's Modesto A. Maidique Campus with the ambassadors' driving tour route drawn on top. Each stop opens a short card about the building, written for donors, VIPs and community partners. A guided Tour Mode follows the route stop by stop and reads each card aloud.
 
-> **Status:** MVP in development. See [SCOPE.md](docs/SCOPE.md) for the full project scope and [BACKLOG.md](docs/BACKLOG.md) for sprint progress.
+> **Status:** MVP built and tested; waiting on Foundation content review, a real-iPad drive test and the Vercel deploy. See [SCOPE.md](docs/SCOPE.md) for the scope, [BACKLOG.md](docs/BACKLOG.md) for the sprint plan and [.claude/sprints/TRACE.md](.claude/sprints/TRACE.md) for what was built and how it was tested.
 
 ## Features (MVP)
 
 - **Satellite campus map** with an FIU blue and gold interface that is simple to use on an iPad or phone.
-- **Driving route** from the loop between Gold Garage (PG1) and Blue Garage (PG2) in front of MARC, around campus and back. It has 33 stops.
+- **Driving route** from the loop between Gold Garage (PG1) and Blue Garage (PG2) in front of MARC, around campus and back: about 5 km with 32 stops.
 - **Clickable stop cards** for every building on the route plus Green Library. Each card has a one-line summary, a few highlights, a key stat and an "Impact of support" line.
 - **Featured and quick-pass stops**, so ambassadors can tailor each tour to a donor's interests.
 - **Under-construction badges** (for example Bell Chapel). These buildings still show their full information.
@@ -46,10 +46,20 @@ Requires Node 20 or later.
 | `npm run dev` | Local dev server |
 | `npm run build` | Type-check and build to `dist/` |
 | `npm run lint` | ESLint |
-| `npm test` | Unit and component tests (Vitest) |
-| `npm run validate` | Check `content/` and scan for committed tokens |
+| `npm test` | Unit, component and integration tests (Vitest) |
+| `npm run test:e2e` | End-to-end tests against the real map in Chromium at desktop and iPad sizes, including an accessibility audit. First run: `npx playwright install chromium webkit` |
+| `npm run test:e2e:webkit` | The same tests in WebKit (Safari's engine) on iPad and iPhone profiles, one at a time (slower) |
+| `npm run validate` | Check `content/`, flag narration that text-to-speech reads badly, and scan for committed tokens |
+| `npm run content:review` | Regenerate [docs/CONTENT-REVIEW.md](docs/CONTENT-REVIEW.md), the Foundation's review page |
 
-On Vercel, set `VITE_MAPBOX_TOKEN` under the project's environment variables.
+## Deploying to Vercel
+
+1. In Vercel, import the GitHub repository. Vercel detects Vite: the build command is `npm run build` and the output folder is `dist`.
+2. Under **Project Settings → Environment Variables**, add `VITE_MAPBOX_TOKEN` with the public `pk.` token, for Production and Preview. Redeploy after adding it; Vite bakes the value in at build time.
+3. In the Mapbox dashboard, restrict the token by URL: add the production domain (for example `https://<project>.vercel.app`) and `http://localhost:5173`. Preview deployments have their own URLs: add them as needed, or use a second token for previews.
+4. Open the deployed link on an iPad and work through [docs/DEVICE-TEST.md](docs/DEVICE-TEST.md).
+
+If the map shows "The map couldn't load. The Mapbox token is invalid or not allowed for this web address", the token's URL restrictions don't include that address.
 
 ## Repository layout
 
@@ -59,19 +69,23 @@ README.md                    This file
 .claude/CLAUDE.md            Instructions for Claude Code
 .claude/settings.json        Claude Code permissions (blocks reading .env files and pushing)
 .claude/skills/              Project skills: add a tour stop, write donor cards, validate content
-docs/SCOPE.md                Project scope: goals, route, MVP, phases, open questions
-docs/reference/
-  aerial-route.png           Aerial view of campus with the driving route in red
-  campus-map-labeled.png     Labeled campus map with building codes
-```
-
-The planned layout once development starts:
-
-```
-content/stops.json           Card text, stop order, type and status for each stop
+.claude/sprints/TRACE.md     Sprint-by-sprint record of what was built, tested and decided
+content/stops.json           Card text, stop order, type, status and coordinates for each stop
+content/tour.json            Welcome and Closing cards
 content/route.geojson        The driving route line
-src/                         Site source code
-public/                      Static assets (photos, icons)
+docs/SCOPE.md                Project scope: goals, route, MVP, phases, open questions
+docs/BACKLOG.md              Sprint plan and user stories
+docs/HANDBOOK.md             Student Ambassador Handbook (source for card content)
+docs/CONTENT-REVIEW.md       Every card and every fact to confirm, for Foundation review (generated)
+docs/DEVICE-TEST.md          Checklist for testing on an iPad in the vehicle
+docs/reference/              Aerial route trace and labeled campus map
+src/map/                     Map, route layer, camera
+src/stops/                   Stop markers, cards and stop list
+src/tour/                    Tour Mode: engine, speech, captions card, controls, settings
+src/content/                 Typed loader for content/
+e2e/                         Playwright end-to-end and accessibility tests
+tools/route/                 Scripts that traced the route along real roads
+tools/content-review.mjs     Generates docs/CONTENT-REVIEW.md
 ```
 
 ## Roadmap
@@ -97,4 +111,6 @@ The FIU Foundation approves all card content before it is shown to donors.
 
 ## Contributing
 
-Development hasn't started yet. Content edits will go in the `content/` files once they exist. Check [SCOPE.md](docs/SCOPE.md) for open questions before starting work, and run `node .claude/skills/validate-tour-content/scripts/validate.mjs` after changing content.
+- **Content edits** go in `content/`. Afterwards run `npm run validate`, `npm run content:review` and `npm test`.
+- **Code changes:** work on a branch, and run `npm run build`, `npm run lint`, `npm test` and `npm run test:e2e` before merging.
+- Check [SCOPE.md](docs/SCOPE.md) for open questions before starting new features.

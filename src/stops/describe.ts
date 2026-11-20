@@ -21,10 +21,18 @@ export function typeLabel(s: Stop): string {
   return "Featured";
 }
 
-/** Screen-reader name for a marker or list item, e.g. "Stop 3 of 32: Trish and Dan Bell Chapel. Quick pass. Under construction." */
-export function accessibleName(s: Stop, total: number): string {
-  const head = s.order !== null ? `Stop ${s.order} of ${total}: ${s.name}` : `${s.name}, not on the driving route`;
-  const parts = [head, typeLabel(s)];
+/**
+ * Accessible name for a map marker. It starts with exactly what the marker shows ("3 Bell Chapel"), so
+ * voice-control users can say what they see (WCAG 2.5.3, Label in Name), then gives the position.
+ */
+export function markerName(s: Stop, total: number): string {
+  const visible = s.order !== null ? `${s.order} ${shortLabel(s)}` : shortLabel(s);
+  return s.order !== null ? `${visible}, stop ${s.order} of ${total}` : `${visible}, not on the driving route`;
+}
+
+/** Accessible description for a marker: full name, type and status, e.g. "Trish and Dan Bell Chapel. Quick pass. Under construction." */
+export function markerDescription(s: Stop): string {
+  const parts = [s.name, typeLabel(s)];
   const badge = statusBadge(s);
   if (badge) parts.push(badge);
   return parts.join(". ") + ".";

@@ -1,4 +1,4 @@
-import { useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode, type Ref } from "react";
 import { progressLabel, type TourStep } from "./steps";
 import type { TourState } from "./useTour";
 import { TourSettingsPanel, type TourSettingsPanelProps } from "./TourSettingsPanel";
@@ -25,9 +25,11 @@ const Icon = ({ d, fill = false }: { d: string; fill?: boolean }) => (
   </svg>
 );
 
-function Btn({ label, onClick, disabled, primary, children, className = "" }: { label: string; onClick: () => void; disabled?: boolean; primary?: boolean; children: ReactNode; className?: string }) {
+type BtnProps = { label: string; onClick: () => void; disabled?: boolean; primary?: boolean; children: ReactNode; buttonRef?: Ref<HTMLButtonElement> };
+
+function Btn({ label, onClick, disabled, primary, children, buttonRef }: BtnProps) {
   return (
-    <button type="button" className={`btn ${primary ? "btn-primary" : "btn-secondary"} tour-btn ${className}`} onClick={onClick} disabled={disabled} aria-label={label} title={label}>
+    <button ref={buttonRef} type="button" className={`btn ${primary ? "btn-primary" : "btn-secondary"} tour-btn`} onClick={onClick} disabled={disabled} aria-label={label} title={label}>
       {children}
     </button>
   );
@@ -42,6 +44,13 @@ export function TourControls({ state, step, last, total, onPrev, onNext, onSkip,
   const atStart = state.index === 0;
   const atEnd = state.index === last;
   const label = progressLabel(step, total);
+
+  // Keyboard focus starts on the main control (the Start tour button that had it is gone), and moves
+  // to Exit when the tour finishes and the button set changes.
+  const primaryRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    primaryRef.current?.focus();
+  }, [finished]);
 
   return (
     <div className="tour-controls" role="region" aria-label="Tour controls">
@@ -60,7 +69,7 @@ export function TourControls({ state, step, last, total, onPrev, onNext, onSkip,
             <Icon d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4" />
             <span className="tour-btn-text">Restart</span>
           </Btn>
-          <Btn label="Exit tour" onClick={onExit} primary>
+          <Btn label="Exit tour" onClick={onExit} primary buttonRef={primaryRef}>
             <span className="tour-btn-text">Exit tour</span>
           </Btn>
         </div>
@@ -69,11 +78,11 @@ export function TourControls({ state, step, last, total, onPrev, onNext, onSkip,
           <Btn label="Previous stop" onClick={onPrev} disabled={atStart}>
             <Icon d="M15 6l-6 6 6 6" />
           </Btn>
-          <Btn label={state.playing ? "Pause narration" : "Play narration"} onClick={onTogglePlay} primary={!rideAlong}>
+          <Btn label={state.playing ? "Pause narration" : "Play narration"} onClick={onTogglePlay} primary={!rideAlong} buttonRef={rideAlong ? undefined : primaryRef}>
             {state.playing ? <Icon fill d="M7 5h4v14H7zM13 5h4v14h-4z" /> : <Icon fill d="M8 5v14l11-7z" />}
             <span className="tour-btn-text">{state.playing ? "Pause" : "Play"}</span>
           </Btn>
-          <Btn label="Next stop" onClick={onNext} disabled={atEnd} primary={rideAlong}>
+          <Btn label="Next stop" onClick={onNext} disabled={atEnd} primary={rideAlong} buttonRef={rideAlong ? primaryRef : undefined}>
             <span className="tour-btn-text">Next</span>
             <Icon d="M9 6l6 6-6 6" />
           </Btn>

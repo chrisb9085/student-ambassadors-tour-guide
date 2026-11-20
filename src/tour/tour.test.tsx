@@ -120,14 +120,17 @@ describe("Tour Mode (S4.1-S4.5)", () => {
 
   it("tapping a marker during the tour jumps to that stop", async () => {
     const { user } = await startTour("Ride-along");
-    await user.click(screen.getByRole("button", { name: /stop 29 of 32: pitbull stadium/i }));
+    await user.click(screen.getByRole("button", { name: /29 pitbull stadium/i }));
     expect(progress()).toHaveTextContent("Stop 29 of 32");
     expect(tourCard()).toHaveTextContent("Pitbull Stadium");
   });
 
   it("ends with the Closing card, then offers Restart and Exit", async () => {
     const { user, speaker } = await startTour("Ride-along");
-    for (let i = 0; i < 33; i++) await user.click(screen.getByRole("button", { name: "Next stop" }));
+    // Jump to the last stop by its marker, then Next to Closing.
+    await user.click(screen.getByRole("button", { name: /32 performing arts center/i }));
+    expect(progress()).toHaveTextContent("Stop 32 of 32");
+    await user.click(screen.getByRole("button", { name: "Next stop" }));
     expect(progress()).toHaveTextContent("Thank you");
     expect(screen.getByRole("button", { name: "Next stop" })).toBeDisabled();
     await waitFor(() => expect(speaker.lastText).toBe(tour.closing.narration));
@@ -163,6 +166,26 @@ describe("Tour Mode (S4.1-S4.5)", () => {
     await user.keyboard("{Escape}");
     await user.click(screen.getByRole("button", { name: "Next stop" }));
     await waitFor(() => expect(speaker.spoken[speaker.spoken.length - 1].options.rate).toBe(1.15));
+  });
+
+  it("keyboard focus: the main control on start, Exit when finished, Start tour after exit", async () => {
+    const virtual = await startTour("Virtual tour");
+    expect(screen.getByRole("button", { name: "Pause narration" })).toHaveFocus();
+    await virtual.user.click(screen.getByRole("button", { name: "Exit tour" }));
+    expect(screen.getByRole("button", { name: "Start tour" })).toHaveFocus();
+  });
+
+  it("ride-along focuses Next; finishing moves focus to Exit", async () => {
+    const { user, speaker } = await startTour("Ride-along");
+    expect(screen.getByRole("button", { name: "Next stop" })).toHaveFocus();
+    await user.keyboard("{Enter}");
+    expect(progress()).toHaveTextContent("Stop 1 of 32");
+    await user.click(screen.getByRole("button", { name: /32 performing arts center/i }));
+    await user.click(screen.getByRole("button", { name: "Next stop" }));
+    expect(progress()).toHaveTextContent("Thank you");
+    await waitFor(() => expect(speaker.lastText).toBe(tour.closing.narration));
+    act(() => speaker.finish());
+    await waitFor(() => expect(screen.getByRole("button", { name: "Exit tour" })).toHaveFocus());
   });
 
   it("every control is a large, labelled button", async () => {

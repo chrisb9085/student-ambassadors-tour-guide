@@ -2,36 +2,32 @@ import { expect, test, type Page, type TestInfo } from "@playwright/test";
 import { openMap } from "./helpers";
 
 /**
- * Headless Chromium has no voices, so its speech never finishes. Replace speechSynthesis with a stand-in
- * that "speaks" each sentence in 60 ms and records what it said. The app's own speech code still runs.
+ * Headless browsers have no voices, so real speech never finishes. Replace speechSynthesis with a stand-in
+ * that records each sentence as soon as it's queued, but only finishes speaking when the test calls
+ * __finishSpeech(). The test controls time, so a virtual tour can't run ahead of its assertions (it did,
+ * under load, when the stand-in finished sentences on its own). The app's own speech code still runs.
  */
 async function stubSpeech(page: Page) {
   await page.addInitScript(() => {
     const said: string[] = [];
     let queue: SpeechSynthesisUtterance[] = [];
-    let timer: number | undefined;
-    const pump = () => {
-      if (timer !== undefined || queue.length === 0) return;
-      const u = queue[0];
-      u.onstart?.(new Event("start") as SpeechSynthesisEvent);
-      timer = window.setTimeout(() => {
-        timer = undefined;
-        queue.shift();
-        if (u.text.trim()) said.push(u.text);
+    const start = () => queue[0]?.onstart?.(new Event("start") as SpeechSynthesisEvent);
+    (window as unknown as { __finishSpeech: () => void }).__finishSpeech = () => {
+      while (queue.length) {
+        const u = queue.shift()!;
         u.onend?.(new Event("end") as SpeechSynthesisEvent);
-        pump();
-      }, 60);
+        start();
+      }
     };
     const fake = {
       speak(u: SpeechSynthesisUtterance) {
         queue.push(u);
-        pump();
+        if (u.text.trim()) said.push(u.text);
+        if (queue.length === 1) start();
       },
       cancel() {
         const dropped = queue;
         queue = [];
-        if (timer !== undefined) clearTimeout(timer);
-        timer = undefined;
         for (const u of dropped) u.onerror?.({ error: "interrupted" } as SpeechSynthesisErrorEvent);
       },
       getVoices: () => [],
@@ -39,11 +35,30 @@ async function stubSpeech(page: Page) {
       removeEventListener() {},
     };
     Object.defineProperty(window, "speechSynthesis", { value: fake, configurable: true });
+    // Playwright's WebKit build has no Web Speech API at all (real Safari does), so supply the utterance class too.
+    if (typeof window.SpeechSynthesisUtterance !== "function") {
+      class Utterance {
+        text: string;
+        rate = 1;
+        volume = 1;
+        lang = "";
+        voice: SpeechSynthesisVoice | null = null;
+        onstart: ((e: Event) => void) | null = null;
+        onend: ((e: Event) => void) | null = null;
+        onerror: ((e: Event) => void) | null = null;
+        constructor(text: string) {
+          this.text = text;
+        }
+      }
+      Object.defineProperty(window, "SpeechSynthesisUtterance", { value: Utterance, configurable: true });
+    }
     (window as unknown as { __said: string[] }).__said = said;
   });
 }
 
 const said = (page: Page) => page.evaluate(() => (window as unknown as { __said: string[] }).__said);
+/** Let the current narration play to its end. */
+const finishSpeech = (page: Page) => page.evaluate(() => (window as unknown as { __finishSpeech: () => void }).__finishSpeech());
 const progress = (page: Page) => page.getByRole("region", { name: "Tour controls" });
 
 async function shot(page: Page, info: TestInfo, name: string) {
@@ -65,9 +80,16 @@ test.describe("Sprint 4: Tour Mode", () => {
     await expect(progress(page)).toContainText("Welcome");
     await expect(page.locator(".captions")).toContainText("thank you for joining us");
     await expect(page.getByRole("img", { name: "Tour vehicle" })).toBeVisible();
+    // The Welcome narration was actually spoken, not just shown.
+    await expect.poll(async () => (await said(page)).some((s) => s.startsWith("Welcome to Florida International University"))).toBe(true);
     await shot(page, info, "tour-welcome");
 
+    // Nothing advances until the narration ends.
+    await page.waitForTimeout(2500);
+    await expect(progress(page)).toContainText("Welcome");
+
     // Auto-advance: Welcome narration ends, the vehicle drives to stop 1, and its narration plays.
+    await finishSpeech(page);
     await expect(progress(page)).toContainText("Stop 1 of 32", { timeout: 20_000 });
     await expect.poll(async () => (await said(page)).some((s) => s.startsWith("The Student Academic Success Center opened in 2016"))).toBe(true);
     await shot(page, info, "tour-stop-1");

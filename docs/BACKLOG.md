@@ -14,7 +14,7 @@ The MVP from [SCOPE.md](SCOPE.md) is split into short sprints. Each sprint is bu
 | 3 | `sprint-3/markers-cards` | Numbered markers, stop list panel, stop cards (popover and bottom sheet) | Done |
 | 4 | `sprint-4/tour-mode` | Tour Mode: vehicle animation, narration, virtual and ride-along modes, skip stop, settings | Done |
 | 5 | `sprint-5/copy-review` | Review pass on the copy drafted in Sprint 2: read-aloud check, review-notes list for the Foundation | Done |
-| 6 | `sprint-6/qa-deploy` | Accessibility pass, iPad Safari testing, Vercel deploy | To do |
+| 6 | `sprint-6/qa` | Accessibility pass, iPad Safari testing, Vercel deploy | Automated QA done; real-iPad drive and Vercel deploy are Chris's next steps |
 
 ## User stories
 

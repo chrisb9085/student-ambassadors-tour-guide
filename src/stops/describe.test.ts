@@ -1,17 +1,21 @@
 import { describe, expect, it } from "vitest";
 import { allStops, routeStops } from "../content";
-import { accessibleName, nearestStop, neighbours, shortLabel, statusBadge, typeLabel, zoomBand } from "./describe";
+import { markerDescription, markerName, nearestStop, neighbours, shortLabel, statusBadge, typeLabel, zoomBand } from "./describe";
 import type { Stop } from "../content/types";
 
 const byId = (id: string) => allStops.find((s) => s.id === id)!;
 
 describe("stop descriptions", () => {
-  it("names route stops with their position, type and status for screen readers", () => {
-    expect(accessibleName(byId("graham-center"), 32)).toBe("Stop 2 of 32: Graham Center. Featured.");
-    expect(accessibleName(byId("bell-chapel"), 32)).toBe("Stop 3 of 32: Trish and Dan Bell Chapel. Quick pass. Under construction.");
-    expect(accessibleName(byId("green-library"), 32)).toBe(
-      "Steven and Dorothea Green Library, not on the driving route. Also on campus.",
-    );
+  it("names markers starting with their visible text (WCAG 2.5.3), then their position", () => {
+    expect(markerName(byId("graham-center"), 32)).toBe("2 Graham Center, stop 2 of 32");
+    expect(markerName(byId("bell-chapel"), 32)).toBe("3 Bell Chapel, stop 3 of 32");
+    expect(markerName(byId("green-library"), 32)).toBe("Green Library, not on the driving route");
+  });
+
+  it("describes markers with the full name, type and status", () => {
+    expect(markerDescription(byId("student-academic-success-center"))).toBe("Student Academic Success Center. Featured.");
+    expect(markerDescription(byId("bell-chapel"))).toBe("Trish and Dan Bell Chapel. Quick pass. Under construction.");
+    expect(markerDescription(byId("green-library"))).toBe("Steven and Dorothea Green Library. Also on campus.");
   });
 
   it("shows an opening year on the construction badge when known", () => {
