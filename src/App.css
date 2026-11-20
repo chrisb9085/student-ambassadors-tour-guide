@@ -32,6 +32,24 @@
   z-index: 4;
 }
 
+/* Bottom center: the primary actions (Stops now; Start tour in Sprint 4). */
+.action-bar {
+  position: absolute;
+  left: 50%;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--gap);
+  z-index: 5;
+}
+
+.action-bar .btn {
+  min-height: 56px;
+  padding: 0 24px;
+  font-size: 1.0625rem;
+  box-shadow: var(--shadow);
+}
+
 .app-title-fiu {
   color: var(--fiu-gold-bright);
   font-weight: 800;

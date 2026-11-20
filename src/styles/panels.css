@@ -1,0 +1,47 @@
+/*
+ * Shared placement for cards and the stop list.
+ * Portrait and narrow screens: bottom sheet. Wide landscape: side panel on the left.
+ * The media query and width must match SIDE_PANEL_QUERY and SIDE_PANEL_WIDTH in src/lib/layout.ts.
+ */
+.panel {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 55%;
+  border-radius: var(--radius) var(--radius) 0 0;
+  border-top: 6px solid var(--fiu-gold);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (orientation: landscape) and (min-width: 900px) {
+  .panel {
+    left: max(16px, env(safe-area-inset-left));
+    right: auto;
+    top: 80px;
+    bottom: 16px;
+    width: 384px;
+    max-height: none;
+    border-radius: var(--radius);
+    border-top: 0;
+    border-left: 6px solid var(--fiu-gold);
+  }
+}
+
+.icon-btn {
+  flex: none;
+  width: var(--touch);
+  height: var(--touch);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 0;
+  background: var(--surface-muted);
+  color: var(--fiu-blue);
+}
