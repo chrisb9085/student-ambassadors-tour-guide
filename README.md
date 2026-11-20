@@ -13,6 +13,7 @@ An interactive website that helps FIU Foundation Student Ambassadors prepare for
 - **"For ambassadors" study notes** on each card, collapsed by default: the handbook's tour guide tips and extra details for answering questions, each with its handbook page.
 - **Printable study guide** (`?view=study-guide`, linked from the Stops panel): every stop in route order with what to say, key facts and tips.
 - **Shareable stop links** (`?stop=graham-center`) and a Copy link button on each card, so advisors can point ambassadors at a building.
+- **Recorded narration, ready when you are:** `tools/narration-audio/` turns each narration into a natural-sounding MP3 at build time. The app plays a clip only while its text still matches the card, uses the device voice otherwise, and adds lock-screen controls. No recordings are included yet.
 - **Under-construction badges** (for example Bell Chapel). These buildings still show their full information.
 - **Guided Tour Mode** with text-to-speech:
   - *Virtual tour:* advances on its own.

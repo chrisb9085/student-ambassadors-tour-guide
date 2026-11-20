@@ -380,6 +380,68 @@ The rest of backlog C's study features, except the progress strip and the ideas 
 - Chromium e2e on the stand-in: 78/78.
 - WebKit on the stand-in (serial): **78/78, no retries**.
 
+### Sprint 11: recorded narration support (2026-11-20)
+
+Backlog B's "pre-recorded narration audio", built as far as it can go without Chris's decisions. Also E's lock-screen controls, which need real audio to show.
+
+**Blocked on Chris (worked around, not guessed):**
+- Which voice service and voice to use.
+- Whether an AI voice is acceptable (SCOPE §9 leaves generative AI undecided).
+- Who listens to each clip before it goes live.
+
+So no audio is generated or committed. Everything else is built and tested, so recordings can be added with one command, or by dropping in files recorded by a real ambassador.
+
+**Built**
+- **`tools/narration-audio/generate.mjs`:** a build-time generator with three services: OpenAI (`gpt-4o-mini-tts`), ElevenLabs and Azure Neural.
+  - Keys come from environment variables only; requests send them in headers, and errors never echo them.
+  - It writes `public/audio/<id>-<hash>.mp3` and a `manifest.json` that stores each clip's exact text. The hash covers the text, voice and service, so browsers never play a cached old clip.
+  - Unchanged clips are skipped, so re-runs only pay for edited text.
+  - `--dry-run` shows what would be sent, with no key needed: 39 narrations, about 13,000 characters (Welcome, 32 stops, Closing and 5 off-route cards).
+  - `--only` limits it to named clips; `--force` regenerates everything.
+  - It removes clips for stops that no longer exist.
+  - The README covers the decisions, commands, costs, recording a real voice instead, and how to turn it off.
+- **`src/tour/clips.ts`:** a speaker that plays a clip through one shared `<audio>` element.
+  - It plays only when the clip's saved text equals the narration being spoken. Otherwise it uses the device voice, so edited copy never plays a stale recording.
+  - A missing, broken or blocked clip also falls back to the device voice, never to silence.
+  - The iOS unlock plays a silent WAV, built in code, inside the tap.
+  - Captions follow the playback position, weighted by sentence length.
+  - The speed setting maps so that "Normal" plays the recording at its recorded speed.
+- **App:**
+  - It loads `/audio/manifest.json` at startup. With no recordings it gets null and nothing changes; this also handles the dev server answering with HTML.
+  - The tour passes each step's id.
+  - Tour settings gain **"Narration voice: Recorded / This device"**, shown only when recordings exist, and it's saved. The device-voice picker notes it's used for stops without a recording.
+- **Lock-screen and headset controls** (`useMediaSession`): play, pause, next and previous stop, with the stop name as the "track". They're set during a tour and cleared on exit.
+
+**Tests added**
+- `clips.test.ts` (12 tests):
+  - plays a matching clip at the right speed, with captions following
+  - falls back on changed text, a missing clip, no manifest, recordings turned off, a load error, or a blocked play
+  - cancelling and replacing a clip
+  - the iOS unlock
+  - a valid silent WAV
+  - speed mapping and the caption position
+  - loading the manifest, including an HTML reply and an empty one
+  - `configure()`
+  - **the generator's text equals what the app speaks for all 39 narrations**, so a recording can't silently drift
+- `recorded.test.tsx`: the voice choice is hidden without recordings and works when they exist; lock-screen handlers, track names and play state, cleared on exit.
+- Settings storage keeps `recorded`.
+- e2e (`narration.e2e.ts`) with a stand-in manifest and a silent clip for the Welcome:
+  - The real `<audio>` element plays the clip instead of the device voice, the tour advances when the clip ends on its own, and stop 1 uses the device voice.
+  - Switching to "This device" replays the Welcome with the device voice.
+  - With no recordings, there's no voice choice.
+- The speech stub moved to `e2e/speech.ts`, shared by the tour and narration specs.
+
+**Tested**
+- 177 unit tests, lint, type-check, build and validate pass.
+- Chromium e2e on the stand-in: 87/87.
+- WebKit (partial run, stopped early because it was running unusually slowly): 36 passed and one test failed on both tries, "plays the recording".
+  - A probe showed why. **Playwright's WebKit build on Windows has no media backend**: `play()` throws `NotSupportedError` (media error 4), even for WAV and MP3, which `canPlayType()` reports as "probably". Chromium plays the same clip and fires `ended`.
+  - The app behaved as designed and fell back to the device voice. The test failed only because it expected the clip to play.
+  - Fix: that test now skips WebKit, with the reason stated. A new test, "a recording that can't play falls back to the device voice, never silence", serves a broken clip and runs in every browser.
+  - Narration spec after the fix: 7 passed and 1 skipped (WebKit iPad and Chromium desktop).
+  - Real Safari plays MP3s; check it on an iPad once recordings exist.
+  - The full WebKit suite runs again after Sprint 12.
+
 ## How to walk through it yourself
 
 **One-time setup** (in a terminal at the repo root):

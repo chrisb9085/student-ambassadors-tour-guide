@@ -128,7 +128,7 @@ Ordered by priority now that the site is a preparation tool.
 
 ### B. More natural narration (high priority: ambassadors study by listening)
 - [x] Quick win: slightly slower default speed and short pauses between sentences (Sprint 9).
-- [ ] **Pre-recorded narration audio:** a build-time script turns each narration into an MP3 with a high-quality voice (OpenAI, ElevenLabs, Azure or Google), stored with the site. No server or browser API key; same voice on every device; falls back to the browser voice. Decisions needed: which voice service, whether an AI voice is acceptable (AI use is undecided, but this is behind-the-scenes generation with human review), and who listens to each clip.
+- [x] **Pre-recorded narration audio** (Sprint 11: generator, playback, fallback, setting and tests are done; no audio generated yet, waiting on the decisions below; see `tools/narration-audio/README.md`): a build-time script turns each narration into an MP3 with a high-quality voice (OpenAI, ElevenLabs, Azure or Google), stored with the site. No server or browser API key; same voice on every device; falls back to the browser voice. Decisions needed: which voice service, whether an AI voice is acceptable (AI use is undecided, but this is behind-the-scenes generation with human review), and who listens to each clip.
 - [ ] Or record a real ambassador's voice for the 35 narrations.
 
 ### C. Study features (new priority from the "preparation tool" answer)
@@ -155,7 +155,7 @@ Ordered by priority now that the site is a preparation tool.
 ### E. Mobile enhancements (study on phones and iPads)
 - [ ] Drag-up bottom sheet: peek bar that expands to the full card.
 - [ ] Add to Home Screen app mode, with the app and content cached (check Mapbox terms for map tiles).
-- [ ] Lock-screen play, pause and next controls (needs real audio files, see B).
+- [x] Lock-screen play, pause and next controls (Sprint 11; they show once recordings exist).
 - [ ] Stop double-tap zoom on buttons; tidy safe areas around the notch and home bar.
 - [ ] Phone landscape layout; larger text setting.
 - [ ] Keep the screen on during a tour. Lower priority now that it isn't used in the vehicle.

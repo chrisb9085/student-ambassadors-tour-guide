@@ -156,12 +156,12 @@ describe("tour settings storage", () => {
   it("defaults, round-trips and rejects bad values", () => {
     expect(loadSettings()).toEqual(DEFAULT_SETTINGS);
     expect(DEFAULT_SETTINGS.rate).toBe(0.95);
-    saveSettings({ rate: 1.1, voiceURI: "ava" });
-    expect(loadSettings()).toEqual({ rate: 1.1, voiceURI: "ava" });
+    saveSettings({ rate: 1.1, voiceURI: "ava", recorded: false });
+    expect(loadSettings()).toEqual({ rate: 1.1, voiceURI: "ava", recorded: false });
     // Speeds saved before Sprint 9 (1 and 1.15) snap to the nearest option.
-    saveSettings({ rate: 1, voiceURI: null });
+    saveSettings({ rate: 1, voiceURI: null, recorded: true });
     expect(loadSettings().rate).toBe(0.95);
-    saveSettings({ rate: 1.15, voiceURI: null });
+    saveSettings({ rate: 1.15, voiceURI: null, recorded: true });
     expect(loadSettings().rate).toBe(1.1);
     localStorage.setItem("fiu-tour-settings", JSON.stringify({ rate: 9, voiceURI: 4 }));
     expect(loadSettings()).toEqual(DEFAULT_SETTINGS);

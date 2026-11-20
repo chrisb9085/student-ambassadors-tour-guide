@@ -4,6 +4,8 @@ export type TourSettings = {
   rate: number;
   /** Chosen voice, or null for the automatic pick. */
   voiceURI: string | null;
+  /** Play recorded narration when the site has it (tools/narration-audio), instead of the device voice. */
+  recorded: boolean;
 };
 
 /**
@@ -15,7 +17,7 @@ export const RATE_OPTIONS = [
   { value: 0.95, label: "Normal" },
   { value: 1.1, label: "Faster" },
 ] as const;
-export const DEFAULT_SETTINGS: TourSettings = { rate: 0.95, voiceURI: null };
+export const DEFAULT_SETTINGS: TourSettings = { rate: 0.95, voiceURI: null, recorded: true };
 
 const nearestRate = (r: number) =>
   RATE_OPTIONS.reduce<number>((best, o) => (Math.abs(o.value - r) < Math.abs(best - r) ? o.value : best), RATE_OPTIONS[0].value);
@@ -29,7 +31,8 @@ export function loadSettings(): TourSettings {
     const parsed = JSON.parse(raw) as Partial<TourSettings>;
     const rate = typeof parsed.rate === "number" && parsed.rate >= 0.8 && parsed.rate <= 1.3 ? nearestRate(parsed.rate) : DEFAULT_SETTINGS.rate;
     const voiceURI = typeof parsed.voiceURI === "string" ? parsed.voiceURI : null;
-    return { rate, voiceURI };
+    const recorded = typeof parsed.recorded === "boolean" ? parsed.recorded : DEFAULT_SETTINGS.recorded;
+    return { rate, voiceURI, recorded };
   } catch {
     return DEFAULT_SETTINGS;
   }
