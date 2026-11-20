@@ -25,6 +25,8 @@ The readers are donors, VIPs, alumni and community partners on an FIU Foundation
 - Use full donor names as they appear on the building (for example "Herbert and Nicole Wertheim").
 - Spell out numbers for speech when it helps ("more than three and a half million visits"), in `narration` only.
 - Write for the ear: short sentences, no parentheses, no abbreviations a listener won't know (say "the Academic Health Center", not "AHC").
+- In `narration`, write all-caps names the way they're said ("Mango", not "MANGO"), or voices may spell them letter by letter. The validator warns about all-caps words other than FIU, NCAA, NBA, LEED, STAR and MARC.
+- Put anything the Foundation must confirm in `reviewNotes`, never in guest-facing fields.
 
 ## Accuracy
 
