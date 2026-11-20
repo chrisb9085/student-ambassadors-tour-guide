@@ -1,0 +1,40 @@
+/* Solid chip with a flag so the start/finish reads over busy imagery. */
+.start-marker {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.start-marker-flag {
+  width: 4px;
+  height: 34px;
+  background: var(--fiu-blue);
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 0 0 2px var(--surface);
+}
+
+.start-marker-flag::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 18px;
+  height: 13px;
+  background: var(--fiu-gold-bright);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.start-marker-label {
+  margin-bottom: 18px;
+  margin-left: 16px;
+  padding: 3px 8px;
+  background: var(--fiu-blue);
+  color: var(--text-on-blue);
+  border: 2px solid var(--fiu-gold-bright);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
