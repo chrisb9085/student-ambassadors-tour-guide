@@ -1,0 +1,51 @@
+.start-sheet {
+  padding: 20px;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.start-sheet h2 {
+  margin: 0;
+  color: var(--fiu-blue);
+  font-size: 1.375rem;
+}
+
+.start-sheet-lead {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.start-option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-left: 6px solid var(--fiu-gold-bright);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  text-align: left;
+}
+
+.start-option:hover {
+  border-color: var(--fiu-blue-500);
+  border-left-color: var(--fiu-gold-bright);
+}
+
+.start-option-title {
+  color: var(--fiu-blue);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.start-option-text {
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.start-sheet-cancel {
+  align-self: flex-start;
+}
