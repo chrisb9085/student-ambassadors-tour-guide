@@ -1,6 +1,7 @@
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import type { GuideNote, Stop } from "../content/types";
-import { InfoCard } from "../components/InfoCard";
+import { InfoCard, type CardTab } from "../components/InfoCard";
+import { narrationFor } from "../tour/steps";
 import { statusBadge, typeLabel } from "../stops/describe";
 import { applyEdit, checkEdit, editableFrom, LIMITS, spokenWords, type StopEdit } from "./editable";
 import { saveStop } from "./api";
@@ -21,6 +22,7 @@ export function StopEditor({ stop, total, onSaved, onClose, onExpired }: Props) 
   const [draft, setDraft] = useState<StopEdit>(base);
   const [note, setNote] = useState("");
   const [preview, setPreview] = useState(false);
+  const [previewTab, setPreviewTab] = useState<CardTab>("info");
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState<Saved>(null);
   const [serverErrors, setServerErrors] = useState<Record<string, string>>({});
@@ -90,6 +92,9 @@ export function StopEditor({ stop, total, onSaved, onClose, onExpired }: Props) 
         highlights={previewStop.highlights}
         impact={previewStop.impact}
         guideNotes={previewStop.guideNotes}
+        script={{ text: narrationFor(previewStop) }}
+        tab={previewTab}
+        onTabChange={setPreviewTab}
         onClose={() => setPreview(false)}
         closeLabel="Back to editing"
         footer={

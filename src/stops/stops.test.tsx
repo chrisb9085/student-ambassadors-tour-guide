@@ -197,35 +197,74 @@ describe("stop list (S3.3)", () => {
   });
 });
 
-describe("For ambassadors and long names (Sprint 9)", () => {
-  it("shows study notes in a collapsed For ambassadors section, with the handbook page", async () => {
+describe("Info and Script tabs", () => {
+  afterEach(() => window.localStorage.clear());
+
+  it("opens on Info, with the facts, and Script shows what to say with its speaking time", async () => {
     const { user } = renderLoaded();
-    await user.click(marker(/stop 1 of 32/i));
-    const summary = within(card()).getByText("For ambassadors");
-    const details = summary.closest("details")!;
-    expect(details).not.toHaveAttribute("open");
-    await user.click(summary);
-    expect(details).toHaveAttribute("open");
-    expect(details).toHaveTextContent("Tour guide tip");
-    expect(details).toHaveTextContent(/emphasize FIU's commitment to student success/);
-    expect(details).toHaveTextContent("Handbook p.10");
-    expect(details).toHaveTextContent("More to know");
+    await user.click(marker(/stop 2 of 32/i));
+    const info = within(card()).getByRole("tab", { name: "Info" });
+    const script = within(card()).getByRole("tab", { name: "Script" });
+    expect(info).toHaveAttribute("aria-selected", "true");
+    expect(within(card()).getByRole("tabpanel")).toHaveTextContent("3.5M+");
+    expect(within(card()).getByRole("tabpanel")).toHaveTextContent("Impact of support");
+
+    await user.click(script);
+    expect(script).toHaveAttribute("aria-selected", "true");
+    const panel = within(card()).getByRole("tabpanel");
+    expect(panel).toHaveAccessibleName("Script");
+    expect(panel).toHaveTextContent("What to say");
+    expect(panel).toHaveTextContent(/About \d+ seconds/);
+    expect(panel).toHaveTextContent(/three and a half million visits/);
+    expect(panel).not.toHaveTextContent("Impact of support");
   });
 
-  it("closes the section again when the card moves to another stop", async () => {
+  it("moves between tabs with the arrow keys", async () => {
     const { user } = renderLoaded();
+    await user.click(marker(/stop 2 of 32/i));
+    within(card()).getByRole("tab", { name: "Info" }).focus();
+    await user.keyboard("{ArrowRight}");
+    expect(within(card()).getByRole("tab", { name: "Script" })).toHaveFocus();
+    expect(within(card()).getByRole("tab", { name: "Script" })).toHaveAttribute("aria-selected", "true");
+    await user.keyboard("{ArrowLeft}");
+    expect(within(card()).getByRole("tab", { name: "Info" })).toHaveAttribute("aria-selected", "true");
+  });
+
+  it("keeps the chosen tab when moving to the next stop, and remembers it next time", async () => {
+    const { user, unmount } = renderLoaded();
     await user.click(marker(/stop 1 of 32/i));
-    await user.click(within(card()).getByText("For ambassadors"));
+    await user.click(within(card()).getByRole("tab", { name: "Script" }));
     await user.click(screen.getByRole("button", { name: /next stop:/i }));
-    expect(within(card()).getByText("For ambassadors").closest("details")).not.toHaveAttribute("open");
+    expect(within(card()).getByRole("tab", { name: "Script" })).toHaveAttribute("aria-selected", "true");
+    unmount();
+
+    const again = renderLoaded();
+    await again.user.click(marker(/stop 3 of 32/i));
+    expect(within(card()).getByRole("tab", { name: "Script" })).toHaveAttribute("aria-selected", "true");
   });
 
-  it("leaves the section out for stops without notes", async () => {
+  it("puts handbook tips under the script and the extra details under the facts", async () => {
+    const { user } = renderLoaded();
+    await user.click(marker(/stop 1 of 32/i));
+    const infoPanel = within(card()).getByRole("tabpanel");
+    expect(infoPanel).toHaveTextContent("Good to know");
+    expect(infoPanel).not.toHaveTextContent("Tour guide tip");
+
+    await user.click(within(card()).getByRole("tab", { name: "Script" }));
+    const tip = within(card()).getByRole("complementary", { name: "Tour guide tip" });
+    expect(tip).toHaveTextContent(/emphasize FIU's commitment to student success/);
+    expect(tip).toHaveTextContent("Handbook p.10");
+  });
+
+  it("leaves the notes out for stops without them", async () => {
     const { user } = renderLoaded();
     await user.click(marker(/stop 16 of 32/i));
-    expect(within(card()).queryByText("For ambassadors")).toBeNull();
+    expect(card()).not.toHaveTextContent("Good to know");
+    expect(card()).not.toHaveTextContent("Tour guide tip");
   });
+});
 
+describe("long names (Sprint 9)", () => {
   it("shows the part of a long name before the colon as a small line, keeping the full name in the heading", async () => {
     const { user } = renderLoaded();
     await user.click(marker(/stop 6 of 32/i));

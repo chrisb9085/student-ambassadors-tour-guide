@@ -24,11 +24,10 @@
   gap: 6px;
   background: var(--fiu-blue);
   color: var(--text-on-blue);
-  border-bottom: 4px solid var(--fiu-gold);
-  border-radius: var(--radius-sm);
+  border-radius: 999px;
   box-shadow: var(--shadow);
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 700;
   z-index: 4;
 }
 
@@ -59,6 +58,6 @@
 
 .app-title-fiu {
   color: var(--fiu-gold-bright);
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-weight: 900;
+  letter-spacing: 0.02em;
 }

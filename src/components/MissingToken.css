@@ -3,7 +3,6 @@
   margin: 10vh auto 0;
   padding: 28px;
   background: var(--surface);
-  border-top: 6px solid var(--fiu-gold);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   line-height: 1.5;

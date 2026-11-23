@@ -87,6 +87,26 @@ test.describe("Sprint 2: route and stops", () => {
   });
 });
 
+test.describe("Mapbox logo and attribution", () => {
+  test("stay visible top-right, clear of the camera buttons, open panels and the tour bar", async ({ page }) => {
+    await openMap(page);
+    const corner = page.locator(".mapboxgl-ctrl-top-right");
+    await expect(corner.locator(".mapboxgl-ctrl-logo")).toBeAttached();
+    await expect(corner.locator(".mapboxgl-ctrl-attrib")).toBeAttached();
+    const overlaps = async (selector: string) => {
+      const a = await corner.boundingBox();
+      const b = await page.locator(selector).first().boundingBox();
+      if (!a || !b) return false;
+      return a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+    };
+    expect(await overlaps(".app-title")).toBe(false);
+    expect(await overlaps(".map-controls")).toBe(false);
+    await page.getByRole("button", { name: "Stops" }).click();
+    await expect(page.locator(".panel")).toBeVisible();
+    expect(await overlaps(".panel")).toBe(false);
+  });
+});
+
 /**
  * The only tests that load real Mapbox tiles (two map loads per run), in the "real-map" project:
  * npm run test:e2e:real. They skip when .env.local has no token.

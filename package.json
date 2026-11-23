@@ -18,6 +18,7 @@
     "content:review": "node tools/content-review.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/nunito": "^5.3.0",
     "mapbox-gl": "^3.35.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"

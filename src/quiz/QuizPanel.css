@@ -1,0 +1,170 @@
+/* Self-quiz panel. Uses the shared .panel placement and theme tokens only, so a restyle of the tokens carries over. */
+.quiz {
+  min-height: 0;
+}
+
+.quiz-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 16px 16px 8px 20px;
+}
+
+.quiz-kicker {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.quiz-close {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.quiz-title {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--fiu-blue);
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.quiz-title:focus,
+.quiz-title:focus-visible {
+  outline: none;
+}
+
+.quiz-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 20px 12px;
+  line-height: 1.5;
+}
+
+.quiz-choices,
+.quiz-missed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-choice {
+  width: 100%;
+  min-height: var(--touch);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.quiz-choice:not(:disabled):hover {
+  border-color: var(--fiu-blue-500);
+}
+
+.quiz-choice:disabled {
+  cursor: default;
+  color: var(--text-muted);
+}
+
+.quiz-choice.is-answer {
+  border-color: var(--fiu-blue-500);
+  background: var(--fiu-gold-100);
+  color: var(--text);
+}
+
+.quiz-choice.is-wrong {
+  border-style: dashed;
+  border-color: var(--status-construction);
+  color: var(--text);
+}
+
+.quiz-choice-tag {
+  flex: none;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--fiu-blue);
+}
+
+.quiz-verdict {
+  margin: 12px 0 4px;
+  font-weight: 700;
+}
+
+.quiz-verdict.is-right {
+  color: var(--fiu-blue);
+}
+
+.quiz-verdict.is-wrong {
+  color: #9a3a05;
+}
+
+.quiz-reveal p {
+  margin: 0 0 10px;
+}
+
+.quiz-stat strong {
+  color: var(--fiu-blue);
+  font-size: 1.25rem;
+}
+
+.quiz-badge {
+  font-weight: 700;
+  color: #9a3a05;
+}
+
+.quiz-highlights {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.quiz-note {
+  margin: 0 0 12px;
+}
+
+.quiz-subhead {
+  margin: 0 0 8px;
+  color: var(--fiu-blue);
+  font-size: 1rem;
+}
+
+.quiz-missed-link {
+  min-height: var(--touch);
+  width: 100%;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  color: var(--fiu-blue-500);
+  font-size: 1rem;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--gap);
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* During a quiz the highlighted building's name must stay hidden on the map. */
+[data-quiz="on"] .stop-marker .stop-marker-label {
+  display: none;
+}

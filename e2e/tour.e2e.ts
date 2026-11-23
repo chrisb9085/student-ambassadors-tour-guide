@@ -22,7 +22,7 @@ test.describe("Sprint 4: Tour Mode", () => {
     await shot(page, info, "start-sheet");
     await page.getByRole("button", { name: /virtual tour/i }).click();
     await expect(progress(page)).toContainText("Welcome");
-    await expect(page.locator(".captions")).toContainText("thank you for joining us");
+    await expect(page.locator(".script")).toContainText("thank you for joining us");
     await expect(page.getByRole("img", { name: "Tour vehicle" })).toBeVisible();
     // The Welcome narration was actually spoken, not just shown.
     await expect.poll(async () => (await said(page)).some((s) => s.startsWith("Welcome to Florida International University"))).toBe(true);

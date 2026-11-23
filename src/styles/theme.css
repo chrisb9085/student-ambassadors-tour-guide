@@ -12,16 +12,24 @@
   --fiu-gold-bright: #f5b82e;
   --fiu-gold-100: #fbf0d9;
 
-  --surface: #ffffff;
-  --surface-muted: #f3f5f9;
-  --text: #0b1a33;
-  --text-muted: #4a5568;
+  /* Warm, soft surfaces: easier on the eyes for long study sessions than stark white and grey. */
+  --surface: #fffdf9;
+  --surface-muted: #f6f2ea;
+  --surface-sunken: #efe9dd;
+  --text: #22304a;
+  --text-muted: #5d6779;
+  --heading: var(--fiu-blue);
+  --accent-text: #1d4f91; /* small labels such as "Stop 2 of 32" */
   --text-on-blue: #ffffff;
-  --border: #d7dde8;
+  --border: #e7e0d2;
   --focus-ring: #f5b82e;
+  --gold-soft: #fdf1d6;
+  --blue-soft: #edf2fa;
+  --heart: #d9485f;
 
   --status-construction: #e8590c;
-  --status-construction-bg: #fff1e6;
+  --status-construction-bg: #ffead9;
+  --status-construction-text: #8f3404;
 
   --danger: #b42318; /* form errors and Discard in Edit mode */
 
@@ -31,13 +39,14 @@
   --marker-quick: var(--fiu-blue-500);
   --marker-also: #ffffff;
 
-  --radius: 14px;
-  --radius-sm: 8px;
-  --shadow: 0 6px 24px rgb(8 30 63 / 0.25);
+  --radius: 22px;
+  --radius-sm: 14px;
+  --shadow: 0 10px 30px rgb(8 30 63 / 0.22), 0 2px 6px rgb(8 30 63 / 0.12);
   --touch: 48px; /* at or above the 44 px minimum */
   --panel-w: min(384px, 45vw); /* side panel width; keep in sync with panelWidth() in src/lib/layout.ts */
   --tour-bar-h: 124px; /* Tour Mode control bar; keep in sync with TOUR_BAR_HEIGHT in src/lib/layout.ts */
   --gap: 12px;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Nunito: rounded and friendly, still very legible. Bundled with the app (no font requests to Google). */
+  --font-sans: "Nunito Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
