@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Map as MapboxMap } from "mapbox-gl";
 import { getMapboxToken } from "./lib/config";
 import { stopIdFromSearch, urlWithStop } from "./lib/stopLink";
@@ -23,6 +23,7 @@ import { useWakeLock } from "./tour/useWakeLock";
 import { StartTourSheet } from "./tour/StartTourSheet";
 import { TourCard } from "./tour/TourCard";
 import { TourControls } from "./tour/TourControls";
+import type { Stop } from "./content/types";
 import { QuizPanel } from "./quiz/QuizPanel";
 import "./App.css";
 
@@ -35,9 +36,20 @@ type Props = {
   token?: string | null;
   /** Tests pass a fake; the app uses the browser's speech engine. */
   speaker?: Speaker;
+  /** Edit mode (src/admin): replaces stop cards with an editor and hides Tour Mode. */
+  edit?: EditModeHooks;
 };
 
-export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
+export type EditModeHooks = {
+  /** Shown at the top of the map: who is signed in, and Sign out. */
+  banner: ReactNode;
+  /** The latest saved version of each stop, by id, which can be newer than the deployed site. */
+  stops: Record<string, Stop>;
+  /** The panel shown for the selected stop. */
+  renderEditor: (stop: Stop, close: () => void) => ReactNode;
+};
+
+export function App({ token = getMapboxToken(), speaker: speakerProp, edit }: Props) {
   const [map, setMap] = useState<MapboxMap | null>(null);
   // A shared link (?stop=graham-center) opens that stop's card.
   const [selectedId, setSelectedId] = useState<string | null>(linkedStopId);
@@ -174,17 +186,18 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
 
   if (!token) return <MissingToken />;
 
-  const selected = touring || quizOpen ? null : (allStops.find((s) => s.id === selectedId) ?? null);
+  const selected = touring || quizOpen ? null : (edit?.stops[selectedId ?? ""] ?? allStops.find((s) => s.id === selectedId) ?? null);
   const { prev, next } = selected ? neighbours(routeStops, selected.id) : { prev: null, next: null };
   const highlightedId = touring ? (t.step?.stop?.id ?? null) : quizOpen ? quizStopId : selectedId;
 
   return (
-    <div className={`app${touring ? " is-touring" : ""}`}>
+    <div className={`app${touring ? " is-touring" : ""}${edit ? " is-editing" : ""}`}>
       <main className="app-main" aria-label="Campus tour map">
         {/* DOM order is Tab order: title and main actions first, then the map and its 33 stop markers. */}
         <h1 className="app-title">
           <span className="app-title-fiu">FIU</span> Campus Tour
         </h1>
+        {edit?.banner}
 
         {!touring && (
           <MapControls
@@ -214,22 +227,24 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
               </svg>
               Stops
             </button>
-            <button
-              ref={startButtonRef}
-              type="button"
-              className="btn btn-primary"
-              disabled={!map}
-              onClick={() => {
-                setSelectedId(null);
-                setListOpen(false);
-                setChooserOpen(true);
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M8 5v14l11-7z" />
-              </svg>
-              Start tour
-            </button>
+            {!edit && (
+              <button
+                ref={startButtonRef}
+                type="button"
+                className="btn btn-primary"
+                disabled={!map}
+                onClick={() => {
+                  setSelectedId(null);
+                  setListOpen(false);
+                  setChooserOpen(true);
+                }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M8 5v14l11-7z" />
+                </svg>
+                Start tour
+              </button>
+            )}
           </div>
         )}
 
@@ -279,7 +294,9 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
           />
         )}
 
-        {selected && (
+        {selected && edit && edit.renderEditor(selected, () => setSelectedId(null))}
+
+        {selected && !edit && (
           <StopCard
             stop={selected}
             total={routeStops.length}

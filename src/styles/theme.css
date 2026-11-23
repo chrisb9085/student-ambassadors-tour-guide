@@ -31,6 +31,8 @@
   --status-construction-bg: #ffead9;
   --status-construction-text: #8f3404;
 
+  --danger: #b42318; /* form errors and Discard in Edit mode */
+
   --route-line: var(--fiu-gold-bright);
   --route-casing: var(--fiu-blue);
   --marker-featured: var(--fiu-blue);
