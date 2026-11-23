@@ -19,3 +19,12 @@
   box-shadow: var(--shadow);
   z-index: 5;
 }
+
+/*
+ * Logo and attribution sit top-right, under the two camera buttons (see MapView.tsx and MapControls.css).
+ * Bottom sheets, the left side panel and the tour bar never reach this spot.
+ */
+.map-view .mapboxgl-ctrl-top-right {
+  top: calc(max(16px, env(safe-area-inset-top)) + 2 * var(--touch) + var(--gap));
+  right: max(6px, env(safe-area-inset-right));
+}

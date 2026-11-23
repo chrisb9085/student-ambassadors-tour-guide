@@ -15,6 +15,7 @@ async function audit(page: Page, state: string) {
     .exclude(".mapboxgl-canvas-container canvas")
     .exclude(".mapboxgl-ctrl-bottom-left")
     .exclude(".mapboxgl-ctrl-bottom-right")
+    .exclude(".mapboxgl-ctrl-top-right")
     .analyze();
   const problems = results.violations.map((v) => `${v.id} (${v.impact}): ${v.help} — ${v.nodes.length} node(s): ${v.nodes.slice(0, 3).map((n) => n.target.join(" ")).join(" | ")}`);
   expect(problems, `accessibility problems in state: ${state}`).toEqual([]);

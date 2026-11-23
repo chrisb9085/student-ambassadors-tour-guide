@@ -213,11 +213,11 @@ Work from the "Next up" to-do list in [docs/BACKLOG.md](../../docs/BACKLOG.md). 
 
 **Mapbox use in Phase 2:** one real-tile test run (`test:e2e:real` in Sprint 7, two map loads). Every other test ran on the stand-in, and building coordinates came from OpenStreetMap.
 
-**Decisions waiting on Chris**
+**Decisions waiting on Chris** (2, 3 and the quiz in 4 answered 2026-11-23; see Sprint 13)
 1. **Recorded narration:** which voice service and voice, whether an AI voice is acceptable, and who reviews the clips. Everything else is ready (`tools/narration-audio/README.md`).
-2. **Grouping the five AHC markers** when zoomed out (backlog D).
-3. **Mapbox logo** covered by panels (backlog D): lift the panels or move the logo.
-4. Still open from before: branding and photos, the quiz and "my tour" ideas, the Foundation's review notes (`docs/CONTENT-REVIEW.md`, 5 items), and the Shaham marker spot.
+2. ~~**Grouping the five AHC markers** when zoomed out (backlog D).~~ Decided: leave them as they are.
+3. ~~**Mapbox logo** covered by panels (backlog D): lift the panels or move the logo.~~ Decided: move the logo (Sprint 13).
+4. Still open from before: branding and photos, the quiz (decided: build it, Sprint 13) and "my tour" ideas, the Foundation's review notes (`docs/CONTENT-REVIEW.md`, 5 items), and the Shaham marker spot.
 
 ### Sprint 7: stand-in map tiles for end-to-end tests (2026-11-20)
 
@@ -494,6 +494,35 @@ Backlog E (phones and iPads) and the progress strip from C.
 - 183 unit tests, lint, type-check and validate pass.
 - Chromium e2e on the stand-in, four projects: 120/120.
 - WebKit on the stand-in (serial; covers Sprints 11 and 12): **87 passed, 3 skipped, no failures or retries**, in 6.5 minutes. The 3 skips are the clip-playback test, one per WebKit project, which can't run in Playwright's Windows WebKit build (see Sprint 11). The fallback test runs and passes there.
+
+### Sprint 13: the open decisions (2026-11-23)
+
+Chris answered three of the four phase-2 decisions on 2026-11-23. Built on `claude/project-thread-ma4ts7` from `main`, since phase 2 is merged.
+
+**Decisions**
+- Group the five AHC markers when zoomed out: **no, leave them as they are.**
+- Mapbox logo covered by panels: **move the logo** (not lift the panels).
+- Next study feature: **self-quiz mode** (not the "my tour" picker, yet).
+- Recorded narration voice: still waiting.
+
+**Built**
+- **Mapbox logo and attribution** move top-right, under the Whole route and Reset view buttons (`logoPosition: "top-right"` and a compact `AttributionControl`). Bottom sheets, the left side panel and the tour bar never reach that spot. The top-left corner was tried first, but the landscape side panel starts 80 px down and the logo overlapped it. Only `MapView.css` gained one offset rule; no other styling changed, to stay clear of the UI redesign.
+- **Self-quiz** (`src/quiz/`), opened from Start tour → Quiz yourself:
+  - The map flies to a building, highlights its marker and hides every marker name (`data-quiz="on"` on the map container).
+  - Four choices: the answer and its three nearest buildings, since neighbours are the ones easiest to mix up from the road.
+  - After a pick: "Correct!" or "Not quite. This is …", with "Answer" and "Your pick" written on the choices (not color alone), then the summary, key stat and highlights.
+  - Ten distinct buildings a round, from all 37 stops. The results show the score and a list of missed buildings; each opens its full card.
+  - Escape or ✕ exits, and focus goes back to Start tour. Marker taps do nothing during a quiz.
+  - Known limit: marker accessible names still include the building name, so a screen-reader user can find the answer by tabbing to the highlighted marker.
+
+**Tests added**
+- `quiz.test.ts`: shuffle, distinct round of ten, four distinct choices with the answer, wrong choices are the nearest neighbours, score lines.
+- `QuizPanel.test.tsx`: opening from Start tour, hidden names, right and wrong answers, a full round with the review list opening a card, Escape returns focus.
+- `MapView.test.tsx`: logo position and attribution control.
+- e2e: logo clear of the title, camera buttons and an open panel in all four Chromium layouts; quiz marker on screen and not under the panel, 44 px choices, answer and next.
+
+**Tested**
+- Build, lint, validate, 194 unit tests, and Chromium e2e on the stand-in (four projects): 128/128. WebKit not run (Playwright's WebKit build isn't installed in this environment); run `npm run test:e2e:webkit` before a release.
 
 ## How to walk through it yourself
 

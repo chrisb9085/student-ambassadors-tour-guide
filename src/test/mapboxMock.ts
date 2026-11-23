@@ -22,6 +22,7 @@ export class FakeMap {
   });
   touchZoomRotate = { disableRotation: vi.fn() };
   keyboard = { disableRotation: vi.fn() };
+  addControl = vi.fn();
 
   constructor(options: Record<string, unknown>) {
     this.options = options;
@@ -137,4 +138,9 @@ export class FakeMarker {
   }
 }
 
-export const mapboxMock = { Map: FakeMap, Marker: FakeMarker };
+/** Stand-in for mapboxgl.AttributionControl; records its options. */
+export class FakeAttributionControl {
+  constructor(public options: Record<string, unknown> = {}) {}
+}
+
+export const mapboxMock = { Map: FakeMap, Marker: FakeMarker, AttributionControl: FakeAttributionControl };

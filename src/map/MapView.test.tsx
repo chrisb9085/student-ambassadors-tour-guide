@@ -1,7 +1,7 @@
 import { act, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { MapView } from "./MapView";
-import { FakeMap } from "../test/mapboxMock";
+import { FakeAttributionControl, FakeMap } from "../test/mapboxMock";
 import { CAMPUS_MAX_BOUNDS, MAP_STYLE, MIN_ZOOM } from "./campus";
 
 describe("MapView", () => {
@@ -19,6 +19,13 @@ describe("MapView", () => {
     });
     expect(map.touchZoomRotate.disableRotation).toHaveBeenCalled();
     expect(map.keyboard.disableRotation).toHaveBeenCalled();
+  });
+
+  it("puts the Mapbox logo and attribution top-right, where panels never cover them", () => {
+    render(<MapView token="pk.fake-test-value" />);
+    const map = FakeMap.last;
+    expect(map.options).toMatchObject({ logoPosition: "top-right", attributionControl: false });
+    expect(map.addControl).toHaveBeenCalledWith(expect.any(FakeAttributionControl), "top-right");
   });
 
   it("labels the map region for screen readers", () => {

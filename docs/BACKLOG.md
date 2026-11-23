@@ -142,13 +142,14 @@ Ordered by priority now that the site is a preparation tool.
   - **Not the College of Engineering and Computing:** its Engineering Center is near SW 107th Ave and Flagler St, not on MMC (Handbook p.19). Innovation 1 (stop 8) is its presence on MMC; mention the college there instead.
 - [x] **Tour progress strip** (Sprint 12): a segmented bar showing done, skipped and current stops. You jump to a stop with the map markers, not the strip, because 34 targets of 44 px don't fit in the bar on a phone.
 - [x] **Shareable stop links** (Sprint 10) (`?stop=graham-center`) so advisors can point ambassadors at a building.
-- [ ] Ideas to confirm with Chris: a self-quiz mode (hide the card, guess the building), and a "my tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours).
+- [x] **Self-quiz mode** (Sprint 13; Chris chose it 2026-11-23): Start tour → Quiz yourself. The map highlights a building with its name hidden, the ambassador picks its name from four nearby buildings, then the card's key facts are revealed. Ten per round, with a score and a review list.
+- [ ] "My tour" picker for a specific donor's interests (SCOPE Phase 2 custom tours). Not chosen yet (2026-11-23).
 
 ### D. UI enhancements
-- [ ] **Mapbox logo and attribution** (found in Sprint 12; it was already happening): side panels and bottom sheets can cover the Mapbox logo at bottom left. Mapbox's terms ask for it to stay visible. Options: lift the panel above the logo, or move the logo and attribution to a corner the panels don't use (`logoPosition`).
+- [x] **Mapbox logo and attribution** (Sprint 13; Chris chose "move the logo" 2026-11-23): side panels and bottom sheets covered the logo at bottom left. The logo and a compact attribution now sit top-right, under the camera buttons, where no panel or tour bar reaches (`logoPosition` and an `AttributionControl`). An e2e test checks it in every layout.
 - [x] Long names (Sprint 8, done in Sprint 9): show the part before the colon ("Academic Health Center 3:") as a small line above the card title, so the title doesn't take four lines on a phone. Keep the full name as the heading's accessible name.
 - [ ] Building highlight: outline or glow the current building, not just its marker.
-- [ ] Group overlapping markers when zoomed out (AHC 1 to 5). **Question for Chris (Sprint 12):** the opening view is zoomed out, so grouping would replace five markers with one "Academic Health Center" button that zooms in. Keyboard and screen-reader users would then reach those stops through the group or the stop list. Worth it, or leave them as they are?
+- [x] ~~Group overlapping markers when zoomed out (AHC 1 to 5).~~ **Decided 2026-11-23 (Chris): leave them as they are.** Five separate markers keep every stop one tap or one Tab away; revisit only if the UI redesign makes the overlap worse.
 - [ ] Photos on cards (`photo` field), with renderings for buildings under construction.
 - [ ] Smoother camera during the virtual drive, with a gentle zoom on arrival.
 - [ ] FIU fonts and logo: wait for Chris's resources.

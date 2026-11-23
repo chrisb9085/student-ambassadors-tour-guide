@@ -36,7 +36,12 @@ export function MapView({ token, onMapReady }: Props) {
       touchPitch: false,
       respectPrefersReducedMotion: true,
       performanceMetricsCollection: false,
+      // Mapbox's terms require the logo and attribution to stay visible. Bottom sheets, the left side
+      // panel and the tour bar cover both bottom corners, so both go top-right, under the camera buttons.
+      logoPosition: "top-right",
+      attributionControl: false,
     });
+    map.addControl(new mapboxgl.AttributionControl({ compact: true }), "top-right");
     map.touchZoomRotate.disableRotation();
     map.keyboard.disableRotation();
 
