@@ -4,7 +4,7 @@
     "order": 1,
     "code": "SASC",
     "name": "Student Academic Success Center",
-    "label": "Student Success Center",
+    "label": "Student Academic Success Center",
     "type": "featured",
     "status": "open",
     "opens": null,
@@ -30,7 +30,7 @@
       "Handbook p.10",
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf"
     ],
-    "lastReviewed": "2026-11-19",
+    "lastReviewed": "2026-11-23",
     "guideNotes": [
       {
         "kind": "tip",

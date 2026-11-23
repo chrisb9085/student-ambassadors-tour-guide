@@ -69,7 +69,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Sources:** Handbook p.10; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
-**Last reviewed:** 2026-11-19
+**Last reviewed:** 2026-11-23
 
 ### 2. Ernest R. Graham Center
 
