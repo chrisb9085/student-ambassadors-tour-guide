@@ -64,6 +64,10 @@ Requires Node 20 or later.
 3. In the Mapbox dashboard, restrict the token by URL: add the production domain (for example `https://<project>.vercel.app`) and `http://localhost:5173`. Preview deployments have their own URLs: add them as needed, or use a second token for previews.
 4. Open the deployed link on an iPad and work through [docs/DEVICE-TEST.md](docs/DEVICE-TEST.md).
 
+### Edit mode (for non-coders)
+
+Officers can update building cards at `/?view=edit` without touching code. It needs two server-only variables in Vercel, `EDITOR_PASSWORD` and `GITHUB_TOKEN` (no `VITE_` prefix, Production only). Setup, password rotation and the handover checklist are in [docs/ADMIN-HANDOVER.md](docs/ADMIN-HANDOVER.md).
+
 If the map shows "The map couldn't load. The Mapbox token is invalid or not allowed for this web address", the token's URL restrictions don't include that address.
 
 ## Repository layout
@@ -82,12 +86,15 @@ docs/SCOPE.md                Project scope: goals, route, MVP, phases, open ques
 docs/BACKLOG.md              Sprint plan and user stories
 docs/HANDBOOK.md             Student Ambassador Handbook (source for card content)
 docs/CONTENT-REVIEW.md       Every card and every fact to confirm, for Foundation review (generated)
+docs/ADMIN-HANDOVER.md       Edit mode: secrets, setup and the handover checklist
 docs/DEVICE-TEST.md          Checklist for testing on an iPad in the vehicle
 docs/reference/              Aerial route trace and labeled campus map
 src/map/                     Map, route layer, camera
 src/stops/                   Stop markers, cards and stop list
 src/tour/                    Tour Mode: engine, speech, captions card, controls, settings
 src/content/                 Typed loader for content/
+src/admin/                   Edit mode: sign-in page, stop editor, shared edit rules
+api/admin/                   Vercel functions for Edit mode: sign in, load, save (commits to GitHub)
 e2e/                         Playwright end-to-end and accessibility tests
 tools/route/                 Scripts that traced the route along real roads
 tools/content-review.mjs     Generates docs/CONTENT-REVIEW.md

@@ -495,6 +495,26 @@ Backlog E (phones and iPads) and the progress strip from C.
 - Chromium e2e on the stand-in, four projects: 120/120.
 - WebKit on the stand-in (serial; covers Sprints 11 and 12): **87 passed, 3 skipped, no failures or retries**, in 6.5 minutes. The 3 skips are the clip-playback test, one per WebKit project, which can't run in Playwright's Windows WebKit build (see Sprint 11). The fallback test runs and passes there.
 
+### Admin console: Edit mode (2026-11-23)
+
+Chris is stepping down as President; future officers who don't code need to keep building cards current. Chris chose **one shared editor password** (over per-editor passwords or GitHub logins). Built on `main`, outside the sprint plan.
+
+**Built**
+- `/?view=edit`: sign-in page (name + editor password), then the map with an Edit mode banner. Tapping a building opens a form instead of its card: name, map label, status and opening date, summary, key stat, highlights, impact, narration (with a spoken word count against the 40 to 90 or 35 targets), sources, ambassador details, Foundation notes, and an optional "what changed" note. **Preview** shows the real card. Tour Mode is hidden while editing. Unsaved changes ask before closing.
+- Vercel functions `api/admin/{login,logout,session,stops,save}`. The password (`EDITOR_PASSWORD`) and a fine-grained GitHub token (`GITHUB_TOKEN`, this repo's Contents only) are server-only variables, never `VITE_`. Sign-in sets an 8-hour signed HttpOnly, Secure, SameSite=Strict cookie; its key derives from both secrets, so rotating either signs everyone out. Wrong passwords wait 1 s. POSTs must be same-origin JSON.
+- A save reads the latest `content/stops.json` from GitHub, checks the edit with `src/admin/editable.ts` (the same rules the form shows), and commits `stops.json` plus the regenerated `docs/CONTENT-REVIEW.md` in one commit with `Edited-by: <name>`. Ids, order, type and coordinates can't change. Handbook tips can be removed but not reworded. A save is refused (409) if someone else changed that stop since the editor opened it, and retried once if another commit lands mid-save.
+- `tools/content-review-lib.mjs`: the review-page builder, shared by the CLI and the save function.
+- `docs/ADMIN-HANDOVER.md`: setup, where secrets live, rotation and the handover checklist, undo, troubleshooting.
+
+**Tested**
+- Unit: 18 server tests with a fake GitHub (cookie flags, wrong password, expiry, rotation, tampering, cross-site, validation, locked fields, conflict, retry, no-op, expired token) and 20 for the edit rules and the Edit mode UI. 221 total pass (183 before); build, lint and validate pass.
+- `vercel build` (CLI 66.6) builds all five functions; the built login, session and save functions run in Node with test secrets.
+- e2e: `edit-mode.e2e.ts` (sign in, edit, preview, axe check, save) against a stand-in server, in all four Chromium projects. Full Chromium suite passes.
+
+**Open**
+- Not tried against the real GitHub API or a real Vercel deployment: that needs Chris to create the token and set the variables (handover guide, section 3).
+- Welcome and Closing cards, photos, and adding or moving stops still need code.
+
 ## How to walk through it yourself
 
 **One-time setup** (in a terminal at the repo root):

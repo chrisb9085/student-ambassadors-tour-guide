@@ -10,5 +10,5 @@ afterEach(() => {
   cleanup();
   FakeMap.reset();
   // The app writes ?stop= to the address bar; start every test from a clean URL.
-  window.history.replaceState(null, "", "/");
+  if (typeof window !== "undefined") window.history.replaceState(null, "", "/");
 });

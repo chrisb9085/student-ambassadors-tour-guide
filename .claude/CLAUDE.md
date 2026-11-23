@@ -15,7 +15,7 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 - Stop content as JSON in the repo (`content/`)
 - Web Speech API (`window.speechSynthesis`) for narration
 - Hosting on Vercel
-- **No backend and no database in the MVP.** Supabase may come later for logins, saved custom routes and ambassador notes. Don't add it until asked.
+- **No database.** The only server code is the small Vercel functions behind Edit mode (`api/admin/`, see below). Supabase may come later for logins, saved custom routes and ambassador notes. Don't add it until asked.
 
 ## Commands
 
@@ -42,6 +42,13 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
 - Locally it lives in `.env.local` (gitignored). On Vercel it is an environment variable.
 - **Never write a token value into any tracked file, code, test, fixture or commit message.** Never read or print `.env.local`. If the variable is missing, show a clear on-screen message instead of the map.
 - Restrict the token by URL in the Mapbox dashboard (Vercel domain and localhost).
+
+## Edit mode (admin console)
+
+- Non-coders edit stop cards at `/?view=edit`. Vercel functions in `api/admin/` check the shared `EDITOR_PASSWORD` and commit edits to `main` through the GitHub API with `GITHUB_TOKEN`. No database. Handover and secrets: `docs/ADMIN-HANDOVER.md`.
+- Both secrets are server-only. **Never give them a `VITE_` prefix, read them in `src/`, or write their values anywhere tracked.**
+- What Edit mode may change, and its rules, live in `src/admin/editable.ts`, shared by the form and the server. Keep it in line with the validate script when content rules change.
+- Edit mode commits regenerate `docs/CONTENT-REVIEW.md` through `tools/content-review-lib.mjs`.
 
 ## Content model
 
