@@ -1,3 +1,4 @@
+@import "@fontsource-variable/nunito";
 @import "./theme.css";
 @import "./panels.css";
 
@@ -59,7 +60,7 @@ summary {
   padding: 0 18px;
   border-radius: 999px;
   border: 2px solid transparent;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
   display: inline-flex;
   align-items: center;
@@ -77,6 +78,14 @@ summary {
   background: var(--surface);
   color: var(--fiu-blue);
   border-color: var(--border);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #ffc84a;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-muted);
 }
 
 .btn:disabled {

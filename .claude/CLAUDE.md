@@ -67,7 +67,7 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
   "sources": ["Handbook", "https://..."],
   "lastReviewed": "2026-11-19",
   "reviewNotes": ["optional: facts the Foundation must confirm; never shown to guests"],
-  "guideNotes": [                     // optional: "For ambassadors" study notes, collapsed on the card, never spoken
+  "guideNotes": [                     // optional: study notes, never spoken. Tips show under the Script tab, details under Info ("Good to know")
     { "kind": "tip", "text": "A handbook Tour Guide Tip, quoted exactly", "source": "Handbook p.12" },
     { "kind": "detail", "text": "A fuller fact for answering questions", "source": "Handbook p.13 or an fiu.edu URL" }
   ]

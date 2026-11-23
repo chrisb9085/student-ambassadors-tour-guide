@@ -128,10 +128,9 @@
 
 .guide-stop-body h4 {
   margin: 12px 0 2px;
-  color: var(--fiu-blue);
-  font-size: 0.8125rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  color: var(--heading);
+  font-size: 0.9375rem;
+  font-weight: 800;
 }
 
 .guide-stop-body p,
@@ -153,9 +152,9 @@
 
 .guide-tip {
   margin-top: 12px;
-  padding: 8px 12px;
-  border-left: 4px solid var(--fiu-gold);
-  background: var(--fiu-gold-100);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--gold-soft);
 }
 
 .guide-tip h4 {

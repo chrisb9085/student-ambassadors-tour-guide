@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import type { Stop } from "../content/types";
 import { copyText, urlWithStop } from "../lib/stopLink";
-import { InfoCard } from "../components/InfoCard";
+import { InfoCard, type CardTab } from "../components/InfoCard";
+import { narrationFor } from "../tour/steps";
 import { buttonName, shortLabel, statusBadge, typeLabel } from "./describe";
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 /** The card for one stop, with Previous and Next along the route. */
 export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) {
   const onRoute = stop.order !== null;
+  const [tab, setTab] = useCardTab();
   const kicker = onRoute ? `Stop ${stop.order} of ${total} · ${typeLabel(stop)}` : "Also on campus · Not on the driving route";
 
   return (
@@ -29,6 +31,9 @@ export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) 
       highlights={stop.highlights}
       impact={stop.impact}
       guideNotes={stop.guideNotes}
+      script={{ text: narrationFor(stop) }}
+      tab={tab}
+      onTabChange={setTab}
       onClose={onClose}
       closeLabel={`Close ${stop.name}`}
       headerActions={<CopyLinkButton key={stop.id} stopId={stop.id} />}
@@ -60,6 +65,32 @@ export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) 
       }
     />
   );
+}
+
+const TAB_KEY = "fiu-tour.card-tab";
+
+/**
+ * The open tab (Info or Script). It stays put as you move between stops, and is remembered on this device,
+ * so someone memorising scripts can go stop to stop on the Script tab. Storage can be unavailable (private
+ * browsing), so every read and write is guarded.
+ */
+function useCardTab(): [CardTab, (tab: CardTab) => void] {
+  const [tab, setTab] = useState<CardTab>(() => {
+    try {
+      return window.localStorage.getItem(TAB_KEY) === "script" ? "script" : "info";
+    } catch {
+      return "info";
+    }
+  });
+  const choose = (next: CardTab) => {
+    setTab(next);
+    try {
+      window.localStorage.setItem(TAB_KEY, next);
+    } catch {
+      // Not saved; the choice still holds until the page reloads.
+    }
+  };
+  return [tab, choose];
 }
 
 /** Copies a link that opens this stop's card, for advisors to send to ambassadors. */
