@@ -551,7 +551,7 @@ Chris answered three of the four phase-2 decisions on 2026-11-23. Built on `clau
 
 **New in Phase 2 (about 5 more minutes):**
 
-11. **For ambassadors:** open any card, such as stop 1, and expand **For ambassadors** at the bottom. It shows the handbook's tour guide tip with its page, and "More to know" details. Stop 6 also shows the long-name style: "Academic Health Center 3:" is a small line above the title.
+11. **Info and Script tabs:** open any card, such as stop 1. **Info** (the default) has the facts and "Good to know" details; **Script** has what to say, one sentence per line, with its speaking time and the handbook's tour guide tip. The tab you pick stays as you move between stops. Stop 6 also shows the long-name style: "Academic Health Center 3:" is a small line above the title.
 12. **Narration:** start a virtual tour and listen for the short pause between sentences. "Normal" is now a little slower; try Slower and Faster in settings.
 13. **Off-route buildings:** look for the building icons near the Reagan House (east, by the lake), Deuxième Maison (next to Primera Casa), Veteran and Military Affairs (by SIPA), and Shaham (north-east corner, with the hard hat). Open Shaham's card: "Under construction · Opens 2028".
 14. **Stop links:** open a card and watch the address bar change to `?stop=...`. Tap the link icon next to the close button, paste the link into a new tab, and the same card opens.

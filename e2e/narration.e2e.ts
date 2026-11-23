@@ -53,7 +53,7 @@ test.describe("Sprint 11: recorded narration", () => {
     await openMap(page);
     await page.getByRole("button", { name: "Start tour" }).click();
     await page.getByRole("button", { name: /virtual tour/i }).click();
-    await expect(page.locator(".captions")).toContainText("thank you for joining us");
+    await expect(page.locator(".script")).toContainText("thank you for joining us");
     // The clip ends on its own (no __finishSpeech), then the tour drives on and stop 1 uses the device voice.
     await expect(progress(page)).toContainText("Stop 1 of 32", { timeout: 20_000 });
     await expect.poll(() => said(page)).toContain(STOP_1.split(/(?<=\.)\s/)[0]);

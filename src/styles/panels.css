@@ -16,7 +16,6 @@
   bottom: 0;
   max-height: 55%;
   border-radius: var(--radius) var(--radius) 0 0;
-  border-top: 6px solid var(--fiu-gold);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -29,8 +28,6 @@
     width: var(--panel-w);
     max-height: none;
     border-radius: var(--radius);
-    border-top: 0;
-    border-left: 6px solid var(--fiu-gold);
   }
 }
 
@@ -45,3 +42,8 @@
   background: var(--surface-muted);
   color: var(--fiu-blue);
 }
+
+.icon-btn:hover {
+  background: var(--surface-sunken);
+}
+

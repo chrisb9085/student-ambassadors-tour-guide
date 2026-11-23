@@ -1,9 +1,8 @@
-import { InfoCard } from "../components/InfoCard";
+import { useState } from "react";
+import { InfoCard, type CardTab } from "../components/InfoCard";
 import { statusBadge, typeLabel } from "../stops/describe";
-import { splitSentences } from "./speech";
 import type { TourStep } from "./steps";
 import type { TourPhase } from "./useTour";
-import "./TourCard.css";
 
 type Props = { step: TourStep; total: number; phase: TourPhase; sentence: number };
 
@@ -13,11 +12,15 @@ function kickerFor(step: TourStep, total: number): string {
   return `Stop ${step.stop!.order} of ${total} · ${typeLabel(step.stop!)}`;
 }
 
-/** The current tour step's card, with the narration shown as captions so the tour works muted. */
+/**
+ * The current tour step's card. It opens on the Script tab, whose text doubles as captions so the tour works
+ * muted; each new step goes back to Script so captions are always in view while narration plays.
+ */
 export function TourCard({ step, total, phase, sentence }: Props) {
   const content = step.stop ?? step.card!;
-  const sentences = splitSentences(step.narration);
   const speaking = phase === "speaking";
+  const [tab, setTab] = useState<{ step: string; tab: CardTab }>({ step: step.id, tab: "script" });
+  const current = tab.step === step.id ? tab.tab : "script";
 
   return (
     <InfoCard
@@ -32,23 +35,9 @@ export function TourCard({ step, total, phase, sentence }: Props) {
       highlights={content.highlights}
       impact={content.impact}
       guideNotes={step.stop?.guideNotes}
-    >
-      <figure className="captions" data-speaking={speaking || undefined}>
-        <figcaption className="captions-label">
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-            <path d="M4 10v4h4l5 4V6L8 10H4Z" fill="currentColor" stroke="none" />
-            {speaking && <path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" />}
-          </svg>
-          {speaking ? "Now speaking" : "Narration"}
-        </figcaption>
-        <p className="captions-text">
-          {sentences.map((s, i) => (
-            <span key={i} className={i === sentence ? "is-current" : undefined}>
-              {s}{" "}
-            </span>
-          ))}
-        </p>
-      </figure>
-    </InfoCard>
+      script={{ text: step.narration, current: sentence, speaking, live: true }}
+      tab={current}
+      onTabChange={(t) => setTab({ step: step.id, tab: t })}
+    />
   );
 }

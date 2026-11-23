@@ -41,12 +41,12 @@ test.describe("Sprint 6: accessibility audit", () => {
     await audit(page, "Bell Chapel card");
   });
 
-  test("stop card with For ambassadors open (Academic Health Center 3, long name)", async ({ page }) => {
+  test("stop card on the Script tab, with a tour guide tip (Academic Health Center 3, long name)", async ({ page }) => {
     await openMap(page);
     await page.getByRole("button", { name: /stop 6 of 32/i }).click();
-    await page.getByRole("dialog").getByText("For ambassadors").click();
-    await expect(page.getByRole("dialog")).toContainText("Tour guide tip");
-    await audit(page, "For ambassadors open");
+    await page.getByRole("dialog").getByRole("tab", { name: "Script" }).click();
+    await expect(page.getByRole("dialog").getByRole("complementary", { name: "Tour guide tip" }).first()).toBeVisible();
+    await audit(page, "Script tab");
   });
 
   test("study guide (no map, so it works without a token)", async ({ page }) => {
