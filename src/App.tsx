@@ -23,6 +23,7 @@ import { useWakeLock } from "./tour/useWakeLock";
 import { StartTourSheet } from "./tour/StartTourSheet";
 import { TourCard } from "./tour/TourCard";
 import { TourControls } from "./tour/TourControls";
+import { QuizPanel } from "./quiz/QuizPanel";
 import "./App.css";
 
 const STOP_LIST_ID = "stop-list";
@@ -43,6 +44,8 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
   const openedFromLink = useRef(selectedId);
   const [listOpen, setListOpen] = useState(false);
   const [chooserOpen, setChooserOpen] = useState(false);
+  const [quizOpen, setQuizOpen] = useState(false);
+  const [quizStopId, setQuizStopId] = useState<string | null>(null);
   const sidePanel = useSidePanelLayout();
 
   // Speech and tour settings.
@@ -101,6 +104,14 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
     if (wasTouring.current && !touring) startButtonRef.current?.focus();
     wasTouring.current = touring;
   }, [touring]);
+  // Same when the quiz closes (unless it opened a card, which takes focus itself).
+  const wasQuizzing = useRef(false);
+  useEffect(() => {
+    if (wasQuizzing.current && !quizOpen && !selectedId) startButtonRef.current?.focus();
+    wasQuizzing.current = quizOpen;
+    // Only when the quiz opens or closes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quizOpen]);
 
   // Phones: open on a view that fits the whole route, not the iPad-sized default. A shared link to a stop
   // centres on that stop instead.
@@ -145,11 +156,27 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
     [t],
   );
 
+  // Hide marker names while a quiz is open, so the highlighted building isn't given away (see QuizPanel.css).
+  useEffect(() => {
+    if (!map) return;
+    const container = map.getContainer();
+    if (quizOpen) container.dataset.quiz = "on";
+    else delete container.dataset.quiz;
+  }, [map, quizOpen]);
+
+  const onQuizQuestion = useCallback(
+    (stop: { id: string; coordinates: [number, number] } | null) => {
+      setQuizStopId(stop?.id ?? null);
+      if (map && stop) focusStop(map, stop.coordinates, focusOffset(sidePanel));
+    },
+    [map, sidePanel],
+  );
+
   if (!token) return <MissingToken />;
 
-  const selected = touring ? null : (allStops.find((s) => s.id === selectedId) ?? null);
+  const selected = touring || quizOpen ? null : (allStops.find((s) => s.id === selectedId) ?? null);
   const { prev, next } = selected ? neighbours(routeStops, selected.id) : { prev: null, next: null };
-  const highlightedId = touring ? (t.step?.stop?.id ?? null) : selectedId;
+  const highlightedId = touring ? (t.step?.stop?.id ?? null) : quizOpen ? quizStopId : selectedId;
 
   return (
     <div className={`app${touring ? " is-touring" : ""}`}>
@@ -167,7 +194,7 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
           />
         )}
 
-        {!touring && !chooserOpen && (
+        {!touring && !chooserOpen && !quizOpen && (
           <div className="action-bar" role="toolbar" aria-label="Tour actions">
             <button
               type="button"
@@ -214,13 +241,34 @@ export function App({ token = getMapboxToken(), speaker: speakerProp }: Props) {
             stops={allStops}
             total={routeStops.length}
             selectedId={highlightedId}
-            onSelect={touring ? t.goToStop : selectStop}
+            onSelect={touring ? t.goToStop : quizOpen ? () => {} : selectStop}
           />
         )}
 
-        {chooserOpen && <StartTourSheet onStart={startTour} onCancel={() => setChooserOpen(false)} />}
+        {chooserOpen && (
+          <StartTourSheet
+            onStart={startTour}
+            onQuiz={() => {
+              setChooserOpen(false);
+              setQuizOpen(true);
+            }}
+            onCancel={() => setChooserOpen(false)}
+          />
+        )}
 
-        {listOpen && !touring && (
+        {quizOpen && !touring && (
+          <QuizPanel
+            pool={allStops}
+            onQuestion={onQuizQuestion}
+            onOpenStop={(id) => {
+              setQuizOpen(false);
+              selectStop(id);
+            }}
+            onExit={() => setQuizOpen(false)}
+          />
+        )}
+
+        {listOpen && !touring && !quizOpen && (
           <StopList
             id={STOP_LIST_ID}
             routeStops={routeStops}
