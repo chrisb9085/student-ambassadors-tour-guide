@@ -409,7 +409,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 - Tech classrooms, team rooms and a makerspace
 - Software design, systems training and IT hardware labs
-- Home of MangoHacks, FIU's student-run hackathon
+- Home of ShellHacks, FIU's student-run hackathon
 - Hack nights, workshops and coding club events
 
 **Impact of support:** Funding from the Florida Board of Governors created Tech Station, where students and the community come together around technology.
@@ -426,7 +426,7 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 **Sources:** Handbook p.6; [www.cis.fiu.edu/students/techstation/](https://www.cis.fiu.edu/students/techstation/)
 
-**Last reviewed:** 2026-11-20
+**Last reviewed:** 2026-11-23
 
 ### 14. Paul L. Cejas School of Architecture
 
