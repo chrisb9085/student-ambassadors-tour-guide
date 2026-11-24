@@ -544,6 +544,23 @@ Chris is stepping down as President; future officers who don't code need to keep
 - Not tried against the real GitHub API or a real Vercel deployment: that needs Chris to create the token and set the variables (handover guide, section 3).
 - Welcome and Closing cards, photos, and adding or moving stops still need code.
 
+### Admin button and expandable cards (2026-11-24)
+
+Chris asked for a way into Edit mode from the site, and for a bigger card view. Built on `main`, outside the sprint plan.
+
+**Built**
+- **Admin** link beside the "FIU Campus Tour" title, to `/?view=edit` (hidden in Edit mode and during a tour). On phones narrower than 520 px it sits just under the title, clear of the camera buttons. `docs/ADMIN-HANDOVER.md` now mentions it.
+- **Expand card** button on stop cards (next to the link and close buttons). Landscape screens from 640 px (desktop, iPad landscape, phones sideways): the card takes the left half and the map keeps the right half; the building is re-centred in the map half and the Stops/Start tour bar moves to the middle of it. Portrait screens: the sheet fills the screen apart from a strip at the top. **Shrink card** goes back.
+- Portrait screens only: a grab handle on the sheet. Drag the handle or the card's header up or down; it snaps to **full**, **normal** or **peek** (just the title and Previous/Next, so the map shows). A quick flick moves one size; a tap on the handle toggles normal and full. The size stays while moving between stops (`src/components/cardSize.ts`, `useSheetDrag.ts`).
+- Fixed three unit tests that still expected the old map label "Student Success Center", changed through Edit mode on 2026-11-23.
+
+**Tested**
+- Unit: 243 pass (snap rules, Expand/Shrink keeping its size between stops, Admin link and Tab order). Build, lint and validate pass.
+- e2e: `card-size.e2e.ts` (Admin placement and link; expanded size and the building beside it; swipe to full, normal, peek and back, handle tap) in all four Chromium projects. Full Chromium suite passes.
+
+**Open**
+- WebKit (`npm run test:e2e:webkit`) not run here: no WebKit browser in this environment. Try the swipe on a real iPhone.
+
 ## How to walk through it yourself
 
 **One-time setup** (in a terminal at the repo root):
@@ -562,7 +579,7 @@ Chris is stepping down as President; future officers who don't code need to keep
 2. **Markers:** large blue numbered dots are featured stops; smaller ones are quick-pass. Bell Chapel (3) has an orange dashed ring and a hard hat. Green Library is the white book icon. Zoom in to see the labels appear.
 3. **Cards:** tap any marker, or tap next to a building. Check the summary, key stat, highlights and "Impact of support". Use the Previous and Next buttons at the bottom of the card. Bell Chapel shows the "Under construction" badge. Green Library says it isn't on the driving route.
 4. **Stop list:** tap **Stops**, scroll, and pick a stop.
-5. **Keyboard (desktop):** press Tab from the top. You reach Whole route, Reset view, Stops and Start tour, then the markers in route order. Enter opens a card and Escape closes it.
+5. **Keyboard (desktop):** press Tab from the top. You reach Admin, Whole route, Reset view, Stops and Start tour, then the markers in route order. Enter opens a card and Escape closes it.
 6. **Virtual tour:** **Start tour → Virtual tour**. The Welcome narration plays, with captions highlighting the current sentence. The vehicle drives to each stop, and narration continues on its own. Try Pause/Play, Skip, Previous, and tapping a marker to jump there.
 7. **Ride-along:** Exit, then **Start tour → Ride-along**. It waits for **Next** at each stop.
 8. **Settings** (gear button during a tour): Auto-advance, Slower/Normal/Faster, and the voice list. Your choices are remembered.

@@ -2,8 +2,11 @@ import { useEffect, useId, useRef, type KeyboardEvent as ReactKeyboardEvent, typ
 import type { GuideNote } from "../content/types";
 import { splitSentences } from "../tour/speech";
 import { CARD_TABS, speakingTime, type CardTab } from "./cardTabs";
+import { toggledSize, type CardSize } from "./cardSize";
+import { useSheetDrag } from "./useSheetDrag";
+import { useSidePanelLayout } from "../lib/layout";
 
-export type { CardTab };
+export type { CardTab, CardSize };
 import "./InfoCard.css";
 
 export type CardScript = {
@@ -43,6 +46,12 @@ export type InfoCardProps = {
   closeLabel?: string;
   /** Move focus to the title when the place changes. Off in Tour Mode so focus stays on the controls. */
   autoFocus?: boolean;
+  /**
+   * With onSizeChange, the card gets an Expand button (half the screen on wide screens, nearly all of it on
+   * phones) and, on phones, a grab handle to swipe it taller or shorter.
+   */
+  size?: CardSize;
+  onSizeChange?: (size: CardSize) => void;
   /** Region label for assistive tech; defaults to a dialog named by the title. */
   role?: "dialog" | "region";
 };
@@ -50,7 +59,12 @@ export type InfoCardProps = {
 /** A place card: popover-style side panel on wide screens, bottom sheet on narrow ones (see panels.css). */
 export function InfoCard(props: InfoCardProps) {
   const { kicker, title, contentKey, badge, summary, stat, highlights, impact, guideNotes = [], script, footer, headerActions, onClose } = props;
-  const { closeLabel = "Close", autoFocus = true, role = "dialog", onTabChange } = props;
+  const { closeLabel = "Close", autoFocus = true, role = "dialog", onTabChange, onSizeChange } = props;
+  const size: CardSize = props.size ?? "normal";
+  const sizable = !!onSizeChange;
+  const sidePanel = useSidePanelLayout();
+  const panelRef = useRef<HTMLElement>(null);
+  const drag = useSheetDrag(panelRef, size, onSizeChange, sizable && !sidePanel);
   const tab: CardTab = script ? (props.tab ?? "info") : "info";
   const titleId = useId();
   const tabsId = useId();
@@ -149,8 +163,15 @@ export function InfoCard(props: InfoCardProps) {
   );
 
   return (
-    <section className="panel info-card" role={role} aria-labelledby={titleId}>
-      <header className="info-card-header">
+    <section
+      ref={panelRef}
+      className="panel info-card"
+      role={role}
+      aria-labelledby={titleId}
+      data-size={sizable ? size : undefined}
+    >
+      {sizable && !sidePanel && <div className="sheet-handle" aria-hidden="true" {...drag} />}
+      <header className="info-card-header" {...(sizable && !sidePanel ? drag : {})}>
         <div className="info-card-titles">
           <p className="info-card-kicker">{kicker}</p>
           <h2 id={titleId} ref={headingRef} tabIndex={-1} className="info-card-title">
@@ -166,6 +187,17 @@ export function InfoCard(props: InfoCardProps) {
           )}
         </div>
         {headerActions}
+        {sizable && (
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={() => onSizeChange?.(toggledSize(size))}
+            aria-label={size === "full" ? "Shrink card" : "Expand card"}
+            title={size === "full" ? "Shrink card" : "Expand card"}
+          >
+            {size === "full" ? <ShrinkIcon /> : <ExpandIcon />}
+          </button>
+        )}
         {closable && (
           <button type="button" className="icon-btn" onClick={onClose} aria-label={closeLabel}>
             <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
@@ -268,6 +300,22 @@ function ScriptIcon() {
     <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 6.5C5 5.1 6.1 4 7.5 4h9C17.9 4 19 5.1 19 6.5v6c0 1.4-1.1 2.5-2.5 2.5H11l-4 4v-4h0.5C6.1 15 5 13.9 5 12.5v-6Z" />
       <path d="M9 8.5h6M9 11.5h4" />
+    </svg>
+  );
+}
+
+function ExpandIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" />
+    </svg>
+  );
+}
+
+function ShrinkIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 10h-6V4M14 10l6-6M4 14h6v6M10 14l-6 6" />
     </svg>
   );
 }

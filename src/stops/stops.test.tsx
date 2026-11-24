@@ -99,6 +99,21 @@ describe("stop cards (S3.2)", () => {
     expect(card()).toHaveTextContent("Stop 2 of 32");
   });
 
+  it("expands and shrinks the card, keeping the size while moving between stops", async () => {
+    const { user, map } = renderLoaded();
+    await user.click(marker(/stop 1 of 32/i));
+    expect(card()).toHaveAttribute("data-size", "normal");
+    const calls = map.easeTo.mock.calls.length;
+    await user.click(within(card()).getByRole("button", { name: "Expand card" }));
+    expect(card()).toHaveAttribute("data-size", "full");
+    // The building is re-centred in the part of the map that is still showing.
+    expect(map.easeTo.mock.calls.length).toBe(calls + 1);
+    await user.click(screen.getByRole("button", { name: /next stop/i }));
+    expect(card()).toHaveAttribute("data-size", "full");
+    await user.click(within(card()).getByRole("button", { name: "Shrink card" }));
+    expect(card()).toHaveAttribute("data-size", "normal");
+  });
+
   it("disables Next on the last stop", async () => {
     const { user } = renderLoaded();
     await user.click(marker(/stop 32 of 32/i));

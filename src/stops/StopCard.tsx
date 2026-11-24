@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Stop } from "../content/types";
 import { copyText, urlWithStop } from "../lib/stopLink";
-import { InfoCard, type CardTab } from "../components/InfoCard";
+import { InfoCard, type CardSize, type CardTab } from "../components/InfoCard";
 import { narrationFor } from "../tour/steps";
 import { buttonName, shortLabel, statusBadge, typeLabel } from "./describe";
 
@@ -12,10 +12,13 @@ type Props = {
   next: Stop | null;
   onSelect: (id: string) => void;
   onClose: () => void;
+  /** Expanded or not (see cardSize.ts). Without onSizeChange the card has no Expand button. */
+  size?: CardSize;
+  onSizeChange?: (size: CardSize) => void;
 };
 
 /** The card for one stop, with Previous and Next along the route. */
-export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) {
+export function StopCard({ stop, total, prev, next, onSelect, onClose, size, onSizeChange }: Props) {
   const onRoute = stop.order !== null;
   const [tab, setTab] = useCardTab();
   const kicker = onRoute ? `Stop ${stop.order} of ${total} · ${typeLabel(stop)}` : "Also on campus · Not on the driving route";
@@ -35,6 +38,8 @@ export function StopCard({ stop, total, prev, next, onSelect, onClose }: Props) 
       tab={tab}
       onTabChange={setTab}
       onClose={onClose}
+      size={size}
+      onSizeChange={onSizeChange}
       closeLabel={`Close ${stop.name}`}
       headerActions={<CopyLinkButton key={stop.id} stopId={stop.id} />}
       footer={

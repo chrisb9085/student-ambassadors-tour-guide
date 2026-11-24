@@ -318,3 +318,76 @@
     transition: none;
   }
 }
+
+/*
+ * Card sizes (see cardSize.ts). Phones and portrait tablets: a bottom sheet with a grab handle.
+ * "full" fills the screen apart from a strip at the top; "peek" shows only the title and Previous/Next.
+ */
+.sheet-handle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  height: 22px;
+  margin-bottom: -14px; /* the header's top padding sits under it */
+  position: relative;
+  z-index: 1; /* above the header, so the whole handle can be tapped */
+  cursor: grab;
+  touch-action: none;
+}
+
+.sheet-handle::before {
+  content: "";
+  width: 44px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.info-card[data-size] > .info-card-header {
+  touch-action: none; /* a drag on the header resizes the sheet instead of panning the page */
+}
+
+.info-card[data-dragging] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.info-card[data-size="full"] {
+  max-height: none;
+  height: calc(100% - max(12px, env(safe-area-inset-top)));
+}
+
+.info-card[data-size="peek"] > .info-card-tabs,
+.info-card[data-size="peek"] > .info-card-body {
+  display: none;
+}
+
+/* Wide screens: no handle or peek; "full" is half the screen and the map keeps the other half. */
+@media (orientation: landscape) and (min-width: 640px) {
+  .info-card[data-size] > .info-card-header {
+    touch-action: auto;
+  }
+
+  .info-card[data-size="peek"] > .info-card-tabs {
+    display: flex;
+  }
+
+  .info-card[data-size="peek"] > .info-card-body {
+    display: block;
+  }
+
+  .info-card[data-size="full"] {
+    height: auto;
+    width: calc(50% - max(16px, env(safe-area-inset-left)));
+  }
+
+  .info-card[data-size] {
+    transition: width 0.25s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-card[data-size] {
+    transition: none;
+  }
+}

@@ -36,9 +36,14 @@ export function tourPadding(sidePanel: boolean, height: number) {
   return { top: 72, bottom: Math.round(height * 0.62), left: 16, right: 16 };
 }
 
-/** Pixel offset that keeps a focused point visible beside the side panel or above the bottom sheet. */
-export function focusOffset(sidePanel: boolean): [number, number] {
-  if (sidePanel) return [sidePanelWidth() / 2, 0];
+/**
+ * Pixel offset that keeps a focused point visible beside the side panel or above the bottom sheet.
+ * An expanded card ("full") takes half of a wide screen, so the point centres in the other half.
+ * A peeking sheet covers little of a phone screen, so the point only moves up a little.
+ */
+export function focusOffset(sidePanel: boolean, cardSize: "peek" | "normal" | "full" = "normal"): [number, number] {
+  const w = typeof window !== "undefined" ? window.innerWidth : 1024;
   const h = typeof window !== "undefined" ? window.innerHeight : 800;
-  return [0, -Math.round(h * 0.25)];
+  if (sidePanel) return cardSize === "full" ? [Math.round(w / 4), 0] : [sidePanelWidth() / 2, 0];
+  return [0, -Math.round(h * (cardSize === "peek" ? 0.1 : 0.25))];
 }
