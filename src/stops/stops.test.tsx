@@ -21,7 +21,7 @@ describe("stop markers (S3.1)", () => {
     const buttons = [...map.container.querySelectorAll<HTMLButtonElement>(".stop-marker")];
     expect(buttons).toHaveLength(37);
     expect(buttons.slice(0, 3).map((b) => b.getAttribute("aria-label"))).toEqual([
-      "1 Student Success Center, stop 1 of 32",
+      "1 Student Academic Success Center, stop 1 of 32",
       "2 Graham Center, stop 2 of 32",
       "3 Bell Chapel, stop 3 of 32",
     ]);
@@ -50,7 +50,7 @@ describe("stop markers (S3.1)", () => {
     expect(screen.getByRole("button", { name: /3 bell chapel/i })).toHaveAccessibleDescription(
       "Trish and Dan Bell Chapel. Quick pass. Under construction.",
     );
-    expect(screen.getByRole("button", { name: /1 student success center/i })).toHaveAccessibleDescription(
+    expect(screen.getByRole("button", { name: /1 student academic success center/i })).toHaveAccessibleDescription(
       "Student Academic Success Center. Featured.",
     );
   });

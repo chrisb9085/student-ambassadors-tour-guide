@@ -36,7 +36,7 @@ async function openEditor(routes: Record<string, Reply | ((body: unknown) => Rep
   render(<EditMode token="pk.fake-test-value" />);
   await screen.findByRole("region", { name: "Edit mode" });
   act(() => FakeMap.last.emit("load"));
-  await user.click(screen.getByRole("button", { name: /^1 student success center/i }));
+  await user.click(screen.getByRole("button", { name: /^1 student academic success center/i }));
   return { user, sent, editor: screen.getByRole("dialog", { name: first.name }) };
 }
 
