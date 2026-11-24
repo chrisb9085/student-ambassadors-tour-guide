@@ -4,7 +4,7 @@ Edit mode lets Student Ambassador officers update building cards on the live tou
 
 ## 1. How it works
 
-- **Open it at** `https://<your-site>/?view=edit` (for example `https://<project>.vercel.app/?view=edit`). It isn't linked from the tour, so guests and ambassadors won't stumble on it.
+- **Open it at** `https://<your-site>/?view=edit` (for example `https://<project>.vercel.app/?view=edit`). You can also tap the small **Admin** button next to the "FIU Campus Tour" title. Anyone can open the page, but only someone with the editor password can save changes.
 - An editor types **their name** and the **editor password**. Tapping a building on the map opens a form instead of its card. **Preview** shows the card as guests will see it; **Save** publishes it.
 - Each save becomes a commit on the `main` branch of the GitHub repository, labelled `Edit mode: update <building>` with an `Edited-by: <name>` line. Vercel sees the commit and redeploys, so the change is live in **about a minute**.
 - The same commit refreshes `docs/CONTENT-REVIEW.md` (the Foundation's review page), so it never falls out of date.

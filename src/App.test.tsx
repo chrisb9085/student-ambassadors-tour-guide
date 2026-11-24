@@ -50,6 +50,7 @@ describe("App", () => {
     const user = userEvent.setup();
     render(<App token="pk.fake-test-value" />);
     act(() => FakeMap.last.emit("load"));
+    await user.tab(); // the Admin link by the title
     await user.tab();
     expect(screen.getByRole("button", { name: /whole route/i })).toHaveFocus();
     await user.tab();
@@ -60,11 +61,23 @@ describe("App", () => {
     const user = userEvent.setup();
     render(<App token="pk.fake-test-value" />);
     act(() => FakeMap.last.emit("load"));
+    await user.tab();
+    expect(screen.getByRole("link", { name: "Admin" })).toHaveFocus();
     for (let i = 0; i < 3; i++) await user.tab();
     expect(screen.getByRole("button", { name: "Stops" })).toHaveFocus();
     await user.tab();
     expect(screen.getByRole("button", { name: "Start tour" })).toHaveFocus();
     await user.tab();
     expect(screen.getByRole("button", { name: /stop 1 of 32/i })).toHaveFocus();
+  });
+
+  it("has a small Admin link by the title that opens Edit mode", () => {
+    render(<App token="pk.fake-test-value" />);
+    expect(screen.getByRole("link", { name: "Admin" })).toHaveAttribute("href", "?view=edit");
+  });
+
+  it("hides the Admin link in Edit mode itself", () => {
+    render(<App token="pk.fake-test-value" edit={{ banner: null, stops: {}, renderEditor: () => null }} />);
+    expect(screen.queryByRole("link", { name: "Admin" })).not.toBeInTheDocument();
   });
 });

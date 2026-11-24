@@ -24,6 +24,8 @@ import { StartTourSheet } from "./tour/StartTourSheet";
 import { TourCard } from "./tour/TourCard";
 import { TourControls } from "./tour/TourControls";
 import type { Stop } from "./content/types";
+import type { CardSize } from "./components/cardSize";
+import { EDIT_MODE_SEARCH } from "./lib/view";
 import { QuizPanel } from "./quiz/QuizPanel";
 import "./App.css";
 
@@ -59,6 +61,8 @@ export function App({ token = getMapboxToken(), speaker: speakerProp, edit }: Pr
   const [quizOpen, setQuizOpen] = useState(false);
   const [quizStopId, setQuizStopId] = useState<string | null>(null);
   const sidePanel = useSidePanelLayout();
+  // Expanded or not; stays as chosen while moving between stops.
+  const [cardSize, setCardSize] = useState<CardSize>("normal");
 
   // Speech and tour settings.
   const [settings, setSettings] = useState<TourSettings>(loadSettings);
@@ -153,10 +157,25 @@ export function App({ token = getMapboxToken(), speaker: speakerProp, edit }: Pr
       setSelectedId(id);
       setListOpen(false);
       const stop = allStops.find((s) => s.id === id);
-      if (map && stop) focusStop(map, stop.coordinates, focusOffset(sidePanel));
+      if (map && stop) focusStop(map, stop.coordinates, focusOffset(sidePanel, cardSize));
     },
-    [map, sidePanel],
+    [map, sidePanel, cardSize],
   );
+
+  // Resizing the card re-centres its building in the part of the map that is still visible.
+  const changeCardSize = useCallback(
+    (size: CardSize) => {
+      setCardSize(size);
+      const stop = allStops.find((s) => s.id === selectedId);
+      if (map && stop) focusStop(map, stop.coordinates, focusOffset(sidePanel, size));
+    },
+    [map, sidePanel, selectedId],
+  );
+  const closeCard = useCallback(() => {
+    setSelectedId(null);
+    // A card peeking on a phone opens at its normal size next time.
+    setCardSize((s) => (s === "peek" ? "normal" : s));
+  }, []);
 
   const startTour = useCallback(
     (mode: TourMode) => {
@@ -194,9 +213,17 @@ export function App({ token = getMapboxToken(), speaker: speakerProp, edit }: Pr
     <div className={`app${touring ? " is-touring" : ""}${edit ? " is-editing" : ""}`}>
       <main className="app-main" aria-label="Campus tour map">
         {/* DOM order is Tab order: title and main actions first, then the map and its 33 stop markers. */}
-        <h1 className="app-title">
-          <span className="app-title-fiu">FIU</span> Campus Tour
-        </h1>
+        <div className="app-topbar">
+          <h1 className="app-title">
+            <span className="app-title-fiu">FIU</span> Campus Tour
+          </h1>
+          {/* Opens Edit mode, which asks for the editor password (docs/ADMIN-HANDOVER.md). */}
+          {!edit && !touring && (
+            <a className="app-admin-link" href={EDIT_MODE_SEARCH}>
+              Admin
+            </a>
+          )}
+        </div>
         {edit?.banner}
 
         {!touring && (
@@ -303,7 +330,9 @@ export function App({ token = getMapboxToken(), speaker: speakerProp, edit }: Pr
             prev={prev}
             next={next}
             onSelect={selectStop}
-            onClose={() => setSelectedId(null)}
+            onClose={closeCard}
+            size={cardSize}
+            onSizeChange={changeCardSize}
           />
         )}
 

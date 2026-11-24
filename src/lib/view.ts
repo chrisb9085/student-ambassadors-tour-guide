@@ -1,7 +1,7 @@
 /** Query string that opens the study guide instead of the map. */
 export const STUDY_GUIDE_SEARCH = "?view=study-guide";
 
-/** Query string that opens Edit mode (sign-in required; see docs/ADMIN-HANDOVER.md). Not linked from the site. */
+/** Query string that opens Edit mode (sign-in required; see docs/ADMIN-HANDOVER.md). Linked from the Admin button by the title. */
 export const EDIT_MODE_SEARCH = "?view=edit";
 
 export type View = "study-guide" | "edit" | "map";

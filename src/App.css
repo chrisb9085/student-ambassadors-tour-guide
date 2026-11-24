@@ -11,11 +11,19 @@
   overflow: hidden;
 }
 
-/* Solid chip so the title reads over busy imagery. */
-.app-title {
+/* Top left: the title, and the small Admin link to Edit mode beside it. */
+.app-topbar {
   position: absolute;
   top: max(16px, env(safe-area-inset-top));
   left: max(16px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 4;
+}
+
+/* Solid chip so the title reads over busy imagery. */
+.app-title {
   margin: 0;
   min-height: var(--touch);
   padding: 0 18px;
@@ -28,7 +36,35 @@
   box-shadow: var(--shadow);
   font-size: 1.125rem;
   font-weight: 700;
-  z-index: 4;
+  white-space: nowrap;
+}
+
+/* Deliberately quieter than the title: it's for the few people who edit cards. */
+.app-admin-link {
+  min-height: var(--touch);
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fiu-blue);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.app-admin-link:hover {
+  background: var(--surface-muted);
+}
+
+/* Narrow phones: no room beside the title before the camera buttons, so Admin sits just under it. */
+@media (max-width: 519px) {
+  .app-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* Bottom center: the primary actions (Stops now; Start tour in Sprint 4). */
@@ -46,6 +82,11 @@
 @media (orientation: landscape) and (min-width: 640px) {
   .app-main:has(> .panel) .action-bar {
     left: calc(max(16px, env(safe-area-inset-left)) + var(--panel-w) + (100% - var(--panel-w) - 16px) / 2);
+  }
+
+  /* An expanded card takes the left half: centre the actions in the right half. */
+  .app-main:has(> .panel[data-size="full"]) .action-bar {
+    left: 75%;
   }
 }
 
