@@ -62,6 +62,8 @@ if (stops) {
       if (!Array.isArray(s.highlights) || s.highlights.length === 0) err(`${label}: needs highlights`);
       else if (s.highlights.length > 4) warn(`${label}: more than 4 highlights`);
       if (!Array.isArray(s.sources) || s.sources.length === 0) err(`${label}: needs at least one source`);
+      if ("website" in s && (typeof s.website !== "string" || !/^https:\/\/([a-z0-9-]+\.)*fiu\.edu\//.test(s.website)))
+        err(`${label}: website must be an https fiu.edu URL`);
       if (s.lastReviewed && !/^\d{4}-\d{2}-\d{2}$/.test(s.lastReviewed)) err(`${label}: lastReviewed must be YYYY-MM-DD`);
       const spoken = s.narration || [s.summary, ...(s.highlights || []), s.impact].join(" ");
       const n = words(spoken);

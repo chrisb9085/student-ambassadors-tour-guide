@@ -71,6 +71,7 @@ An interactive site for FIU Foundation Student Ambassadors' VIP and donor **driv
   "stat": { "value": "3.5M+", "label": "visits a year" },
   "narration": null,                  // optional spoken text if it should differ from the card
   "photo": null,                      // optional path under public/
+  "website": "https://law.fiu.edu/about/", // optional: the building's official fiu.edu page; the card's link button opens it in a new tab (no button when absent)
   "sources": ["Handbook", "https://..."],
   "lastReviewed": "2026-11-19",
   "reviewNotes": ["optional: facts the Foundation must confirm; never shown to guests"],

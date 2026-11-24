@@ -210,6 +210,24 @@ export function StopEditor({ stop, total, onSaved, onClose, onExpired }: Props) 
           Read aloud: {spoken} words{target ? ` (aim for ${target})` : ""}.
         </p>
 
+        <Field
+          label="Official FIU web page (optional)"
+          error={errors.website}
+          hint="The building's own page on fiu.edu, for example https://law.fiu.edu/about/. The card's link button opens it. Leave empty to hide the button."
+        >
+          {(p) => (
+            <input
+              {...p}
+              type="url"
+              inputMode="url"
+              placeholder="https://…fiu.edu/…"
+              value={draft.website ?? ""}
+              maxLength={LIMITS.website}
+              onChange={(e) => set("website", e.target.value || null)}
+            />
+          )}
+        </Field>
+
         <ListField
           legend="Sources"
           hint='Where each fact comes from: "Handbook p.12" or an fiu.edu link.'

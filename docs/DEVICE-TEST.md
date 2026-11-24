@@ -24,7 +24,7 @@ Mark each item ✅ or ❌, and note anything odd in the last column.
 | 7 | Tapping a marker opens its card. Tapping next to a building also works. | | |
 | 8 | Bell Chapel and Shaham show the orange dashed marker and the "Under construction" badge. | | |
 | 9 | **For ambassadors** opens and closes on each card, and shows the tour guide tip with its handbook page. | | |
-| 10 | **Copy link** on a card, then paste it in Messages or Notes. Opening the link shows the same card. (On a plain `http://` address, Safari shows the link in a box to copy instead.) | | |
+| 10 | Tap the **link button** at the top of a card. The building's official FIU page opens in a new tab, and the tour stays open in its own tab. | | |
 | 11 | **Stops → Printable study guide** opens. Print to PDF from the share sheet: every stop is readable, with no buttons and no stop split across pages. | | Pages: |
 | 12 | Off-route buildings (Reagan House, Deuxième Maison, Veteran and Military Affairs, Shaham) are where you expect on the map. | | Move: |
 

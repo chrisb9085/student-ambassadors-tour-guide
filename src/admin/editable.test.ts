@@ -46,6 +46,18 @@ describe("Edit mode rules", () => {
     expect(checkEdit(featured, { ...e, guideNotes: e.guideNotes.filter((g) => g !== tip) }).errors).toEqual({});
   });
 
+  it("takes an optional official page, which must be an https fiu.edu address", () => {
+    const e = editableFrom(quick);
+    expect(checkEdit(quick, { ...e, website: "https://example.com/" }).errors.website).toMatch(/fiu\.edu/);
+    expect(checkEdit(quick, { ...e, website: "http://law.fiu.edu/about/" }).errors.website).toBeTruthy();
+    const ok = checkEdit(quick, { ...e, website: " https://law.fiu.edu/about/ " });
+    expect(ok.errors).toEqual({});
+    const saved = applyEdit(quick, ok.edit, "2026-11-24");
+    expect(saved.website).toBe("https://law.fiu.edu/about/");
+    expect(changedFields({ ...quick, website: undefined }, saved)).toContain("website");
+    expect("website" in applyEdit(saved, { ...ok.edit, website: null }, "2026-11-24")).toBe(false);
+  });
+
   it("needs a handbook page or fiu.edu link for each detail", () => {
     const e = editableFrom(quick);
     const bad = checkEdit(quick, { ...e, guideNotes: [...e.guideNotes, { kind: "detail", text: "A fact", source: "wikipedia" }] });

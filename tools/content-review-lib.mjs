@@ -21,6 +21,7 @@ function card(heading, c, meta) {
       ...c.guideNotes.map((g) => `- *${g.kind === "tip" ? "Tour guide tip" : "Detail"}* (${link(g.source)}): ${g.text}`),
       "",
     );
+  if (c.website) lines.push(`**Official FIU page** (the card's link button): ${link(c.website)}`, "");
   lines.push(`**Sources:** ${c.sources.map(link).join("; ")}`, "", `**Last reviewed:** ${c.lastReviewed}`, "");
   if (c.reviewNotes?.length) lines.push("**Needs confirmation:**", "", ...c.reviewNotes.map((n) => `- ${n}`), "");
   return lines.join("\n");

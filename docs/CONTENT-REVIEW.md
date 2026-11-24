@@ -100,6 +100,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.13): Services: the FIU Bookstore, the Panther Dining office, PantherTech, the Student Food Pantry, computer labs and printing.
 - *Detail* (Handbook p.13): Disability Resource Center: testing accommodations, assistive technology, accessible textbooks, housing accommodations and access to scholarships.
 
+**Official FIU page** (the card's link button): [dasa.fiu.edu/all-departments/graham-center/](https://dasa.fiu.edu/all-departments/graham-center/)
+
 **Sources:** Handbook pp.12-13; [digitalcommons.fiu.edu/fiu_images/1/](https://digitalcommons.fiu.edu/fiu_images/1/)
 
 **Last reviewed:** 2026-11-20
@@ -130,6 +132,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Tour guide tip* (Handbook p.11): When discussing the Bell Chapel, emphasize that it reflects FIU’s commitment to supporting the whole student experience—including spiritual wellbeing, reflection, and inclusion for all faiths and beliefs.
 - *Detail* (Handbook p.11): Campus role: a dedicated space for spiritual life and wellbeing, and a place for reflection, dialogue and community connection.
 - *Detail* ([news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel](https://news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel)): The sanctuary will be available for religious life-stage milestones, weddings and other ceremonies.
+
+**Official FIU page** (the card's link button): [bellchapel.fiu.edu/why-a-chapel/about-the-chapel/](https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/)
 
 **Sources:** Handbook p.11; [news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel](https://news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel); [news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel](https://news.fiu.edu/2023/fiu-breaks-ground-for-the-trish-and-dan-bell-chapel); [bellchapel.fiu.edu/why-a-chapel/about-the-chapel/](https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/)
 
@@ -162,6 +166,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
 - *Detail* (Handbook p.15): The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work, supporting education, research, clinical training and community health across South Florida.
 
+**Official FIU page** (the card's link button): [ccf.fiu.edu/about/](https://ccf.fiu.edu/about/)
+
 **Sources:** Handbook p.15
 
 **Last reviewed:** 2026-11-20
@@ -192,6 +198,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
 - *Detail* (Handbook p.15): The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work, supporting education, research, clinical training and community health across South Florida.
 
+**Official FIU page** (the card's link button): [medicine.fiu.edu/about/](https://medicine.fiu.edu/about/)
+
 **Sources:** Handbook p.15
 
 **Last reviewed:** 2026-11-20
@@ -219,6 +227,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
 - *Detail* (Handbook p.15): The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work, supporting education, research, clinical training and community health across South Florida.
 
+**Official FIU page** (the card's link button): [cnhs.fiu.edu/about/](https://cnhs.fiu.edu/about/)
+
 **Sources:** Handbook p.15; [cnhs.fiu.edu/about/](https://cnhs.fiu.edu/about/)
 
 **Last reviewed:** 2026-11-20
@@ -245,6 +255,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 - *Tour guide tip* (Handbook p.16): The Academic Health Center reflects FIU's commitment to improving healthcare through education, research, and community partnerships. Many of these programs directly serve South Florida while preparing the next generation of healthcare professionals.
 - *Detail* (Handbook p.16): Stempel College works on public health challenges at local, national and global levels.
+
+**Official FIU page** (the card's link button): [stempel.fiu.edu/about/](https://stempel.fiu.edu/about/)
 
 **Sources:** Handbook pp.15-16
 
@@ -276,6 +288,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.19): The College of Engineering and Computing has more than 8,500 students in 37 programs, with undergraduate, master's and doctoral degrees. Its headquarters is the Engineering Center near SW 107th Avenue and Flagler Street.
 - *Detail* (Handbook p.19): Signature research facilities: the Wall of Wind, a full-scale hurricane simulator that reaches Category 5 conditions, and the Motorola Nanofabrication Facility, Florida's first centralized nanofabrication research center.
 - *Detail* (Handbook p.19): Research focus areas include infrastructure, cybersecurity, health and climate resilience, with strong industry and government partnerships.
+
+**Official FIU page** (the card's link button): [cec.fiu.edu/2025/09/fiu-innovation-complex-welcomes-first-class-marking-historic-milestone](https://cec.fiu.edu/2025/09/fiu-innovation-complex-welcomes-first-class-marking-historic-milestone)
 
 **Sources:** Handbook p.18; [cec.fiu.edu/about/](https://cec.fiu.edu/about/); [cec.fiu.edu/news-events/news/2025/from-the-deans-desk-bringing-our-vision-to-life.html](https://cec.fiu.edu/news-events/news/2025/from-the-deans-desk-bringing-our-vision-to-life.html)
 
@@ -395,6 +409,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.20): School of Integrated Sciences and Humanity: chemistry, physics, biochemistry, mathematics, psychology and statistics.
 - *Detail* (Handbook p.20): School of Education and Human Development: teacher education, counseling, school psychology, educational leadership, and recreation and human development.
 
+**Official FIU page** (the card's link button): [case.fiu.edu/about/](https://case.fiu.edu/about/)
+
 **Sources:** Handbook p.20
 
 **Last reviewed:** 2026-11-19
@@ -423,6 +439,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **For ambassadors** (collapsed on the card, never read aloud):
 
 - *Tour guide tip* (Handbook p.6): When discussing parking garages, focus on how FIU's garages function as multi-purpose facilities that combine parking with student services, dining, classrooms, and campus resources.
+
+**Official FIU page** (the card's link button): [www.cis.fiu.edu/students/techstation/](https://www.cis.fiu.edu/students/techstation/)
 
 **Sources:** Handbook p.6; [www.cis.fiu.edu/students/techstation/](https://www.cis.fiu.edu/students/techstation/)
 
@@ -455,6 +473,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.21): Every architecture student has an assigned studio workspace.
 - *Detail* (Handbook p.21): Inside: design studios, computer labs, lecture halls, gallery spaces and presentation rooms.
 
+**Official FIU page** (the card's link button): [carta.fiu.edu/academics/school-of-architecture/](https://carta.fiu.edu/academics/school-of-architecture/)
+
 **Sources:** Handbook p.21; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
 **Last reviewed:** 2026-11-19
@@ -484,6 +504,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 - *Tour guide tip* (Handbook p.22): Highlight FIU's strong partnerships with the business community and the emphasis on career preparation through internships, networking opportunities, and experiential learning.
 
+**Official FIU page** (the card's link button): [business.fiu.edu/about/locations/](https://business.fiu.edu/about/locations/)
+
 **Sources:** [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); [business.fiu.edu/about/locations/](https://business.fiu.edu/about/locations/); [business.fiu.edu/academics/departments/marketing-and-logistics/global-sales-center/](https://business.fiu.edu/academics/departments/marketing-and-logistics/global-sales-center/)
 
 **Last reviewed:** 2026-11-20
@@ -505,6 +527,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (29 words):
 
 > The Sanford L. Ziff Family Education Building opened in 1997. It carries the Ziff family name, and holds classrooms and meeting rooms for FIU's Department of Teaching and Learning.
+
+**Official FIU page** (the card's link button): [case.fiu.edu/SEHD/index.html](https://case.fiu.edu/SEHD/index.html)
 
 **Sources:** [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); [calendar.fiu.edu/zeb](https://calendar.fiu.edu/zeb); [case.fiu.edu/tl/flexible-space-reservations/](https://case.fiu.edu/tl/flexible-space-reservations/)
 
@@ -530,6 +554,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **Spoken narration** (17 words):
 
 > These are the Intramural Fields: an NCAA-size turf field that hosts FIU's intramural and sport club teams.
+
+**Official FIU page** (the card's link button): [dasa.fiu.edu/all-departments/wellness-recreation-centers/programs/reservations/courts-fields/](https://dasa.fiu.edu/all-departments/wellness-recreation-centers/programs/reservations/courts-fields/)
 
 **Sources:** [dasa.fiu.edu/all-departments/wellness-recreation-centers/programs/reservations/courts-fields/](https://dasa.fiu.edu/all-departments/wellness-recreation-centers/programs/reservations/courts-fields/); Handbook p.26
 
@@ -562,6 +588,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.22): Student Hall also houses Executive and Professional Education programs and the MBA Program offices.
 - *Detail* (Handbook p.22): Academic Hall has tiered classrooms and collaborative spaces built for team-based learning.
 
+**Official FIU page** (the card's link button): [business.fiu.edu/about/locations/](https://business.fiu.edu/about/locations/)
+
 **Sources:** Handbook p.22; [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
 **Last reviewed:** 2026-11-20
@@ -589,6 +617,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **For ambassadors** (collapsed on the card, never read aloud):
 
 - *Tour guide tip* (Handbook p.22): Highlight FIU's strong partnerships with the business community and the emphasis on career preparation through internships, networking opportunities, and experiential learning.
+
+**Official FIU page** (the card's link button): [business.fiu.edu/about/locations/](https://business.fiu.edu/about/locations/)
 
 **Sources:** [news.fiu.edu/2014/04/building-boom-at-fiu/76513](https://news.fiu.edu/2014/04/building-boom-at-fiu/76513); [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
@@ -619,6 +649,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.24): About 162,000 square feet, with classrooms, courtrooms, faculty offices and the Law Library.
 - *Detail* (Handbook p.24): Students learn through clinics, externships and moot court competitions.
 - *Detail* (Handbook p.24): Graduates go into public service, private practice, business and government.
+
+**Official FIU page** (the card's link button): [law.fiu.edu/about/](https://law.fiu.edu/about/)
 
 **Sources:** Handbook p.24
 
@@ -651,6 +683,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.23): NBA-quality locker rooms, plus hydrotherapy and sports medicine spaces for student-athletes.
 - *Detail* (Handbook p.27): FIU Athletics has 18 NCAA Division I programs competing in Conference USA.
 
+**Official FIU page** (the card's link button): [centralreservations.fiu.edu/venues/profile/ocean-bank-convocation-center.html](https://centralreservations.fiu.edu/venues/profile/ocean-bank-convocation-center.html)
+
 **Sources:** Handbook pp.23, 27
 
 **Last reviewed:** 2026-11-19
@@ -677,6 +711,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 - *Tour guide tip* (Handbook p.26): Explain that FIU promotes wellness beyond academics by providing students with numerous opportunities to stay active, reduce stress, and build community.
 - *Detail* (Handbook p.26): Students can also use Tamiami Park Pool during recreational swim hours.
+
+**Official FIU page** (the card's link button): [dasa.fiu.edu/all-departments/wellness-recreation-centers](https://dasa.fiu.edu/all-departments/wellness-recreation-centers)
 
 **Sources:** Handbook p.26
 
@@ -710,6 +746,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.25): Offers bachelor's, master's, doctoral and certificate programs.
 - *Detail* (Handbook p.25): Students take part in international research, study abroad and public policy experiences.
 
+**Official FIU page** (the card's link button): [sipa.fiu.edu/about](https://sipa.fiu.edu/about)
+
 **Sources:** Handbook p.25; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
 
 **Last reviewed:** 2026-11-19
@@ -735,6 +773,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **For ambassadors** (collapsed on the card, never read aloud):
 
 - *Tour guide tip* (Handbook p.31): Emphasize that on-campus housing helps students build lifelong friendships while remaining close to academic and extracurricular opportunities.
+
+**Official FIU page** (the card's link button): [housing.fiu.edu/choose-your-room/honors-college-parkview-hall/](https://housing.fiu.edu/choose-your-room/honors-college-parkview-hall/)
 
 **Sources:** [housing.fiu.edu/choose-your-room/honors-college-parkview-hall/](https://housing.fiu.edu/choose-your-room/honors-college-parkview-hall/); Handbook p.31
 
@@ -764,6 +804,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Tour guide tip* (Handbook p.29): This office demonstrates FIU's commitment to serving those who have served our country through dedicated support services.
 - *Detail* (Handbook p.29): Veteran and Military Affairs, nearby, offers academic advising, VA education benefit help, transition resources and veteran-focused community programs.
 
+**Official FIU page** (the card's link button): [housing.fiu.edu/choose-your-room/university-towers/](https://housing.fiu.edu/choose-your-room/university-towers/)
+
 **Sources:** [housing.fiu.edu/choose-your-room/](https://housing.fiu.edu/choose-your-room/); [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf); Handbook p.29
 
 **Last reviewed:** 2026-11-20
@@ -789,6 +831,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **For ambassadors** (collapsed on the card, never read aloud):
 
 - *Tour guide tip* (Handbook p.31): Emphasize that on-campus housing helps students build lifelong friendships while remaining close to academic and extracurricular opportunities.
+
+**Official FIU page** (the card's link button): [housing.fiu.edu/choose-your-room/lakeview-village/index.html](https://housing.fiu.edu/choose-your-room/lakeview-village/index.html)
 
 **Sources:** [housing.fiu.edu/choose-your-room/lakeview-village/index.html](https://housing.fiu.edu/choose-your-room/lakeview-village/index.html); [facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf](https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf)
 
@@ -883,6 +927,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.27): Notable athlete alumni: Carlos Arroyo (NBA), and T.Y. Hilton, Jonnu Smith and Jonathan Cyprien (NFL).
 - *Detail* (Handbook p.30): A high-definition video board, luxury suites and premium seating, and the Athletics Hall of Fame.
 
+**Official FIU page** (the card's link button): [centralreservations.fiu.edu/venues/profile/pitbull-stadium.html](https://centralreservations.fiu.edu/venues/profile/pitbull-stadium.html)
+
 **Sources:** Handbook pp.27, 30
 
 **Last reviewed:** 2026-11-19
@@ -909,6 +955,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 - *Tour guide tip* (Handbook p.31): Emphasize that on-campus housing helps students build lifelong friendships while remaining close to academic and extracurricular opportunities.
 - *Detail* (Handbook p.31): Furnished four-bedroom, two-bathroom apartments, with Resident Assistant support and a themed Living Learning Community.
+
+**Official FIU page** (the card's link button): [housing.fiu.edu/choose-your-room/tamiami-hall/](https://housing.fiu.edu/choose-your-room/tamiami-hall/)
 
 **Sources:** Handbook p.31; [housing.fiu.edu/choose-your-room/tamiami-hall/](https://housing.fiu.edu/choose-your-room/tamiami-hall/)
 
@@ -941,6 +989,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.33): Students find internships, research opportunities and museum studies experiences here.
 - *Detail* (Handbook p.33): Rotating exhibitions of national and international artists, and permanent collections spanning many cultures.
 
+**Official FIU page** (the card's link button): [frost.fiu.edu/about](https://frost.fiu.edu/about)
+
 **Sources:** Handbook p.33; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
 
 **Last reviewed:** 2026-11-19
@@ -969,6 +1019,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 
 - *Tour guide tip* (Handbook p.32): Highlight how students have opportunities to learn from internationally acclaimed artists while performing in a professional venue.
 - *Detail* (Handbook p.32): Orchestra, band, choir, jazz, opera and chamber ensembles perform throughout the academic year.
+
+**Official FIU page** (the card's link button): [carta.fiu.edu/the-wertheim/](https://carta.fiu.edu/the-wertheim/)
 
 **Sources:** Handbook p.32
 
@@ -1002,6 +1054,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.14): The Hub, on the second floor: tech support, Mac and Dell computer labs, printing and scanning, and group study spaces.
 - *Detail* (Handbook p.14): Device checkout lends laptops, iPads, calculators, headphones and chargers.
 - *Detail* (Handbook p.14): A Starbucks café, quiet floors for focused study, and extended evening hours in the fall and spring.
+
+**Official FIU page** (the card's link button): [wheredoigo.fiu.edu/office/green-library-mmc](https://wheredoigo.fiu.edu/office/green-library-mmc)
 
 **Sources:** Handbook p.14; [annualreportarchive.fiu.edu/2014-15/50-years-forward/](https://annualreportarchive.fiu.edu/2014-15/50-years-forward/)
 
@@ -1071,6 +1125,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 - *Detail* (Handbook p.8): The volunteer design committee was chaired by former FIU Trustee Rosa Sugranes.
 - *Detail* ([bellchapel.fiu.edu/why-a-chapel/about-the-chapel/](https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/)): The Trish and Dan Bell Chapel is being built on the lake beside the house.
 
+**Official FIU page** (the card's link button): [president.fiu.edu/about/presidential-house/](https://president.fiu.edu/about/presidential-house/)
+
 **Sources:** Handbook p.8
 
 **Last reviewed:** 2026-11-20
@@ -1126,6 +1182,8 @@ Start: the loop between Gold Garage (PG1) and Blue Garage (PG2), in front of MAR
 **For ambassadors** (collapsed on the card, never read aloud):
 
 - *Tour guide tip* (Handbook p.29): This office demonstrates FIU's commitment to serving those who have served our country through dedicated support services.
+
+**Official FIU page** (the card's link button): [dasa.fiu.edu/all-departments/veteran-and-military-affairs/](https://dasa.fiu.edu/all-departments/veteran-and-military-affairs/)
 
 **Sources:** Handbook p.29
 

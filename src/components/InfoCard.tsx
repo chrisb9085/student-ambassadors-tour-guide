@@ -36,7 +36,7 @@ export type InfoCardProps = {
   onTabChange?: (tab: CardTab) => void;
   /** Buttons along the bottom (Previous, Next). */
   footer?: ReactNode;
-  /** Small icon buttons in the header, before the close button (for example "Copy link"). */
+  /** Small icon buttons in the header, before the close button (for example the official FIU page link). */
   headerActions?: ReactNode;
   /** Omit for cards that can't be closed on their own (Tour Mode exits from its controls). */
   onClose?: () => void;

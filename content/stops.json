@@ -76,6 +76,7 @@
     },
     "narration": "The Ernest R. Graham Center is the heart of student life at FIU, with more than three and a half million visits a year. It is home to Student Government and hundreds of student organizations, including twenty-nine fraternities and sororities. The Center for Leadership and Service develops student leaders through programs like Alternative Breaks and Roarthon, often supported by donor-funded programming and scholarships. The Disability Resource Center here serves more than thirty-five hundred students a year.",
     "photo": null,
+    "website": "https://dasa.fiu.edu/all-departments/graham-center/",
     "sources": [
       "Handbook pp.12-13",
       "https://digitalcommons.fiu.edu/fiu_images/1/"
@@ -136,6 +137,7 @@
     },
     "narration": "By the lake, the Trish and Dan Bell Chapel is under construction: a multifaith space for reflection, open to every faith tradition, backed by fourteen million dollars in gifts from Trish and Dan Bell.",
     "photo": null,
+    "website": "https://bellchapel.fiu.edu/why-a-chapel/about-the-chapel/",
     "sources": [
       "Handbook p.11",
       "https://news.fiu.edu/2019/fiu-announces-5-million-donation-from-philanthropists-trish-and-dan-bell-to-build-interfaith-chapel",
@@ -187,6 +189,7 @@
     "stat": null,
     "narration": "The Academic Health Center is home to FIU's programs in medicine, nursing, public health and social work. Academic Health Center 1 houses the Center for Children and Families, which advances children's mental health through research, clinical care and community outreach. Its teams provide mental health services for children and families, study child development and behavioral health, and run early intervention programs that reach families across South Florida.",
     "photo": null,
+    "website": "https://ccf.fiu.edu/about/",
     "sources": [
       "Handbook p.15"
     ],
@@ -231,6 +234,7 @@
     },
     "narration": "Next, in Academic Health Center 2, is the Herbert Wertheim College of Medicine, South Florida's first public medical school. It partners with more than thirty hospitals and healthcare organizations. Students train in the Albert and Debbie Tano Simulation Center, and through NeighborhoodHELP and the Linda Fenner 3D Mobile Mammography Center, the college brings care directly to underserved communities.",
     "photo": null,
+    "website": "https://medicine.fiu.edu/about/",
     "sources": [
       "Handbook p.15"
     ],
@@ -271,6 +275,7 @@
     "stat": null,
     "narration": "Academic Health Center 3 is home to the Nicole Wertheim College of Nursing and Health Sciences, which prepares students for careers in nursing, physical therapy, occupational therapy, athletic training, and communication sciences and disorders. Its STAR Center is an advanced simulation facility that replicates real hospital environments, so students practice in realistic settings before they ever meet a patient. Specialized clinical laboratories add even more hands-on learning.",
     "photo": null,
+    "website": "https://cnhs.fiu.edu/about/",
     "sources": [
       "Handbook p.15",
       "https://cnhs.fiu.edu/about/"
@@ -312,6 +317,7 @@
     "stat": null,
     "narration": "In Academic Health Center 5, the Robert Stempel College of Public Health and Social Work prepares students to improve the health of whole communities. Its programs in public health, nutrition and social work focus on epidemiology, global health, health policy and disaster preparedness. Graduates go on to serve in healthcare systems, government agencies, nonprofit organizations and research institutions, tackling public health challenges at home and around the world.",
     "photo": null,
+    "website": "https://stempel.fiu.edu/about/",
     "sources": [
       "Handbook pp.15-16"
     ],
@@ -356,6 +362,7 @@
     },
     "narration": "Just ahead is Innovation 1, opened in 2025 as the first building of FIU's Innovation Complex. This six-story, LEED Gold certified facility is the College of Engineering and Computing's home on this campus, with faculty in computing and biomedical engineering. Students, faculty and industry partners work side by side in its classrooms, makerspaces and labs on artificial intelligence, cybersecurity, robotics, health and sustainability.",
     "photo": null,
+    "website": "https://cec.fiu.edu/2025/09/fiu-innovation-complex-welcomes-first-class-marking-historic-milestone",
     "sources": [
       "Handbook p.18",
       "https://cec.fiu.edu/about/",
@@ -527,6 +534,7 @@
     },
     "narration": "The College of Arts, Sciences and Education is FIU's largest college, serving more than twenty-six thousand students. With over six hundred faculty and more than sixty million dollars in annual research funding, its three schools span the sciences, humanities, education and social sciences. Research here connects science, education and society, from environmental sustainability to the future of education.",
     "photo": null,
+    "website": "https://case.fiu.edu/about/",
     "sources": [
       "Handbook p.20"
     ],
@@ -581,6 +589,7 @@
     },
     "narration": "Tech Station turns part of this parking garage into a three million dollar hub for technology innovation, training and community engagement. Students work in software design and systems training labs, team rooms and a makerspace. It is also home to MangoHacks, FIU's student-run hackathon that promotes creativity, collaboration and innovation.",
     "photo": null,
+    "website": "https://www.cis.fiu.edu/students/techstation/",
     "sources": [
       "Handbook p.6",
       "https://www.cis.fiu.edu/students/techstation/"
@@ -621,6 +630,7 @@
     },
     "narration": "The Paul L. Cejas School of Architecture was designed by internationally renowned architect Bernard Tschumi. Inside, students experience their designs in virtual reality through the Immersive Cave Automatic Virtual Environment, and every architecture student has an assigned studio workspace. It is a professional environment that mirrors the studios where practicing architects and designers work.",
     "photo": null,
+    "website": "https://carta.fiu.edu/academics/school-of-architecture/",
     "sources": [
       "Handbook p.21",
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf"
@@ -671,6 +681,7 @@
     },
     "narration": "The Ryder Business Building has been part of FIU's College of Business since 1991. Along with the College of Business Complex and the Mango building, it is one of the college's three homes on this campus. On its third floor, the Global Sales Center's lab has twelve training rooms where more than four hundred students each semester practice professional sales.",
     "photo": null,
+    "website": "https://business.fiu.edu/about/locations/",
     "sources": [
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf",
       "https://business.fiu.edu/about/locations/",
@@ -708,6 +719,7 @@
     "stat": null,
     "narration": "The Sanford L. Ziff Family Education Building opened in 1997. It carries the Ziff family name, and holds classrooms and meeting rooms for FIU's Department of Teaching and Learning.",
     "photo": null,
+    "website": "https://case.fiu.edu/SEHD/index.html",
     "sources": [
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf",
       "https://calendar.fiu.edu/zeb",
@@ -740,6 +752,7 @@
     "stat": null,
     "narration": "These are the Intramural Fields: an NCAA-size turf field that hosts FIU's intramural and sport club teams.",
     "photo": null,
+    "website": "https://dasa.fiu.edu/all-departments/wellness-recreation-centers/programs/reservations/courts-fields/",
     "sources": [
       "https://dasa.fiu.edu/all-departments/wellness-recreation-centers/programs/reservations/courts-fields/",
       "Handbook p.26"
@@ -773,6 +786,7 @@
     },
     "narration": "Here is the College of Business Complex, academic home of one of South Florida's leading business schools. Students work with real-time market data in the Capital Markets Lab and attend lectures in the three-hundred-seat Ocean Bank Auditorium. The Bank of America Career Management Services Center, interview suites and the Alumni Circle Recruiters' Lounge connect students directly with employers.",
     "photo": null,
+    "website": "https://business.fiu.edu/about/locations/",
     "sources": [
       "Handbook p.22",
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf"
@@ -822,6 +836,7 @@
     },
     "narration": "Mango, which stands for Management and New Growth Opportunities, opened in 2014 as a thirty-five point seven million dollar investment in business education. Its roughly one hundred thirteen thousand square feet hold classrooms for the College of Business and FIU Online, along with a ground-floor food court where students gather between classes.",
     "photo": null,
+    "website": "https://business.fiu.edu/about/locations/",
     "sources": [
       "https://news.fiu.edu/2014/04/building-boom-at-fiu/76513",
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf"
@@ -859,6 +874,7 @@
     "stat": null,
     "narration": "Rafael Díaz-Balart Hall is home to the FIU College of Law, one of the nation's highest-performing public law schools. Designed by renowned architect Robert A. M. Stern, it holds classrooms, courtrooms and the Law Library. FIU Law graduates are consistently among the top performers on the Florida Bar Examination, and clinics, externships and moot court give students real experience before they graduate.",
     "photo": null,
+    "website": "https://law.fiu.edu/about/",
     "sources": [
       "Handbook p.24"
     ],
@@ -913,6 +929,7 @@
     },
     "narration": "The Ocean Bank Convocation Center seats about five thousand people. It is home to FIU men's and women's basketball, with NBA-quality locker rooms and sports medicine spaces for student-athletes. It is also where FIU holds commencement ceremonies, concerts and major campus events, making it one of the university's primary gathering places. FIU Athletics competes in eighteen NCAA Division One programs.",
     "photo": null,
+    "website": "https://centralreservations.fiu.edu/venues/profile/ocean-bank-convocation-center.html",
     "sources": [
       "Handbook pp.23, 27"
     ],
@@ -958,6 +975,7 @@
     "stat": null,
     "narration": "The Wellness and Recreation Center reflects FIU's commitment to the whole student, beyond the classroom. Students use state-of-the-art fitness equipment, group fitness classes and personal training, and join adventure recreation programs and outdoor excursions. Panther Hall Pool, the Recreation Field, and outdoor basketball and tennis courts round out spaces that help students stay active, manage stress and build community.",
     "photo": null,
+    "website": "https://dasa.fiu.edu/all-departments/wellness-recreation-centers",
     "sources": [
       "Handbook p.26"
     ],
@@ -1002,6 +1020,7 @@
     },
     "narration": "The Steven J. Green School of International and Public Affairs is one of the largest schools of its kind in the world, with more than seventy-two hundred students from over one hundred twenty countries. In 2015, Ambassador Steven J. Green committed twenty million dollars to name the school, along with the Dorothea Green Lecture Series and the Kimberly Green Latin American and Caribbean Center.",
     "photo": null,
+    "website": "https://sipa.fiu.edu/about",
     "sources": [
       "Handbook p.25",
       "https://annualreportarchive.fiu.edu/2014-15/50-years-forward/"
@@ -1053,6 +1072,7 @@
     "stat": null,
     "narration": "Parkview Hall houses Honors College students in two six-story buildings joined by a sky bridge, with a common room overlooking the stadium.",
     "photo": null,
+    "website": "https://housing.fiu.edu/choose-your-room/honors-college-parkview-hall/",
     "sources": [
       "https://housing.fiu.edu/choose-your-room/honors-college-parkview-hall/",
       "Handbook p.31"
@@ -1089,6 +1109,7 @@
     "stat": null,
     "narration": "University Towers is home to nearly five hundred students, mostly in their second year. Nearby, the Office of Veteran and Military Affairs supports students who have served.",
     "photo": null,
+    "website": "https://housing.fiu.edu/choose-your-room/university-towers/",
     "sources": [
       "https://housing.fiu.edu/choose-your-room/",
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf",
@@ -1136,6 +1157,7 @@
     "stat": null,
     "narration": "Lakeview Hall is home to eight hundred students, including BizLife, a living community for future business leaders.",
     "photo": null,
+    "website": "https://housing.fiu.edu/choose-your-room/lakeview-village/index.html",
     "sources": [
       "https://housing.fiu.edu/choose-your-room/lakeview-village/index.html",
       "https://facilities.fiu.edu/Planning/Documents/FIU_Buildings_GSF_and_Year_Occupied_Revised_1-8-2026.pdf"
@@ -1280,6 +1302,7 @@
     },
     "narration": "Pitbull Stadium is home to FIU Football and a focal point for school spirit and alumni pride. It features luxury suites, premium seating, a high-definition video board and the FIU Athletics Hall of Fame. FIU's eighteen NCAA Division One programs have produced professional athletes including T. Y. Hilton, Jonnu Smith and Carlos Arroyo.",
     "photo": null,
+    "website": "https://centralreservations.fiu.edu/venues/profile/pitbull-stadium.html",
     "sources": [
       "Handbook pp.27, 30"
     ],
@@ -1330,6 +1353,7 @@
     "stat": null,
     "narration": "Tamiami Hall opened in 2022. Its thirteen floors house six hundred seventy-six students in apartment-style living.",
     "photo": null,
+    "website": "https://housing.fiu.edu/choose-your-room/tamiami-hall/",
     "sources": [
       "Handbook p.31",
       "https://housing.fiu.edu/choose-your-room/tamiami-hall/"
@@ -1375,6 +1399,7 @@
     },
     "narration": "The Patricia and Phillip Frost Art Museum is one of South Florida's largest academic art museums, and admission is always free. It presents rotating exhibitions by national and international artists alongside permanent collections spanning many cultures. Students gain internships and museum experience here, and the museum's educational programs serve schools and families across South Florida.",
     "photo": null,
+    "website": "https://frost.fiu.edu/about",
     "sources": [
       "Handbook p.33",
       "https://annualreportarchive.fiu.edu/2014-15/50-years-forward/"
@@ -1424,6 +1449,7 @@
     },
     "narration": "The Herbert and Nicole Wertheim Performing Arts Center has been FIU's premier venue for music, theatre and performing arts education since 1996, where students learn from internationally recognized artists.",
     "photo": null,
+    "website": "https://carta.fiu.edu/the-wertheim/",
     "sources": [
       "Handbook p.32"
     ],
@@ -1468,6 +1494,7 @@
     },
     "narration": "The Steven and Dorothea Green Library is FIU's largest academic library, with more than two million books, journals and media. It houses tutoring, the Writing Center and study spaces across several floors. FIU named it for Steven and Dorothea Green, whose family foundation endowed support for the library and the Frost Art Museum.",
     "photo": null,
+    "website": "https://wheredoigo.fiu.edu/office/green-library-mmc",
     "sources": [
       "Handbook p.14",
       "https://annualreportarchive.fiu.edu/2014-15/50-years-forward/"
@@ -1582,6 +1609,7 @@
     },
     "narration": "The Ronald W. Reagan Presidential House opened in 2001 and is named for the fortieth President of the United States. Chartered and funded by the FIU Foundation, it is both the home of FIU's president and a venue for receptions and events that welcome students, alumni, donors and community leaders.",
     "photo": null,
+    "website": "https://president.fiu.edu/about/presidential-house/",
     "sources": [
       "Handbook p.8"
     ],
@@ -1667,6 +1695,7 @@
     "stat": null,
     "narration": "Near the Green School, the Office of Veteran and Military Affairs supports veterans, active-duty service members, reservists, National Guard members and military-connected students. Advising, help with education benefits and transition resources help them graduate and thrive.",
     "photo": null,
+    "website": "https://dasa.fiu.edu/all-departments/veteran-and-military-affairs/",
     "sources": [
       "Handbook p.29"
     ],

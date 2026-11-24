@@ -32,6 +32,8 @@ export type Stop = {
   stat: { value: string; label: string } | null;
   narration: string | null;
   photo: string | null;
+  /** The building's official FIU web page (https, fiu.edu). The card's header button opens it in a new tab. */
+  website?: string;
   sources: string[];
   lastReviewed: string;
   /** Facts that need Foundation confirmation. Never shown to guests. */
