@@ -17,6 +17,7 @@ export type StopEdit = {
   impact: string;
   stat: { value: string; label: string } | null;
   narration: string | null;
+  website: string | null;
   sources: string[];
   guideNotes: GuideNote[];
   reviewNotes: string[];
@@ -33,6 +34,7 @@ export const LIMITS = {
   statValue: 20,
   statLabel: 60,
   narration: 1200,
+  website: 300,
   source: 300,
   maxSources: 10,
   note: 600,
@@ -51,6 +53,7 @@ export function editableFrom(stop: Stop): StopEdit {
     impact: stop.impact,
     stat: stop.stat ? { ...stop.stat } : null,
     narration: stop.narration,
+    website: stop.website ?? null,
     sources: [...stop.sources],
     guideNotes: (stop.guideNotes ?? []).map((g) => ({ ...g })),
     reviewNotes: [...(stop.reviewNotes ?? [])],
@@ -126,6 +129,13 @@ export function checkEdit(original: Stop, raw: unknown): CheckResult {
   const narration = str(r.narration) || null;
   if (narration) tooLong("narration", narration, LIMITS.narration, "The narration");
 
+  const website = str(r.website) || null;
+  if (website) {
+    tooLong("website", website, LIMITS.website, "The web address");
+    if (!errors.website && !FIU_URL.test(website))
+      errors.website = "Use the building's official FIU page: a link starting with https:// on an fiu.edu address.";
+  }
+
   const sources = strList(r.sources);
   if (sources.length === 0) errors.sources = "Every card needs at least one source (a handbook page or an fiu.edu link).";
   else if (sources.length > LIMITS.maxSources) errors.sources = `Keep it to ${LIMITS.maxSources} sources.`;
@@ -159,7 +169,7 @@ export function checkEdit(original: Stop, raw: unknown): CheckResult {
   if (reviewNotes.length > LIMITS.maxNotes) errors.reviewNotes = `Keep it to ${LIMITS.maxNotes} notes.`;
   else if (reviewNotes.some((n) => n.length > LIMITS.note)) errors.reviewNotes = `Keep each note to ${LIMITS.note} characters.`;
 
-  const edit: StopEdit = { name, label, status, opens, summary, highlights, impact, stat, narration, sources, guideNotes, reviewNotes };
+  const edit: StopEdit = { name, label, status, opens, summary, highlights, impact, stat, narration, website, sources, guideNotes, reviewNotes };
 
   // Advice, matching npm run validate.
   const spoken = spokenWords(edit);
@@ -202,6 +212,8 @@ export function applyEdit(original: Stop, edit: StopEdit, today: string): Stop {
   // Optional fields are left out of the JSON when empty, as in the hand-written file.
   if (edit.label) next.label = edit.label;
   else delete next.label;
+  if (edit.website) next.website = edit.website;
+  else delete next.website;
   if (edit.guideNotes.length) next.guideNotes = edit.guideNotes;
   else delete next.guideNotes;
   if (edit.reviewNotes.length) next.reviewNotes = edit.reviewNotes;
@@ -211,7 +223,7 @@ export function applyEdit(original: Stop, edit: StopEdit, today: string): Stop {
 
 /** Field names that differ between two stops, for the commit message. */
 export function changedFields(before: Stop, after: Stop): string[] {
-  const keys = ["name", "label", "status", "opens", "summary", "highlights", "impact", "stat", "narration", "sources", "guideNotes", "reviewNotes"] as const;
+  const keys = ["name", "label", "status", "opens", "summary", "highlights", "impact", "stat", "narration", "website", "sources", "guideNotes", "reviewNotes"] as const;
   return keys.filter((k) => JSON.stringify(before[k] ?? null) !== JSON.stringify(after[k] ?? null)).map(String);
 }
 

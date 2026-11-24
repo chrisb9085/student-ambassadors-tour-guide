@@ -21,7 +21,7 @@ describe("stop markers (S3.1)", () => {
     const buttons = [...map.container.querySelectorAll<HTMLButtonElement>(".stop-marker")];
     expect(buttons).toHaveLength(37);
     expect(buttons.slice(0, 3).map((b) => b.getAttribute("aria-label"))).toEqual([
-      "1 Student Success Center, stop 1 of 32",
+      "1 Student Academic Success Center, stop 1 of 32",
       "2 Graham Center, stop 2 of 32",
       "3 Bell Chapel, stop 3 of 32",
     ]);
@@ -50,7 +50,7 @@ describe("stop markers (S3.1)", () => {
     expect(screen.getByRole("button", { name: /3 bell chapel/i })).toHaveAccessibleDescription(
       "Trish and Dan Bell Chapel. Quick pass. Under construction.",
     );
-    expect(screen.getByRole("button", { name: /1 student success center/i })).toHaveAccessibleDescription(
+    expect(screen.getByRole("button", { name: /1 student academic success center/i })).toHaveAccessibleDescription(
       "Student Academic Success Center. Featured.",
     );
   });
@@ -302,22 +302,24 @@ describe("shareable stop links (Sprint 10)", () => {
     expect(window.location.search).toBe("");
   });
 
-  it("Copy link puts the stop's link on the clipboard and announces it", async () => {
+  it("links each building to its official FIU page in a new tab", async () => {
     const { user } = renderLoaded();
-    const writeText = vi.fn().mockResolvedValue(undefined);
-    Object.defineProperty(navigator, "clipboard", { value: { writeText }, configurable: true });
     await user.click(marker(/stop 2 of 32/i));
-    await user.click(within(card()).getByRole("button", { name: "Copy link to this stop" }));
-    expect(writeText).toHaveBeenCalledWith(expect.stringMatching(/\?stop=graham-center$/));
-    expect(within(card()).getByRole("status")).toHaveTextContent("Link copied");
+    const link = within(card()).getByRole("link", { name: /official fiu page for ernest r\. graham center/i });
+    expect(link).toHaveAttribute("href", allStops.find((s) => s.id === "graham-center")!.website);
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
 
-  it("shows the link to copy by hand when the clipboard isn't available", async () => {
+  it("leaves the link out when a building has no official page", async () => {
+    const without = allStops.find((s) => !s.website && s.order !== null);
+    if (!without) return;
     const { user } = renderLoaded();
-    Object.defineProperty(navigator, "clipboard", { value: undefined, configurable: true });
-    const prompt = vi.spyOn(window, "prompt").mockReturnValue(null);
-    await user.click(marker(/stop 2 of 32/i));
-    await user.click(within(card()).getByRole("button", { name: "Copy link to this stop" }));
-    expect(prompt).toHaveBeenCalledWith("Copy this link to the stop:", expect.stringMatching(/\?stop=graham-center$/));
+    await user.click(marker(new RegExp(`stop ${without.order} of 32`, "i")));
+    expect(within(card()).queryByRole("link", { name: /official fiu page/i })).toBeNull();
+  });
+
+  it("every official page is an https fiu.edu address", () => {
+    for (const s of allStops) if (s.website) expect(s.website).toMatch(/^https:\/\/([a-z0-9-]+\.)*fiu\.edu\//);
   });
 });
